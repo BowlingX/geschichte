@@ -134,9 +134,8 @@ describe('Zustand', () => {
           <p>{someParameter}</p>
           <button
             onClick={() =>
-              pushState(state => {
-                state.values.someParameter = 'foo';
-              })
+              pushState(state => void (state.values.someParameter = 'foo')
+              )
             }
           />
         </>
