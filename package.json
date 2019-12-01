@@ -125,7 +125,7 @@
       }
     },
     "collectCoverageFrom": [
-      "src/*.{js,ts,tsx}"
+      "src/**/*.{js,ts,tsx}"
     ]
   },
   "config": {
