@@ -1,4 +1,4 @@
-/* tslint:disable:no-expression-statement no-let no-submodule-imports */
+/* tslint:disable:no-expression-statement no-let no-submodule-imports no-object-mutation */
 import { Patch } from 'immer';
 import shallowEqual from 'zustand/shallow';
 import { Serializer } from './serializers';
@@ -28,7 +28,7 @@ export const formatNamespace = (key: string, ns?: string) => {
   return ns && ns !== DEFAULT_NAMESPACE ? `${ns}.${key}` : key;
 };
 
-export const get = (object: object, path: ReadonlyArray<string|number>) => {
+export const get = (object: object, path: ReadonlyArray<string | number>) => {
   return path.reduce((next, key) => {
     return next[key];
   }, object);
@@ -59,9 +59,9 @@ export const createQueriesFromPatch = (
     // namespaces, [ns], values|initialValues, ...rest
     const [, , , ...objectPath] = path;
 
-    const possibleParameter = get(config, objectPath)
+    const possibleParameter = get(config, objectPath);
     if (typeof possibleParameter !== 'function') {
-      return next
+      return next;
     }
     const { name, serializer, skip } = possibleParameter();
     // @ts-ignore

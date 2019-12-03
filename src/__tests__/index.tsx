@@ -1,16 +1,16 @@
-/* tslint:disable:no-expression-statement */
+/* tslint:disable:no-expression-statement no-object-mutation */
 import { mount } from 'enzyme';
 import { createMemoryHistory } from 'history';
 import React from 'react';
 import { Geschichte } from '../lib/provider';
-import {serializers} from "../lib/serializers";
+import { serializers } from '../lib/serializers';
 import { factoryParameters } from '../lib/store';
-import {pm} from "../lib/utils";
+import { pm } from '../lib/utils';
 
 describe('<Geschichte />', () => {
   const history = createMemoryHistory();
 
-  describe('renders',  () => {
+  describe('renders', () => {
     const { useQuery } = factoryParameters(
       {
         someParameter: pm('wow', serializers.string)
@@ -46,8 +46,7 @@ describe('<Geschichte />', () => {
       expect(renderd.text()).toEqual('test');
       renderd.find('button').simulate('click');
       expect(renderd.text()).toEqual('foo');
-      expect(history.location.search).toEqual('?test.wow=foo')
-    })
-
+      expect(history.location.search).toEqual('?test.wow=foo');
+    });
   });
 });

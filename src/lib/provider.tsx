@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const Geschichte: React.FC<Props> = ({ children, history }) => {
-  const value = useMemo(() => geschichte(history), [ children ]);
+  const value = useMemo(() => geschichte(history), []);
   const [useStore] = value;
   const unregister = useStore(state => state.unregister);
   useEffect(() => {

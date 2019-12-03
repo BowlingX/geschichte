@@ -7,13 +7,15 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useMemo, useState
+  useMemo,
+  useState
 } from 'react';
 import create, { StoreApi, UseStore } from 'zustand';
 import {
   converter,
   historyManagement,
-  immerWithPatches, NamespaceValues,
+  immerWithPatches,
+  NamespaceValues,
   StoreState
 } from './middleware';
 import { Serializer } from './serializers';
@@ -67,11 +69,9 @@ export const factoryParameters = <T = object>(
         register,
         replaceState
       }),
-      [ useStore ]
+      [useStore]
     );
-    const { register, pushState, replaceState } = useStore(
-      callback
-    );
+    const { register, pushState, replaceState } = useStore(callback);
 
     const flatConfig = useMemo(() => flattenConfig(config), [config]);
 
@@ -81,19 +81,22 @@ export const factoryParameters = <T = object>(
 
     const initialNamespaceValues = useStore(state => state.namespaces[ns]);
     // initial state
-    const [innerValues, setInnerValues] = useState(initialNamespaceValues)
+    const [innerValues, setInnerValues] = useState(initialNamespaceValues);
 
     // subscribe to updates
     useEffect(() => {
-      const unsubscribe = api.subscribe<NamespaceValues<T>>((state) => {
-        setInnerValues(state)
-      }, state => state.namespaces[ns])
+      const unsubscribe = api.subscribe<NamespaceValues<T>>(
+        state => {
+          setInnerValues(state);
+        },
+        state => state.namespaces[ns]
+      );
 
       return () => {
-        unsubscribe()
-        innerValues.unsubscribe()
-      }
-    }, [setInnerValues])
+        unsubscribe();
+        innerValues.unsubscribe();
+      };
+    }, [setInnerValues]);
 
     return useMemo(
       () => ({
