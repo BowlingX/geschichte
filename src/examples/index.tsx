@@ -45,11 +45,9 @@ const InnerApp = () => {
 };
 
 const DifferentApp = () => {
-  const { values } = useQuery();
   const { values: otherNsValues, pushState } = useAnotherQuery();
   return (
     <>
-      <p>{JSON.stringify(values)}</p>
       <input
         type="text"
         value={otherNsValues.test}

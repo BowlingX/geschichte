@@ -2,10 +2,7 @@
 import { mount } from 'enzyme';
 import { createMemoryHistory } from 'history';
 import React from 'react';
-import { Geschichte } from '../lib/provider';
-import { serializers } from '../lib/serializers';
-import { factoryParameters } from '../lib/store';
-import { pm } from '../lib/utils';
+import Geschichte, { factoryParameters, pm, serializers } from '../index';
 
 describe('<Geschichte />', () => {
   const history = createMemoryHistory();
