@@ -120,7 +120,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/test/"
+      "/examples/",
+      "/__tests__/"
     ],
     "coverageReporters": [
       "text",

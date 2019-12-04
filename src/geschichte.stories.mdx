@@ -1,11 +1,36 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { App } from './examples/index.tsx'
+import Geschichte from './index'
 import { createBrowserHistory } from 'history'
-
 
 export const history = createBrowserHistory()
 
-<Meta title="MDX|Checkbox" />
+<Meta title="Components|Geschichte" />
+
+# Geschichte Provider
+
+Provides a global state for all namespaces.
+
+<Props of={Geschichte} />
+
+## Example
+
+You require to define a Toplevel `<Geschichte />` component in your tree to be able
+to use any of the provides hooks.
+
+
+```jsx harmony
+import Geschichte from 'geschichte'
+import { createBrowserHistory } from 'history'
+
+const history = createBrowserHistory()
+
+export const App = () => (
+  <Geschichte history={history}>
+   {/* your component tree */}
+  </Geschichte>
+)
+```
 
 ## Test
 
