@@ -112,8 +112,8 @@ export const applyFlatConfigToState = (
   config: MappedConfig,
   queryValues: object,
   ns: string,
-  state = {},
-  initialState = {}
+  state: object,
+  initialState: object
 ) => {
   return Object.keys(config).reduce((next, queryParameter) => {
     const { path, serializer } = config[queryParameter]

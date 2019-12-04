@@ -57,24 +57,41 @@ export const historyManagement = (historyInstance: History) => apply => (
   api
 ) =>
   apply(
-    (fn, type: HistoryEventType, ns: string) => {
+    (fn, type: HistoryEventType, ns?: string) => {
       // we call the `immerWithPatches` middleware
       set(
         (changes, values) => {
           if (changes.length === 0) {
             return values
           }
-
           if (type !== HistoryEventType.REGISTER) {
-            const { config, query: currentQuery } = get().namespaces[ns]
-            const uniqueQuery = applyDiffWithCreateQueriesFromPatch(
-              config,
-              ns,
-              currentQuery,
-              changes,
-              values.namespaces[ns].values,
-              values.namespaces[ns].initialValues
-            )
+            // if namespace is not given, calculate what namespaces are affected
+            const affectedNamespaces = ns
+              ? [ns]
+              : changes.reduce((next, change) => {
+                  const {
+                    path: [, namespace]
+                  } = change
+                  if (next.indexOf(namespace) !== -1) {
+                    return [...next, namespace]
+                  }
+                  return next
+                }, [])
+
+            const uniqueQueries = affectedNamespaces.reduce((next, thisNs) => {
+              const { config, query: currentQuery } = get().namespaces[thisNs]
+              return {
+                ...next,
+                [thisNs]: applyDiffWithCreateQueriesFromPatch(
+                  config,
+                  thisNs,
+                  currentQuery,
+                  changes,
+                  values.namespaces[thisNs].values,
+                  values.namespaces[thisNs].initialValues
+                )
+              }
+            }, {})
 
             const method = type === HistoryEventType.PUSH ? 'push' : 'replace'
 
@@ -91,7 +108,15 @@ export const historyManagement = (historyInstance: History) => apply => (
               {}
             )
 
-            const query = stringify({ ...otherQueries, ...uniqueQuery })
+            const reducedQueries = Object.keys(uniqueQueries).reduce(
+              (next, thisNs) => ({ ...next, ...uniqueQueries[thisNs] }),
+              {}
+            )
+
+            const query = stringify({
+              ...otherQueries,
+              ...reducedQueries
+            })
             historyInstance[method]({
               search: query === '' ? '' : `?${query}`,
               state: { __g__: true }
@@ -101,10 +126,14 @@ export const historyManagement = (historyInstance: History) => apply => (
               ...values,
               namespaces: {
                 ...values.namespaces,
-                [ns]: {
-                  ...values.namespaces[ns],
-                  query: uniqueQuery
-                }
+                ...affectedNamespaces.reduce((next, thisNs) => {
+                  return {
+                    [thisNs]: {
+                      ...values.namespaces[thisNs],
+                      query: uniqueQueries[thisNs]
+                    }
+                  }
+                }, {})
               }
             }
           }
@@ -178,6 +207,20 @@ export const converter = (historyInstance: History) => (set, get) => {
     }
   )
   return {
+    /** batch pushes the given namespaces */
+    batchPushState: (ns: readonly string[], fn) => {
+      set(
+        state => fn(...ns.map(thisNs => state[thisNs].values)),
+        HistoryEventType.PUSH
+      )
+    },
+    /** batch replaces the given namespaces */
+    batchReplaceState: (ns: readonly string[], fn) => {
+      set(
+        state => fn(...ns.map(thisNs => state[thisNs].values)),
+        HistoryEventType.REPLACE
+      )
+    },
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
     /** pushes a new state for a given namespace, (will use history.pushState) */
@@ -223,7 +266,7 @@ export const converter = (historyInstance: History) => (set, get) => {
             initialQueries,
             ns,
             state.values,
-            initialValues
+            state.initialValues
           )
         },
         HistoryEventType.REGISTER,

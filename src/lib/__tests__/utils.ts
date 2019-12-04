@@ -9,12 +9,12 @@ describe('utils', () => {
   describe('flattenConfig', () => {
     const config = {
       somethingElse: {
-        deeper: pm('anotherOne', serializers.number),
+        deeper: pm('anotherOne', serializers.int),
         evenDeeper: {
           test: pm('deeper', serializers.string)
         }
       },
-      state: pm('theParameter', serializers.number)
+      state: pm('theParameter', serializers.int)
     }
     it('should create a flat config from `config`', () => {
       const flatConfig = flattenConfig(config)

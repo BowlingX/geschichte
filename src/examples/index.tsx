@@ -1,6 +1,6 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 import { createBrowserHistory } from 'history'
-import React from 'react'
+import React, { memo } from 'react'
 import Geschichte, { factoryParameters, pm, serializers } from '../index'
 
 const history = createBrowserHistory()
@@ -25,7 +25,7 @@ const { useQuery: useAnotherQuery } = factoryParameters(
 )
 
 const InnerApp = () => {
-  const { values, query, pushState } = useQuery()
+  const { values, pushState } = useQuery()
   return (
     <>
       <input
@@ -36,7 +36,6 @@ const InnerApp = () => {
         }}
       />
       <p>{JSON.stringify(values)}</p>
-      <p>{JSON.stringify(query)}</p>
     </>
   )
 }
@@ -59,7 +58,7 @@ const DifferentApp = () => {
 export const App = () => (
   <>
     <Geschichte history={history}>
-      <p>Wsa geht denn?</p>
+      <h3>A sample Application</h3>
       <InnerApp />
       <DifferentApp />
     </Geschichte>

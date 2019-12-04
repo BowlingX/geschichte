@@ -11,6 +11,8 @@ import {
   useState
 } from 'react'
 import create, { StoreApi, UseStore } from 'zustand'
+// tslint:disable-next-line:no-submodule-imports
+import shallow from 'zustand/shallow'
 import {
   converter,
   historyManagement,
@@ -24,7 +26,7 @@ import { flattenConfig } from './utils'
 export const DEFAULT_NAMESPACE = 'default'
 
 export const StoreContext = createContext<
-  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>]
+  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>] | null
 >(null)
 
 export interface Parameter {
@@ -87,11 +89,20 @@ export const factoryParameters = <T = object>(
 
     // subscribe to updates
     useEffect(() => {
-      const unsubscribe = api.subscribe<NamespaceValues<T>>(
+      const unsubscribe = api.subscribe<{
+        readonly values: T
+        readonly initialValues: T
+      }>(
         state => {
-          setInnerValues(state)
+          if (state) {
+            setInnerValues({ ...innerValues, ...state })
+          }
         },
-        state => state.namespaces[ns]
+        state => ({
+          initialValues: state.namespaces[ns].initialValues,
+          values: state.namespaces[ns].values
+        }),
+        shallow
       )
 
       return () => {
@@ -104,7 +115,6 @@ export const factoryParameters = <T = object>(
       () => ({
         initialValues: innerValues.initialValues,
         pushState: (state: (state: T) => void) => pushState(ns, state),
-        query: innerValues.query,
         replaceState: (state: (state: T) => void) => replaceState(ns, state),
         values: innerValues.values
       }),
