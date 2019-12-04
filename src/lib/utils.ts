@@ -110,7 +110,7 @@ export const applyDiffWithCreateQueriesFromPatch = (
  */
 export const applyFlatConfigToState = (
   config: MappedConfig,
-  queryValues: {readonly [index: string]:any},
+  queryValues: { readonly [index: string]: any },
   ns: string,
   state: object,
   initialState: object
@@ -142,32 +142,37 @@ export const applyFlatConfigToState = (
  * that can be used to generate a query string.
  * @return a key/value object with the object containing the defined parameters as key.
  */
-export const flattenConfig =
-  (config: Config, path: readonly string[] = []): MappedConfig => {
-  return Object.keys(config).reduce((next: {readonly [index: string]:any}, key) => {
-    const v = config[key]
-    const nextPath: ReadonlyArray<string> = [...path, key]
-    if (typeof v === 'function') {
-      const { name, ...rest } = v()
-      if (next[name] !== undefined) {
-        throw new Error(
-          `Config invalid: Multiple definitions found for ${name}.`
-        )
-      }
-      return {
-        ...next,
-        [name]: {
-          path: nextPath,
-          ...rest
+export const flattenConfig = (
+  config: Config,
+  path: readonly string[] = []
+): MappedConfig => {
+  return Object.keys(config).reduce(
+    (next: { readonly [index: string]: any }, key) => {
+      const v = config[key]
+      const nextPath: ReadonlyArray<string> = [...path, key]
+      if (typeof v === 'function') {
+        const { name, ...rest } = v()
+        if (next[name] !== undefined) {
+          throw new Error(
+            `Config invalid: Multiple definitions found for ${name}.`
+          )
+        }
+        return {
+          ...next,
+          [name]: {
+            path: nextPath,
+            ...rest
+          }
         }
       }
-    }
-    if (typeof v === 'object') {
-      return {
-        ...next,
-        ...flattenConfig(v, nextPath)
+      if (typeof v === 'object') {
+        return {
+          ...next,
+          ...flattenConfig(v, nextPath)
+        }
       }
-    }
-    return next
-  }, {})
+      return next
+    },
+    {}
+  )
 }
