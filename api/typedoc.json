@@ -1961,7 +1961,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 178,
+					"line": 184,
 					"character": 22
 				}
 			]
@@ -2380,7 +2380,7 @@
 									"sources": [
 										{
 											"fileName": "lib/store.ts",
-											"line": 136,
+											"line": 146,
 											"character": 38
 										}
 									],
@@ -2398,7 +2398,7 @@
 									"sources": [
 										{
 											"fileName": "lib/store.ts",
-											"line": 136,
+											"line": 146,
 											"character": 19
 										}
 									],
@@ -2796,7 +2796,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 164,
+					"line": 170,
 					"character": 29
 				}
 			]
