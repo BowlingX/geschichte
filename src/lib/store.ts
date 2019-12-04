@@ -23,7 +23,9 @@ import { flattenConfig } from './utils';
 
 export const DEFAULT_NAMESPACE = 'default';
 
-export const StoreContext = createContext(null);
+export const StoreContext = createContext<
+  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>]
+>(null);
 
 export interface Parameter {
   readonly name: string;
