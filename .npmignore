@@ -3,12 +3,10 @@ test
 tsconfig.json
 tsconfig.module.json
 tslint.json
-.travis.yml
-.github
+.circleci
 .prettierignore
-.vscode
 build/docs
-**/*.spec.*
+.storybook
 coverage
 .nyc_output
 *.log

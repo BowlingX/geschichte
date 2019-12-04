@@ -4,7 +4,7 @@ jobs:
   'node-10':
     docker:
       - image: circleci/node:10
-    working_directory: ~/typescript-starter
+    working_directory: ~/geschichte
     steps:
       - checkout
       # Download and cache dependencies
@@ -23,7 +23,7 @@ jobs:
   'node-latest':
     docker:
       - image: circleci/node:latest
-    working_directory: ~/typescript-starter
+    working_directory: ~/geschichte
     steps:
       - checkout
       - restore_cache:
@@ -40,7 +40,7 @@ jobs:
   publish:
     docker:
       - image: circleci/node:10
-    working_directory: ~/typescript-starter
+    working_directory: ~/geschichte
     steps:
       - checkout
       - restore_cache:
@@ -48,8 +48,17 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
       - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn semantic-release
       - run: yarn build-storybook && yarn doc:html && yarn doc:json
+      - run: git config user.email "david@vexquisit.com"
+      - run: git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "db:9f:c4:a2:f1:5f:4c:11:fe:dc:63:b8:f2:f2:3f:d6"
       - run: yarn doc:publish
 
 workflows:
