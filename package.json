@@ -5,12 +5,24 @@
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
+  "sideEffects": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/BowlingX/geschichte.git"
   },
+  "bugs": {
+    "url": "https://github.com/BowlingX/geschichte/issues"
+  },
+  "homepage": "https://github.com/BowlingX/geschichte#readme",
   "license": "MIT",
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-hooks",
+    "hooks",
+    "history",
+    "url",
+    "query-parameters"
+  ],
   "scripts": {
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",

@@ -110,7 +110,7 @@ export const applyDiffWithCreateQueriesFromPatch = (
  */
 export const applyFlatConfigToState = (
   config: MappedConfig,
-  queryValues: object,
+  queryValues: {readonly [index: string]:any},
   ns: string,
   state: object,
   initialState: object
@@ -142,8 +142,9 @@ export const applyFlatConfigToState = (
  * that can be used to generate a query string.
  * @return a key/value object with the object containing the defined parameters as key.
  */
-export const flattenConfig = (config: Config, path: readonly string[] = []) => {
-  return Object.keys(config).reduce((next, key) => {
+export const flattenConfig =
+  (config: Config, path: readonly string[] = []): MappedConfig => {
+  return Object.keys(config).reduce((next: {readonly [index: string]:any}, key) => {
     const v = config[key]
     const nextPath: ReadonlyArray<string> = [...path, key]
     if (typeof v === 'function') {
