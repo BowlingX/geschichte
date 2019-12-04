@@ -17,17 +17,17 @@
     "fix:prettier": "prettier \"src/**/*.{ts,tsx}\" --write",
     "fix:tslint": "tslint --fix --project .",
     "test": "run-s build test:*",
-    "test:lint": "tslint --project . && prettier \"src/**/*.ts\" --list-different",
+    "test:lint": "tslint --project . && prettier \"src/**/*.{ts,tsx}\" --list-different",
     "test:unit": "jest --coverage",
+    "cov:send": "codecov",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
     "doc": "run-s doc:html && open-cli build/docs/index.html",
     "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
     "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
-    "version": "standard-version",
     "reset": "git clean -dfx && git reset --hard && npm i",
     "clean": "trash build test",
-    "prepare-release": "run-s reset test cov:check doc:html version doc:publish",
+    "prepare-release": "run-s reset test doc:html doc:publish",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('geschichte must be installed with Yarn: https://yarnpkg.com/')\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -81,6 +81,7 @@
     "history": "^5.0.0-beta.0",
     "immer": "^5.0.0",
     "jest": "^24.9.0",
+    "codecov": "^3.5.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
     "jest-junit": "^9.0.0",
@@ -91,7 +92,6 @@
     "react": "^16.12.0",
     "react-docgen-typescript-loader": "^3.6.0",
     "react-dom": "^16.12.0",
-    "standard-version": "^7.0.1",
     "trash-cli": "^3.0.0",
     "ts-jest": "^24.2.0",
     "ts-loader": "^6.2.1",
@@ -99,7 +99,10 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-immutable": "^6.0.1",
     "typescript": "^3.7.2",
-    "zustand": "^2.2.1"
+    "zustand": "^2.2.1",
+    "react-router-dom": "^5.1.2",
+    "react-router": "^5.1.2",
+    "semantic-release": "^15.13.31"
   },
   "jest": {
     "transform": {
@@ -125,17 +128,17 @@
     ],
     "coverageReporters": [
       "text",
-      "cobertura"
+      "lcov"
     ],
     "roots": [
       "src/"
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 90,
-        "functions": 95,
-        "lines": 95,
-        "statements": 95
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
       }
     },
     "collectCoverageFrom": [
@@ -148,6 +151,7 @@
     }
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "semi": false
   }
 }

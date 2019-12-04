@@ -1,19 +1,19 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
-import { createBrowserHistory } from 'history';
-import React from 'react';
-import Geschichte, { factoryParameters, pm, serializers } from '../index';
+import { createBrowserHistory } from 'history'
+import React from 'react'
+import Geschichte, { factoryParameters, pm, serializers } from '../index'
 
-const history = createBrowserHistory();
+const history = createBrowserHistory()
 
 const config = {
   arg: pm('arg', serializers.string),
   test: pm('foo', serializers.string)
-};
+}
 
 const { useQuery } = factoryParameters(config, {
   arg: 'blub',
   test: 'haha'
-});
+})
 
 const { useQuery: useAnotherQuery } = factoryParameters(
   config,
@@ -22,39 +22,39 @@ const { useQuery: useAnotherQuery } = factoryParameters(
     test: 'another'
   },
   'wow'
-);
+)
 
 const InnerApp = () => {
-  const { values, query, pushState } = useQuery();
+  const { values, query, pushState } = useQuery()
   return (
     <>
       <input
         type="text"
         value={values.test}
         onChange={event => {
-          pushState(state => void (state.test = event.target.value));
+          pushState(state => void (state.test = event.target.value))
         }}
       />
       <p>{JSON.stringify(values)}</p>
       <p>{JSON.stringify(query)}</p>
     </>
-  );
-};
+  )
+}
 
 const DifferentApp = () => {
-  const { values: otherNsValues, pushState } = useAnotherQuery();
+  const { values: otherNsValues, pushState } = useAnotherQuery()
   return (
     <>
       <input
         type="text"
         value={otherNsValues.test}
         onChange={event => {
-          pushState(state => void (state.test = event.target.value));
+          pushState(state => void (state.test = event.target.value))
         }}
       />
     </>
-  );
-};
+  )
+}
 
 export const App = () => (
   <>
@@ -64,4 +64,4 @@ export const App = () => (
       <DifferentApp />
     </Geschichte>
   </>
-);
+)

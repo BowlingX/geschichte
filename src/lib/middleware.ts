@@ -1,12 +1,12 @@
 /* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation */
-import { History } from 'history';
-import { produceWithPatches } from 'immer';
-import { parse, stringify } from 'query-string';
-import { Config, MappedConfig } from './store';
+import { History } from 'history'
+import { produceWithPatches } from 'immer'
+import { parse, stringify } from 'query-string'
+import { Config, MappedConfig } from './store'
 import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState
-} from './utils';
+} from './utils'
 
 export enum HistoryEventType {
   PUSH,
@@ -16,39 +16,39 @@ export enum HistoryEventType {
 
 export interface NamespaceValues<ValueState> {
   /** the amount of elements currently subscribed to the namespaces values */
-  subscribers: number;
-  values: ValueState;
-  initialValues: ValueState;
-  mappedConfig: MappedConfig;
-  config: Config;
-  query: object;
-  unsubscribe: () => void;
+  subscribers: number
+  values: ValueState
+  initialValues: ValueState
+  mappedConfig: MappedConfig
+  config: Config
+  query: object
+  unsubscribe: () => void
 }
 
 export type PushStateFunction<T> = (
   ns: string,
   valueCreator: (state: T) => void
-) => void;
+) => void
 export type ReplaceStateFunction<T> = (
   ns: string,
   valueCreator: (state: T) => void
-) => void;
+) => void
 
 export interface StoreState<ValueState = object> {
   namespaces: {
-    [name: string]: NamespaceValues<ValueState>;
-  };
-  pushState: PushStateFunction<ValueState>;
-  replaceState: ReplaceStateFunction<ValueState>;
+    [name: string]: NamespaceValues<ValueState>
+  }
+  pushState: PushStateFunction<ValueState>
+  replaceState: ReplaceStateFunction<ValueState>
   /** registers a new namespace */
   register: (
     config: Config,
     mappedConfig: MappedConfig,
     ns: string,
     initialValues?: ValueState
-  ) => void;
+  ) => void
   /** will delete all namespaces and remove the history listener */
-  unregister: () => void;
+  unregister: () => void
 }
 
 export const historyManagement = (historyInstance: History) => apply => (
@@ -62,11 +62,11 @@ export const historyManagement = (historyInstance: History) => apply => (
       set(
         (changes, values) => {
           if (changes.length === 0) {
-            return values;
+            return values
           }
 
           if (type !== HistoryEventType.REGISTER) {
-            const { config, query: currentQuery } = get().namespaces[ns];
+            const { config, query: currentQuery } = get().namespaces[ns]
             const uniqueQuery = applyDiffWithCreateQueriesFromPatch(
               config,
               ns,
@@ -74,28 +74,28 @@ export const historyManagement = (historyInstance: History) => apply => (
               changes,
               values.namespaces[ns].values,
               values.namespaces[ns].initialValues
-            );
+            )
 
-            const method = type === HistoryEventType.PUSH ? 'push' : 'replace';
+            const method = type === HistoryEventType.PUSH ? 'push' : 'replace'
 
             const otherQueries = Object.keys(values.namespaces).reduce(
               (next, thisNs) => {
                 if (thisNs === ns) {
-                  return next;
+                  return next
                 }
                 return {
                   ...next,
                   ...values.namespaces[thisNs].query
-                };
+                }
               },
               {}
-            );
+            )
 
-            const query = stringify({ ...otherQueries, ...uniqueQuery });
+            const query = stringify({ ...otherQueries, ...uniqueQuery })
             historyInstance[method]({
               search: query === '' ? '' : `?${query}`,
               state: { __g__: true }
-            });
+            })
 
             return {
               ...values,
@@ -106,31 +106,31 @@ export const historyManagement = (historyInstance: History) => apply => (
                   query: uniqueQuery
                 }
               }
-            };
+            }
           }
-          return values;
+          return values
         },
         fn,
         ns
-      );
+      )
 
       // H
     },
     get,
     api
-  );
+  )
 
 const namespaceProducer = (fn, ns?: string) => state => {
   if (!ns) {
-    return fn(state.namespaces);
+    return fn(state.namespaces)
   }
   if (state.namespaces[ns]) {
-    return fn(state.namespaces[ns]);
+    return fn(state.namespaces[ns])
   }
-  const next = {};
-  fn(next);
-  state.namespaces[ns] = next;
-};
+  const next = {}
+  fn(next)
+  state.namespaces[ns] = next
+}
 
 export const immerWithPatches = config => (set, get, api) =>
   config(
@@ -138,16 +138,16 @@ export const immerWithPatches = config => (set, get, api) =>
       set(currentState => {
         const [nextValues, changes] = produceWithPatches(
           namespaceProducer(fn, ns)
-        )(currentState);
-        return valueMapper(changes, nextValues);
-      });
+        )(currentState)
+        return valueMapper(changes, nextValues)
+      })
     },
     get,
     api
-  );
+  )
 
 export const converter = (historyInstance: History) => (set, get) => {
-  const initialQueries = parse(historyInstance.location.search);
+  const initialQueries = parse(historyInstance.location.search)
   const unregisterListener = historyInstance.listen(
     // @ts-ignore
     ({ location, action }) => {
@@ -156,10 +156,10 @@ export const converter = (historyInstance: History) => (set, get) => {
         action === 'PUSH' ||
         (action === 'REPLACE' && location.state && location.state.__g__)
       ) {
-        return;
+        return
       }
-      const nextQueries = parse(location.search);
-      const namespaces = get().namespaces;
+      const nextQueries = parse(location.search)
+      const namespaces = get().namespaces
       Object.keys(namespaces).forEach(ns => {
         set(
           state => {
@@ -169,14 +169,14 @@ export const converter = (historyInstance: History) => (set, get) => {
               ns,
               state.values,
               state.initialValues
-            );
+            )
           },
           HistoryEventType.REGISTER,
           ns
-        );
-      });
+        )
+      })
     }
-  );
+  )
   return {
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
@@ -190,56 +190,56 @@ export const converter = (historyInstance: History) => (set, get) => {
       ns: string,
       initialValues?: object
     ) => {
-      const current = get().namespaces[ns];
+      const current = get().namespaces[ns]
       if (current !== undefined) {
         set(
           state => {
-            state.subscribers = state.subscribers + 1;
+            state.subscribers = state.subscribers + 1
           },
           HistoryEventType.REGISTER,
           ns
-        );
-        return;
+        )
+        return
       }
       // read initial query state:
       set(
         state => {
-          state.subscribers = 1;
+          state.subscribers = 1
           state.unsubscribe = () => {
             set(thisState => {
-              thisState[ns].subscribers = thisState[ns].subscribers - 1;
+              thisState[ns].subscribers = thisState[ns].subscribers - 1
               if (thisState[ns].subscribers === 0) {
                 // tslint:disable-next-line:no-delete
-                delete thisState[ns];
+                delete thisState[ns]
               }
-            }, HistoryEventType.REGISTER);
-          };
-          state.mappedConfig = mappedConfig;
-          state.config = config;
-          state.initialValues = initialValues || {};
-          state.values = { ...initialValues };
+            }, HistoryEventType.REGISTER)
+          }
+          state.mappedConfig = mappedConfig
+          state.config = config
+          state.initialValues = initialValues || {}
+          state.values = { ...initialValues }
           state.query = applyFlatConfigToState(
             mappedConfig,
             initialQueries,
             ns,
             state.values,
             initialValues
-          );
+          )
         },
         HistoryEventType.REGISTER,
         ns
-      );
+      )
     },
     replaceState: (ns: string, fn) =>
       set(state => fn(state.values), HistoryEventType.REPLACE, ns),
     unregister: () => {
       set(() => {
         // return a new object for namespaces
-        return {};
-      }, HistoryEventType.REGISTER);
+        return {}
+      }, HistoryEventType.REGISTER)
 
       // unregister history event listener
-      unregisterListener();
+      unregisterListener()
     }
-  };
-};
+  }
+}
