@@ -1,0 +1,4201 @@
+{
+	"id": 0,
+	"name": "geschichte",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 131,
+			"name": "HistoryEventType",
+			"kind": 4,
+			"kindString": "Enumeration",
+			"flags": {
+				"isExported": true
+			},
+			"children": [
+				{
+					"id": 132,
+					"name": "PUSH",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 12,
+							"character": 6
+						}
+					]
+				},
+				{
+					"id": 134,
+					"name": "REGISTER",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 14,
+							"character": 10
+						}
+					]
+				},
+				{
+					"id": 133,
+					"name": "REPLACE",
+					"kind": 16,
+					"kindString": "Enumeration member",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 13,
+							"character": 9
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Enumeration members",
+					"kind": 16,
+					"children": [
+						132,
+						134,
+						133
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 11,
+					"character": 28
+				}
+			]
+		},
+		{
+			"id": 202,
+			"name": "Config",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"indexSignature": [
+				{
+					"id": 203,
+					"name": "__index",
+					"kind": 8192,
+					"kindString": "Index signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 204,
+							"name": "propName",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "reference",
+								"name": "Config",
+								"id": 202
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 205,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 206,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Parameter",
+												"id": 195
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "lib/store.ts",
+											"line": 42,
+											"character": 39
+										}
+									]
+								}
+							}
+						]
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 41,
+					"character": 23
+				}
+			]
+		},
+		{
+			"id": 207,
+			"name": "MappedConfig",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"indexSignature": [
+				{
+					"id": 208,
+					"name": "__index",
+					"kind": 8192,
+					"kindString": "Index signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 209,
+							"name": "queryParameter",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "MappedParameter",
+						"id": 198
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 45,
+					"character": 29
+				}
+			]
+		},
+		{
+			"id": 198,
+			"name": "MappedParameter",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"children": [
+				{
+					"id": 200,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/store.ts",
+							"line": 33,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "Parameter.name",
+						"id": 196
+					}
+				},
+				{
+					"id": 199,
+					"name": "path",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/store.ts",
+							"line": 38,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "typeOperator",
+						"operator": "keyof",
+						"target": {
+							"type": "array",
+							"elementType": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					}
+				},
+				{
+					"id": 201,
+					"name": "serializer",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/store.ts",
+							"line": 34,
+							"character": 21
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"name": "Parameter.serializer",
+						"id": 197
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						200,
+						199,
+						201
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 37,
+					"character": 32
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"name": "Parameter",
+					"id": 195
+				}
+			]
+		},
+		{
+			"id": 135,
+			"name": "NamespaceValues",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 136,
+					"name": "ValueState",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"children": [
+				{
+					"id": 141,
+					"name": "config",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 23,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Config",
+						"id": 202
+					}
+				},
+				{
+					"id": 139,
+					"name": "initialValues",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 21,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "typeParameter",
+						"name": "ValueState"
+					}
+				},
+				{
+					"id": 140,
+					"name": "mappedConfig",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 22,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "MappedConfig",
+						"id": 207
+					}
+				},
+				{
+					"id": 142,
+					"name": "query",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 24,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "object"
+					}
+				},
+				{
+					"id": 137,
+					"name": "subscribers",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "the amount of elements currently subscribed to the namespaces values"
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 19,
+							"character": 13
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 143,
+					"name": "unsubscribe",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 25,
+							"character": 13
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 144,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 145,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/middleware.ts",
+									"line": 25,
+									"character": 14
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 138,
+					"name": "values",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 20,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "typeParameter",
+						"name": "ValueState"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						141,
+						139,
+						140,
+						142,
+						137,
+						143,
+						138
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 17,
+					"character": 32
+				}
+			]
+		},
+		{
+			"id": 195,
+			"name": "Parameter",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"children": [
+				{
+					"id": 196,
+					"name": "name",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/store.ts",
+							"line": 33,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 197,
+					"name": "serializer",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/store.ts",
+							"line": 34,
+							"character": 21
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						196,
+						197
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 32,
+					"character": 26
+				}
+			],
+			"extendedBy": [
+				{
+					"type": "reference",
+					"name": "MappedParameter",
+					"id": 198
+				}
+			]
+		},
+		{
+			"id": 223,
+			"name": "Props",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 224,
+					"name": "history",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"comment": {
+						"shortText": "a history instance (e.g. createBrowserHistory())"
+					},
+					"sources": [
+						{
+							"fileName": "lib/provider.tsx",
+							"line": 8,
+							"character": 18
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "History"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						224
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/provider.tsx",
+					"line": 6,
+					"character": 15
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "Serializer",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"children": [
+				{
+					"id": 2,
+					"name": "deserialize",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 2,
+							"character": 22
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 3,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 4,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 5,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 2,
+									"character": 23
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 6,
+					"name": "serialize",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 3,
+							"character": 20
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 7,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 8,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 9,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 3,
+									"character": 21
+								}
+							]
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						2,
+						6
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 1,
+					"character": 27
+				}
+			]
+		},
+		{
+			"id": 146,
+			"name": "StoreState",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 147,
+					"name": "ValueState",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"children": [
+				{
+					"id": 148,
+					"name": "namespaces",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 38,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 149,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"indexSignature": [
+								{
+									"id": 150,
+									"name": "__index",
+									"kind": 8192,
+									"kindString": "Index signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 151,
+											"name": "name",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "NamespaceValues",
+										"id": 135,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "ValueState"
+											}
+										]
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/middleware.ts",
+									"line": 38,
+									"character": 13
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 152,
+					"name": "pushState",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 41,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "PushStateFunction",
+						"id": 164,
+						"typeArguments": [
+							{
+								"type": "typeParameter",
+								"name": "ValueState"
+							}
+						]
+					}
+				},
+				{
+					"id": 154,
+					"name": "register",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "registers a new namespace"
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 44,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 155,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 156,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 157,
+											"name": "config",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Config",
+												"id": 202
+											}
+										},
+										{
+											"id": 158,
+											"name": "mappedConfig",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "MappedConfig",
+												"id": 207
+											}
+										},
+										{
+											"id": 159,
+											"name": "ns",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 160,
+											"name": "initialValues",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "ValueState",
+												"id": 147
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/middleware.ts",
+									"line": 44,
+									"character": 11
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 153,
+					"name": "replaceState",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 42,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "ReplaceStateFunction",
+						"id": 173,
+						"typeArguments": [
+							{
+								"type": "typeParameter",
+								"name": "ValueState"
+							}
+						]
+					}
+				},
+				{
+					"id": 161,
+					"name": "unregister",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "will delete all namespaces and remove the history listener"
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 51,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 162,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 163,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/middleware.ts",
+									"line": 51,
+									"character": 13
+								}
+							]
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						148,
+						152,
+						154,
+						153,
+						161
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 37,
+					"character": 27
+				}
+			]
+		},
+		{
+			"id": 164,
+			"name": "PushStateFunction",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 165,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 28,
+					"character": 29
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 166,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 167,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 168,
+									"name": "ns",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 169,
+									"name": "valueCreator",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 170,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 171,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 172,
+															"name": "state",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "typeParameter",
+																"name": "T"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "lib/middleware.ts",
+													"line": 30,
+													"character": 15
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 28,
+							"character": 34
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 173,
+			"name": "ReplaceStateFunction",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 174,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 32,
+					"character": 32
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 175,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 176,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 177,
+									"name": "ns",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 178,
+									"name": "valueCreator",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 179,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 180,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 181,
+															"name": "state",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "typeParameter",
+																"name": "T"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "lib/middleware.ts",
+													"line": 34,
+													"character": 15
+												}
+											]
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 32,
+							"character": 37
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 210,
+			"name": "DEFAULT_NAMESPACE",
+			"kind": 32,
+			"kindString": "Variable",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 26,
+					"character": 30
+				}
+			],
+			"type": {
+				"type": "stringLiteral",
+				"value": "default"
+			},
+			"defaultValue": "\"default\""
+		},
+		{
+			"id": 211,
+			"name": "StoreContext",
+			"kind": 32,
+			"kindString": "Variable",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 28,
+					"character": 25
+				}
+			],
+			"type": {
+				"type": "reference",
+				"name": "Context",
+				"typeArguments": [
+					{
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "null"
+							},
+							{
+								"type": "tuple",
+								"elements": [
+									{
+										"type": "reference",
+										"name": "UseStore",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 146,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "reference",
+										"name": "StoreApi",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 146,
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"defaultValue": " createContext<\n  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>] | null\n>(null)"
+		},
+		{
+			"id": 225,
+			"name": "Geschichte",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 226,
+					"name": "Geschichte",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 227,
+							"name": "__namedParameters",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"originalName": "__0",
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 228,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"children": [
+										{
+											"id": 229,
+											"name": "children",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "lib/provider.tsx",
+													"line": 11,
+													"character": 48
+												}
+											],
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													},
+													{
+														"type": "intrinsic",
+														"name": "null"
+													},
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "number"
+													},
+													{
+														"type": "intrinsic",
+														"name": "false"
+													},
+													{
+														"type": "intrinsic",
+														"name": "true"
+													},
+													{
+														"type": "reference",
+														"name": "__type"
+													},
+													{
+														"type": "reference",
+														"name": "ReactElement",
+														"typeArguments": [
+															{
+																"type": "intrinsic",
+																"name": "any"
+															},
+															{
+																"type": "union",
+																"types": [
+																	{
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	{
+																		"type": "reflection",
+																		"declaration": {
+																			"id": 230,
+																			"name": "__type",
+																			"kind": 65536,
+																			"kindString": "Type literal",
+																			"flags": {},
+																			"signatures": [
+																				{
+																					"id": 231,
+																					"name": "__call",
+																					"kind": 4096,
+																					"kindString": "Call signature",
+																					"flags": {},
+																					"parameters": [
+																						{
+																							"id": 232,
+																							"name": "props",
+																							"kind": 32768,
+																							"kindString": "Parameter",
+																							"flags": {},
+																							"type": {
+																								"type": "typeParameter",
+																								"name": "P"
+																							}
+																						}
+																					],
+																					"type": {
+																						"type": "union",
+																						"types": [
+																							{
+																								"type": "reference",
+																								"name": "ReactElement"
+																							},
+																							{
+																								"type": "intrinsic",
+																								"name": "null"
+																							}
+																						]
+																					}
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"type": "reflection",
+																		"declaration": {
+																			"id": 233,
+																			"name": "__type",
+																			"kind": 65536,
+																			"kindString": "Type literal",
+																			"flags": {}
+																		}
+																	}
+																]
+															}
+														]
+													},
+													{
+														"type": "reference",
+														"name": "ReactNodeArray"
+													},
+													{
+														"type": "reference",
+														"name": "ReactPortal"
+													}
+												]
+											}
+										},
+										{
+											"id": 234,
+											"name": "history",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "lib/provider.tsx",
+													"line": 11,
+													"character": 57
+												}
+											],
+											"type": {
+												"type": "reference",
+												"name": "History",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												]
+											}
+										}
+									],
+									"groups": [
+										{
+											"title": "Variables",
+											"kind": 32,
+											"children": [
+												229,
+												234
+											]
+										}
+									],
+									"sources": [
+										{
+											"fileName": "lib/provider.tsx",
+											"line": 11,
+											"character": 38
+										}
+									]
+								}
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Element"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/provider.tsx",
+					"line": 11,
+					"character": 23
+				}
+			]
+		},
+		{
+			"id": 107,
+			"name": "applyDiffWithCreateQueriesFromPatch",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 108,
+					"name": "applyDiffWithCreateQueriesFromPatch",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 109,
+							"name": "config",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "Config",
+								"id": 202
+							}
+						},
+						{
+							"id": 110,
+							"name": "ns",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 111,
+							"name": "currentQuery",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 112,
+							"name": "patch",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "typeOperator",
+								"operator": "keyof",
+								"target": {
+									"type": "array",
+									"elementType": {
+										"type": "reference",
+										"name": "Patch"
+									}
+								}
+							}
+						},
+						{
+							"id": 113,
+							"name": "state",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 114,
+							"name": "initialState",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 115,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {}
+						}
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 82,
+					"character": 48
+				}
+			]
+		},
+		{
+			"id": 116,
+			"name": "applyFlatConfigToState",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"comment": {
+				"shortText": "Applies the given queryValues to the current state, based on the configuration\nImportant: Mutates `state`.",
+				"returns": "an object with the keys that have been processed\n"
+			},
+			"signatures": [
+				{
+					"id": 117,
+					"name": "applyFlatConfigToState",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"shortText": "Applies the given queryValues to the current state, based on the configuration\nImportant: Mutates `state`.",
+						"returns": "an object with the keys that have been processed\n"
+					},
+					"parameters": [
+						{
+							"id": 118,
+							"name": "config",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "MappedConfig",
+								"id": 207
+							}
+						},
+						{
+							"id": 119,
+							"name": "queryValues",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 120,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"indexSignature": [
+										{
+											"id": 121,
+											"name": "__index",
+											"kind": 8192,
+											"kindString": "Index signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 122,
+													"name": "index",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "lib/utils.ts",
+											"line": 113,
+											"character": 14
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 123,
+							"name": "ns",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 124,
+							"name": "state",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 125,
+							"name": "initialState",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 126,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {}
+						}
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 111,
+					"character": 35
+				}
+			]
+		},
+		{
+			"id": 192,
+			"name": "converter",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 193,
+					"name": "converter",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 194,
+							"name": "historyInstance",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "History"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "(Anonymous function)"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 178,
+					"character": 22
+				}
+			]
+		},
+		{
+			"id": 82,
+			"name": "createOrApplyPath",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 83,
+					"name": "createOrApplyPath",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 84,
+							"name": "obj",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 85,
+							"name": "path",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "typeOperator",
+								"operator": "keyof",
+								"target": {
+									"type": "array",
+									"elementType": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							}
+						},
+						{
+							"id": 86,
+							"name": "value",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "null"
+							},
+							"defaultValue": " null"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 12,
+					"character": 23
+				}
+			]
+		},
+		{
+			"id": 99,
+			"name": "createQueriesFromPatch",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"comment": {
+				"returns": "an object with the keys that have been processed\nif a key has been removed / set to undefined, we still return it to\nbe able to create a diff to the current state\n"
+			},
+			"signatures": [
+				{
+					"id": 100,
+					"name": "createQueriesFromPatch",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"returns": "an object with the keys that have been processed\nif a key has been removed / set to undefined, we still return it to\nbe able to create a diff to the current state\n"
+					},
+					"parameters": [
+						{
+							"id": 101,
+							"name": "config",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "Config",
+								"id": 202
+							}
+						},
+						{
+							"id": 102,
+							"name": "ns",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 103,
+							"name": "patch",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "typeOperator",
+								"operator": "keyof",
+								"target": {
+									"type": "array",
+									"elementType": {
+										"type": "reference",
+										"name": "Patch"
+									}
+								}
+							}
+						},
+						{
+							"id": 104,
+							"name": "state",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 105,
+							"name": "initialState",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 106,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {}
+						}
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 50,
+					"character": 35
+				}
+			]
+		},
+		{
+			"id": 58,
+			"name": "dateSerializer",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 59,
+					"name": "dateSerializer",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 60,
+							"name": "locale",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "\"en-us\""
+						},
+						{
+							"id": 61,
+							"name": "timeZone",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "\"UTC\""
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 45,
+					"character": 20
+				}
+			]
+		},
+		{
+			"id": 215,
+			"name": "factoryParameters",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 216,
+					"name": "factoryParameters",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"typeParameter": [
+						{
+							"id": 217,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"parameters": [
+						{
+							"id": 218,
+							"name": "config",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "Config",
+								"id": 202
+							}
+						},
+						{
+							"id": 219,
+							"name": "initialState",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "typeParameter",
+								"name": "T"
+							},
+							"defaultValue": " {} as T"
+						},
+						{
+							"id": 220,
+							"name": "ns",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": " DEFAULT_NAMESPACE"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 221,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 222,
+									"name": "useQuery",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "lib/store.ts",
+											"line": 124,
+											"character": 19
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "useQuery"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										222
+									]
+								}
+							]
+						}
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 57,
+					"character": 30
+				}
+			]
+		},
+		{
+			"id": 127,
+			"name": "flattenConfig",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"comment": {
+				"shortText": "Creates a flat serializable object based on a mapping Object\nthat can be used to generate a query string.",
+				"returns": "a key/value object with the object containing the defined parameters as key.\n"
+			},
+			"signatures": [
+				{
+					"id": 128,
+					"name": "flattenConfig",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"shortText": "Creates a flat serializable object based on a mapping Object\nthat can be used to generate a query string.",
+						"returns": "a key/value object with the object containing the defined parameters as key.\n"
+					},
+					"parameters": [
+						{
+							"id": 129,
+							"name": "config",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "Config",
+								"id": 202
+							}
+						},
+						{
+							"id": 130,
+							"name": "path",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "typeOperator",
+								"operator": "keyof",
+								"target": {
+									"type": "array",
+									"elementType": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							},
+							"defaultValue": " []"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "MappedConfig",
+						"id": 207
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 145,
+					"character": 26
+				}
+			]
+		},
+		{
+			"id": 87,
+			"name": "formatNamespace",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 88,
+					"name": "formatNamespace",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 89,
+							"name": "key",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 90,
+							"name": "ns",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isOptional": true
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 27,
+					"character": 28
+				}
+			]
+		},
+		{
+			"id": 212,
+			"name": "geschichte",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 213,
+					"name": "geschichte",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 214,
+							"name": "historyInstance",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "History",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "LocationState"
+									}
+								]
+							}
+						}
+					],
+					"type": {
+						"type": "tuple",
+						"elements": [
+							{
+								"type": "reference",
+								"name": "UseStore",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								]
+							},
+							{
+								"type": "reference",
+								"name": "StoreApi",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								]
+							}
+						]
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/store.ts",
+					"line": 49,
+					"character": 23
+				}
+			]
+		},
+		{
+			"id": 91,
+			"name": "get",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 92,
+					"name": "get",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 93,
+							"name": "object",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 94,
+							"name": "path",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "ReadonlyArray",
+								"typeArguments": [
+									{
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 31,
+					"character": 16
+				}
+			]
+		},
+		{
+			"id": 182,
+			"name": "historyManagement",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 183,
+					"name": "historyManagement",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 184,
+							"name": "historyInstance",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "History"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "(Anonymous function)"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 54,
+					"character": 30
+				}
+			]
+		},
+		{
+			"id": 189,
+			"name": "immerWithPatches",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 190,
+					"name": "immerWithPatches",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 191,
+							"name": "config",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "(Anonymous function)"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 164,
+					"character": 29
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "join",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 11,
+					"name": "join",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 12,
+							"name": "value",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "typeOperator",
+								"operator": "keyof",
+								"target": {
+									"type": "array",
+									"elementType": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 6,
+					"character": 10
+				}
+			]
+		},
+		{
+			"id": 185,
+			"name": "namespaceProducer",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 186,
+					"name": "namespaceProducer",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 187,
+							"name": "fn",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 188,
+							"name": "ns",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isOptional": true
+							},
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "(Anonymous function)"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 152,
+					"character": 23
+				}
+			]
+		},
+		{
+			"id": 78,
+			"name": "pm",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 79,
+					"name": "pm",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 80,
+							"name": "name",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 81,
+							"name": "serializer",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "Serializer",
+								"id": 1
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "(Anonymous function)"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 7,
+					"character": 15
+				}
+			]
+		},
+		{
+			"id": 95,
+			"name": "skipValue",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"comment": {
+				"shortText": "Default skip implementation"
+			},
+			"signatures": [
+				{
+					"id": 96,
+					"name": "skipValue",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"shortText": "Default skip implementation"
+					},
+					"parameters": [
+						{
+							"id": 97,
+							"name": "value",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isOptional": true
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 98,
+							"name": "initialValue",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {
+								"isOptional": true
+							},
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/utils.ts",
+					"line": 40,
+					"character": 22
+				}
+			]
+		},
+		{
+			"id": 13,
+			"name": "split",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 14,
+					"name": "split",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 15,
+							"name": "value",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 8,
+					"character": 11
+				}
+			]
+		},
+		{
+			"id": 51,
+			"name": "arrayFloatSerializer",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 52,
+					"name": "deserialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 53,
+							"name": "deserialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 54,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 39,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 55,
+					"name": "serialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 56,
+							"name": "serialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 57,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 41,
+							"character": 11
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						52,
+						55
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 38,
+					"character": 26
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		},
+		{
+			"id": 44,
+			"name": "arrayIntSerializer",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 45,
+					"name": "deserialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 46,
+							"name": "deserialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 47,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 32,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 48,
+					"name": "serialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 49,
+							"name": "serialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 50,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 34,
+							"character": 11
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						45,
+						48
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 31,
+					"character": 24
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		},
+		{
+			"id": 37,
+			"name": "arrayStringSerializer",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 38,
+					"name": "deserialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 39,
+							"name": "deserialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 40,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 26,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 41,
+					"name": "serialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 42,
+							"name": "serialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 43,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "typeOperator",
+										"operator": "keyof",
+										"target": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 27,
+							"character": 11
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						38,
+						41
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 25,
+					"character": 27
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		},
+		{
+			"id": 62,
+			"name": "booleanSerializer",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 63,
+					"name": "deserialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 64,
+							"name": "deserialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 65,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 55,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 66,
+					"name": "serialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 67,
+							"name": "serialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 68,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "false"
+											},
+											{
+												"type": "intrinsic",
+												"name": "true"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 56,
+							"character": 11
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						63,
+						66
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 54,
+					"character": 23
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		},
+		{
+			"id": 23,
+			"name": "floatSerializer",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 24,
+					"name": "deserialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 25,
+							"name": "deserialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 26,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 16,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 27,
+					"name": "serialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 28,
+							"name": "serialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 29,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 17,
+							"character": 11
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						24,
+						27
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 15,
+					"character": 21
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		},
+		{
+			"id": 16,
+			"name": "intSerializer",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 17,
+					"name": "deserialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 18,
+							"name": "deserialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 19,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 11,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 20,
+					"name": "serialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 21,
+							"name": "serialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 22,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 12,
+							"character": 11
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						17,
+						20
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 10,
+					"character": 19
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		},
+		{
+			"id": 69,
+			"name": "serializers",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 70,
+					"name": "arrayFloat",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 60,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"defaultValue": " arrayFloatSerializer"
+				},
+				{
+					"id": 71,
+					"name": "arrayInt",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 61,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"defaultValue": " arrayIntSerializer"
+				},
+				{
+					"id": 72,
+					"name": "arrayString",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 62,
+							"character": 13
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"defaultValue": " arrayStringSerializer"
+				},
+				{
+					"id": 73,
+					"name": "boolean",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 63,
+							"character": 9
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"defaultValue": " booleanSerializer"
+				},
+				{
+					"id": 74,
+					"name": "date",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 64,
+							"character": 6
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "dateSerializer",
+						"id": 59
+					},
+					"defaultValue": " dateSerializer"
+				},
+				{
+					"id": 75,
+					"name": "float",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 65,
+							"character": 7
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"defaultValue": " floatSerializer"
+				},
+				{
+					"id": 76,
+					"name": "int",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 66,
+							"character": 5
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"defaultValue": " intSerializer"
+				},
+				{
+					"id": 77,
+					"name": "string",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 67,
+							"character": 8
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Serializer",
+						"id": 1
+					},
+					"defaultValue": " stringSerializer"
+				}
+			],
+			"groups": [
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						70,
+						71,
+						72,
+						73,
+						74,
+						75,
+						76,
+						77
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 59,
+					"character": 24
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		},
+		{
+			"id": 30,
+			"name": "stringSerializer",
+			"kind": 2097152,
+			"kindString": "Object literal",
+			"flags": {
+				"isConst": true
+			},
+			"children": [
+				{
+					"id": 31,
+					"name": "deserialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 32,
+							"name": "deserialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 33,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 21,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 34,
+					"name": "serialize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 35,
+							"name": "serialize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 36,
+									"name": "value",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/serializers.ts",
+							"line": 22,
+							"character": 11
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						31,
+						34
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/serializers.ts",
+					"line": 20,
+					"character": 22
+				}
+			],
+			"type": {
+				"type": "intrinsic",
+				"name": "object"
+			}
+		}
+	],
+	"groups": [
+		{
+			"title": "Enumerations",
+			"kind": 4,
+			"children": [
+				131
+			]
+		},
+		{
+			"title": "Interfaces",
+			"kind": 256,
+			"children": [
+				202,
+				207,
+				198,
+				135,
+				195,
+				223,
+				1,
+				146
+			]
+		},
+		{
+			"title": "Type aliases",
+			"kind": 4194304,
+			"children": [
+				164,
+				173
+			]
+		},
+		{
+			"title": "Variables",
+			"kind": 32,
+			"children": [
+				210,
+				211
+			]
+		},
+		{
+			"title": "Functions",
+			"kind": 64,
+			"children": [
+				225,
+				107,
+				116,
+				192,
+				82,
+				99,
+				58,
+				215,
+				127,
+				87,
+				212,
+				91,
+				182,
+				189,
+				10,
+				185,
+				78,
+				95,
+				13
+			]
+		},
+		{
+			"title": "Object literals",
+			"kind": 2097152,
+			"children": [
+				51,
+				44,
+				37,
+				62,
+				23,
+				16,
+				69,
+				30
+			]
+		}
+	]
+}
