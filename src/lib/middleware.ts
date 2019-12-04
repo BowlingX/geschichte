@@ -78,16 +78,18 @@ export const historyManagement = (historyInstance: History) => apply => (
 
             const method = type === HistoryEventType.PUSH ? 'push' : 'replace';
 
-            const otherQueries = Object.keys(values.namespaces)
-              .reduce((next, thisNs) => {
+            const otherQueries = Object.keys(values.namespaces).reduce(
+              (next, thisNs) => {
                 if (thisNs === ns) {
-                  return next
+                  return next;
                 }
                 return {
                   ...next,
                   ...values.namespaces[thisNs].query
                 };
-              }, {});
+              },
+              {}
+            );
 
             const query = stringify({ ...otherQueries, ...uniqueQuery });
             historyInstance[method]({
