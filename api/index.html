@@ -67,27 +67,27 @@
 				<a href="#geschichte" id="geschichte" style="color: inherit; text-decoration: none;">
 					<h1>Geschichte</h1>
 				</a>
+				<p><img src="https://img.shields.io/circleci/build/gh/BowlingX/geschichte" alt="CircleCI">
+					<img src="https://img.shields.io/codecov/c/github/bowlingx/geschichte" alt="Codecov">
+				<img src="https://img.shields.io/npm/v/geschichte" alt="npm"></p>
 				<p>Let&#39;s you manage query-parameters with hooks. Uses <code>immer</code> and <code>zustand</code> to manage the internal state.</p>
-				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
-					<h2>Example</h2>
+				<p>Documentation: <a href="https://bowlingx.github.io/geschichte/index.html">https://bowlingx.github.io/geschichte/index.html</a></p>
+				<p>API: <a href="https://bowlingx.github.io/geschichte/api/index.html">https://bowlingx.github.io/geschichte/api/index.html</a></p>
+				<pre><code>yarn <span class="hljs-keyword">add</span><span class="bash"> geschichte</span>
+
+npm install geschichte</code></pre>
+				<a href="#basic-example" id="basic-example" style="color: inherit; text-decoration: none;">
+					<h2>Basic Example</h2>
 				</a>
 				<pre><code class="language-typescript">
 import { pm, factoryParameters, serializers } from 'geschichte'
 
 const parameterConfig = {
-  your: {
-    object: {
-      somewhere: pm('queryParameter', serializers.string)  
-    }   
-  } 
+  item: pm('queryParameter', serializers.string)
 };
 
 const defaultValue = {
-  your: {
-    object: {
-      somewhere: 'defaultValue'
-    }
-  }
+  item: 'defaultValue'
 }
 
 
@@ -97,8 +97,8 @@ const Component = () =&gt; {
  const { values, pushState, replaceState } = useQuery()
  return (
    &lt;&gt;
-     &lt;button onClick={() =&gt; pushState((values) =&gt; void ( values.your.object.somewhere = "newValue" ))}&gt;push new state&lt;/button&gt;
-     &lt;button onClick={() =&gt; replaceState((values) =&gt; void ( values.your.object.somewhere = "anotherOne" ))}&gt;replace state&lt;/button&gt;
+     &lt;button onClick={() =&gt; pushState((values) =&gt; void ( values.item = "newValue" ))}&gt;push new state&lt;/button&gt;
+     &lt;button onClick={() =&gt; replaceState((values) =&gt; void ( values.item = "anotherOne" ))}&gt;replace state&lt;/button&gt;
      &lt;div&gt;{JSON.stringify(values)}&lt;/div&gt;
    &lt;/&gt; 
  )
@@ -172,6 +172,9 @@ const Component = () =&gt; {
 					<li class=" tsd-kind-function">
 						<a href="globals.html#createqueriesfrompatch" class="tsd-kind-icon">create<wbr>Queries<wbr>From<wbr>Patch</a>
 					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#createqueryobject" class="tsd-kind-icon">create<wbr>Query<wbr>Object</a>
+					</li>
 					<li class=" tsd-kind-function tsd-is-not-exported">
 						<a href="globals.html#dateserializer" class="tsd-kind-icon">date<wbr>Serializer</a>
 					</li>
@@ -187,7 +190,7 @@ const Component = () =&gt; {
 					<li class=" tsd-kind-function">
 						<a href="globals.html#geschichte" class="tsd-kind-icon">geschichte</a>
 					</li>
-					<li class=" tsd-kind-function">
+					<li class=" tsd-kind-function tsd-has-type-parameter">
 						<a href="globals.html#get" class="tsd-kind-icon">get</a>
 					</li>
 					<li class=" tsd-kind-function">
