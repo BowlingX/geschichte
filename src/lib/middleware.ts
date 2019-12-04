@@ -151,10 +151,16 @@ export const historyManagement = (historyInstance: History) => apply => (
 
 const namespaceProducer = (fn, ns?: string) => state => {
   if (!ns) {
-    return fn(state.namespaces)
+    const result = fn(state.namespaces)
+    // if no namespaces is given, we support return values
+    if (result) {
+      state.namespaces = result
+    }
+    return
   }
   if (state.namespaces[ns]) {
-    return fn(state.namespaces[ns])
+    fn(state.namespaces[ns])
+    return
   }
   const next = {}
   fn(next)
@@ -272,6 +278,18 @@ export const converter = (historyInstance: History) => (set, get) => {
     },
     replaceState: (ns: string, fn) =>
       set(state => fn(state.values), HistoryEventType.REPLACE, ns),
+    resetPush: (ns: string) =>
+      set(
+        state => void (state.values = state.initialValues),
+        HistoryEventType.PUSH,
+        ns
+      ),
+    resetReplace: (ns: string) =>
+      set(
+        state => void (state.values = state.initialValues),
+        HistoryEventType.REPLACE,
+        ns
+      ),
     unregister: () => {
       set(() => {
         // return a new object for namespaces

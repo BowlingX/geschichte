@@ -69,14 +69,22 @@ export const factoryParameters = <T = object>(
 
     const callback = useCallback(
       // tslint:disable-next-line:no-shadowed-variable
-      ({ register, pushState, replaceState }) => ({
+      ({ register, pushState, replaceState, resetPush, resetReplace }) => ({
         pushState,
         register,
-        replaceState
+        replaceState,
+        resetPush,
+        resetReplace
       }),
       [useStore]
     )
-    const { register, pushState, replaceState } = useStore(callback)
+    const {
+      register,
+      pushState,
+      replaceState,
+      resetPush,
+      resetReplace
+    } = useStore(callback)
 
     useMemo(() => {
       register(config, flatConfig, ns, initialValues)
@@ -124,9 +132,11 @@ export const factoryParameters = <T = object>(
         initialValues: innerValues.initialValues,
         pushState: (state: (state: T) => void) => pushState(ns, state),
         replaceState: (state: (state: T) => void) => replaceState(ns, state),
+        resetPush: () => resetPush(ns),
+        resetReplace: () => resetReplace(ns),
         values: innerValues.values
       }),
-      [innerValues, pushState, replaceState]
+      [innerValues, pushState, replaceState, resetPush, resetReplace]
     )
   }
 
