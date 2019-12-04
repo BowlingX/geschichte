@@ -37,9 +37,30 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
       - run: yarn run cov:send
+  publish:
+    docker:
+      - image: circleci/node:10
+    working_directory: ~/typescript-starter
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn install
+      - run: yarn semantic-release
+
 workflows:
   version: 2
   build:
     jobs:
       - 'node-10'
       - 'node-latest'
+      - publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - 'node-10'
+            - 'node-latest'
