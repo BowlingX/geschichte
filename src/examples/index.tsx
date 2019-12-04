@@ -1,6 +1,6 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 import { createBrowserHistory } from 'history'
-import React, { memo } from 'react'
+import React from 'react'
 import Geschichte, { factoryParameters, pm, serializers } from '../index'
 
 const history = createBrowserHistory()

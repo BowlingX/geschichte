@@ -177,35 +177,32 @@ export const immerWithPatches = config => (set, get, api) =>
 
 export const converter = (historyInstance: History) => (set, get) => {
   const initialQueries = parse(historyInstance.location.search)
-  const unregisterListener = historyInstance.listen(
-    // @ts-ignore
-    ({ location, action }) => {
-      // don't handle our own actions
-      if (
-        action === 'PUSH' ||
-        (action === 'REPLACE' && location.state && location.state.__g__)
-      ) {
-        return
-      }
-      const nextQueries = parse(location.search)
-      const namespaces = get().namespaces
-      Object.keys(namespaces).forEach(ns => {
-        set(
-          state => {
-            state.query = applyFlatConfigToState(
-              state.mappedConfig,
-              nextQueries,
-              ns,
-              state.values,
-              state.initialValues
-            )
-          },
-          HistoryEventType.REGISTER,
-          ns
-        )
-      })
+  const unregisterListener = historyInstance.listen((location, action) => {
+    // don't handle our own actions
+    if (
+      action === 'PUSH' ||
+      (action === 'REPLACE' && location.state && location.state.__g__)
+    ) {
+      return
     }
-  )
+    const nextQueries = parse(location.search)
+    const namespaces = get().namespaces
+    Object.keys(namespaces).forEach(ns => {
+      set(
+        state => {
+          state.query = applyFlatConfigToState(
+            state.mappedConfig,
+            nextQueries,
+            ns,
+            state.values,
+            state.initialValues
+          )
+        },
+        HistoryEventType.REGISTER,
+        ns
+      )
+    })
+  })
   return {
     /** batch pushes the given namespaces */
     batchPushState: (ns: readonly string[], fn) => {

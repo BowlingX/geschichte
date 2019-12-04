@@ -28,7 +28,10 @@ export const formatNamespace = (key: string, ns?: string) => {
   return ns && ns !== DEFAULT_NAMESPACE ? `${ns}.${key}` : key
 }
 
-export const get = (object: object, path: ReadonlyArray<string | number>) => {
+export const get = <T = object>(
+  object: T,
+  path: ReadonlyArray<string | number>
+) => {
   return path.reduce((next, key) => {
     return next[key]
   }, object)
@@ -38,6 +41,7 @@ export const get = (object: object, path: ReadonlyArray<string | number>) => {
  * Default skip implementation
  */
 export const skipValue = (value?: any, initialValue?: any) =>
+  value === undefined ||
   value === null ||
   shallowEqual(value, initialValue) ||
   (Array.isArray(value) && value.length === 0)
@@ -75,6 +79,31 @@ export const createQueriesFromPatch = (
       ...next,
       [formatNamespace(name, ns)]:
         nextValue === undefined ? nextValue : serializer.serialize(nextValue)
+    }
+  }, {})
+}
+
+/**
+ * Creates a queryObject that can be serialized.
+ */
+export const createQueryObject = <T = object>(
+  config: MappedConfig,
+  ns: string,
+  values: T,
+  initialState: T
+) => {
+  return Object.keys(config).reduce((next, parameter) => {
+    const { path, serializer } = config[parameter]
+    const possibleValue = get(values, path)
+    const nextValue = skipValue(possibleValue, get(initialState, path))
+      ? undefined
+      : possibleValue
+    if (nextValue === undefined) {
+      return next
+    }
+    return {
+      ...next,
+      [formatNamespace(parameter, ns)]: serializer.serialize(nextValue)
     }
   }, {})
 }

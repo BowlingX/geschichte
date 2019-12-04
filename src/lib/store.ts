@@ -2,6 +2,7 @@
 import { History } from 'history'
 import LocationState = History.LocationState
 
+import { stringify } from 'query-string'
 import {
   createContext,
   useCallback,
@@ -17,11 +18,10 @@ import {
   converter,
   historyManagement,
   immerWithPatches,
-  NamespaceValues,
   StoreState
 } from './middleware'
 import { Serializer } from './serializers'
-import { flattenConfig } from './utils'
+import { createQueryObject, flattenConfig } from './utils'
 
 export const DEFAULT_NAMESPACE = 'default'
 
@@ -57,9 +57,10 @@ export const geschichte = (historyInstance: History<LocationState>) => {
 export const factoryParameters = <T = object>(
   config: Config,
   // tslint:disable-next-line:no-object-literal-type-assertion
-  initialState: T = {} as T,
+  initialValues: T = {} as T,
   ns: string = DEFAULT_NAMESPACE
 ) => {
+  const flatConfig = flattenConfig(config)
   const useQuery = () => {
     const [useStore, api] = useContext(StoreContext) as [
       UseStore<StoreState<T>>,
@@ -77,11 +78,9 @@ export const factoryParameters = <T = object>(
     )
     const { register, pushState, replaceState } = useStore(callback)
 
-    const flatConfig = useMemo(() => flattenConfig(config), [config])
-
     useMemo(() => {
-      register(config, flatConfig, ns, initialState)
-    }, [flatConfig])
+      register(config, flatConfig, ns, initialValues)
+    }, [])
 
     const initialNamespaceValues = useStore(state => state.namespaces[ns])
     // initial state
@@ -113,6 +112,15 @@ export const factoryParameters = <T = object>(
 
     return useMemo(
       () => ({
+        createQueryString: (values?: object) =>
+          stringify(
+            createQueryObject(
+              flatConfig,
+              ns,
+              values || innerValues.values,
+              innerValues.initialValues
+            )
+          ),
         initialValues: innerValues.initialValues,
         pushState: (state: (state: T) => void) => pushState(ns, state),
         replaceState: (state: (state: T) => void) => replaceState(ns, state),
@@ -121,5 +129,9 @@ export const factoryParameters = <T = object>(
       [innerValues, pushState, replaceState]
     )
   }
-  return { useQuery }
+
+  const createQueryString = (values: T) =>
+    stringify(createQueryObject<T>(flatConfig, ns, values, initialValues))
+
+  return { useQuery, createQueryString }
 }
