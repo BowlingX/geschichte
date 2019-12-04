@@ -49,6 +49,8 @@ jobs:
             - v1-dependencies-
       - run: yarn install
       - run: yarn semantic-release
+      - run: yarn build-storybook && yarn doc:html && yarn doc:json
+      - run: yarn doc:publish
 
 workflows:
   version: 2

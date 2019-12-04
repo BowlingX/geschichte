@@ -21,15 +21,15 @@
     "test:unit": "jest --coverage",
     "cov:send": "codecov",
     "watch": "run-s clean build:main && run-p \"build:main -- -w\" \"test:unit -- --watch\"",
-    "doc": "run-s doc:html && open-cli build/docs/index.html",
-    "doc:html": "typedoc src/ --exclude \"**/+(__tests__|examples)/*\" --target ES6 --mode file --out build/docs",
-    "doc:json": "typedoc src/ --exclude \"**/+(__tests__|examples)/*\" --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc": "run-s doc:html && open-cli build/docs/api/index.html",
+    "doc:html": "typedoc src/ --exclude \"**/+(__tests__|examples)/*\" --target ES6 --mode file --out build/docs/api",
+    "doc:json": "typedoc src/ --exclude \"**/+(__tests__|examples)/*\" --target ES6 --mode file --json build/docs/api/typedoc.json",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "clean": "trash build test",
     "preinstall": "node -e \"if(process.env.npm_execpath.indexOf('yarn') === -1) throw new Error('geschichte must be installed with Yarn: https://yarnpkg.com/')\"",
     "storybook": "start-storybook -p 6006",
     "prepublishOnly": "run-s build",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o build/docs"
   },
   "engines": {
     "node": ">=8.9"
