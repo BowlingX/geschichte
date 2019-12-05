@@ -201,22 +201,20 @@ export const converter = (historyInstance: History) => (set, get) => {
     // We skip one frame here in case we do route changes
     // Because we rely on the state listener in store, it does not fire if it's not initialized
     // TODO: Maybe find a better solution, but everything I tried yielded to double rendering of the component
-    requestAnimationFrame(() => {
-      Object.keys(namespaces).forEach(ns => {
-        set(
-          state => {
-            state.query = applyFlatConfigToState(
-              state.mappedConfig,
-              nextQueries,
-              ns,
-              state.values,
-              state.initialValues
-            )
-          },
-          HistoryEventType.REGISTER,
-          ns
-        )
-      })
+    Object.keys(namespaces).forEach(ns => {
+      set(
+        state => {
+          state.query = applyFlatConfigToState(
+            state.mappedConfig,
+            nextQueries,
+            ns,
+            state.values,
+            state.initialValues
+          )
+        },
+        HistoryEventType.REGISTER,
+        ns
+      )
     })
   })
 
@@ -277,7 +275,7 @@ export const converter = (historyInstance: History) => (set, get) => {
       set(
         state => {
           state.subscribers = 1
-          state.unsubscribe = (cb?: () => void) => {
+          state.unsubscribe = () => {
             set(thisState => {
               // it's possible that the state namespace has been cleared by the provider
               if (!thisState[ns]) {
@@ -287,9 +285,6 @@ export const converter = (historyInstance: History) => (set, get) => {
               if (thisState[ns].subscribers === 0) {
                 // tslint:disable-next-line:no-delete
                 delete thisState[ns]
-                if (cb) {
-                  cb()
-                }
               }
             }, HistoryEventType.REGISTER)
           }
