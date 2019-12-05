@@ -198,20 +198,25 @@ export const converter = (historyInstance: History) => (set, get) => {
     }
     const nextQueries = parse(location.search)
     const namespaces = get().namespaces
-    Object.keys(namespaces).forEach(ns => {
-      set(
-        state => {
-          state.query = applyFlatConfigToState(
-            state.mappedConfig,
-            nextQueries,
-            ns,
-            state.values,
-            state.initialValues
-          )
-        },
-        HistoryEventType.REGISTER,
-        ns
-      )
+    // We skip one frame here in case we do route changes
+    // Because we rely on the state listener in store, it does not fire if it's not initialized
+    // TODO: Maybe find a better solution, but everything I tried yielded to double rendering of the component
+    requestAnimationFrame(() => {
+      Object.keys(namespaces).forEach(ns => {
+        set(
+          state => {
+            state.query = applyFlatConfigToState(
+              state.mappedConfig,
+              nextQueries,
+              ns,
+              state.values,
+              state.initialValues
+            )
+          },
+          HistoryEventType.REGISTER,
+          ns
+        )
+      })
     })
   })
 
