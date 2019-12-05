@@ -137,12 +137,12 @@ export const applyDiffWithCreateQueriesFromPatch = (
  * Important: Mutates `state`.
  * @return an object with the keys that have been processed
  */
-export const applyFlatConfigToState = (
+export const applyFlatConfigToState = <T = object>(
   config: MappedConfig,
   queryValues: { readonly [index: string]: any },
   ns: string,
-  state: object,
-  initialState: object
+  state: T,
+  initialState: T
 ) => {
   return Object.keys(config).reduce((next, queryParameter) => {
     const { path, serializer } = config[queryParameter]

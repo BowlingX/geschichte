@@ -1,17 +1,16 @@
-/* tslint:disable:no-expression-statement readonly-array */
+/* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { History } from 'history'
 import LocationState = History.LocationState
 
 import { stringify } from 'query-string'
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
   useState
 } from 'react'
-import create, { StoreApi, UseStore } from 'zustand'
+import { create, StoreApi, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import {
@@ -21,7 +20,11 @@ import {
   StoreState
 } from './middleware'
 import { Serializer } from './serializers'
-import { createQueryObject, flattenConfig } from './utils'
+import {
+  applyFlatConfigToState,
+  createQueryObject,
+  flattenConfig
+} from './utils'
 
 export const DEFAULT_NAMESPACE = 'default'
 
@@ -57,7 +60,7 @@ export const geschichte = (historyInstance: History<LocationState>) => {
 export const factoryParameters = <T = object>(
   config: Config,
   // tslint:disable-next-line:no-object-literal-type-assertion
-  initialValues: T = {} as T,
+  defaultInitialValues: T = {} as T,
   ns: string = DEFAULT_NAMESPACE
 ) => {
   const flatConfig = flattenConfig(config)
@@ -67,42 +70,69 @@ export const factoryParameters = <T = object>(
       StoreApi<StoreState<T>>
     ]
 
-    const callback = useCallback(
-      // tslint:disable-next-line:no-shadowed-variable
-      ({ register, pushState, replaceState, resetPush, resetReplace }) => ({
+    const {
+      register,
+      pushState,
+      replaceState,
+      resetPush,
+      resetReplace,
+      initialQueries
+    } = useStore(
+      ({
+        register,
+        pushState,
+        replaceState,
+        resetPush,
+        resetReplace,
+        initialQueries
+      }) => ({
+        initialQueries,
         pushState,
         register,
         replaceState,
         resetPush,
         resetReplace
       }),
-      [useStore]
+      shallow
     )
-    const {
-      register,
-      pushState,
-      replaceState,
-      resetPush,
-      resetReplace
-    } = useStore(callback)
 
-    useMemo(() => {
-      register(config, flatConfig, ns, initialValues)
+    const initialRegisterState = useMemo(() => {
+      const thisValues = { ...defaultInitialValues }
+      const query = applyFlatConfigToState(
+        flatConfig,
+        initialQueries,
+        ns,
+        thisValues,
+        defaultInitialValues
+      )
+      return {
+        query,
+        values: thisValues
+      }
     }, [])
 
-    const initialNamespaceValues = useStore(state => state.namespaces[ns])
-    // initial state
-    const [innerValues, setInnerValues] = useState(initialNamespaceValues)
+    const [currentState, setCurrentState] = useState({
+      initialValues: defaultInitialValues,
+      values: initialRegisterState.values
+    })
 
-    // subscribe to updates
     useEffect(() => {
+      const unregister = register(
+        config,
+        flatConfig,
+        ns,
+        defaultInitialValues,
+        initialRegisterState.query,
+        initialRegisterState.values
+      )
+
       const unsubscribe = api.subscribe<{
         readonly values: T
         readonly initialValues: T
       }>(
         state => {
           if (state) {
-            setInnerValues({ ...innerValues, ...state })
+            setCurrentState(state)
           }
         },
         state => ({
@@ -113,35 +143,40 @@ export const factoryParameters = <T = object>(
       )
 
       return () => {
+        unregister()
         unsubscribe()
-        innerValues.unsubscribe()
       }
-    }, [setInnerValues])
+    }, [])
+
+    const values = currentState.values
+    const initialValues = currentState.initialValues
 
     return useMemo(
       () => ({
-        createQueryString: (values?: object) =>
+        createQueryString: (customValues?: object) =>
           stringify(
             createQueryObject(
               flatConfig,
               ns,
-              values || innerValues.values,
-              innerValues.initialValues
+              customValues || values,
+              initialValues
             )
           ),
-        initialValues: innerValues.initialValues,
+        initialValues,
         pushState: (state: (state: T) => void) => pushState(ns, state),
         replaceState: (state: (state: T) => void) => replaceState(ns, state),
         resetPush: () => resetPush(ns),
         resetReplace: () => resetReplace(ns),
-        values: innerValues.values
+        values
       }),
-      [innerValues, pushState, replaceState, resetPush, resetReplace]
+      [values, initialValues, pushState, replaceState, resetPush, resetReplace]
     )
   }
 
   const createQueryString = (values: T) =>
-    stringify(createQueryObject<T>(flatConfig, ns, values, initialValues))
+    stringify(
+      createQueryObject<T>(flatConfig, ns, values, defaultInitialValues)
+    )
 
   return { useQuery, createQueryString }
 }
