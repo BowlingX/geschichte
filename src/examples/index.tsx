@@ -41,7 +41,7 @@ const InnerApp = () => {
 }
 
 const DifferentApp = () => {
-  const { values: otherNsValues, pushState } = useAnotherQuery()
+  const { values: otherNsValues, pushState, resetPush } = useAnotherQuery()
   return (
     <>
       <input
@@ -51,6 +51,7 @@ const DifferentApp = () => {
           pushState(state => void (state.test = event.target.value))
         }}
       />
+      <button onClick={() => resetPush()}>Reset</button>
     </>
   )
 }

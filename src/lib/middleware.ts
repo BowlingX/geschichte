@@ -209,6 +209,19 @@ export const converter = (historyInstance: History) => (set, get) => {
       )
     })
   })
+
+  const reset = (ns: string, event: HistoryEventType) =>
+    set(
+      state =>
+        void Object.keys(state.values).forEach(key => {
+          if (state.initialValues[key] !== undefined) {
+            state.values[key] = state.initialValues[key]
+          }
+        }),
+      event,
+      ns
+    )
+
   return {
     /** batch pushes the given namespaces */
     batchPushState: (ns: readonly string[], fn) => {
@@ -253,6 +266,10 @@ export const converter = (historyInstance: History) => (set, get) => {
           state.subscribers = 1
           state.unsubscribe = () => {
             set(thisState => {
+              // it's possible that the state namespace has been cleared by the provider
+              if (!thisState[ns]) {
+                return
+              }
               thisState[ns].subscribers = thisState[ns].subscribers - 1
               if (thisState[ns].subscribers === 0) {
                 // tslint:disable-next-line:no-delete
@@ -278,18 +295,8 @@ export const converter = (historyInstance: History) => (set, get) => {
     },
     replaceState: (ns: string, fn) =>
       set(state => fn(state.values), HistoryEventType.REPLACE, ns),
-    resetPush: (ns: string) =>
-      set(
-        state => void (state.values = state.initialValues),
-        HistoryEventType.PUSH,
-        ns
-      ),
-    resetReplace: (ns: string) =>
-      set(
-        state => void (state.values = state.initialValues),
-        HistoryEventType.REPLACE,
-        ns
-      ),
+    resetPush: (ns: string) => reset(ns, HistoryEventType.PUSH),
+    resetReplace: (ns: string) => reset(ns, HistoryEventType.REPLACE),
     unregister: () => {
       set(() => {
         // return a new object for namespaces
