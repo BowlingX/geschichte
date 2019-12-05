@@ -1,6 +1,6 @@
 /* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation */
 import { History } from 'history'
-import produce, { produceWithPatches } from 'immer'
+import { produceWithPatches } from 'immer'
 import { parse, stringify } from 'query-string'
 import { Config, MappedConfig } from './store'
 import {
