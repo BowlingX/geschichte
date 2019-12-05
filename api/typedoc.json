@@ -2130,7 +2130,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 189,
+					"line": 194,
 					"character": 22
 				}
 			]
@@ -2965,7 +2965,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 175,
+					"line": 180,
 					"character": 29
 				}
 			]
@@ -3027,6 +3027,9 @@
 			"flags": {
 				"isConst": true
 			},
+			"comment": {
+				"shortText": "If a namespace is given, will forward the mutation instead of updating\nthe whole state. Initializes the namespace if it does not exist yet"
+			},
 			"signatures": [
 				{
 					"id": 207,
@@ -3034,6 +3037,9 @@
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
+					"comment": {
+						"shortText": "If a namespace is given, will forward the mutation instead of updating\nthe whole state. Initializes the namespace if it does not exist yet"
+					},
 					"parameters": [
 						{
 							"id": 208,
@@ -3078,7 +3084,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 157,
+					"line": 162,
 					"character": 23
 				}
 			]
