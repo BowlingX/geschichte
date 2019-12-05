@@ -3,13 +3,7 @@ import { History } from 'history'
 import LocationState = History.LocationState
 
 import { stringify } from 'query-string'
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState
-} from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { create, StoreApi, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
@@ -97,6 +91,8 @@ export const factoryParameters = <T = object>(
     )
 
     const initialRegisterState = useMemo(() => {
+      // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
+      // the initial state.
       const thisValues = { ...defaultInitialValues }
       const query = applyFlatConfigToState(
         flatConfig,
