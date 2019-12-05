@@ -64,14 +64,16 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#geschichte" id="geschichte" style="color: inherit; text-decoration: none;">
-					<h1>Geschichte</h1>
+				<a href="#📖-geschichte" id="📖-geschichte" style="color: inherit; text-decoration: none;">
+					<h1>📖 Geschichte</h1>
 				</a>
 				<p><img src="https://img.shields.io/circleci/build/gh/BowlingX/geschichte" alt="CircleCI">
 					<img src="https://img.shields.io/codecov/c/github/bowlingx/geschichte" alt="Codecov">
-				<img src="https://img.shields.io/npm/v/geschichte" alt="npm"></p>
-				<p>Let&#39;s you manage query-parameters with hooks. Uses <code>immer</code> and <code>zustand</code> to manage the internal state.</p>
-				<p>Documentation: <a href="https://bowlingx.github.io/geschichte/index.html">https://bowlingx.github.io/geschichte/index.html</a></p>
+					<img src="https://img.shields.io/npm/v/geschichte" alt="npm">
+				<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
+				<p><code>Geschichte</code> (german for Story / Tale) Let&#39;s you manage query-parameters with hooks.
+				Uses <code>immer</code> and <code>zustand</code> to manage the internal state.</p>
+				<p>Documentation &amp; Demo: <a href="https://bowlingx.github.io/geschichte/index.html">https://bowlingx.github.io/geschichte/index.html</a></p>
 				<p>API: <a href="https://bowlingx.github.io/geschichte/api/index.html">https://bowlingx.github.io/geschichte/api/index.html</a></p>
 				<pre><code>yarn <span class="hljs-keyword">add</span><span class="bash"> geschichte</span>
 
@@ -80,29 +82,113 @@ npm install geschichte</code></pre>
 					<h2>Basic Example</h2>
 				</a>
 				<pre><code class="language-typescript">
-import { pm, factoryParameters, serializers } from 'geschichte'
+import Geschichte, { pm, factoryParameters, serializers } from 'geschichte'
+import { createBrowserHistory } from 'history'
 
 const parameterConfig = {
-  item: pm('queryParameter', serializers.string)
+  item: pm('queryParameter', serializers.string (/* a basic collection of serializers is availble, like date, int, float, arrays */))
+  /* ... more keys, any depth. */
 };
 
 const defaultValue = {
-  item: 'defaultValue'
+  item: 'defaultValue' /** it automatically skips null or default values*/
 }
 
-
-const { useQuery } = factoryParameters(parameterConfig, defaultValue);
+const { useQuery } = factoryParameters(parameterConfig, defaultValue,  /** optional namespace, (creates a prefix separated by a dot)*/);
 
 const Component = () =&gt; {
- const { values, pushState, replaceState } = useQuery()
+ const { values, pushState, replaceState, resetPush, resetReplace, createQueryString } = useQuery()
  return (
    &lt;&gt;
      &lt;button onClick={() =&gt; pushState((values) =&gt; void ( values.item = "newValue" ))}&gt;push new state&lt;/button&gt;
      &lt;button onClick={() =&gt; replaceState((values) =&gt; void ( values.item = "anotherOne" ))}&gt;replace state&lt;/button&gt;
+     &lt;button onClick={resetPush}&gt;reset (push) to defaults&lt;/button&gt;
+     &lt;button onClick={resetReplace}&gt;reset (replace) to defaults&lt;/button&gt;
      &lt;div&gt;{JSON.stringify(values)}&lt;/div&gt;
+     &lt;div&gt;The current queryString: {createQueryString()}&lt;/div&gt;
    &lt;/&gt; 
  )
+}
+
+const App = () =&gt; (
+  &lt;Geschichte history={createBrowserHistory()}&gt;
+    &lt;Component /&gt;
+  &lt;/Geschichte&gt;
+)</code></pre>
+				<a href="#concept" id="concept" style="color: inherit; text-decoration: none;">
+					<h2>Concept</h2>
+				</a>
+				<p><code>Geschichte</code> let&#39;s you describe and serialize an arbitrary object of any depth to your browsers query and history.
+					It takes care of updating the next state and current query in a efficient way using <code>immerjs</code>.
+				It works on both the browser and server side (with <code>createMemoryHistory</code>)</p>
+				<a href="#naming" id="naming" style="color: inherit; text-decoration: none;">
+					<h3>Naming</h3>
+				</a>
+				<p>I was inspired by <code>immer</code> and <code>zustand</code>, so I picked a fitting german name :).</p>
+				<a href="#agenda" id="agenda" style="color: inherit; text-decoration: none;">
+					<h2>Agenda</h2>
+				</a>
+				<ul>
+					<li>Add more tests</li>
+					<li>Propper examples and documentation of the full API</li>
+					<li>Describe Use-Cases</li>
+				</ul>
+				<a href="#compability" id="compability" style="color: inherit; text-decoration: none;">
+					<h2>Compability</h2>
+				</a>
+				<p>It works out of the box with react-router (by providing the same <code>history</code> instance).</p>
+				<a href="#using-with-nextjs" id="using-with-nextjs" style="color: inherit; text-decoration: none;">
+					<h3>Using with next.js</h3>
+				</a>
+				<p>Next.js does not give access to all required Router methods (to detect push for example).
+					What works though is to hijack the browser&#39;s <code>pushState</code> and <code>replaceState</code> methods to notify
+				<code>history.js</code> about the change (with <code>replace</code>, so we don&#39;t create an entry).</p>
+				<p>We also need to keep the currrent state, because <code>Geschichte</code> uses a <code>__g__</code> property
+				to mark if it pushes something (to not create an infinite loop :)).</p>
+				<pre><code class="language-js"><span class="hljs-keyword">let</span> globalHistoryObject
+<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span> !== <span class="hljs-string">'undefined'</span>) {
+  <span class="hljs-comment">// <span class="hljs-doctag">FIXME:</span> THIS IS A HACK, but next.js crappy router does not allow otherwise</span>
+  <span class="hljs-comment">// We replace push and replace state to keep the current history state.</span>
+  <span class="hljs-comment">// This will allow next.js and history.js work together</span>
+  <span class="hljs-keyword">const</span> originalPushState = History.prototype.pushState
+  <span class="hljs-keyword">const</span> originalReplaceState = History.prototype.replaceState
+
+  <span class="hljs-comment">// $FlowFixMe: ignore</span>
+  History.prototype.pushState = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
+    <span class="hljs-keyword">let</span> [state, title, url] = args
+    <span class="hljs-keyword">const</span> paramConverterState = state.state &amp;&amp; state.state.__g__
+
+    <span class="hljs-comment">// if the push was issued from the param converter, we update the as url here to make sure next.js</span>
+    <span class="hljs-comment">// does not replace it when we navigate back</span>
+    <span class="hljs-keyword">if</span> (paramConverterState) {
+      state = { ...state, <span class="hljs-attr">as</span>: url }
+    }
+
+    originalPushState.call(
+      <span class="hljs-keyword">this</span>,
+      { ...window.history.state, ...state },
+      title,
+      url
+    )
+    <span class="hljs-comment">// Only if it happened from an external change that was not the param converter</span>
+    <span class="hljs-keyword">if</span> (!paramConverterState) {
+      <span class="hljs-comment">// To make the next url available on the internal history object we replace it with the next url</span>
+      globalHistoryObject.replace(url)
+    }
+  }
+
+  <span class="hljs-comment">// $FlowFixMe: ignore</span>
+  History.prototype.replaceState = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
+    <span class="hljs-keyword">const</span> [state, title, url] = args
+    <span class="hljs-keyword">return</span> originalReplaceState.call(
+      <span class="hljs-keyword">this</span>,
+      { ...window.history.state, ...state },
+      title,
+      url
+    )
+  }
 }</code></pre>
+				<p>An example repo will follow.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
