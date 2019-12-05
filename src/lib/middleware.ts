@@ -127,6 +127,7 @@ export const historyManagement = (historyInstance: History) => apply => (
               state: { __g__: true }
             })
 
+            // We safe the current state of `query` for all affected namespaces
             return {
               ...values,
               namespaces: {
@@ -154,6 +155,10 @@ export const historyManagement = (historyInstance: History) => apply => (
     api
   )
 
+/**
+ * If a namespace is given, will forward the mutation instead of updating
+ * the whole state. Initializes the namespace if it does not exist yet
+ */
 const namespaceProducer = (fn, ns?: string) => state => {
   if (!ns) {
     const result = fn(state.namespaces)
@@ -198,9 +203,6 @@ export const converter = (historyInstance: History) => (set, get) => {
     }
     const nextQueries = parse(location.search)
     const namespaces = get().namespaces
-    // We skip one frame here in case we do route changes
-    // Because we rely on the state listener in store, it does not fire if it's not initialized
-    // TODO: Maybe find a better solution, but everything I tried yielded to double rendering of the component
     Object.keys(namespaces).forEach(ns => {
       set(
         state => {
@@ -245,6 +247,7 @@ export const converter = (historyInstance: History) => (set, get) => {
         HistoryEventType.REPLACE
       )
     },
+    /** the initial queries when the script got executed first (usually on page load). */
     initialQueries,
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
@@ -304,12 +307,12 @@ export const converter = (historyInstance: History) => (set, get) => {
       set(state => fn(state.values), HistoryEventType.REPLACE, ns),
     resetPush: (ns: string) => reset(ns, HistoryEventType.PUSH),
     resetReplace: (ns: string) => reset(ns, HistoryEventType.REPLACE),
+    /** cleans up this instance */
     unregister: () => {
       set(() => {
         // return a new object for namespaces
         return {}
       }, HistoryEventType.REGISTER)
-
       // unregister history event listener
       unregisterListener()
     }

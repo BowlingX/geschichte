@@ -133,7 +133,7 @@ export const factoryParameters = <T = object>(
     }, [api])
 
     const [currentState, setCurrentState] = useState({
-      initialValues: defaultInitialValues,
+      initialValues: initialRegisterState.initialValues,
       values: initialRegisterState.values
     })
 
