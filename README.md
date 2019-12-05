@@ -87,20 +87,18 @@ to mark if it pushes something (to not create an infinite loop :)).
 ```js
 let globalHistoryObject
 if (typeof window !== 'undefined') {
-  // FIXME: THIS IS A HACK, but next.js crappy router does not allow otherwise
   // We replace push and replace state to keep the current history state.
   // This will allow next.js and history.js work together
   const originalPushState = History.prototype.pushState
   const originalReplaceState = History.prototype.replaceState
 
-  // $FlowFixMe: ignore
   History.prototype.pushState = function(...args) {
     let [state, title, url] = args
-    const paramConverterState = state.state && state.state.__g__
+    const historyState = state.state && state.state.__g__
 
-    // if the push was issued from the param converter, we update the as url here to make sure next.js
+    // if the push was issued from Geschichte, we update the as url here to make sure next.js
     // does not replace it when we navigate back
-    if (paramConverterState) {
+    if (historyState) {
       state = { ...state, as: url }
     }
 
@@ -110,14 +108,13 @@ if (typeof window !== 'undefined') {
       title,
       url
     )
-    // Only if it happened from an external change that was not the param converter
-    if (!paramConverterState) {
+    // Only if it happened from an external change that was not done by Geschichte
+    if (!historyState) {
       // To make the next url available on the internal history object we replace it with the next url
       globalHistoryObject.replace(url)
     }
   }
 
-  // $FlowFixMe: ignore
   History.prototype.replaceState = function(...args) {
     const [state, title, url] = args
     return originalReplaceState.call(
