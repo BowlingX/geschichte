@@ -2,6 +2,7 @@
 import { History } from 'history'
 import LocationState = History.LocationState
 
+import memoizeOne from 'memoize-one'
 import { stringify } from 'query-string'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { create, StoreApi, UseStore } from 'zustand'
@@ -58,6 +59,27 @@ export const factoryParameters = <T = object>(
   ns: string = DEFAULT_NAMESPACE
 ) => {
   const flatConfig = flattenConfig(config)
+
+  const initBlank = (initialQueries: object) => {
+    // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
+    // the initial state.
+    const thisValues = { ...defaultInitialValues }
+    const thisQuery = applyFlatConfigToState(
+      flatConfig,
+      initialQueries,
+      ns,
+      thisValues,
+      defaultInitialValues
+    )
+    return {
+      initialValues: defaultInitialValues,
+      query: thisQuery,
+      values: thisValues
+    }
+  }
+
+  const memInitBlank = memoizeOne(initBlank)
+
   const useQuery = () => {
     const [useStore, api] = useContext(StoreContext) as [
       UseStore<StoreState<T>>,
@@ -100,21 +122,7 @@ export const factoryParameters = <T = object>(
           values
         }
       }
-      // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
-      // the initial state.
-      const thisValues = { ...defaultInitialValues }
-      const thisQuery = applyFlatConfigToState(
-        flatConfig,
-        initialQueries,
-        ns,
-        thisValues,
-        defaultInitialValues
-      )
-      return {
-        initialValues: defaultInitialValues,
-        query: thisQuery,
-        values: thisValues
-      }
+      return memInitBlank(initialQueries)
     }, [api])
 
     const [currentState, setCurrentState] = useState({
