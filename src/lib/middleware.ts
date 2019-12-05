@@ -272,7 +272,7 @@ export const converter = (historyInstance: History) => (set, get) => {
       set(
         state => {
           state.subscribers = 1
-          state.unsubscribe = () => {
+          state.unsubscribe = (cb?: () => void) => {
             set(thisState => {
               // it's possible that the state namespace has been cleared by the provider
               if (!thisState[ns]) {
@@ -282,6 +282,9 @@ export const converter = (historyInstance: History) => (set, get) => {
               if (thisState[ns].subscribers === 0) {
                 // tslint:disable-next-line:no-delete
                 delete thisState[ns]
+                if (cb) {
+                  cb()
+                }
               }
             }, HistoryEventType.REGISTER)
           }

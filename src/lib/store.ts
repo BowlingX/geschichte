@@ -58,6 +58,8 @@ export const factoryParameters = <T = object>(
   ns: string = DEFAULT_NAMESPACE
 ) => {
   const flatConfig = flattenConfig(config)
+  // tslint:disable-next-line:no-let
+  let initialCache: { readonly query: object; readonly values: T } | null
   const useQuery = () => {
     const [useStore, api] = useContext(StoreContext) as [
       UseStore<StoreState<T>>,
@@ -91,6 +93,10 @@ export const factoryParameters = <T = object>(
     )
 
     const initialRegisterState = useMemo(() => {
+      // in case this namespace has been initialized already, reuse the result.
+      if (initialCache) {
+        return initialCache
+      }
       // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
       // the initial state.
       const thisValues = { ...defaultInitialValues }
@@ -101,10 +107,11 @@ export const factoryParameters = <T = object>(
         thisValues,
         defaultInitialValues
       )
-      return {
+      initialCache = {
         query,
         values: thisValues
       }
+      return initialCache
     }, [])
 
     const [currentState, setCurrentState] = useState({
@@ -139,8 +146,11 @@ export const factoryParameters = <T = object>(
       )
 
       return () => {
-        unregister()
         unsubscribe()
+        unregister(() => {
+          // When all subscribers are removed, we also clear the cache
+          initialCache = null
+        })
       }
     }, [])
 
