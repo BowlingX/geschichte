@@ -24,7 +24,7 @@ import Geschichte, { pm, factoryParameters, serializers } from 'geschichte'
 import { createBrowserHistory } from 'history'
 
 const parameterConfig = {
-  item: pm('queryParameter', serializers.string (/* a basic collection of serializers is availble, like date, int, float, arrays */))
+  item: pm('queryParameter', serializers.string /** a basic collection of serializers is availble, like date, int, float, arrays */ )
   /* ... more keys, any depth. */
 };
 
