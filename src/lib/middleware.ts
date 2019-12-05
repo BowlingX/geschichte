@@ -182,7 +182,6 @@ export const immerWithPatches = config => (set, get, api) =>
   )
 
 export const converter = (historyInstance: History) => (set, get) => {
-  const initialQueries = parse(historyInstance.location.search)
   const unregisterListener = historyInstance.listen((location, action) => {
     // don't handle our own actions
     if (
@@ -283,7 +282,7 @@ export const converter = (historyInstance: History) => (set, get) => {
           state.values = { ...initialValues }
           state.query = applyFlatConfigToState(
             mappedConfig,
-            initialQueries,
+            parse(historyInstance.location.search),
             ns,
             state.values,
             state.initialValues
