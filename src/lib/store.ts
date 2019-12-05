@@ -181,7 +181,7 @@ export const factoryParameters = <T = object>(
 
     return useMemo(
       () => ({
-        createQuery,
+        createQuery: (customValues?: T) => createQuery(customValues || values),
         createQueryString: (customValues?: T) =>
           stringify(createQuery(customValues || values)),
         initialValues,
