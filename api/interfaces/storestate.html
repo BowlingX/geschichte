@@ -89,10 +89,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#initialqueries" class="tsd-kind-icon">initial<wbr>Queries</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#namespaces" class="tsd-kind-icon">namespaces</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#pushstate" class="tsd-kind-icon">push<wbr>State</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#register" class="tsd-kind-icon">register</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#replacestate" class="tsd-kind-icon">replace<wbr>State</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#resetpush" class="tsd-kind-icon">reset<wbr>Push</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#resetreplace" class="tsd-kind-icon">reset<wbr>Replace</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="storestate.html#unregister" class="tsd-kind-icon">unregister</a></li>
 							</ul>
 						</section>
@@ -102,12 +105,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="initialqueries" class="tsd-anchor"></a>
+					<h3>initial<wbr>Queries</h3>
+					<div class="tsd-signature tsd-kind-icon">initial<wbr>Queries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L56">lib/middleware.ts:56</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="namespaces" class="tsd-anchor"></a>
 					<h3>namespaces</h3>
 					<div class="tsd-signature tsd-kind-icon">namespaces<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0e2a64a/src/lib/middleware.ts#L38">lib/middleware.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L38">lib/middleware.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -125,7 +138,7 @@
 					<div class="tsd-signature tsd-kind-icon">push<wbr>State<span class="tsd-signature-symbol">:</span> <a href="../globals.html#pushstatefunction" class="tsd-signature-type">PushStateFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ValueState</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0e2a64a/src/lib/middleware.ts#L41">lib/middleware.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L41">lib/middleware.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -135,7 +148,7 @@
 					<div class="tsd-signature tsd-kind-icon">register<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0e2a64a/src/lib/middleware.ts#L44">lib/middleware.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L44">lib/middleware.ts:44</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -148,7 +161,7 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="config.html" class="tsd-signature-type">Config</a>, mappedConfig<span class="tsd-signature-symbol">: </span><a href="mappedconfig.html" class="tsd-signature-type">MappedConfig</a>, ns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, initialValues<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">ValueState</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">: </span><a href="config.html" class="tsd-signature-type">Config</a>, mappedConfig<span class="tsd-signature-symbol">: </span><a href="mappedconfig.html" class="tsd-signature-type">MappedConfig</a>, ns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, initialValues<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueState</span>, query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, values<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ValueState</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
@@ -164,7 +177,13 @@
 												<h5>ns: <span class="tsd-signature-type">string</span></h5>
 											</li>
 											<li>
-												<h5><span class="tsd-flag ts-flagOptional">Optional</span> initialValues: <a href="" class="tsd-signature-type">ValueState</a></h5>
+												<h5>initialValues: <span class="tsd-signature-type">ValueState</span></h5>
+											</li>
+											<li>
+												<h5>query: <span class="tsd-signature-type">object</span></h5>
+											</li>
+											<li>
+												<h5>values: <span class="tsd-signature-type">ValueState</span></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -180,9 +199,71 @@
 					<div class="tsd-signature tsd-kind-icon">replace<wbr>State<span class="tsd-signature-symbol">:</span> <a href="../globals.html#replacestatefunction" class="tsd-signature-type">ReplaceStateFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ValueState</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0e2a64a/src/lib/middleware.ts#L42">lib/middleware.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L42">lib/middleware.ts:42</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="resetpush" class="tsd-anchor"></a>
+					<h3>reset<wbr>Push</h3>
+					<div class="tsd-signature tsd-kind-icon">reset<wbr>Push<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L54">lib/middleware.ts:54</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>ns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>ns: <span class="tsd-signature-type">string</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="resetreplace" class="tsd-anchor"></a>
+					<h3>reset<wbr>Replace</h3>
+					<div class="tsd-signature tsd-kind-icon">reset<wbr>Replace<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L55">lib/middleware.ts:55</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>ns<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>ns: <span class="tsd-signature-type">string</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="unregister" class="tsd-anchor"></a>
@@ -190,7 +271,7 @@
 					<div class="tsd-signature tsd-kind-icon">unregister<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0e2a64a/src/lib/middleware.ts#L51">lib/middleware.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/5051792/src/lib/middleware.ts#L53">lib/middleware.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -232,6 +313,9 @@
 						<a href="storestate.html" class="tsd-kind-icon">Store<wbr>State</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storestate.html#initialqueries" class="tsd-kind-icon">initial<wbr>Queries</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="storestate.html#namespaces" class="tsd-kind-icon">namespaces</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -242,6 +326,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="storestate.html#replacestate" class="tsd-kind-icon">replace<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storestate.html#resetpush" class="tsd-kind-icon">reset<wbr>Push</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="storestate.html#resetreplace" class="tsd-kind-icon">reset<wbr>Replace</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="storestate.html#unregister" class="tsd-kind-icon">unregister</a>
