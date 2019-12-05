@@ -1,7 +1,6 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { History } from 'history'
 import LocationState = History.LocationState
-import memoizeOne from 'memoize-one'
 
 import { stringify } from 'query-string'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
@@ -59,11 +58,6 @@ export const factoryParameters = <T = object>(
   ns: string = DEFAULT_NAMESPACE
 ) => {
   const flatConfig = flattenConfig(config)
-  const memoizedApplyFlatConfigToState = memoizeOne(
-    applyFlatConfigToState,
-    ([, nextInitialQueries, nextNs], [, previousInitialQueries, previousNs]) =>
-      nextNs === previousNs && nextInitialQueries === previousInitialQueries
-  )
   const useQuery = () => {
     const [useStore, api] = useContext(StoreContext) as [
       UseStore<StoreState<T>>,
@@ -109,7 +103,7 @@ export const factoryParameters = <T = object>(
       // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
       // the initial state.
       const thisValues = { ...defaultInitialValues }
-      const thisQuery = memoizedApplyFlatConfigToState(
+      const thisQuery = applyFlatConfigToState(
         flatConfig,
         initialQueries,
         ns,

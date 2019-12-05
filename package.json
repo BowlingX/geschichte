@@ -50,8 +50,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
-    "query-string": "^6.9.0",
-    "memoize-one": "^5.1.1"
+    "query-string": "^6.9.0"
   },
   "peerDependencies": {
     "history": "^4",
