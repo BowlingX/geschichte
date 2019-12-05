@@ -147,20 +147,18 @@ const App = () =&gt; (
 				to mark if it pushes something (to not create an infinite loop :)).</p>
 				<pre><code class="language-js"><span class="hljs-keyword">let</span> globalHistoryObject
 <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span> !== <span class="hljs-string">'undefined'</span>) {
-  <span class="hljs-comment">// <span class="hljs-doctag">FIXME:</span> THIS IS A HACK, but next.js crappy router does not allow otherwise</span>
   <span class="hljs-comment">// We replace push and replace state to keep the current history state.</span>
   <span class="hljs-comment">// This will allow next.js and history.js work together</span>
   <span class="hljs-keyword">const</span> originalPushState = History.prototype.pushState
   <span class="hljs-keyword">const</span> originalReplaceState = History.prototype.replaceState
 
-  <span class="hljs-comment">// $FlowFixMe: ignore</span>
   History.prototype.pushState = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
     <span class="hljs-keyword">let</span> [state, title, url] = args
-    <span class="hljs-keyword">const</span> paramConverterState = state.state &amp;&amp; state.state.__g__
+    <span class="hljs-keyword">const</span> historyState = state.state &amp;&amp; state.state.__g__
 
-    <span class="hljs-comment">// if the push was issued from the param converter, we update the as url here to make sure next.js</span>
+    <span class="hljs-comment">// if the push was issued from Geschichte, we update the as url here to make sure next.js</span>
     <span class="hljs-comment">// does not replace it when we navigate back</span>
-    <span class="hljs-keyword">if</span> (paramConverterState) {
+    <span class="hljs-keyword">if</span> (historyState) {
       state = { ...state, <span class="hljs-attr">as</span>: url }
     }
 
@@ -170,14 +168,13 @@ const App = () =&gt; (
       title,
       url
     )
-    <span class="hljs-comment">// Only if it happened from an external change that was not the param converter</span>
-    <span class="hljs-keyword">if</span> (!paramConverterState) {
+    <span class="hljs-comment">// Only if it happened from an external change that was not done by Geschichte</span>
+    <span class="hljs-keyword">if</span> (!historyState) {
       <span class="hljs-comment">// To make the next url available on the internal history object we replace it with the next url</span>
       globalHistoryObject.replace(url)
     }
   }
 
-  <span class="hljs-comment">// $FlowFixMe: ignore</span>
   History.prototype.replaceState = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
     <span class="hljs-keyword">const</span> [state, title, url] = args
     <span class="hljs-keyword">return</span> originalReplaceState.call(
