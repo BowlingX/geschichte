@@ -4,7 +4,14 @@ import LocationState = History.LocationState
 
 import memoizeOne from 'memoize-one'
 import { stringify } from 'query-string'
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import { create, StoreApi, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
@@ -165,17 +172,18 @@ export const factoryParameters = <T = object>(
     const values = currentState.values
     const initialValues = currentState.initialValues
 
+    const createQuery = useCallback(
+      (values: T) => {
+        return createQueryObject(flatConfig, ns, values, initialValues)
+      },
+      [initialValues]
+    )
+
     return useMemo(
       () => ({
-        createQueryString: (customValues?: object) =>
-          stringify(
-            createQueryObject(
-              flatConfig,
-              ns,
-              customValues || values,
-              initialValues
-            )
-          ),
+        createQuery,
+        createQueryString: (customValues?: T) =>
+          stringify(createQuery(customValues || values)),
         initialValues,
         pushState: (state: (state: T) => void) => pushState(ns, state),
         replaceState: (state: (state: T) => void) => replaceState(ns, state),
@@ -183,7 +191,15 @@ export const factoryParameters = <T = object>(
         resetReplace: () => resetReplace(ns),
         values
       }),
-      [values, initialValues, pushState, replaceState, resetPush, resetReplace]
+      [
+        values,
+        initialValues,
+        pushState,
+        replaceState,
+        resetPush,
+        resetReplace,
+        createQuery
+      ]
     )
   }
 
