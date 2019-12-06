@@ -5,7 +5,7 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 141,
+			"id": 175,
 			"name": "HistoryEventType",
 			"kind": 4,
 			"kindString": "Enumeration",
@@ -14,7 +14,7 @@
 			},
 			"children": [
 				{
-					"id": 142,
+					"id": 176,
 					"name": "PUSH",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -24,13 +24,13 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 12,
+							"line": 13,
 							"character": 6
 						}
 					]
 				},
 				{
-					"id": 144,
+					"id": 178,
 					"name": "REGISTER",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -40,13 +40,13 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 14,
+							"line": 15,
 							"character": 10
 						}
 					]
 				},
 				{
-					"id": 143,
+					"id": 177,
 					"name": "REPLACE",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -56,7 +56,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 13,
+							"line": 14,
 							"character": 9
 						}
 					]
@@ -67,22 +67,22 @@
 					"title": "Enumeration members",
 					"kind": 16,
 					"children": [
-						142,
-						144,
-						143
+						176,
+						178,
+						177
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 11,
+					"line": 12,
 					"character": 28
 				}
 			]
 		},
 		{
-			"id": 223,
+			"id": 150,
 			"name": "Config",
 			"kind": 256,
 			"kindString": "Interface",
@@ -91,14 +91,14 @@
 			},
 			"indexSignature": [
 				{
-					"id": 224,
+					"id": 151,
 					"name": "__index",
 					"kind": 8192,
 					"kindString": "Index signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 225,
+							"id": 152,
 							"name": "propName",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -115,19 +115,19 @@
 							{
 								"type": "reference",
 								"name": "Config",
-								"id": 223
+								"id": 150
 							},
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 226,
+									"id": 153,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 227,
+											"id": 154,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
@@ -135,7 +135,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Parameter",
-												"id": 216
+												"id": 143
 											}
 										}
 									],
@@ -161,7 +161,107 @@
 			]
 		},
 		{
-			"id": 228,
+			"id": 179,
+			"name": "GenericObject",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"indexSignature": [
+				{
+					"id": 180,
+					"name": "__index",
+					"kind": 8192,
+					"kindString": "Index signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 181,
+							"name": "key",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "any"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 18,
+					"character": 30
+				}
+			]
+		},
+		{
+			"id": 193,
+			"name": "InnerNamespace",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 194,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"indexSignature": [
+				{
+					"id": 195,
+					"name": "__index",
+					"kind": 8192,
+					"kindString": "Index signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 196,
+							"name": "ns",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "NamespaceValues",
+						"id": 182,
+						"typeArguments": [
+							{
+								"type": "typeParameter",
+								"name": "T"
+							}
+						]
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 42,
+					"character": 31
+				}
+			]
+		},
+		{
+			"id": 155,
 			"name": "MappedConfig",
 			"kind": 256,
 			"kindString": "Interface",
@@ -170,14 +270,14 @@
 			},
 			"indexSignature": [
 				{
-					"id": 229,
+					"id": 156,
 					"name": "__index",
 					"kind": 8192,
 					"kindString": "Index signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 230,
+							"id": 157,
 							"name": "queryParameter",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -191,7 +291,7 @@
 					"type": {
 						"type": "reference",
 						"name": "MappedParameter",
-						"id": 219
+						"id": 146
 					}
 				}
 			],
@@ -204,7 +304,7 @@
 			]
 		},
 		{
-			"id": 219,
+			"id": 146,
 			"name": "MappedParameter",
 			"kind": 256,
 			"kindString": "Interface",
@@ -213,7 +313,7 @@
 			},
 			"children": [
 				{
-					"id": 221,
+					"id": 148,
 					"name": "name",
 					"kind": 1024,
 					"kindString": "Property",
@@ -234,11 +334,11 @@
 					"inheritedFrom": {
 						"type": "reference",
 						"name": "Parameter.name",
-						"id": 217
+						"id": 144
 					}
 				},
 				{
-					"id": 220,
+					"id": 147,
 					"name": "path",
 					"kind": 1024,
 					"kindString": "Property",
@@ -265,7 +365,7 @@
 					}
 				},
 				{
-					"id": 222,
+					"id": 149,
 					"name": "serializer",
 					"kind": 1024,
 					"kindString": "Property",
@@ -287,7 +387,7 @@
 					"inheritedFrom": {
 						"type": "reference",
 						"name": "Parameter.serializer",
-						"id": 218
+						"id": 145
 					}
 				}
 			],
@@ -296,9 +396,9 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						221,
-						220,
-						222
+						148,
+						147,
+						149
 					]
 				}
 			],
@@ -313,12 +413,12 @@
 				{
 					"type": "reference",
 					"name": "Parameter",
-					"id": 216
+					"id": 143
 				}
 			]
 		},
 		{
-			"id": 145,
+			"id": 182,
 			"name": "NamespaceValues",
 			"kind": 256,
 			"kindString": "Interface",
@@ -327,7 +427,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 146,
+					"id": 183,
 					"name": "ValueState",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -336,7 +436,7 @@
 			],
 			"children": [
 				{
-					"id": 151,
+					"id": 188,
 					"name": "config",
 					"kind": 1024,
 					"kindString": "Property",
@@ -346,18 +446,18 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 23,
+							"line": 28,
 							"character": 8
 						}
 					],
 					"type": {
 						"type": "reference",
 						"name": "Config",
-						"id": 223
+						"id": 150
 					}
 				},
 				{
-					"id": 149,
+					"id": 186,
 					"name": "initialValues",
 					"kind": 1024,
 					"kindString": "Property",
@@ -367,7 +467,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 21,
+							"line": 26,
 							"character": 15
 						}
 					],
@@ -377,7 +477,7 @@
 					}
 				},
 				{
-					"id": 150,
+					"id": 187,
 					"name": "mappedConfig",
 					"kind": 1024,
 					"kindString": "Property",
@@ -387,18 +487,18 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 22,
+							"line": 27,
 							"character": 14
 						}
 					],
 					"type": {
 						"type": "reference",
 						"name": "MappedConfig",
-						"id": 228
+						"id": 155
 					}
 				},
 				{
-					"id": 152,
+					"id": 189,
 					"name": "query",
 					"kind": 1024,
 					"kindString": "Property",
@@ -408,7 +508,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 24,
+							"line": 29,
 							"character": 7
 						}
 					],
@@ -418,7 +518,7 @@
 					}
 				},
 				{
-					"id": 147,
+					"id": 184,
 					"name": "subscribers",
 					"kind": 1024,
 					"kindString": "Property",
@@ -431,7 +531,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 19,
+							"line": 24,
 							"character": 13
 						}
 					],
@@ -441,7 +541,7 @@
 					}
 				},
 				{
-					"id": 153,
+					"id": 190,
 					"name": "unsubscribe",
 					"kind": 1024,
 					"kindString": "Property",
@@ -451,21 +551,21 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 25,
+							"line": 30,
 							"character": 13
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 154,
+							"id": 191,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 155,
+									"id": 192,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -479,7 +579,7 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 25,
+									"line": 30,
 									"character": 14
 								}
 							]
@@ -487,7 +587,7 @@
 					}
 				},
 				{
-					"id": 148,
+					"id": 185,
 					"name": "values",
 					"kind": 1024,
 					"kindString": "Property",
@@ -497,7 +597,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 20,
+							"line": 25,
 							"character": 8
 						}
 					],
@@ -512,26 +612,26 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						151,
-						149,
-						150,
-						152,
-						147,
-						153,
-						148
+						188,
+						186,
+						187,
+						189,
+						184,
+						190,
+						185
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 17,
+					"line": 22,
 					"character": 32
 				}
 			]
 		},
 		{
-			"id": 216,
+			"id": 143,
 			"name": "Parameter",
 			"kind": 256,
 			"kindString": "Interface",
@@ -540,7 +640,7 @@
 			},
 			"children": [
 				{
-					"id": 217,
+					"id": 144,
 					"name": "name",
 					"kind": 1024,
 					"kindString": "Property",
@@ -560,7 +660,7 @@
 					}
 				},
 				{
-					"id": 218,
+					"id": 145,
 					"name": "serializer",
 					"kind": 1024,
 					"kindString": "Property",
@@ -586,8 +686,8 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						217,
-						218
+						144,
+						145
 					]
 				}
 			],
@@ -602,19 +702,19 @@
 				{
 					"type": "reference",
 					"name": "MappedParameter",
-					"id": 219
+					"id": 146
 				}
 			]
 		},
 		{
-			"id": 245,
+			"id": 335,
 			"name": "Props",
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
 			"children": [
 				{
-					"id": 246,
+					"id": 336,
 					"name": "history",
 					"kind": 1024,
 					"kindString": "Property",
@@ -625,7 +725,7 @@
 					"sources": [
 						{
 							"fileName": "lib/provider.tsx",
-							"line": 8,
+							"line": 10,
 							"character": 18
 						}
 					],
@@ -640,14 +740,14 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						246
+						336
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "lib/provider.tsx",
-					"line": 6,
+					"line": 8,
 					"character": 15
 				}
 			]
@@ -810,7 +910,7 @@
 			]
 		},
 		{
-			"id": 156,
+			"id": 197,
 			"name": "StoreState",
 			"kind": 256,
 			"kindString": "Interface",
@@ -819,7 +919,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 157,
+					"id": 198,
 					"name": "ValueState",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -828,7 +928,263 @@
 			],
 			"children": [
 				{
-					"id": 184,
+					"id": 207,
+					"name": "batchPushState",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 50,
+							"character": 16
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 208,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 209,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 210,
+											"name": "ns",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "typeOperator",
+												"operator": "keyof",
+												"target": {
+													"type": "array",
+													"elementType": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											}
+										},
+										{
+											"id": 211,
+											"name": "fn",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 212,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 213,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 214,
+																	"name": "valueState",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "typeParameter",
+																			"name": "ValueState"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "reference",
+																"name": "InnerNamespace",
+																"id": 193,
+																"typeArguments": [
+																	{
+																		"type": "typeParameter",
+																		"name": "ValueState"
+																	}
+																]
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "lib/middleware.ts",
+															"line": 52,
+															"character": 7
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/middleware.ts",
+									"line": 50,
+									"character": 17
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 199,
+					"name": "batchReplaceState",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 46,
+							"character": 19
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 200,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 201,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 202,
+											"name": "ns",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "typeOperator",
+												"operator": "keyof",
+												"target": {
+													"type": "array",
+													"elementType": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											}
+										},
+										{
+											"id": 203,
+											"name": "fn",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 204,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 205,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 206,
+																	"name": "valueState",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {
+																		"isRest": true
+																	},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "typeParameter",
+																			"name": "ValueState"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "reference",
+																"name": "InnerNamespace",
+																"id": 193,
+																"typeArguments": [
+																	{
+																		"type": "typeParameter",
+																		"name": "ValueState"
+																	}
+																]
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "lib/middleware.ts",
+															"line": 48,
+															"character": 7
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/middleware.ts",
+									"line": 46,
+									"character": 20
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 240,
 					"name": "initialQueries",
 					"kind": 1024,
 					"kindString": "Property",
@@ -838,7 +1194,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 56,
+							"line": 70,
 							"character": 16
 						}
 					],
@@ -848,7 +1204,7 @@
 					}
 				},
 				{
-					"id": 158,
+					"id": 215,
 					"name": "namespaces",
 					"kind": 1024,
 					"kindString": "Property",
@@ -858,80 +1214,14 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 38,
+							"line": 54,
 							"character": 12
 						}
 					],
 					"type": {
-						"type": "reflection",
-						"declaration": {
-							"id": 159,
-							"name": "__type",
-							"kind": 65536,
-							"kindString": "Type literal",
-							"flags": {},
-							"indexSignature": [
-								{
-									"id": 160,
-									"name": "__index",
-									"kind": 8192,
-									"kindString": "Index signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 161,
-											"name": "name",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
-										}
-									],
-									"type": {
-										"type": "reference",
-										"name": "NamespaceValues",
-										"id": 145,
-										"typeArguments": [
-											{
-												"type": "typeParameter",
-												"name": "ValueState"
-											}
-										]
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "lib/middleware.ts",
-									"line": 38,
-									"character": 13
-								}
-							]
-						}
-					}
-				},
-				{
-					"id": 162,
-					"name": "pushState",
-					"kind": 1024,
-					"kindString": "Property",
-					"flags": {
-						"isExported": true
-					},
-					"sources": [
-						{
-							"fileName": "lib/middleware.ts",
-							"line": 41,
-							"character": 11
-						}
-					],
-					"type": {
 						"type": "reference",
-						"name": "PushStateFunction",
-						"id": 185,
+						"name": "InnerNamespace",
+						"id": 193,
 						"typeArguments": [
 							{
 								"type": "typeParameter",
@@ -941,7 +1231,34 @@
 					}
 				},
 				{
-					"id": 164,
+					"id": 216,
+					"name": "pushState",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 55,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "PushStateFunction",
+						"id": 241,
+						"typeArguments": [
+							{
+								"type": "typeParameter",
+								"name": "ValueState"
+							}
+						]
+					}
+				},
+				{
+					"id": 218,
 					"name": "register",
 					"kind": 1024,
 					"kindString": "Property",
@@ -954,28 +1271,28 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 44,
+							"line": 58,
 							"character": 10
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 165,
+							"id": 219,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 166,
+									"id": 220,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 167,
+											"id": 221,
 											"name": "config",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -983,11 +1300,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Config",
-												"id": 223
+												"id": 150
 											}
 										},
 										{
-											"id": 168,
+											"id": 222,
 											"name": "mappedConfig",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -995,11 +1312,11 @@
 											"type": {
 												"type": "reference",
 												"name": "MappedConfig",
-												"id": 228
+												"id": 155
 											}
 										},
 										{
-											"id": 169,
+											"id": 223,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1010,7 +1327,7 @@
 											}
 										},
 										{
-											"id": 170,
+											"id": 224,
 											"name": "initialValues",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1021,7 +1338,7 @@
 											}
 										},
 										{
-											"id": 171,
+											"id": 225,
 											"name": "query",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1032,7 +1349,7 @@
 											}
 										},
 										{
-											"id": 172,
+											"id": 226,
 											"name": "values",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1044,15 +1361,41 @@
 										}
 									],
 									"type": {
-										"type": "intrinsic",
-										"name": "void"
+										"type": "reflection",
+										"declaration": {
+											"id": 227,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 228,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "lib/middleware.ts",
+													"line": 65,
+													"character": 6
+												}
+											]
+										}
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 44,
+									"line": 58,
 									"character": 11
 								}
 							]
@@ -1060,7 +1403,7 @@
 					}
 				},
 				{
-					"id": 163,
+					"id": 217,
 					"name": "replaceState",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1070,14 +1413,14 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 42,
+							"line": 56,
 							"character": 14
 						}
 					],
 					"type": {
 						"type": "reference",
 						"name": "ReplaceStateFunction",
-						"id": 194,
+						"id": 250,
 						"typeArguments": [
 							{
 								"type": "typeParameter",
@@ -1087,7 +1430,7 @@
 					}
 				},
 				{
-					"id": 176,
+					"id": 232,
 					"name": "resetPush",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1097,28 +1440,28 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 54,
+							"line": 68,
 							"character": 11
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 177,
+							"id": 233,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 178,
+									"id": 234,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 179,
+											"id": 235,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1138,7 +1481,7 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 54,
+									"line": 68,
 									"character": 12
 								}
 							]
@@ -1146,7 +1489,7 @@
 					}
 				},
 				{
-					"id": 180,
+					"id": 236,
 					"name": "resetReplace",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1156,28 +1499,28 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 55,
+							"line": 69,
 							"character": 14
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 181,
+							"id": 237,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 182,
+									"id": 238,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 183,
+											"id": 239,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1197,7 +1540,7 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 55,
+									"line": 69,
 									"character": 15
 								}
 							]
@@ -1205,7 +1548,7 @@
 					}
 				},
 				{
-					"id": 173,
+					"id": 229,
 					"name": "unregister",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1218,21 +1561,21 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 53,
+							"line": 67,
 							"character": 12
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 174,
+							"id": 230,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 175,
+									"id": 231,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1246,7 +1589,7 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 53,
+									"line": 67,
 									"character": 13
 								}
 							]
@@ -1259,27 +1602,762 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						184,
-						158,
-						162,
-						164,
-						163,
-						176,
-						180,
-						173
+						207,
+						199,
+						240,
+						215,
+						216,
+						218,
+						217,
+						232,
+						236,
+						229
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 37,
+					"line": 45,
 					"character": 27
 				}
 			]
 		},
 		{
-			"id": 185,
+			"id": 276,
+			"name": "GenericConverter",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 277,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 83,
+					"character": 28
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 278,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 279,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 280,
+									"name": "stateProducer",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "InnerNamespaceProducerFunction",
+										"id": 264,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									}
+								},
+								{
+									"id": 281,
+									"name": "eventType",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "HistoryEventType",
+										"id": 175
+									}
+								},
+								{
+									"id": 282,
+									"name": "ns",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 83,
+							"character": 33
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 283,
+			"name": "ImmerProducer",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 284,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 89,
+					"character": 25
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 285,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 286,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 287,
+									"name": "stateMapper",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 288,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 289,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 290,
+															"name": "changes",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "reference",
+																	"name": "Patch"
+																}
+															}
+														},
+														{
+															"id": 291,
+															"name": "values",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"name": "StoreState",
+																"id": 197,
+																"typeArguments": [
+																	{
+																		"type": "typeParameter",
+																		"name": "T"
+																	}
+																]
+															}
+														}
+													],
+													"type": {
+														"type": "reference",
+														"name": "StoreState",
+														"id": 197,
+														"typeArguments": [
+															{
+																"type": "typeParameter",
+																"name": "T"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "lib/middleware.ts",
+													"line": 90,
+													"character": 14
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 292,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intersection",
+										"types": [
+											{
+												"type": "reference",
+												"name": "NamespaceProducerFunction",
+												"id": 259,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T"
+													}
+												]
+											},
+											{
+												"type": "reference",
+												"name": "InnerNamespaceProducerFunction",
+												"id": 264,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T"
+													}
+												]
+											}
+										]
+									}
+								},
+								{
+									"id": 293,
+									"name": "eventType",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "HistoryEventType",
+										"id": 175
+									}
+								},
+								{
+									"id": 294,
+									"name": "ns",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 89,
+							"character": 30
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 311,
+			"name": "ImmerStateCreator",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 312,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"name": "State"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 234,
+					"character": 37
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 313,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 314,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 315,
+									"name": "fn",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "ImmerProducer",
+										"id": 283,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T",
+												"constraint": {
+													"type": "reference",
+													"name": "State"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 316,
+									"name": "get",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "GetState",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 197,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T",
+														"constraint": {
+															"type": "reference",
+															"name": "State"
+														}
+													}
+												]
+											}
+										]
+									}
+								},
+								{
+									"id": 317,
+									"name": "api",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "StoreApi",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 197,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T",
+														"constraint": {
+															"type": "reference",
+															"name": "State"
+														}
+													}
+												]
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "StoreState",
+								"id": 197,
+								"typeArguments": [
+									{
+										"type": "typeParameter",
+										"name": "T",
+										"constraint": {
+											"type": "reference",
+											"name": "State"
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 234,
+							"character": 56
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 264,
+			"name": "InnerNamespaceProducerFunction",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"typeParameter": [
+				{
+					"id": 265,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 74,
+					"character": 35
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 266,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 267,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 268,
+									"name": "state",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "InnerNamespace",
+										"id": 193,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"name": "InnerNamespace",
+										"id": 193,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									},
+									{
+										"type": "intrinsic",
+										"name": "void"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 74,
+							"character": 40
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 269,
+			"name": "NamespaceProducer",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 270,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 78,
+					"character": 29
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 271,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 272,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 273,
+									"name": "stateProducer",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "NamespaceProducerFunction",
+										"id": 259,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									}
+								},
+								{
+									"id": 274,
+									"name": "eventType",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "HistoryEventType",
+										"id": 175
+									}
+								},
+								{
+									"id": 275,
+									"name": "ns",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isOptional": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "undefined"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 78,
+							"character": 34
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 259,
+			"name": "NamespaceProducerFunction",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {},
+			"typeParameter": [
+				{
+					"id": 260,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 73,
+					"character": 30
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 261,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 262,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 263,
+									"name": "state",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "NamespaceValues",
+										"id": 182,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 73,
+							"character": 35
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 241,
 			"name": "PushStateFunction",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -1288,7 +2366,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 186,
+					"id": 242,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -1298,28 +2376,28 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 28,
+					"line": 33,
 					"character": 29
 				}
 			],
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 187,
+					"id": 243,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 188,
+							"id": 244,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 189,
+									"id": 245,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1330,7 +2408,7 @@
 									}
 								},
 								{
-									"id": 190,
+									"id": 246,
 									"name": "valueCreator",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1338,21 +2416,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 191,
+											"id": 247,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 192,
+													"id": 248,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 193,
+															"id": 249,
 															"name": "state",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1372,7 +2450,7 @@
 											"sources": [
 												{
 													"fileName": "lib/middleware.ts",
-													"line": 30,
+													"line": 35,
 													"character": 15
 												}
 											]
@@ -1389,7 +2467,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 28,
+							"line": 33,
 							"character": 34
 						}
 					]
@@ -1397,7 +2475,7 @@
 			}
 		},
 		{
-			"id": 194,
+			"id": 250,
 			"name": "ReplaceStateFunction",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -1406,7 +2484,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 195,
+					"id": 251,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -1416,28 +2494,28 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 32,
+					"line": 37,
 					"character": 32
 				}
 			],
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 196,
+					"id": 252,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 197,
+							"id": 253,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 198,
+									"id": 254,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1448,7 +2526,7 @@
 									}
 								},
 								{
-									"id": 199,
+									"id": 255,
 									"name": "valueCreator",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1456,21 +2534,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 200,
+											"id": 256,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 201,
+													"id": 257,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 202,
+															"id": 258,
 															"name": "state",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1490,7 +2568,7 @@
 											"sources": [
 												{
 													"fileName": "lib/middleware.ts",
-													"line": 34,
+													"line": 39,
 													"character": 15
 												}
 											]
@@ -1507,7 +2585,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 32,
+							"line": 37,
 							"character": 37
 						}
 					]
@@ -1515,7 +2593,295 @@
 			}
 		},
 		{
-			"id": 231,
+			"id": 318,
+			"name": "SetImmerState",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 319,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 240,
+					"character": 33
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 320,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 321,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 322,
+									"name": "stateProducer",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 323,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 324,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 325,
+															"name": "state",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "typeParameter",
+																"name": "T"
+															}
+														}
+													],
+													"type": {
+														"type": "typeParameter",
+														"name": "T"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "lib/middleware.ts",
+													"line": 241,
+													"character": 16
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 326,
+									"name": "debugMiddlewareKey",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 240,
+							"character": 38
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 295,
+			"name": "StateCreator",
+			"kind": 4194304,
+			"kindString": "Type alias",
+			"flags": {
+				"isExported": true
+			},
+			"typeParameter": [
+				{
+					"id": 296,
+					"name": "T",
+					"kind": 131072,
+					"kindString": "Type parameter",
+					"flags": {},
+					"type": {
+						"type": "reference",
+						"name": "State"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/middleware.ts",
+					"line": 96,
+					"character": 32
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 297,
+					"name": "__type",
+					"kind": 65536,
+					"kindString": "Type literal",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 298,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 299,
+									"name": "set",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intersection",
+										"types": [
+											{
+												"type": "reference",
+												"name": "NamespaceProducer",
+												"id": 269,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T",
+														"constraint": {
+															"type": "reference",
+															"name": "State"
+														}
+													}
+												]
+											},
+											{
+												"type": "reference",
+												"name": "GenericConverter",
+												"id": 276,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T",
+														"constraint": {
+															"type": "reference",
+															"name": "State"
+														}
+													}
+												]
+											}
+										]
+									}
+								},
+								{
+									"id": 300,
+									"name": "get",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "GetState",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 197,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T",
+														"constraint": {
+															"type": "reference",
+															"name": "State"
+														}
+													}
+												]
+											}
+										]
+									}
+								},
+								{
+									"id": 301,
+									"name": "api",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "StoreApi",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 197,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T",
+														"constraint": {
+															"type": "reference",
+															"name": "State"
+														}
+													}
+												]
+											}
+										]
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "StoreState",
+								"id": 197,
+								"typeArguments": [
+									{
+										"type": "typeParameter",
+										"name": "T",
+										"constraint": {
+											"type": "reference",
+											"name": "State"
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 96,
+							"character": 51
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 158,
 			"name": "DEFAULT_NAMESPACE",
 			"kind": 32,
 			"kindString": "Variable",
@@ -1537,7 +2903,7 @@
 			"defaultValue": "\"default\""
 		},
 		{
-			"id": 232,
+			"id": 159,
 			"name": "StoreContext",
 			"kind": 32,
 			"kindString": "Variable",
@@ -1573,7 +2939,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 156,
+												"id": 197,
 												"typeArguments": [
 													{
 														"type": "intrinsic",
@@ -1590,7 +2956,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 156,
+												"id": 197,
 												"typeArguments": [
 													{
 														"type": "intrinsic",
@@ -1609,7 +2975,7 @@
 			"defaultValue": " createContext<\n  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>] | null\n>(null)"
 		},
 		{
-			"id": 247,
+			"id": 337,
 			"name": "Geschichte",
 			"kind": 64,
 			"kindString": "Function",
@@ -1619,14 +2985,14 @@
 			},
 			"signatures": [
 				{
-					"id": 248,
+					"id": 338,
 					"name": "Geschichte",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 249,
+							"id": 339,
 							"name": "__namedParameters",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -1635,14 +3001,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 250,
+									"id": 340,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 251,
+											"id": 341,
 											"name": "children",
 											"kind": 32,
 											"kindString": "Variable",
@@ -1650,7 +3016,7 @@
 											"sources": [
 												{
 													"fileName": "lib/provider.tsx",
-													"line": 11,
+													"line": 13,
 													"character": 48
 												}
 											],
@@ -1703,21 +3069,21 @@
 																	{
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 252,
+																			"id": 342,
 																			"name": "__type",
 																			"kind": 65536,
 																			"kindString": "Type literal",
 																			"flags": {},
 																			"signatures": [
 																				{
-																					"id": 253,
+																					"id": 343,
 																					"name": "__call",
 																					"kind": 4096,
 																					"kindString": "Call signature",
 																					"flags": {},
 																					"parameters": [
 																						{
-																							"id": 254,
+																							"id": 344,
 																							"name": "props",
 																							"kind": 32768,
 																							"kindString": "Parameter",
@@ -1748,7 +3114,7 @@
 																	{
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 255,
+																			"id": 345,
 																			"name": "__type",
 																			"kind": 65536,
 																			"kindString": "Type literal",
@@ -1771,7 +3137,7 @@
 											}
 										},
 										{
-											"id": 256,
+											"id": 346,
 											"name": "history",
 											"kind": 32,
 											"kindString": "Variable",
@@ -1779,7 +3145,7 @@
 											"sources": [
 												{
 													"fileName": "lib/provider.tsx",
-													"line": 11,
+													"line": 13,
 													"character": 57
 												}
 											],
@@ -1800,15 +3166,15 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												251,
-												256
+												341,
+												346
 											]
 										}
 									],
 									"sources": [
 										{
 											"fileName": "lib/provider.tsx",
-											"line": 11,
+											"line": 13,
 											"character": 38
 										}
 									]
@@ -1825,13 +3191,13 @@
 			"sources": [
 				{
 					"fileName": "lib/provider.tsx",
-					"line": 11,
+					"line": 13,
 					"character": 23
 				}
 			]
 		},
 		{
-			"id": 116,
+			"id": 117,
 			"name": "applyDiffWithCreateQueriesFromPatch",
 			"kind": 64,
 			"kindString": "Function",
@@ -1841,14 +3207,23 @@
 			},
 			"signatures": [
 				{
-					"id": 117,
+					"id": 118,
 					"name": "applyDiffWithCreateQueriesFromPatch",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
+					"typeParameter": [
+						{
+							"id": 119,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
 					"parameters": [
 						{
-							"id": 118,
+							"id": 120,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -1856,11 +3231,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Config",
-								"id": 223
+								"id": 150
 							}
 						},
 						{
-							"id": 119,
+							"id": 121,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -1871,7 +3246,7 @@
 							}
 						},
 						{
-							"id": 120,
+							"id": 122,
 							"name": "currentQuery",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -1882,7 +3257,7 @@
 							}
 						},
 						{
-							"id": 121,
+							"id": 123,
 							"name": "patch",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -1900,32 +3275,32 @@
 							}
 						},
 						{
-							"id": 122,
+							"id": 124,
 							"name": "state",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "object"
+								"type": "typeParameter",
+								"name": "T"
 							}
 						},
 						{
-							"id": 123,
+							"id": 125,
 							"name": "initialState",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "object"
+								"type": "typeParameter",
+								"name": "T"
 							}
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 124,
+							"id": 126,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -1937,13 +3312,13 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 111,
+					"line": 116,
 					"character": 48
 				}
 			]
 		},
 		{
-			"id": 125,
+			"id": 127,
 			"name": "applyFlatConfigToState",
 			"kind": 64,
 			"kindString": "Function",
@@ -1957,7 +3332,7 @@
 			},
 			"signatures": [
 				{
-					"id": 126,
+					"id": 128,
 					"name": "applyFlatConfigToState",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -1968,7 +3343,7 @@
 					},
 					"typeParameter": [
 						{
-							"id": 127,
+							"id": 129,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -1977,7 +3352,7 @@
 					],
 					"parameters": [
 						{
-							"id": 128,
+							"id": 130,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -1985,11 +3360,11 @@
 							"type": {
 								"type": "reference",
 								"name": "MappedConfig",
-								"id": 228
+								"id": 155
 							}
 						},
 						{
-							"id": 129,
+							"id": 131,
 							"name": "queryValues",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -1997,21 +3372,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 130,
+									"id": 132,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"indexSignature": [
 										{
-											"id": 131,
+											"id": 133,
 											"name": "__index",
 											"kind": 8192,
 											"kindString": "Index signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 132,
+													"id": 134,
 													"name": "index",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -2031,7 +3406,7 @@
 									"sources": [
 										{
 											"fileName": "lib/utils.ts",
-											"line": 142,
+											"line": 147,
 											"character": 14
 										}
 									]
@@ -2039,7 +3414,7 @@
 							}
 						},
 						{
-							"id": 133,
+							"id": 135,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2050,7 +3425,7 @@
 							}
 						},
 						{
-							"id": 134,
+							"id": 136,
 							"name": "state",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2061,7 +3436,7 @@
 							}
 						},
 						{
-							"id": 135,
+							"id": 137,
 							"name": "initialState",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2075,7 +3450,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 136,
+							"id": 138,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -2087,13 +3462,13 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 140,
+					"line": 145,
 					"character": 35
 				}
 			]
 		},
 		{
-			"id": 213,
+			"id": 331,
 			"name": "converter",
 			"kind": 64,
 			"kindString": "Function",
@@ -2103,14 +3478,28 @@
 			},
 			"signatures": [
 				{
-					"id": 214,
+					"id": 332,
 					"name": "converter",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
+					"typeParameter": [
+						{
+							"id": 333,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "GenericObject",
+								"id": 179
+							}
+						}
+					],
 					"parameters": [
 						{
-							"id": 215,
+							"id": 334,
 							"name": "historyInstance",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2130,7 +3519,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 194,
+					"line": 265,
 					"character": 22
 				}
 			]
@@ -2158,8 +3547,9 @@
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "any"
+								"type": "reference",
+								"name": "GenericObject",
+								"id": 179
 							}
 						},
 						{
@@ -2194,15 +3584,16 @@
 						}
 					],
 					"type": {
-						"type": "intrinsic",
-						"name": "any"
+						"type": "reference",
+						"name": "GenericObject",
+						"id": 179
 					}
 				}
 			],
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 12,
+					"line": 13,
 					"character": 23
 				}
 			]
@@ -2229,9 +3620,18 @@
 					"comment": {
 						"returns": "an object with the keys that have been processed\nif a key has been removed / set to undefined, we still return it to\nbe able to create a diff to the current state\n"
 					},
-					"parameters": [
+					"typeParameter": [
 						{
 							"id": 102,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"parameters": [
+						{
+							"id": 103,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2239,11 +3639,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Config",
-								"id": 223
+								"id": 150
 							}
 						},
 						{
-							"id": 103,
+							"id": 104,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2254,7 +3654,7 @@
 							}
 						},
 						{
-							"id": 104,
+							"id": 105,
 							"name": "patch",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2272,32 +3672,32 @@
 							}
 						},
 						{
-							"id": 105,
+							"id": 106,
 							"name": "state",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "object"
+								"type": "typeParameter",
+								"name": "T"
 							}
 						},
 						{
-							"id": 106,
+							"id": 107,
 							"name": "initialState",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "object"
+								"type": "typeParameter",
+								"name": "T"
 							}
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 107,
+							"id": 108,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -2309,13 +3709,13 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 54,
+					"line": 59,
 					"character": 35
 				}
 			]
 		},
 		{
-			"id": 108,
+			"id": 109,
 			"name": "createQueryObject",
 			"kind": 64,
 			"kindString": "Function",
@@ -2328,7 +3728,7 @@
 			},
 			"signatures": [
 				{
-					"id": 109,
+					"id": 110,
 					"name": "createQueryObject",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -2338,7 +3738,7 @@
 					},
 					"typeParameter": [
 						{
-							"id": 110,
+							"id": 111,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -2347,7 +3747,7 @@
 					],
 					"parameters": [
 						{
-							"id": 111,
+							"id": 112,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2355,11 +3755,11 @@
 							"type": {
 								"type": "reference",
 								"name": "MappedConfig",
-								"id": 228
+								"id": 155
 							}
 						},
 						{
-							"id": 112,
+							"id": 113,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2370,7 +3770,7 @@
 							}
 						},
 						{
-							"id": 113,
+							"id": 114,
 							"name": "values",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2381,7 +3781,7 @@
 							}
 						},
 						{
-							"id": 114,
+							"id": 115,
 							"name": "initialState",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2395,7 +3795,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 115,
+							"id": 116,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
@@ -2407,7 +3807,7 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 89,
+					"line": 94,
 					"character": 30
 				}
 			]
@@ -2469,7 +3869,7 @@
 			]
 		},
 		{
-			"id": 236,
+			"id": 166,
 			"name": "factoryParameters",
 			"kind": 64,
 			"kindString": "Function",
@@ -2479,14 +3879,14 @@
 			},
 			"signatures": [
 				{
-					"id": 237,
+					"id": 167,
 					"name": "factoryParameters",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 238,
+							"id": 168,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -2495,7 +3895,7 @@
 					],
 					"parameters": [
 						{
-							"id": 239,
+							"id": 169,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2503,11 +3903,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Config",
-								"id": 223
+								"id": 150
 							}
 						},
 						{
-							"id": 240,
+							"id": 170,
 							"name": "defaultInitialValues",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2519,7 +3919,7 @@
 							"defaultValue": " {} as T"
 						},
 						{
-							"id": 241,
+							"id": 171,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2534,14 +3934,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 242,
+							"id": 172,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 244,
+									"id": 174,
 									"name": "createQueryString",
 									"kind": 32,
 									"kindString": "Variable",
@@ -2549,7 +3949,7 @@
 									"sources": [
 										{
 											"fileName": "lib/store.ts",
-											"line": 211,
+											"line": 220,
 											"character": 38
 										}
 									],
@@ -2559,7 +3959,7 @@
 									}
 								},
 								{
-									"id": 243,
+									"id": 173,
 									"name": "useQuery",
 									"kind": 32,
 									"kindString": "Variable",
@@ -2567,7 +3967,7 @@
 									"sources": [
 										{
 											"fileName": "lib/store.ts",
-											"line": 211,
+											"line": 220,
 											"character": 19
 										}
 									],
@@ -2582,8 +3982,8 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										244,
-										243
+										174,
+										173
 									]
 								}
 							]
@@ -2594,13 +3994,13 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 62,
+					"line": 71,
 					"character": 30
 				}
 			]
 		},
 		{
-			"id": 137,
+			"id": 139,
 			"name": "flattenConfig",
 			"kind": 64,
 			"kindString": "Function",
@@ -2614,7 +4014,7 @@
 			},
 			"signatures": [
 				{
-					"id": 138,
+					"id": 140,
 					"name": "flattenConfig",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -2625,7 +4025,7 @@
 					},
 					"parameters": [
 						{
-							"id": 139,
+							"id": 141,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2633,11 +4033,11 @@
 							"type": {
 								"type": "reference",
 								"name": "Config",
-								"id": 223
+								"id": 150
 							}
 						},
 						{
-							"id": 140,
+							"id": 142,
 							"name": "path",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2659,14 +4059,14 @@
 					"type": {
 						"type": "reference",
 						"name": "MappedConfig",
-						"id": 228
+						"id": 155
 					}
 				}
 			],
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 174,
+					"line": 179,
 					"character": 26
 				}
 			]
@@ -2731,13 +4131,13 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 27,
+					"line": 32,
 					"character": 28
 				}
 			]
 		},
 		{
-			"id": 233,
+			"id": 160,
 			"name": "geschichte",
 			"kind": 64,
 			"kindString": "Function",
@@ -2747,14 +4147,23 @@
 			},
 			"signatures": [
 				{
-					"id": 234,
+					"id": 161,
 					"name": "geschichte",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
+					"typeParameter": [
+						{
+							"id": 162,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
 					"parameters": [
 						{
-							"id": 235,
+							"id": 163,
 							"name": "historyInstance",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2772,25 +4181,81 @@
 						}
 					],
 					"type": {
-						"type": "tuple",
-						"elements": [
+						"type": "union",
+						"types": [
 							{
-								"type": "reference",
-								"name": "UseStore",
-								"typeArguments": [
+								"type": "tuple",
+								"elements": [
 									{
-										"type": "intrinsic",
-										"name": "any"
+										"type": "reference",
+										"name": "UseStore",
+										"typeArguments": [
+											{
+												"type": "reflection",
+												"declaration": {
+													"id": 164,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {}
+												}
+											}
+										]
+									},
+									{
+										"type": "reference",
+										"name": "StoreApi",
+										"typeArguments": [
+											{
+												"type": "reflection",
+												"declaration": {
+													"id": 165,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {}
+												}
+											}
+										]
 									}
 								]
 							},
 							{
-								"type": "reference",
-								"name": "StoreApi",
-								"typeArguments": [
+								"type": "tuple",
+								"elements": [
 									{
-										"type": "intrinsic",
-										"name": "any"
+										"type": "reference",
+										"name": "UseStore",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 197,
+												"typeArguments": [
+													{
+														"type": "unknown",
+														"name": "T"
+													}
+												]
+											}
+										]
+									},
+									{
+										"type": "reference",
+										"name": "StoreApi",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "StoreState",
+												"id": 197,
+												"typeArguments": [
+													{
+														"type": "unknown",
+														"name": "T"
+													}
+												]
+											}
+										]
 									}
 								]
 							}
@@ -2879,13 +4344,13 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 31,
+					"line": 36,
 					"character": 16
 				}
 			]
 		},
 		{
-			"id": 203,
+			"id": 302,
 			"name": "historyManagement",
 			"kind": 64,
 			"kindString": "Function",
@@ -2895,14 +4360,23 @@
 			},
 			"signatures": [
 				{
-					"id": 204,
+					"id": 303,
 					"name": "historyManagement",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
+					"typeParameter": [
+						{
+							"id": 304,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
 					"parameters": [
 						{
-							"id": 205,
+							"id": 305,
 							"name": "historyInstance",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -2922,13 +4396,13 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 59,
+					"line": 102,
 					"character": 30
 				}
 			]
 		},
 		{
-			"id": 210,
+			"id": 327,
 			"name": "immerWithPatches",
 			"kind": 64,
 			"kindString": "Function",
@@ -2938,21 +4412,37 @@
 			},
 			"signatures": [
 				{
-					"id": 211,
+					"id": 328,
 					"name": "immerWithPatches",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
+					"typeParameter": [
+						{
+							"id": 329,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
 					"parameters": [
 						{
-							"id": 212,
+							"id": 330,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "any"
+								"type": "reference",
+								"name": "ImmerStateCreator",
+								"id": 311,
+								"typeArguments": [
+									{
+										"type": "typeParameter",
+										"name": "T"
+									}
+								]
 							}
 						}
 					],
@@ -2965,7 +4455,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 180,
+					"line": 245,
 					"character": 29
 				}
 			]
@@ -3020,7 +4510,7 @@
 			]
 		},
 		{
-			"id": 206,
+			"id": 306,
 			"name": "namespaceProducer",
 			"kind": 64,
 			"kindString": "Function",
@@ -3032,7 +4522,7 @@
 			},
 			"signatures": [
 				{
-					"id": 207,
+					"id": 307,
 					"name": "namespaceProducer",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -3040,20 +4530,52 @@
 					"comment": {
 						"shortText": "If a namespace is given, will forward the mutation instead of updating\nthe whole state. Initializes the namespace if it does not exist yet"
 					},
+					"typeParameter": [
+						{
+							"id": 308,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
 					"parameters": [
 						{
-							"id": 208,
+							"id": 309,
 							"name": "fn",
 							"kind": 32768,
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "any"
+								"type": "intersection",
+								"types": [
+									{
+										"type": "reference",
+										"name": "NamespaceProducerFunction",
+										"id": 259,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									},
+									{
+										"type": "reference",
+										"name": "InnerNamespaceProducerFunction",
+										"id": 264,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									}
+								]
 							}
 						},
 						{
-							"id": 209,
+							"id": 310,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3084,7 +4606,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 162,
+					"line": 213,
 					"character": 23
 				}
 			]
@@ -3139,7 +4661,7 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 7,
+					"line": 8,
 					"character": 15
 				}
 			]
@@ -3203,7 +4725,7 @@
 			"sources": [
 				{
 					"fileName": "lib/utils.ts",
-					"line": 43,
+					"line": 48,
 					"character": 22
 				}
 			]
@@ -4426,60 +5948,70 @@
 			"title": "Enumerations",
 			"kind": 4,
 			"children": [
-				141
+				175
 			]
 		},
 		{
 			"title": "Interfaces",
 			"kind": 256,
 			"children": [
-				223,
-				228,
-				219,
-				145,
-				216,
-				245,
+				150,
+				179,
+				193,
+				155,
+				146,
+				182,
+				143,
+				335,
 				1,
-				156
+				197
 			]
 		},
 		{
 			"title": "Type aliases",
 			"kind": 4194304,
 			"children": [
-				185,
-				194
+				276,
+				283,
+				311,
+				264,
+				269,
+				259,
+				241,
+				250,
+				318,
+				295
 			]
 		},
 		{
 			"title": "Variables",
 			"kind": 32,
 			"children": [
-				231,
-				232
+				158,
+				159
 			]
 		},
 		{
 			"title": "Functions",
 			"kind": 64,
 			"children": [
-				247,
-				116,
-				125,
-				213,
+				337,
+				117,
+				127,
+				331,
 				82,
 				100,
-				108,
+				109,
 				58,
-				236,
-				137,
+				166,
+				139,
 				87,
-				233,
+				160,
 				91,
-				203,
-				210,
+				302,
+				327,
 				10,
-				206,
+				306,
 				78,
 				96,
 				13
