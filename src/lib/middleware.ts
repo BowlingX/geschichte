@@ -1,7 +1,8 @@
-/* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation */
+/* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation readonly-array */
 import { History } from 'history'
-import { produceWithPatches } from 'immer'
+import { Patch, produceWithPatches } from 'immer'
 import { parse, stringify } from 'query-string'
+import { GetState, State, StoreApi } from 'zustand'
 import { Config, MappedConfig } from './store'
 import {
   applyDiffWithCreateQueriesFromPatch,
@@ -12,6 +13,10 @@ export enum HistoryEventType {
   PUSH,
   REPLACE,
   REGISTER
+}
+
+export interface GenericObject {
+  [key: string]: any
 }
 
 export interface NamespaceValues<ValueState> {
@@ -34,10 +39,19 @@ export type ReplaceStateFunction<T> = (
   valueCreator: (state: T) => void
 ) => void
 
+export interface InnerNamespace<T> {
+  [ns: string]: NamespaceValues<T>
+}
 export interface StoreState<ValueState = object> {
-  namespaces: {
-    [name: string]: NamespaceValues<ValueState>
-  }
+  batchReplaceState: (
+    ns: readonly string[],
+    fn: (...valueState: ValueState[]) => InnerNamespace<ValueState>
+  ) => void
+  batchPushState: (
+    ns: readonly string[],
+    fn: (...valueState: ValueState[]) => InnerNamespace<ValueState>
+  ) => void
+  namespaces: InnerNamespace<ValueState>
   pushState: PushStateFunction<ValueState>
   replaceState: ReplaceStateFunction<ValueState>
   /** registers a new namespace */
@@ -48,7 +62,7 @@ export interface StoreState<ValueState = object> {
     initialValues: ValueState,
     query: object,
     values: ValueState
-  ) => void
+  ) => () => void
   /** will delete all namespaces and remove the history listener */
   unregister: () => void
   resetPush: (ns: string) => void
@@ -56,34 +70,71 @@ export interface StoreState<ValueState = object> {
   initialQueries: object
 }
 
-export const historyManagement = (historyInstance: History) => apply => (
-  set,
-  get,
-  api
+type NamespaceProducerFunction<T> = (state: NamespaceValues<T>) => void
+type InnerNamespaceProducerFunction<T> = (
+  state: InnerNamespace<T>
+) => InnerNamespace<T> | void
+
+export type NamespaceProducer<T> = (
+  stateProducer: NamespaceProducerFunction<T>,
+  eventType: HistoryEventType,
+  ns?: string
+) => void
+export type GenericConverter<T> = (
+  stateProducer: InnerNamespaceProducerFunction<T>,
+  eventType: HistoryEventType,
+  ns?: string
+) => void
+
+export type ImmerProducer<T> = (
+  stateMapper: (changes: Patch[], values: StoreState<T>) => StoreState<T>,
+  fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
+  eventType: HistoryEventType,
+  ns?: string
+) => void
+
+export declare type StateCreator<T extends State> = (
+  set: NamespaceProducer<T> & GenericConverter<T>,
+  get: GetState<StoreState<T>>,
+  api: StoreApi<StoreState<T>>
+) => StoreState<T>
+
+export const historyManagement = <T>(historyInstance: History) => (
+  apply: StateCreator<T>
+) => (
+  set: ImmerProducer<T>,
+  get: GetState<StoreState<T>>,
+  api: StoreApi<StoreState<T>>
 ) =>
   apply(
-    (fn, type: HistoryEventType, ns?: string) => {
+    (
+      fn: NamespaceProducerFunction<T> | InnerNamespaceProducerFunction<T>,
+      type: HistoryEventType,
+      ns?: string
+    ) => {
       // we call the `immerWithPatches` middleware
       return set(
-        (changes, values) => {
+        (changes: Patch[], values: StoreState<T>) => {
           if (changes.length === 0) {
             return values
           }
           if (type !== HistoryEventType.REGISTER) {
             // if namespace is not given, calculate what namespaces are affected
-            const affectedNamespaces = ns
+            const affectedNamespaces: string[] = ns
               ? [ns]
-              : changes.reduce((next, change) => {
+              : changes.reduce((next: string[], change: Patch) => {
                   const {
                     path: [, namespace]
                   } = change
-                  if (next.indexOf(namespace) !== -1) {
-                    return [...next, namespace]
+                  if (next.indexOf(namespace as string) !== -1) {
+                    return [...next, namespace as string]
                   }
                   return next
                 }, [])
 
-            const uniqueQueries = affectedNamespaces.reduce((next, thisNs) => {
+            const uniqueQueries: {
+              [key: string]: any
+            } = affectedNamespaces.reduce((next, thisNs) => {
               const { config, query: currentQuery } = get().namespaces[thisNs]
               return {
                 ...next,
@@ -132,7 +183,7 @@ export const historyManagement = (historyInstance: History) => apply => (
               ...values,
               namespaces: {
                 ...values.namespaces,
-                ...affectedNamespaces.reduce((next, thisNs) => {
+                ...affectedNamespaces.reduce((next: any, thisNs: string) => {
                   return {
                     [thisNs]: {
                       ...values.namespaces[thisNs],
@@ -145,10 +196,10 @@ export const historyManagement = (historyInstance: History) => apply => (
           }
           return values
         },
-        fn,
+        fn as NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
+        type,
         ns
       )
-
       // H
     },
     get,
@@ -159,7 +210,10 @@ export const historyManagement = (historyInstance: History) => apply => (
  * If a namespace is given, will forward the mutation instead of updating
  * the whole state. Initializes the namespace if it does not exist yet
  */
-const namespaceProducer = (fn, ns?: string) => state => {
+const namespaceProducer = <T>(
+  fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
+  ns?: string
+) => (state: StoreState<T>) => {
   if (!ns) {
     const result = fn(state.namespaces)
     // if no namespaces is given, we support return values
@@ -174,24 +228,47 @@ const namespaceProducer = (fn, ns?: string) => state => {
   }
   const next = {}
   fn(next)
-  state.namespaces[ns] = next
+  state.namespaces[ns] = next as NamespaceValues<T>
 }
 
-export const immerWithPatches = config => (set, get, api) =>
+export declare type ImmerStateCreator<T extends State> = (
+  fn: ImmerProducer<T>,
+  get: GetState<StoreState<T>>,
+  api: StoreApi<StoreState<T>>
+) => StoreState<T>
+
+export declare type SetImmerState<T> = (
+  stateProducer: (state: T) => T,
+  debugMiddlewareKey: string
+) => void
+
+export const immerWithPatches = <T>(config: ImmerStateCreator<T>) => (
+  set: SetImmerState<StoreState<T>>,
+  get: GetState<StoreState<T>>,
+  api: StoreApi<StoreState<T>>
+) =>
   config(
-    (valueMapper, fn, ns?: string) => {
-      return set(currentState => {
+    (valueMapper, fn, type: HistoryEventType, ns?: string) => {
+      return set((currentState: StoreState<T>) => {
         const [nextValues, changes] = produceWithPatches(
           namespaceProducer(fn, ns)
+          // @ts-ignore
+          // FIXME: Need to check why this causes an error
         )(currentState)
         return valueMapper(changes, nextValues)
-      })
+      }, `action_${HistoryEventType[type]}`)
     },
     get,
     api
   )
 
-export const converter = (historyInstance: History) => (set, get) => {
+export const converter = <T extends GenericObject>(
+  historyInstance: History
+) => (
+  set: NamespaceProducer<T> & GenericConverter<T>,
+  get: GetState<StoreState<T>>,
+  api: StoreApi<StoreState<T>>
+): StoreState<T> => {
   const initialQueries = parse(historyInstance.location.search)
   const unregisterListener = historyInstance.listen((location, action) => {
     // don't handle our own actions
@@ -204,8 +281,8 @@ export const converter = (historyInstance: History) => (set, get) => {
     const nextQueries = parse(location.search)
     const namespaces = get().namespaces
     Object.keys(namespaces).forEach(ns => {
-      set(
-        state => {
+      ;(set as NamespaceProducer<T>)(
+        (state: NamespaceValues<T>) => {
           state.query = applyFlatConfigToState(
             state.mappedConfig,
             nextQueries,
@@ -222,8 +299,8 @@ export const converter = (historyInstance: History) => (set, get) => {
 
   const reset = (ns: string, event: HistoryEventType) =>
     set(
-      state =>
-        void Object.keys(state.values).forEach(key => {
+      (state: NamespaceValues<T>) =>
+        void (Object.keys(state.values) as Array<keyof T>).forEach(key => {
           if (state.initialValues[key] !== undefined) {
             state.values[key] = state.initialValues[key]
           }
@@ -234,16 +311,24 @@ export const converter = (historyInstance: History) => (set, get) => {
 
   return {
     /** batch pushes the given namespaces */
-    batchPushState: (ns: readonly string[], fn) => {
+    batchPushState: (
+      ns: readonly string[],
+      fn: (...valueState: T[]) => InnerNamespace<T>
+    ) => {
       set(
-        state => fn(...ns.map(thisNs => state[thisNs].values)),
+        (state: InnerNamespace<T>) =>
+          fn(...ns.map(thisNs => state[thisNs].values)),
         HistoryEventType.PUSH
       )
     },
     /** batch replaces the given namespaces */
-    batchReplaceState: (ns: readonly string[], fn) => {
+    batchReplaceState: (
+      ns: readonly string[],
+      fn: (...valueState: T[]) => InnerNamespace<T>
+    ) => {
       set(
-        state => fn(...ns.map(thisNs => state[thisNs].values)),
+        (state: InnerNamespace<T>) =>
+          fn(...ns.map(thisNs => state[thisNs].values)),
         HistoryEventType.REPLACE
       )
     },
@@ -252,16 +337,20 @@ export const converter = (historyInstance: History) => (set, get) => {
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
     /** pushes a new state for a given namespace, (will use history.pushState) */
-    pushState: (ns: string, fn) =>
-      set(state => fn(state.values), HistoryEventType.PUSH, ns),
+    pushState: (ns: string, fn: (values: T) => void) =>
+      (set as NamespaceProducer<T>)(
+        state => fn(state.values),
+        HistoryEventType.PUSH,
+        ns
+      ),
     /** registers a new namespace and initializes it's configuration */
     register: (
       config: Config,
       mappedConfig: MappedConfig,
       ns: string,
-      initialValues: object,
+      initialValues: T,
       query: object,
-      values: object
+      values: T
     ) => {
       const current = get().namespaces[ns]
       if (current !== undefined) {
@@ -279,7 +368,7 @@ export const converter = (historyInstance: History) => (set, get) => {
         state => {
           state.subscribers = 1
           state.unsubscribe = () => {
-            set(thisState => {
+            ;(set as GenericConverter<T>)((thisState: InnerNamespace<T>) => {
               // it's possible that the state namespace has been cleared by the provider
               if (!thisState[ns]) {
                 return
@@ -303,13 +392,17 @@ export const converter = (historyInstance: History) => (set, get) => {
 
       return get().namespaces[ns].unsubscribe
     },
-    replaceState: (ns: string, fn) =>
-      set(state => fn(state.values), HistoryEventType.REPLACE, ns),
+    replaceState: (ns: string, fn: (values: T) => void) =>
+      (set as NamespaceProducer<T>)(
+        state => fn(state.values),
+        HistoryEventType.REPLACE,
+        ns
+      ),
     resetPush: (ns: string) => reset(ns, HistoryEventType.PUSH),
     resetReplace: (ns: string) => reset(ns, HistoryEventType.REPLACE),
     /** cleans up this instance */
     unregister: () => {
-      set(() => {
+      ;(set as GenericConverter<T>)(() => {
         // return a new object for namespaces
         return {}
       }, HistoryEventType.REGISTER)

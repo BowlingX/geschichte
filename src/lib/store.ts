@@ -12,7 +12,7 @@ import {
   useMemo,
   useState
 } from 'react'
-import { create, StoreApi, UseStore } from 'zustand'
+import { create, StateCreator, StoreApi, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import {
@@ -51,12 +51,21 @@ export interface MappedConfig {
   readonly [queryParameter: string]: MappedParameter
 }
 
-export const geschichte = (historyInstance: History<LocationState>) => {
-  return create(
-    immerWithPatches(
-      historyManagement(historyInstance)(converter(historyInstance))
-    )
-  )
+export const geschichte = <T = object>(
+  historyInstance: History<LocationState>
+) => {
+  const thisStore = converter<T>(historyInstance)
+  const storeWithHistory = historyManagement<T>(historyInstance)(thisStore)
+
+  const middleware = (immerWithPatches<T>(
+    storeWithHistory
+  ) as unknown) as StateCreator<StoreState<T>>
+  if (process.env.NODE_ENV === 'development') {
+    // tslint:disable-next-line:no-submodule-imports
+    const { devtools } = require('zustand/middleware')
+    return create(devtools(middleware))
+  }
+  return create(middleware)
 }
 
 export const factoryParameters = <T = object>(

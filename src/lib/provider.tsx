@@ -1,6 +1,8 @@
-/* tslint:disable:no-expression-statement */
+/* tslint:disable:no-expression-statement readonly-array */
 import { History } from 'history'
 import React, { FC, useEffect, useMemo } from 'react'
+import { StoreApi, UseStore } from 'zustand'
+import { StoreState } from './middleware'
 import { geschichte, StoreContext } from './store'
 
 interface Props {
@@ -9,9 +11,12 @@ interface Props {
 }
 
 export const Geschichte: FC<Props> = ({ children, history }) => {
-  const value = useMemo(() => geschichte(history), [])
+  const value = useMemo(() => geschichte(history), []) as [
+    UseStore<StoreState<any>>,
+    StoreApi<StoreState<any>>
+  ]
   const [useStore] = value
-  const unregister = useStore(state => state.unregister)
+  const unregister = useStore((state: StoreState<any>) => state.unregister)
   useEffect(() => {
     return () => {
       return unregister()

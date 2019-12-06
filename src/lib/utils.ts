@@ -1,6 +1,7 @@
 /* tslint:disable:no-expression-statement no-let no-submodule-imports no-object-mutation */
 import { Patch } from 'immer'
 import shallowEqual from 'zustand/shallow'
+import { GenericObject } from './middleware'
 import { Serializer } from './serializers'
 import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store'
 
@@ -9,7 +10,11 @@ export const pm = (name: string, serializer: Serializer) => (): Parameter => ({
   serializer
 })
 
-const createOrApplyPath = (obj, path: readonly string[], value = null) => {
+const createOrApplyPath = (
+  obj: GenericObject,
+  path: readonly string[],
+  value = null
+) => {
   let current = obj
   let thisPath: ReadonlyArray<string> = [...path]
   while (path.length > 1) {
@@ -32,7 +37,7 @@ export const get = <T = object>(
   object: T,
   path: ReadonlyArray<string | number>
 ) => {
-  return path.reduce((next, key) => {
+  return path.reduce((next: T | any, key: string | number) => {
     return next[key]
   }, object)
 }
@@ -51,12 +56,12 @@ export const skipValue = (value?: any, initialValue?: any) =>
  * if a key has been removed / set to undefined, we still return it to
  * be able to create a diff to the current state
  */
-export const createQueriesFromPatch = (
+export const createQueriesFromPatch = <T = object>(
   config: Config,
   ns: string,
   patch: readonly Patch[],
-  state: object,
-  initialState: object
+  state: T,
+  initialState: T
 ) => {
   return patch.reduce((next, item) => {
     const { path, op } = item
@@ -108,16 +113,16 @@ export const createQueryObject = <T = object>(
   }, {})
 }
 
-export const applyDiffWithCreateQueriesFromPatch = (
+export const applyDiffWithCreateQueriesFromPatch = <T = object>(
   config: Config,
   ns: string,
   currentQuery: object,
   patch: readonly Patch[],
-  state: object,
-  initialState: object
+  state: T,
+  initialState: T
 ) => {
   const query = createQueriesFromPatch(config, ns, patch, state, initialState)
-  const nextQueries = {
+  const nextQueries: GenericObject = {
     ...currentQuery,
     ...query
   }
