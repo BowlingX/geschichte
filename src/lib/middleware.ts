@@ -281,7 +281,7 @@ export const converter = <T extends GenericObject>(
     const nextQueries = parse(location.search)
     const namespaces = get().namespaces
     Object.keys(namespaces).forEach(ns => {
-      ;(set as NamespaceProducer<T>)(
+      set(
         (state: NamespaceValues<T>) => {
           state.query = applyFlatConfigToState(
             state.mappedConfig,

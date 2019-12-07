@@ -60,10 +60,10 @@ export const geschichte = <T = object>(
   const middleware = (immerWithPatches<T>(
     storeWithHistory
   ) as unknown) as StateCreator<StoreState<T>>
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     // tslint:disable-next-line:no-submodule-imports
     const { devtools } = require('zustand/middleware')
-    return create(devtools(middleware))
+    return create(devtools(middleware, 'geschichte'))
   }
   return create(middleware)
 }
