@@ -3530,6 +3530,7 @@
 			"kind": 64,
 			"kindString": "Function",
 			"flags": {
+				"isExported": true,
 				"isConst": true
 			},
 			"signatures": [
@@ -3578,7 +3579,7 @@
 							"flags": {},
 							"type": {
 								"type": "intrinsic",
-								"name": "null"
+								"name": "any"
 							},
 							"defaultValue": " null"
 						}
@@ -3594,7 +3595,7 @@
 				{
 					"fileName": "lib/utils.ts",
 					"line": 13,
-					"character": 23
+					"character": 30
 				}
 			]
 		},
