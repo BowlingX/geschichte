@@ -3,7 +3,12 @@ import expect from 'expect'
 import { Patch } from 'immer'
 import { serializers } from '../serializers'
 import { DEFAULT_NAMESPACE } from '../store'
-import { createQueriesFromPatch, flattenConfig, pm } from '../utils'
+import {
+  createOrApplyPath,
+  createQueriesFromPatch,
+  flattenConfig,
+  pm
+} from '../utils'
 
 describe('utils', () => {
   describe('flattenConfig', () => {
@@ -24,6 +29,32 @@ describe('utils', () => {
         'theParameter'
       ])
       expect(flatConfig).toMatchSnapshot()
+    })
+  })
+
+  describe('createOrApplyPath', () => {
+    it('should map an object', () => {
+      const object = {
+        some: {
+          path: 'test'
+        },
+        somewhere: {
+          else: {
+            deep: 'xyz'
+          }
+        }
+      }
+
+      createOrApplyPath(object, ['some', 'path'], 'new value')
+
+      expect(object).toEqual({
+        some: { path: 'new value' },
+        somewhere: {
+          else: {
+            deep: 'xyz'
+          }
+        }
+      })
     })
   })
 

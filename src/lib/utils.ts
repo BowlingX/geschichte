@@ -10,14 +10,14 @@ export const pm = (name: string, serializer: Serializer) => (): Parameter => ({
   serializer
 })
 
-const createOrApplyPath = (
+export const createOrApplyPath = (
   obj: GenericObject,
   path: readonly string[],
-  value = null
+  value: any = null
 ) => {
   let current = obj
   let thisPath: ReadonlyArray<string> = [...path]
-  while (path.length > 1) {
+  while (thisPath.length > 1) {
     const [head, ...tail] = thisPath
     thisPath = tail
     if (current[head] === undefined) {
