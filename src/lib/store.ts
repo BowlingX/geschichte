@@ -165,10 +165,11 @@ export const factoryParameters = <T = object>(
             setCurrentState(state)
           }
         },
-        state => (state.namespaces[ns] && {
-          initialValues: state.namespaces[ns].initialValues,
-          values: state.namespaces[ns].values
-        }),
+        state =>
+          state.namespaces[ns] && {
+            initialValues: state.namespaces[ns].initialValues,
+            values: state.namespaces[ns].values
+          },
         shallow
       )
 
