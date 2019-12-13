@@ -84,7 +84,7 @@ export const factoryParameters = <T = {}>(
     // tslint:disable-next-line:no-let
     let thisQuery = {}
     const initialValues =
-      (typeof defaultInitialValues === 'function')
+      typeof defaultInitialValues === 'function'
         ? (defaultInitialValues as () => T)()
         : defaultInitialValues
     // We produce a new state here instead of mutating defaultInitialValues.
