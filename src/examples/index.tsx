@@ -23,13 +23,13 @@ const { useQuery } = factoryParameters(config, {
 
 const { useQuery: useAnotherQuery } = factoryParameters(
   config,
-  {
+  () => ({
     abc: {
       test: 'arg'
     },
     arg: 'xyz',
     test: 'another'
-  },
+  }),
   'wow'
 )
 
