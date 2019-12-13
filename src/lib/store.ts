@@ -1,7 +1,7 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { History } from 'history'
 import LocationState = History.LocationState
-
+import produce from 'immer'
 import memoizeOne from 'memoize-one'
 import { stringify } from 'query-string'
 import {
@@ -79,18 +79,23 @@ export const factoryParameters = <T = object>(
   const initBlank = (initialQueries: object) => {
     // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
     // the initial state.
-    const thisValues = { ...defaultInitialValues }
-    const thisQuery = applyFlatConfigToState(
-      flatConfig,
-      initialQueries,
-      ns,
-      thisValues,
-      defaultInitialValues
-    )
+    // tslint:disable-next-line:no-let
+    let thisQuery = {}
+    // We produce a new state here instead of mutating defaultInitialValues.
+    // Otherwise it's possible that it get's reused across executions and that will yield to readonly errors.
+    const values = produce(defaultInitialValues, draft => {
+      thisQuery = applyFlatConfigToState(
+        flatConfig,
+        initialQueries,
+        ns,
+        draft as T,
+        defaultInitialValues as T
+      )
+    })
     return {
       initialValues: defaultInitialValues,
       query: thisQuery,
-      values: thisValues
+      values
     }
   }
 

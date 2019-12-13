@@ -6,11 +6,17 @@ import Geschichte, { factoryParameters, pm, serializers } from '../index'
 const history = createBrowserHistory()
 
 const config = {
+  abc: {
+    test: pm('z', serializers.string)
+  },
   arg: pm('arg', serializers.string),
   test: pm('foo', serializers.string)
 }
 
 const { useQuery } = factoryParameters(config, {
+  abc: {
+    test: 'arg'
+  },
   arg: 'blub',
   test: 'haha'
 })
@@ -18,6 +24,9 @@ const { useQuery } = factoryParameters(config, {
 const { useQuery: useAnotherQuery } = factoryParameters(
   config,
   {
+    abc: {
+      test: 'arg'
+    },
     arg: 'xyz',
     test: 'another'
   },
@@ -59,7 +68,7 @@ const DifferentApp = () => {
 export const App = () => (
   <>
     <Geschichte history={history}>
-      <h3>A sample Applications</h3>
+      <h3>A sample Appliations</h3>
       <InnerApp />
       <DifferentApp />
     </Geschichte>
