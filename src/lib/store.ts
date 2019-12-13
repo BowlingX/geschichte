@@ -1,7 +1,7 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { History } from 'history'
 import LocationState = History.LocationState
-import produce from 'immer'
+import produce, { Draft } from 'immer'
 import memoizeOne from 'memoize-one'
 import { stringify } from 'query-string'
 import {
@@ -68,10 +68,12 @@ export const geschichte = <T = object>(
   return create(middleware)
 }
 
-export const factoryParameters = <T = object>(
+type InitialValuesProvider<T = object> = T | (() => T)
+
+export const factoryParameters = <T = {}>(
   config: Config,
   // tslint:disable-next-line:no-object-literal-type-assertion
-  defaultInitialValues: T = {} as T,
+  defaultInitialValues: InitialValuesProvider<T> = {} as T,
   ns: string = DEFAULT_NAMESPACE
 ) => {
   const flatConfig = flattenConfig(config)
@@ -81,9 +83,13 @@ export const factoryParameters = <T = object>(
     // the initial state.
     // tslint:disable-next-line:no-let
     let thisQuery = {}
+    const initialValues =
+      typeof defaultInitialValues === 'function'
+        ? (defaultInitialValues as () => T)()
+        : defaultInitialValues
     // We produce a new state here instead of mutating defaultInitialValues.
     // Otherwise it's possible that it get's reused across executions and that will yield to readonly errors.
-    const values = produce(defaultInitialValues, draft => {
+    const values = produce(initialValues, (draft: Draft<T>) => {
       thisQuery = applyFlatConfigToState(
         flatConfig,
         initialQueries,
@@ -93,7 +99,7 @@ export const factoryParameters = <T = object>(
       )
     })
     return {
-      initialValues: defaultInitialValues,
+      initialValues,
       query: thisQuery,
       values
     }
@@ -156,7 +162,7 @@ export const factoryParameters = <T = object>(
         config,
         flatConfig,
         ns,
-        defaultInitialValues,
+        initialRegisterState.initialValues,
         initialRegisterState.query,
         initialRegisterState.values
       )
@@ -218,10 +224,13 @@ export const factoryParameters = <T = object>(
     )
   }
 
-  const createQueryString = (values: T) =>
-    stringify(
-      createQueryObject<T>(flatConfig, ns, values, defaultInitialValues)
-    )
+  const createQueryString = (values: T) => {
+    const initialValues =
+      typeof defaultInitialValues === 'function'
+        ? (defaultInitialValues as () => T)()
+        : defaultInitialValues
+    stringify(createQueryObject<T>(flatConfig, ns, values, initialValues))
+  }
 
   return { useQuery, createQueryString }
 }
