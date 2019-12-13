@@ -165,7 +165,7 @@ export const factoryParameters = <T = object>(
             setCurrentState(state)
           }
         },
-        state => ({
+        state => (state.namespaces[ns] && {
           initialValues: state.namespaces[ns].initialValues,
           values: state.namespaces[ns].values
         }),

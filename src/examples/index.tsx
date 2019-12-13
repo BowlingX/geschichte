@@ -59,7 +59,7 @@ const DifferentApp = () => {
 export const App = () => (
   <>
     <Geschichte history={history}>
-      <h3>A sample Application</h3>
+      <h3>A sample Applications</h3>
       <InnerApp />
       <DifferentApp />
     </Geschichte>
