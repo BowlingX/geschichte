@@ -60,7 +60,20 @@ describe('utils', () => {
 
   describe('createQueriesFromPatch', () => {
     const config = {
-      parameter: pm('p', serializers.string)
+      parameter: pm('p', serializers.string),
+      somewhere: {
+        else: {
+          here: pm('deep', serializers.string)
+        }
+      }
+    }
+    const initialState = {
+      parameter: 'something',
+      somewhere: {
+        else: {
+          here: 'xyz'
+        }
+      }
     }
     it('should generate undefined values for undefined queries', () => {
       const patch: readonly Patch[] = [
@@ -74,10 +87,28 @@ describe('utils', () => {
         config,
         DEFAULT_NAMESPACE,
         patch,
-        { parameter: undefined },
-        { parameter: 'something' }
+        { ...initialState, parameter: 'un' },
+        initialState
       )
-      expect(nextQueries).toEqual({ p: undefined })
+      expect(nextQueries).toEqual({ p: 'un' })
+    })
+
+    it('should deeply detect patches', () => {
+      const patch: readonly Patch[] = [
+        {
+          op: 'add',
+          path: ['namespaces', DEFAULT_NAMESPACE, 'values', 'somewhere'],
+          value: undefined
+        }
+      ]
+      const nextQueries = createQueriesFromPatch(
+        config,
+        DEFAULT_NAMESPACE,
+        patch,
+        { ...initialState, somewhere: { else: { here: 'newValue' } } },
+        initialState
+      )
+      expect(nextQueries).toEqual({ deep: 'newValue' })
     })
   })
 })

@@ -52,6 +52,24 @@ export const skipValue = (value?: any, initialValue?: any) =>
   (Array.isArray(value) && value.length === 0)
 
 /**
+ * @return a list of patches that deeply match the given config object
+ */
+const findDeepPatches = (
+  config: Config,
+  basePath: readonly string[]
+): readonly Patch[] => {
+  return Object.keys(config).reduce((next: readonly any[], item: string) => {
+    if (typeof config[item] === 'function') {
+      return [...next, { path: [...basePath, item], op: 'replace' }]
+    }
+    return [
+      ...next,
+      ...findDeepPatches(config[item] as Config, [...basePath, item])
+    ]
+  }, [])
+}
+
+/**
  * @return an object with the keys that have been processed
  * if a key has been removed / set to undefined, we still return it to
  * be able to create a diff to the current state
@@ -62,7 +80,7 @@ export const createQueriesFromPatch = <T = object>(
   patch: readonly Patch[],
   state: T,
   initialState: T
-) => {
+): object => {
   return patch.reduce((next, item) => {
     const { path, op } = item
     // namespaces, [ns], values|initialValues, ...rest
@@ -70,7 +88,15 @@ export const createQueriesFromPatch = <T = object>(
 
     const possibleParameter = get(config, objectPath)
     if (typeof possibleParameter !== 'function') {
-      return next
+      // If we have an object as result, we create patches for each parameter inside the subtree
+      const patches = findDeepPatches(
+        possibleParameter,
+        path as readonly string[]
+      )
+      return {
+        ...next,
+        ...createQueriesFromPatch<T>(config, ns, patches, state, initialState)
+      }
     }
     const { name, serializer, skip } = possibleParameter()
     // @ts-ignore
