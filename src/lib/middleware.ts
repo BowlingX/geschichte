@@ -6,7 +6,9 @@ import { GetState, State, StoreApi } from 'zustand'
 import { Config, MappedConfig } from './store'
 import {
   applyDiffWithCreateQueriesFromPatch,
-  applyFlatConfigToState
+  applyFlatConfigToState,
+  createOrApplyPath,
+  get as getByPath
 } from './utils'
 
 export enum HistoryEventType {
@@ -300,9 +302,12 @@ export const converter = <T extends GenericObject>(
   const reset = (ns: string, event: HistoryEventType) =>
     set(
       (state: NamespaceValues<T>) =>
-        void (Object.keys(state.values) as Array<keyof T>).forEach(key => {
-          if (state.initialValues[key] !== undefined) {
-            state.values[key] = state.initialValues[key]
+        // we have to deeply replace the values, so the changes contain exactly the key that is mapped:
+        void Object.keys(state.mappedConfig).forEach(key => {
+          const { path } = state.mappedConfig[key]
+          const defaultValue = getByPath(state.initialValues, path)
+          if (defaultValue !== undefined) {
+            createOrApplyPath(state.values, path, defaultValue)
           }
         }),
       event,
