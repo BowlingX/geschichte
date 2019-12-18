@@ -1016,15 +1016,8 @@
 																}
 															],
 															"type": {
-																"type": "reference",
-																"name": "InnerNamespace",
-																"id": 219,
-																"typeArguments": [
-																	{
-																		"type": "typeParameter",
-																		"name": "ValueState"
-																	}
-																]
+																"type": "intrinsic",
+																"name": "void"
 															}
 														}
 													],
@@ -1144,15 +1137,8 @@
 																}
 															],
 															"type": {
-																"type": "reference",
-																"name": "InnerNamespace",
-																"id": 219,
-																"typeArguments": [
-																	{
-																		"type": "typeParameter",
-																		"name": "ValueState"
-																	}
-																]
+																"type": "intrinsic",
+																"name": "void"
 															}
 														}
 													],
@@ -1959,7 +1945,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/middleware.ts",
-					"line": 236,
+					"line": 237,
 					"character": 37
 				}
 			],
@@ -2078,7 +2064,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/middleware.ts",
-							"line": 236,
+							"line": 237,
 							"character": 56
 						}
 					]
@@ -2674,7 +2660,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/middleware.ts",
-					"line": 242,
+					"line": 243,
 					"character": 33
 				}
 			],
@@ -2737,7 +2723,7 @@
 											"sources": [
 												{
 													"fileName": "src/lib/middleware.ts",
-													"line": 243,
+													"line": 244,
 													"character": 16
 												}
 											]
@@ -2765,7 +2751,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/middleware.ts",
-							"line": 242,
+							"line": 243,
 							"character": 38
 						}
 					]
@@ -3581,7 +3567,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/middleware.ts",
-					"line": 267,
+					"line": 268,
 					"character": 22
 				}
 			]
@@ -4593,7 +4579,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/middleware.ts",
-					"line": 247,
+					"line": 248,
 					"character": 29
 				}
 			]
@@ -4744,7 +4730,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/middleware.ts",
-					"line": 215,
+					"line": 216,
 					"character": 23
 				}
 			]
@@ -5025,15 +5011,8 @@
 																				}
 																			],
 																			"type": {
-																				"type": "reference",
-																				"name": "InnerNamespace",
-																				"id": 219,
-																				"typeArguments": [
-																					{
-																						"type": "typeParameter",
-																						"name": "ValueState"
-																					}
-																				]
+																				"type": "intrinsic",
+																				"name": "void"
 																			}
 																		}
 																	],
@@ -5144,15 +5123,8 @@
 																				}
 																			],
 																			"type": {
-																				"type": "reference",
-																				"name": "InnerNamespace",
-																				"id": 219,
-																				"typeArguments": [
-																					{
-																						"type": "typeParameter",
-																						"name": "ValueState"
-																					}
-																				]
+																				"type": "intrinsic",
+																				"name": "void"
 																			}
 																		}
 																	],
