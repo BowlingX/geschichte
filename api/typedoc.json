@@ -5,7 +5,7 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 182,
+			"id": 201,
 			"name": "HistoryEventType",
 			"kind": 4,
 			"kindString": "Enumeration",
@@ -14,7 +14,7 @@
 			},
 			"children": [
 				{
-					"id": 183,
+					"id": 202,
 					"name": "PUSH",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -30,7 +30,7 @@
 					]
 				},
 				{
-					"id": 185,
+					"id": 204,
 					"name": "REGISTER",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -46,7 +46,7 @@
 					]
 				},
 				{
-					"id": 184,
+					"id": 203,
 					"name": "REPLACE",
 					"kind": 16,
 					"kindString": "Enumeration member",
@@ -67,9 +67,9 @@
 					"title": "Enumeration members",
 					"kind": 16,
 					"children": [
-						183,
-						185,
-						184
+						202,
+						204,
+						203
 					]
 				}
 			],
@@ -161,7 +161,7 @@
 			]
 		},
 		{
-			"id": 186,
+			"id": 205,
 			"name": "GenericObject",
 			"kind": 256,
 			"kindString": "Interface",
@@ -170,14 +170,14 @@
 			},
 			"indexSignature": [
 				{
-					"id": 187,
+					"id": 206,
 					"name": "__index",
 					"kind": 8192,
 					"kindString": "Index signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 188,
+							"id": 207,
 							"name": "key",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -203,7 +203,7 @@
 			]
 		},
 		{
-			"id": 200,
+			"id": 219,
 			"name": "InnerNamespace",
 			"kind": 256,
 			"kindString": "Interface",
@@ -212,7 +212,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 201,
+					"id": 220,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -221,14 +221,14 @@
 			],
 			"indexSignature": [
 				{
-					"id": 202,
+					"id": 221,
 					"name": "__index",
 					"kind": 8192,
 					"kindString": "Index signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 203,
+							"id": 222,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -242,7 +242,7 @@
 					"type": {
 						"type": "reference",
 						"name": "NamespaceValues",
-						"id": 189,
+						"id": 208,
 						"typeArguments": [
 							{
 								"type": "typeParameter",
@@ -418,7 +418,7 @@
 			]
 		},
 		{
-			"id": 189,
+			"id": 208,
 			"name": "NamespaceValues",
 			"kind": 256,
 			"kindString": "Interface",
@@ -427,7 +427,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 190,
+					"id": 209,
 					"name": "ValueState",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -436,7 +436,7 @@
 			],
 			"children": [
 				{
-					"id": 195,
+					"id": 214,
 					"name": "config",
 					"kind": 1024,
 					"kindString": "Property",
@@ -457,7 +457,7 @@
 					}
 				},
 				{
-					"id": 193,
+					"id": 212,
 					"name": "initialValues",
 					"kind": 1024,
 					"kindString": "Property",
@@ -477,7 +477,7 @@
 					}
 				},
 				{
-					"id": 194,
+					"id": 213,
 					"name": "mappedConfig",
 					"kind": 1024,
 					"kindString": "Property",
@@ -498,7 +498,7 @@
 					}
 				},
 				{
-					"id": 196,
+					"id": 215,
 					"name": "query",
 					"kind": 1024,
 					"kindString": "Property",
@@ -518,7 +518,7 @@
 					}
 				},
 				{
-					"id": 191,
+					"id": 210,
 					"name": "subscribers",
 					"kind": 1024,
 					"kindString": "Property",
@@ -541,7 +541,7 @@
 					}
 				},
 				{
-					"id": 197,
+					"id": 216,
 					"name": "unsubscribe",
 					"kind": 1024,
 					"kindString": "Property",
@@ -558,14 +558,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 198,
+							"id": 217,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 199,
+									"id": 218,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -587,7 +587,7 @@
 					}
 				},
 				{
-					"id": 192,
+					"id": 211,
 					"name": "values",
 					"kind": 1024,
 					"kindString": "Property",
@@ -612,13 +612,13 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						195,
-						193,
-						194,
-						196,
-						191,
-						197,
-						192
+						214,
+						212,
+						213,
+						215,
+						210,
+						216,
+						211
 					]
 				}
 			],
@@ -707,14 +707,14 @@
 			]
 		},
 		{
-			"id": 342,
+			"id": 361,
 			"name": "Props",
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
 			"children": [
 				{
-					"id": 343,
+					"id": 362,
 					"name": "history",
 					"kind": 1024,
 					"kindString": "Property",
@@ -740,7 +740,7 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						343
+						362
 					]
 				}
 			],
@@ -910,7 +910,7 @@
 			]
 		},
 		{
-			"id": 204,
+			"id": 223,
 			"name": "StoreState",
 			"kind": 256,
 			"kindString": "Interface",
@@ -919,7 +919,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 205,
+					"id": 224,
 					"name": "ValueState",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -928,7 +928,7 @@
 			],
 			"children": [
 				{
-					"id": 214,
+					"id": 233,
 					"name": "batchPushState",
 					"kind": 1024,
 					"kindString": "Property",
@@ -945,21 +945,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 215,
+							"id": 234,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 216,
+									"id": 235,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 217,
+											"id": 236,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -977,7 +977,7 @@
 											}
 										},
 										{
-											"id": 218,
+											"id": 237,
 											"name": "fn",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -985,21 +985,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 219,
+													"id": 238,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 220,
+															"id": 239,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 221,
+																	"id": 240,
 																	"name": "valueState",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -1018,7 +1018,7 @@
 															"type": {
 																"type": "reference",
 																"name": "InnerNamespace",
-																"id": 200,
+																"id": 219,
 																"typeArguments": [
 																	{
 																		"type": "typeParameter",
@@ -1056,7 +1056,7 @@
 					}
 				},
 				{
-					"id": 206,
+					"id": 225,
 					"name": "batchReplaceState",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1073,21 +1073,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 207,
+							"id": 226,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 208,
+									"id": 227,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 209,
+											"id": 228,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1105,7 +1105,7 @@
 											}
 										},
 										{
-											"id": 210,
+											"id": 229,
 											"name": "fn",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1113,21 +1113,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 211,
+													"id": 230,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 212,
+															"id": 231,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 213,
+																	"id": 232,
 																	"name": "valueState",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -1146,7 +1146,7 @@
 															"type": {
 																"type": "reference",
 																"name": "InnerNamespace",
-																"id": 200,
+																"id": 219,
 																"typeArguments": [
 																	{
 																		"type": "typeParameter",
@@ -1184,7 +1184,7 @@
 					}
 				},
 				{
-					"id": 247,
+					"id": 266,
 					"name": "initialQueries",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1204,7 +1204,7 @@
 					}
 				},
 				{
-					"id": 222,
+					"id": 241,
 					"name": "namespaces",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1221,7 +1221,7 @@
 					"type": {
 						"type": "reference",
 						"name": "InnerNamespace",
-						"id": 200,
+						"id": 219,
 						"typeArguments": [
 							{
 								"type": "typeParameter",
@@ -1231,7 +1231,7 @@
 					}
 				},
 				{
-					"id": 223,
+					"id": 242,
 					"name": "pushState",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1248,7 +1248,7 @@
 					"type": {
 						"type": "reference",
 						"name": "PushStateFunction",
-						"id": 248,
+						"id": 267,
 						"typeArguments": [
 							{
 								"type": "typeParameter",
@@ -1258,7 +1258,7 @@
 					}
 				},
 				{
-					"id": 225,
+					"id": 244,
 					"name": "register",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1278,21 +1278,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 226,
+							"id": 245,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 227,
+									"id": 246,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 228,
+											"id": 247,
 											"name": "config",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1304,7 +1304,7 @@
 											}
 										},
 										{
-											"id": 229,
+											"id": 248,
 											"name": "mappedConfig",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1316,7 +1316,7 @@
 											}
 										},
 										{
-											"id": 230,
+											"id": 249,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1327,7 +1327,7 @@
 											}
 										},
 										{
-											"id": 231,
+											"id": 250,
 											"name": "initialValues",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1338,7 +1338,7 @@
 											}
 										},
 										{
-											"id": 232,
+											"id": 251,
 											"name": "query",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1349,7 +1349,7 @@
 											}
 										},
 										{
-											"id": 233,
+											"id": 252,
 											"name": "values",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1363,14 +1363,14 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 234,
+											"id": 253,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 235,
+													"id": 254,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -1403,7 +1403,7 @@
 					}
 				},
 				{
-					"id": 224,
+					"id": 243,
 					"name": "replaceState",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1420,7 +1420,7 @@
 					"type": {
 						"type": "reference",
 						"name": "ReplaceStateFunction",
-						"id": 257,
+						"id": 276,
 						"typeArguments": [
 							{
 								"type": "typeParameter",
@@ -1430,7 +1430,7 @@
 					}
 				},
 				{
-					"id": 239,
+					"id": 258,
 					"name": "resetPush",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1447,21 +1447,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 240,
+							"id": 259,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 241,
+									"id": 260,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 242,
+											"id": 261,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1489,7 +1489,7 @@
 					}
 				},
 				{
-					"id": 243,
+					"id": 262,
 					"name": "resetReplace",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1506,21 +1506,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 244,
+							"id": 263,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 245,
+									"id": 264,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 246,
+											"id": 265,
 											"name": "ns",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1548,7 +1548,7 @@
 					}
 				},
 				{
-					"id": 236,
+					"id": 255,
 					"name": "unregister",
 					"kind": 1024,
 					"kindString": "Property",
@@ -1568,14 +1568,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 237,
+							"id": 256,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 238,
+									"id": 257,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1602,16 +1602,16 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						214,
-						206,
-						247,
-						222,
-						223,
+						233,
 						225,
-						224,
-						239,
+						266,
+						241,
+						242,
+						244,
 						243,
-						236
+						258,
+						262,
+						255
 					]
 				}
 			],
@@ -1624,7 +1624,7 @@
 			]
 		},
 		{
-			"id": 283,
+			"id": 302,
 			"name": "GenericConverter",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -1633,7 +1633,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 284,
+					"id": 303,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -1650,21 +1650,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 285,
+					"id": 304,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 286,
+							"id": 305,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 287,
+									"id": 306,
 									"name": "stateProducer",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1672,7 +1672,7 @@
 									"type": {
 										"type": "reference",
 										"name": "InnerNamespaceProducerFunction",
-										"id": 271,
+										"id": 290,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -1682,7 +1682,7 @@
 									}
 								},
 								{
-									"id": 288,
+									"id": 307,
 									"name": "eventType",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1690,11 +1690,11 @@
 									"type": {
 										"type": "reference",
 										"name": "HistoryEventType",
-										"id": 182
+										"id": 201
 									}
 								},
 								{
-									"id": 289,
+									"id": 308,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1733,7 +1733,7 @@
 			}
 		},
 		{
-			"id": 290,
+			"id": 309,
 			"name": "ImmerProducer",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -1742,7 +1742,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 291,
+					"id": 310,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -1759,21 +1759,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 292,
+					"id": 311,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 293,
+							"id": 312,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 294,
+									"id": 313,
 									"name": "stateMapper",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1781,21 +1781,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 295,
+											"id": 314,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 296,
+													"id": 315,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 297,
+															"id": 316,
 															"name": "changes",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1809,7 +1809,7 @@
 															}
 														},
 														{
-															"id": 298,
+															"id": 317,
 															"name": "values",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1817,7 +1817,7 @@
 															"type": {
 																"type": "reference",
 																"name": "StoreState",
-																"id": 204,
+																"id": 223,
 																"typeArguments": [
 																	{
 																		"type": "typeParameter",
@@ -1830,7 +1830,7 @@
 													"type": {
 														"type": "reference",
 														"name": "StoreState",
-														"id": 204,
+														"id": 223,
 														"typeArguments": [
 															{
 																"type": "typeParameter",
@@ -1851,7 +1851,7 @@
 									}
 								},
 								{
-									"id": 299,
+									"id": 318,
 									"name": "fn",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1862,7 +1862,7 @@
 											{
 												"type": "reference",
 												"name": "NamespaceProducerFunction",
-												"id": 266,
+												"id": 285,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -1873,7 +1873,7 @@
 											{
 												"type": "reference",
 												"name": "InnerNamespaceProducerFunction",
-												"id": 271,
+												"id": 290,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -1885,7 +1885,7 @@
 									}
 								},
 								{
-									"id": 300,
+									"id": 319,
 									"name": "eventType",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1893,11 +1893,11 @@
 									"type": {
 										"type": "reference",
 										"name": "HistoryEventType",
-										"id": 182
+										"id": 201
 									}
 								},
 								{
-									"id": 301,
+									"id": 320,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1936,7 +1936,7 @@
 			}
 		},
 		{
-			"id": 318,
+			"id": 337,
 			"name": "ImmerStateCreator",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -1945,7 +1945,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 319,
+					"id": 338,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -1966,21 +1966,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 320,
+					"id": 339,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 321,
+							"id": 340,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 322,
+									"id": 341,
 									"name": "fn",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1988,7 +1988,7 @@
 									"type": {
 										"type": "reference",
 										"name": "ImmerProducer",
-										"id": 290,
+										"id": 309,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -2002,7 +2002,7 @@
 									}
 								},
 								{
-									"id": 323,
+									"id": 342,
 									"name": "get",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2014,7 +2014,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -2030,7 +2030,7 @@
 									}
 								},
 								{
-									"id": 324,
+									"id": 343,
 									"name": "api",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2042,7 +2042,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -2061,7 +2061,7 @@
 							"type": {
 								"type": "reference",
 								"name": "StoreState",
-								"id": 204,
+								"id": 223,
 								"typeArguments": [
 									{
 										"type": "typeParameter",
@@ -2148,14 +2148,14 @@
 			}
 		},
 		{
-			"id": 271,
+			"id": 290,
 			"name": "InnerNamespaceProducerFunction",
 			"kind": 4194304,
 			"kindString": "Type alias",
 			"flags": {},
 			"typeParameter": [
 				{
-					"id": 272,
+					"id": 291,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2172,21 +2172,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 273,
+					"id": 292,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 274,
+							"id": 293,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 275,
+									"id": 294,
 									"name": "state",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2194,7 +2194,7 @@
 									"type": {
 										"type": "reference",
 										"name": "InnerNamespace",
-										"id": 200,
+										"id": 219,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -2210,7 +2210,7 @@
 									{
 										"type": "reference",
 										"name": "InnerNamespace",
-										"id": 200,
+										"id": 219,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -2237,7 +2237,7 @@
 			}
 		},
 		{
-			"id": 276,
+			"id": 295,
 			"name": "NamespaceProducer",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -2246,7 +2246,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 277,
+					"id": 296,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2263,21 +2263,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 278,
+					"id": 297,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 279,
+							"id": 298,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 280,
+									"id": 299,
 									"name": "stateProducer",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2285,7 +2285,7 @@
 									"type": {
 										"type": "reference",
 										"name": "NamespaceProducerFunction",
-										"id": 266,
+										"id": 285,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -2295,7 +2295,7 @@
 									}
 								},
 								{
-									"id": 281,
+									"id": 300,
 									"name": "eventType",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2303,11 +2303,11 @@
 									"type": {
 										"type": "reference",
 										"name": "HistoryEventType",
-										"id": 182
+										"id": 201
 									}
 								},
 								{
-									"id": 282,
+									"id": 301,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2346,14 +2346,14 @@
 			}
 		},
 		{
-			"id": 266,
+			"id": 285,
 			"name": "NamespaceProducerFunction",
 			"kind": 4194304,
 			"kindString": "Type alias",
 			"flags": {},
 			"typeParameter": [
 				{
-					"id": 267,
+					"id": 286,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2370,21 +2370,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 268,
+					"id": 287,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 269,
+							"id": 288,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 270,
+									"id": 289,
 									"name": "state",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2392,7 +2392,7 @@
 									"type": {
 										"type": "reference",
 										"name": "NamespaceValues",
-										"id": 189,
+										"id": 208,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -2419,7 +2419,7 @@
 			}
 		},
 		{
-			"id": 248,
+			"id": 267,
 			"name": "PushStateFunction",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -2428,7 +2428,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 249,
+					"id": 268,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2445,21 +2445,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 250,
+					"id": 269,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 251,
+							"id": 270,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 252,
+									"id": 271,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2470,7 +2470,7 @@
 									}
 								},
 								{
-									"id": 253,
+									"id": 272,
 									"name": "valueCreator",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2478,21 +2478,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 254,
+											"id": 273,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 255,
+													"id": 274,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 256,
+															"id": 275,
 															"name": "state",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -2537,7 +2537,7 @@
 			}
 		},
 		{
-			"id": 257,
+			"id": 276,
 			"name": "ReplaceStateFunction",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -2546,7 +2546,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 258,
+					"id": 277,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2563,21 +2563,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 259,
+					"id": 278,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 260,
+							"id": 279,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 261,
+									"id": 280,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2588,7 +2588,7 @@
 									}
 								},
 								{
-									"id": 262,
+									"id": 281,
 									"name": "valueCreator",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2596,21 +2596,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 263,
+											"id": 282,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 264,
+													"id": 283,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 265,
+															"id": 284,
 															"name": "state",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -2655,7 +2655,7 @@
 			}
 		},
 		{
-			"id": 325,
+			"id": 344,
 			"name": "SetImmerState",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -2664,7 +2664,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 326,
+					"id": 345,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2681,21 +2681,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 327,
+					"id": 346,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 328,
+							"id": 347,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 329,
+									"id": 348,
 									"name": "stateProducer",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2703,21 +2703,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 330,
+											"id": 349,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 331,
+													"id": 350,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 332,
+															"id": 351,
 															"name": "state",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -2745,7 +2745,7 @@
 									}
 								},
 								{
-									"id": 333,
+									"id": 352,
 									"name": "debugMiddlewareKey",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2773,7 +2773,7 @@
 			}
 		},
 		{
-			"id": 302,
+			"id": 321,
 			"name": "StateCreator",
 			"kind": 4194304,
 			"kindString": "Type alias",
@@ -2782,7 +2782,7 @@
 			},
 			"typeParameter": [
 				{
-					"id": 303,
+					"id": 322,
 					"name": "T",
 					"kind": 131072,
 					"kindString": "Type parameter",
@@ -2803,21 +2803,21 @@
 			"type": {
 				"type": "reflection",
 				"declaration": {
-					"id": 304,
+					"id": 323,
 					"name": "__type",
 					"kind": 65536,
 					"kindString": "Type literal",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 305,
+							"id": 324,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 306,
+									"id": 325,
 									"name": "set",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2828,7 +2828,7 @@
 											{
 												"type": "reference",
 												"name": "NamespaceProducer",
-												"id": 276,
+												"id": 295,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -2843,7 +2843,7 @@
 											{
 												"type": "reference",
 												"name": "GenericConverter",
-												"id": 283,
+												"id": 302,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -2859,7 +2859,7 @@
 									}
 								},
 								{
-									"id": 307,
+									"id": 326,
 									"name": "get",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2871,7 +2871,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -2887,7 +2887,7 @@
 									}
 								},
 								{
-									"id": 308,
+									"id": 327,
 									"name": "api",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2899,7 +2899,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "typeParameter",
@@ -2918,7 +2918,7 @@
 							"type": {
 								"type": "reference",
 								"name": "StoreState",
-								"id": 204,
+								"id": 223,
 								"typeArguments": [
 									{
 										"type": "typeParameter",
@@ -3001,7 +3001,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "intrinsic",
@@ -3018,7 +3018,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "intrinsic",
@@ -3037,7 +3037,7 @@
 			"defaultValue": " createContext<\n  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>] | null\n>(null)"
 		},
 		{
-			"id": 344,
+			"id": 363,
 			"name": "Geschichte",
 			"kind": 64,
 			"kindString": "Function",
@@ -3047,14 +3047,14 @@
 			},
 			"signatures": [
 				{
-					"id": 345,
+					"id": 364,
 					"name": "Geschichte",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 346,
+							"id": 365,
 							"name": "__namedParameters",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3063,14 +3063,14 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 347,
+									"id": 366,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"children": [
 										{
-											"id": 348,
+											"id": 367,
 											"name": "children",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3131,21 +3131,21 @@
 																	{
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 349,
+																			"id": 368,
 																			"name": "__type",
 																			"kind": 65536,
 																			"kindString": "Type literal",
 																			"flags": {},
 																			"signatures": [
 																				{
-																					"id": 350,
+																					"id": 369,
 																					"name": "__call",
 																					"kind": 4096,
 																					"kindString": "Call signature",
 																					"flags": {},
 																					"parameters": [
 																						{
-																							"id": 351,
+																							"id": 370,
 																							"name": "props",
 																							"kind": 32768,
 																							"kindString": "Parameter",
@@ -3176,7 +3176,7 @@
 																	{
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 352,
+																			"id": 371,
 																			"name": "__type",
 																			"kind": 65536,
 																			"kindString": "Type literal",
@@ -3199,7 +3199,7 @@
 											}
 										},
 										{
-											"id": 353,
+											"id": 372,
 											"name": "history",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3228,8 +3228,8 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												348,
-												353
+												367,
+												372
 											]
 										}
 									],
@@ -3530,7 +3530,7 @@
 			]
 		},
 		{
-			"id": 338,
+			"id": 357,
 			"name": "converter",
 			"kind": 64,
 			"kindString": "Function",
@@ -3540,14 +3540,14 @@
 			},
 			"signatures": [
 				{
-					"id": 339,
+					"id": 358,
 					"name": "converter",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 340,
+							"id": 359,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -3555,13 +3555,13 @@
 							"type": {
 								"type": "reference",
 								"name": "GenericObject",
-								"id": 186
+								"id": 205
 							}
 						}
 					],
 					"parameters": [
 						{
-							"id": 341,
+							"id": 360,
 							"name": "historyInstance",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3612,7 +3612,7 @@
 							"type": {
 								"type": "reference",
 								"name": "GenericObject",
-								"id": 186
+								"id": 205
 							}
 						},
 						{
@@ -3649,7 +3649,7 @@
 					"type": {
 						"type": "reference",
 						"name": "GenericObject",
-						"id": 186
+						"id": 205
 					}
 				}
 			],
@@ -3926,7 +3926,7 @@
 			]
 		},
 		{
-			"id": 173,
+			"id": 192,
 			"name": "factoryParameters",
 			"kind": 64,
 			"kindString": "Function",
@@ -3936,14 +3936,14 @@
 			},
 			"signatures": [
 				{
-					"id": 174,
+					"id": 193,
 					"name": "factoryParameters",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 175,
+							"id": 194,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -3952,7 +3952,7 @@
 					],
 					"parameters": [
 						{
-							"id": 176,
+							"id": 195,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3964,7 +3964,7 @@
 							}
 						},
 						{
-							"id": 177,
+							"id": 196,
 							"name": "defaultInitialValues",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3983,7 +3983,7 @@
 							"defaultValue": " {} as T"
 						},
 						{
-							"id": 178,
+							"id": 197,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3998,14 +3998,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 179,
+							"id": 198,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"children": [
 								{
-									"id": 181,
+									"id": 200,
 									"name": "createQueryString",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4013,7 +4013,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/store.ts",
-											"line": 237,
+											"line": 251,
 											"character": 38
 										}
 									],
@@ -4023,7 +4023,7 @@
 									}
 								},
 								{
-									"id": 180,
+									"id": 199,
 									"name": "useQuery",
 									"kind": 32,
 									"kindString": "Variable",
@@ -4031,7 +4031,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/store.ts",
-											"line": 237,
+											"line": 251,
 											"character": 19
 										}
 									],
@@ -4046,8 +4046,8 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										181,
-										180
+										200,
+										199
 									]
 								}
 							]
@@ -4058,7 +4058,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/store.ts",
-					"line": 73,
+					"line": 87,
 					"character": 30
 				}
 			]
@@ -4368,7 +4368,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "unknown",
@@ -4385,7 +4385,7 @@
 											{
 												"type": "reference",
 												"name": "StoreState",
-												"id": 204,
+												"id": 223,
 												"typeArguments": [
 													{
 														"type": "unknown",
@@ -4488,7 +4488,7 @@
 			]
 		},
 		{
-			"id": 309,
+			"id": 328,
 			"name": "historyManagement",
 			"kind": 64,
 			"kindString": "Function",
@@ -4498,14 +4498,14 @@
 			},
 			"signatures": [
 				{
-					"id": 310,
+					"id": 329,
 					"name": "historyManagement",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 311,
+							"id": 330,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -4514,7 +4514,7 @@
 					],
 					"parameters": [
 						{
-							"id": 312,
+							"id": 331,
 							"name": "historyInstance",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -4540,7 +4540,7 @@
 			]
 		},
 		{
-			"id": 334,
+			"id": 353,
 			"name": "immerWithPatches",
 			"kind": 64,
 			"kindString": "Function",
@@ -4550,14 +4550,14 @@
 			},
 			"signatures": [
 				{
-					"id": 335,
+					"id": 354,
 					"name": "immerWithPatches",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"typeParameter": [
 						{
-							"id": 336,
+							"id": 355,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -4566,7 +4566,7 @@
 					],
 					"parameters": [
 						{
-							"id": 337,
+							"id": 356,
 							"name": "config",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -4574,7 +4574,7 @@
 							"type": {
 								"type": "reference",
 								"name": "ImmerStateCreator",
-								"id": 318,
+								"id": 337,
 								"typeArguments": [
 									{
 										"type": "typeParameter",
@@ -4648,7 +4648,7 @@
 			]
 		},
 		{
-			"id": 313,
+			"id": 332,
 			"name": "namespaceProducer",
 			"kind": 64,
 			"kindString": "Function",
@@ -4660,7 +4660,7 @@
 			},
 			"signatures": [
 				{
-					"id": 314,
+					"id": 333,
 					"name": "namespaceProducer",
 					"kind": 4096,
 					"kindString": "Call signature",
@@ -4670,7 +4670,7 @@
 					},
 					"typeParameter": [
 						{
-							"id": 315,
+							"id": 334,
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
@@ -4679,7 +4679,7 @@
 					],
 					"parameters": [
 						{
-							"id": 316,
+							"id": 335,
 							"name": "fn",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -4690,7 +4690,7 @@
 									{
 										"type": "reference",
 										"name": "NamespaceProducerFunction",
-										"id": 266,
+										"id": 285,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -4701,7 +4701,7 @@
 									{
 										"type": "reference",
 										"name": "InnerNamespaceProducerFunction",
-										"id": 271,
+										"id": 290,
 										"typeArguments": [
 											{
 												"type": "typeParameter",
@@ -4713,7 +4713,7 @@
 							}
 						},
 						{
-							"id": 317,
+							"id": 336,
 							"name": "ns",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -4910,6 +4910,292 @@
 					"fileName": "src/lib/serializers.ts",
 					"line": 8,
 					"character": 11
+				}
+			]
+		},
+		{
+			"id": 173,
+			"name": "useBatchQuery",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 174,
+					"name": "useBatchQuery",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 175,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 176,
+									"name": "batchPushState",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/lib/store.ts",
+											"line": 80,
+											"character": 20
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 177,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 178,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 179,
+															"name": "ns",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "typeOperator",
+																"operator": "keyof",
+																"target": {
+																	"type": "array",
+																	"elementType": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	}
+																}
+															}
+														},
+														{
+															"id": 180,
+															"name": "fn",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 181,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {},
+																	"signatures": [
+																		{
+																			"id": 182,
+																			"name": "__call",
+																			"kind": 4096,
+																			"kindString": "Call signature",
+																			"flags": {},
+																			"parameters": [
+																				{
+																					"id": 183,
+																					"name": "valueState",
+																					"kind": 32768,
+																					"kindString": "Parameter",
+																					"flags": {
+																						"isRest": true
+																					},
+																					"type": {
+																						"type": "array",
+																						"elementType": {
+																							"type": "typeParameter",
+																							"name": "ValueState"
+																						}
+																					}
+																				}
+																			],
+																			"type": {
+																				"type": "reference",
+																				"name": "InnerNamespace",
+																				"id": 219,
+																				"typeArguments": [
+																					{
+																						"type": "typeParameter",
+																						"name": "ValueState"
+																					}
+																				]
+																			}
+																		}
+																	],
+																	"sources": [
+																		{
+																			"fileName": "src/lib/middleware.ts",
+																			"line": 54,
+																			"character": 7
+																		}
+																	]
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 184,
+									"name": "batchReplaceState",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/lib/store.ts",
+											"line": 81,
+											"character": 23
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 185,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 186,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 187,
+															"name": "ns",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "typeOperator",
+																"operator": "keyof",
+																"target": {
+																	"type": "array",
+																	"elementType": {
+																		"type": "intrinsic",
+																		"name": "string"
+																	}
+																}
+															}
+														},
+														{
+															"id": 188,
+															"name": "fn",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 189,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {},
+																	"signatures": [
+																		{
+																			"id": 190,
+																			"name": "__call",
+																			"kind": 4096,
+																			"kindString": "Call signature",
+																			"flags": {},
+																			"parameters": [
+																				{
+																					"id": 191,
+																					"name": "valueState",
+																					"kind": 32768,
+																					"kindString": "Parameter",
+																					"flags": {
+																						"isRest": true
+																					},
+																					"type": {
+																						"type": "array",
+																						"elementType": {
+																							"type": "typeParameter",
+																							"name": "ValueState"
+																						}
+																					}
+																				}
+																			],
+																			"type": {
+																				"type": "reference",
+																				"name": "InnerNamespace",
+																				"id": 219,
+																				"typeArguments": [
+																					{
+																						"type": "typeParameter",
+																						"name": "ValueState"
+																					}
+																				]
+																			}
+																		}
+																	],
+																	"sources": [
+																		{
+																			"fileName": "src/lib/middleware.ts",
+																			"line": 50,
+																			"character": 7
+																		}
+																	]
+																}
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "void"
+													}
+												}
+											]
+										}
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										176,
+										184
+									]
+								}
+							]
+						}
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/lib/store.ts",
+					"line": 73,
+					"character": 26
 				}
 			]
 		},
@@ -6086,7 +6372,7 @@
 			"title": "Enumerations",
 			"kind": 4,
 			"children": [
-				182
+				201
 			]
 		},
 		{
@@ -6094,32 +6380,32 @@
 			"kind": 256,
 			"children": [
 				153,
-				186,
-				200,
+				205,
+				219,
 				158,
 				149,
-				189,
+				208,
 				146,
-				342,
+				361,
 				1,
-				204
+				223
 			]
 		},
 		{
 			"title": "Type aliases",
 			"kind": 4194304,
 			"children": [
-				283,
-				290,
-				318,
+				302,
+				309,
+				337,
 				169,
-				271,
+				290,
+				295,
+				285,
+				267,
 				276,
-				266,
-				248,
-				257,
-				325,
-				302
+				344,
+				321
 			]
 		},
 		{
@@ -6134,27 +6420,28 @@
 			"title": "Functions",
 			"kind": 64,
 			"children": [
-				344,
+				363,
 				120,
 				130,
-				338,
+				357,
 				82,
 				104,
 				112,
 				58,
-				173,
+				192,
 				100,
 				142,
 				87,
 				163,
 				91,
-				309,
-				334,
+				328,
+				353,
 				10,
-				313,
+				332,
 				78,
 				96,
-				13
+				13,
+				173
 			]
 		},
 		{
