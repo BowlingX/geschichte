@@ -70,6 +70,20 @@ export const geschichte = <T = object>(
 
 type InitialValuesProvider<T = object> = T | (() => T)
 
+export const useBatchQuery = () => {
+  const [useStore] = useContext(StoreContext) as [
+    UseStore<StoreState<any>>,
+    StoreApi<StoreState<any>>
+  ]
+  return useStore(
+    ({ batchPushState, batchReplaceState }) => ({
+      batchPushState,
+      batchReplaceState
+    }),
+    shallow
+  )
+}
+
 export const factoryParameters = <T = {}>(
   config: Config,
   // tslint:disable-next-line:no-object-literal-type-assertion
