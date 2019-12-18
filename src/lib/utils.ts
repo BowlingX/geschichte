@@ -38,7 +38,7 @@ export const get = <T = object>(
   path: ReadonlyArray<string | number>
 ) => {
   return path.reduce((next: T | any, key: string | number) => {
-    return next[key]
+    return next ? next[key] : undefined
   }, object)
 }
 
@@ -84,10 +84,16 @@ export const createQueriesFromPatch = <T = object>(
   return patch.reduce((next, item) => {
     const { path, op } = item
     // namespaces, [ns], values|initialValues, ...rest
-    const [, , , ...objectPath] = path
-
+    const [, patchNamespace, , ...objectPath] = path
+    // skip patches that don't belong to the given namespace
+    if (patchNamespace !== ns) {
+      return next
+    }
     const possibleParameter = get(config, objectPath)
-    if (typeof possibleParameter !== 'function') {
+    if (
+      possibleParameter !== undefined &&
+      typeof possibleParameter !== 'function'
+    ) {
       // If we have an object as result, we create patches for each parameter inside the subtree
       const patches = findDeepPatches(
         possibleParameter,
