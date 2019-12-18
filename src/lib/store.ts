@@ -224,12 +224,14 @@ export const factoryParameters = <T = {}>(
     )
   }
 
-  const createQueryString = (values: T) => {
+  const createQueryString = (values: T): string => {
     const initialValues =
       typeof defaultInitialValues === 'function'
         ? (defaultInitialValues as () => T)()
         : defaultInitialValues
-    stringify(createQueryObject<T>(flatConfig, ns, values, initialValues))
+    return stringify(
+      createQueryObject<T>(flatConfig, ns, values, initialValues)
+    )
   }
 
   return { useQuery, createQueryString }
