@@ -47,11 +47,11 @@ export interface InnerNamespace<T> {
 export interface StoreState<ValueState = object> {
   batchReplaceState: (
     ns: readonly string[],
-    fn: (...valueState: ValueState[]) => InnerNamespace<ValueState>
+    fn: (...valueState: ValueState[]) => void
   ) => void
   batchPushState: (
     ns: readonly string[],
-    fn: (...valueState: ValueState[]) => InnerNamespace<ValueState>
+    fn: (...valueState: ValueState[]) => void
   ) => void
   namespaces: InnerNamespace<ValueState>
   pushState: PushStateFunction<ValueState>
@@ -128,7 +128,8 @@ export const historyManagement = <T>(historyInstance: History) => (
                   const {
                     path: [, namespace]
                   } = change
-                  if (next.indexOf(namespace as string) !== -1) {
+
+                  if (next.indexOf(namespace as string) === -1) {
                     return [...next, namespace as string]
                   }
                   return next
@@ -318,22 +319,22 @@ export const converter = <T extends GenericObject>(
     /** batch pushes the given namespaces */
     batchPushState: (
       ns: readonly string[],
-      fn: (...valueState: T[]) => InnerNamespace<T>
+      fn: (...valueState: T[]) => void
     ) => {
       set(
         (state: InnerNamespace<T>) =>
-          fn(...ns.map(thisNs => state[thisNs].values)),
+          void fn(...ns.map(thisNs => state[thisNs].values)),
         HistoryEventType.PUSH
       )
     },
     /** batch replaces the given namespaces */
     batchReplaceState: (
       ns: readonly string[],
-      fn: (...valueState: T[]) => InnerNamespace<T>
+      fn: (...valueState: T[]) => void
     ) => {
       set(
         (state: InnerNamespace<T>) =>
-          fn(...ns.map(thisNs => state[thisNs].values)),
+          void fn(...ns.map(thisNs => state[thisNs].values)),
         HistoryEventType.REPLACE
       )
     },
