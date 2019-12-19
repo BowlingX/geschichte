@@ -90,10 +90,9 @@ export const createQueriesFromPatch = <T = object>(
       return next
     }
     const possibleParameter = get(config, objectPath)
-    if (
-      possibleParameter !== undefined &&
-      typeof possibleParameter !== 'function'
-    ) {
+    const isNotCallable = typeof possibleParameter !== 'function'
+
+    if (possibleParameter !== undefined && isNotCallable) {
       // If we have an object as result, we create patches for each parameter inside the subtree
       const patches = findDeepPatches(
         possibleParameter,
@@ -104,6 +103,11 @@ export const createQueriesFromPatch = <T = object>(
         ...createQueriesFromPatch<T>(config, ns, patches, state, initialState)
       }
     }
+
+    if (isNotCallable) {
+      return next
+    }
+
     const { name, serializer, skip } = possibleParameter()
     // @ts-ignore
     const value = get(state, objectPath)
