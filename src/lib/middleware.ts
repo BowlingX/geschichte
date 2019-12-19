@@ -277,8 +277,9 @@ export const converter = <T extends GenericObject>(
   const unregisterListener = historyInstance.listen((location, action) => {
     // don't handle our own actions
     if (
-      action === 'PUSH' ||
-      (action === 'REPLACE' && location.state && location.state.__g__)
+      (action === 'REPLACE' || action === 'PUSH') &&
+      location.state &&
+      location.state.__g__
     ) {
       return
     }
