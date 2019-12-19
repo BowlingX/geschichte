@@ -32,7 +32,8 @@ describe('<Geschichte />', () => {
     const Component = () => {
       const {
         values: { someParameter },
-        pushState
+        pushState,
+        resetPush
       } = useQuery()
       const { values: secondValues } = secondNamespaceUseQuery()
 
@@ -55,6 +56,7 @@ describe('<Geschichte />', () => {
               })
             }
           />
+          <button name="resetPush" onClick={resetPush} />
         </>
       )
     }
@@ -78,6 +80,17 @@ describe('<Geschichte />', () => {
       expect(history.location.search).toEqual(
         '?test.wow=wasBatch&test2.wow=anotherOne'
       )
+    })
+
+    it('should reset the state properly', () => {
+      renderd.find('button[name="pushBatch"]').simulate('click')
+      expect(renderd.text()).toEqual('wasBatch')
+      expect(history.location.search).toEqual(
+        '?test.wow=wasBatch&test2.wow=anotherOne'
+      )
+      renderd.find('button[name="resetPush"]').simulate('click')
+      expect(renderd.text()).toEqual('test')
+      expect(history.location.search).toEqual('?test2.wow=anotherOne')
     })
   })
 })

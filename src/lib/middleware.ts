@@ -304,8 +304,7 @@ export const converter = <T extends GenericObject>(
 
   const reset = (ns: string, event: HistoryEventType) =>
     set(
-      (state: NamespaceValues<T>) =>
-        void (state.values = state.initialValues),
+      (state: NamespaceValues<T>) => void (state.values = state.initialValues),
       event,
       ns
     )
