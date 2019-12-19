@@ -317,7 +317,7 @@ export const converter = <T extends GenericObject>(
     ) => {
       set(
         (state: InnerNamespace<T>) =>
-          void fn(...ns.map(thisNs => state[thisNs].values)),
+          void fn(...ns.map(thisNs => (state[thisNs] || {}).values)),
         HistoryEventType.PUSH
       )
     },
@@ -328,7 +328,7 @@ export const converter = <T extends GenericObject>(
     ) => {
       set(
         (state: InnerNamespace<T>) =>
-          void fn(...ns.map(thisNs => state[thisNs].values)),
+          void fn(...ns.map(thisNs => (state[thisNs] || {}).values)),
         HistoryEventType.REPLACE
       )
     },
