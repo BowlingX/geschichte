@@ -305,14 +305,7 @@ export const converter = <T extends GenericObject>(
   const reset = (ns: string, event: HistoryEventType) =>
     set(
       (state: NamespaceValues<T>) =>
-        // we have to deeply replace the values, so the changes contain exactly the key that is mapped:
-        void Object.keys(state.mappedConfig).forEach(key => {
-          const { path } = state.mappedConfig[key]
-          const defaultValue = getByPath(state.initialValues, path)
-          if (defaultValue !== undefined) {
-            createOrApplyPath(state.values, path, defaultValue)
-          }
-        }),
+        void (state.values = state.initialValues),
       event,
       ns
     )
