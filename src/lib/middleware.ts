@@ -156,7 +156,7 @@ export const historyManagement = <T>(historyInstance: History) => (
 
             const otherQueries = Object.keys(values.namespaces).reduce(
               (next, thisNs) => {
-                if (thisNs === ns) {
+                if (affectedNamespaces.indexOf(thisNs) !== -1) {
                   return next
                 }
                 return {
@@ -188,6 +188,7 @@ export const historyManagement = <T>(historyInstance: History) => (
                 ...values.namespaces,
                 ...affectedNamespaces.reduce((next: any, thisNs: string) => {
                   return {
+                    ...next,
                     [thisNs]: {
                       ...values.namespaces[thisNs],
                       query: uniqueQueries[thisNs]
