@@ -163,7 +163,7 @@ export const factoryParameters = <T = {}>(
           values
         }
       }
-      return memInitBlank(initialQueries)
+      return memInitBlank(initialQueries())
     }, [api])
 
     const [currentState, setCurrentState] = useState({

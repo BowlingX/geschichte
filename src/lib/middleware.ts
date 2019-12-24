@@ -1,14 +1,13 @@
 /* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation readonly-array */
 import { History } from 'history'
 import { Patch, produceWithPatches } from 'immer'
+import memoizeOne from 'memoize-one'
 import { parse, stringify } from 'query-string'
 import { GetState, State, StoreApi } from 'zustand'
 import { Config, MappedConfig } from './store'
 import {
   applyDiffWithCreateQueriesFromPatch,
-  applyFlatConfigToState,
-  createOrApplyPath,
-  get as getByPath
+  applyFlatConfigToState
 } from './utils'
 
 export enum HistoryEventType {
@@ -69,7 +68,7 @@ export interface StoreState<ValueState = object> {
   unregister: () => void
   resetPush: (ns: string) => void
   resetReplace: (ns: string) => void
-  initialQueries: object
+  initialQueries: () => object
 }
 
 type NamespaceProducerFunction<T> = (state: NamespaceValues<T>) => void
@@ -266,6 +265,8 @@ export const immerWithPatches = <T>(config: ImmerStateCreator<T>) => (
     api
   )
 
+const parseSearchString = (search: string) => parse(search)
+
 export const converter = <T extends GenericObject>(
   historyInstance: History
 ) => (
@@ -273,7 +274,8 @@ export const converter = <T extends GenericObject>(
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
 ): StoreState<T> => {
-  const initialQueries = parse(historyInstance.location.search)
+  const memoizedGetInitialQueries = memoizeOne(parseSearchString)
+
   const unregisterListener = historyInstance.listen((location, action) => {
     // don't handle our own actions
     if (
@@ -283,7 +285,7 @@ export const converter = <T extends GenericObject>(
     ) {
       return
     }
-    const nextQueries = parse(location.search)
+    const nextQueries = memoizedGetInitialQueries(location.search)
     const namespaces = get().namespaces
     Object.keys(namespaces).forEach(ns => {
       set(
@@ -333,7 +335,8 @@ export const converter = <T extends GenericObject>(
       )
     },
     /** the initial queries when the script got executed first (usually on page load). */
-    initialQueries,
+    initialQueries: () =>
+      memoizedGetInitialQueries(historyInstance.location.search),
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
     /** pushes a new state for a given namespace, (will use history.pushState) */
