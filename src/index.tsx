@@ -1,5 +1,12 @@
 export { Geschichte as default } from './lib/provider'
-export { serializers } from './lib/serializers'
+export {
+  serializers,
+  Serializer,
+  arrayFloatSerializer,
+  arrayIntSerializer,
+  arrayStringSerializer,
+  DEFAULT_SEPARATOR
+} from './lib/serializers'
 export {
   factoryParameters,
   useBatchQuery,

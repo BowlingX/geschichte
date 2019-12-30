@@ -3,9 +3,9 @@ export interface Serializer {
   readonly serialize: (value?: any) => string | null
 }
 
-const join = (value: readonly any[]) => value.join('_')
+const join = (value: readonly any[], separator: string) => value.join(separator)
 
-const split = (value: string) => value.split('_')
+const split = (value: string, separator: string) => value.split(separator)
 
 const intSerializer: Serializer = {
   deserialize: (value: string): number | null => parseInt(value, 10) || null,
@@ -22,25 +22,32 @@ const stringSerializer: Serializer = {
   serialize: (value?: string): string => String(value)
 }
 
-const arrayStringSerializer: Serializer = {
-  deserialize: (value: string): readonly string[] | null => split(value),
+export const arrayStringSerializer: (separator: string) => Serializer = (
+  separator: string
+) => ({
+  deserialize: (value: string): readonly string[] | null =>
+    split(value, separator),
   serialize: (value?: readonly string[]): string | null =>
-    (value && join(value)) || null
-}
+    (value && join(value, separator)) || null
+})
 
-const arrayIntSerializer: Serializer = {
+export const arrayIntSerializer: (separator: string) => Serializer = (
+  separator: string
+) => ({
   deserialize: (value: string): readonly number[] | null =>
-    split(value).map(intSerializer.deserialize),
+    split(value, separator).map(intSerializer.deserialize),
   serialize: (value?: readonly number[]): string | null =>
-    (value && join(value)) || null
-}
+    (value && join(value, separator)) || null
+})
 
-const arrayFloatSerializer: Serializer = {
+export const arrayFloatSerializer: (separator: string) => Serializer = (
+  separator: string
+) => ({
   deserialize: (value: string): readonly number[] | null =>
-    split(value).map(floatSerializer.deserialize),
+    split(value, separator).map(floatSerializer.deserialize),
   serialize: (value?: readonly number[]): string | null =>
-    (value && join(value)) || null
-}
+    (value && join(value, separator)) || null
+})
 
 const dateSerializer = (
   locale: string = 'en-us',
@@ -56,10 +63,12 @@ const booleanSerializer: Serializer = {
   serialize: (value?: boolean): string => (value ? '1' : '0')
 }
 
+export const DEFAULT_SEPARATOR = '_'
+
 export const serializers = {
-  arrayFloat: arrayFloatSerializer,
-  arrayInt: arrayIntSerializer,
-  arrayString: arrayStringSerializer,
+  arrayFloat: arrayFloatSerializer(DEFAULT_SEPARATOR),
+  arrayInt: arrayIntSerializer(DEFAULT_SEPARATOR),
+  arrayString: arrayStringSerializer(DEFAULT_SEPARATOR),
   boolean: booleanSerializer,
   date: dateSerializer,
   float: floatSerializer,
