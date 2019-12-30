@@ -202,7 +202,7 @@ export const applyFlatConfigToState = <T = object>(
 
     return {
       ...next,
-      [nsQueryParameter]: value
+      [nsQueryParameter]: maybeValue
     }
   }, {})
 }
