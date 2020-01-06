@@ -4392,8 +4392,14 @@
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "typeParameter",
-								"name": "T"
+								"type": "reference",
+								"name": "Partial",
+								"typeArguments": [
+									{
+										"type": "typeParameter",
+										"name": "T"
+									}
+								]
 							}
 						},
 						{
@@ -4572,7 +4578,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/store.ts",
-											"line": 251,
+											"line": 252,
 											"character": 38
 										}
 									],
@@ -4590,7 +4596,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/store.ts",
-											"line": 251,
+											"line": 252,
 											"character": 19
 										}
 									],
