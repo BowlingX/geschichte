@@ -130,7 +130,7 @@ export const createQueriesFromPatch = <T = object>(
 export const createQueryObject = <T = object>(
   config: MappedConfig,
   ns: string,
-  values: T,
+  values: Partial<T>,
   initialState: T
 ) => {
   return Object.keys(config).reduce((next, parameter) => {

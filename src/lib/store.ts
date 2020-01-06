@@ -208,7 +208,7 @@ export const factoryParameters = <T = {}>(
     const initialValues = currentState.initialValues
 
     const createQuery = useCallback(
-      (values: T) => {
+      (values: Partial<T>) => {
         return createQueryObject(flatConfig, ns, values, initialValues)
       },
       [initialValues]
@@ -216,8 +216,9 @@ export const factoryParameters = <T = {}>(
 
     return useMemo(
       () => ({
-        createQuery: (customValues?: T) => createQuery(customValues || values),
-        createQueryString: (customValues?: T) =>
+        createQuery: (customValues?: Partial<T>) =>
+          createQuery(customValues || values),
+        createQueryString: (customValues?: Partial<T>) =>
           stringify(createQuery(customValues || values)),
         initialValues,
         pushState: (state: (state: T) => void) => pushState(ns, state),
@@ -238,7 +239,7 @@ export const factoryParameters = <T = {}>(
     )
   }
 
-  const createQueryString = (values: T): string => {
+  const createQueryString = (values: Partial<T>): string => {
     const initialValues =
       typeof defaultInitialValues === 'function'
         ? (defaultInitialValues as () => T)()
