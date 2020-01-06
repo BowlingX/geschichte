@@ -32,10 +32,12 @@ const defaultValue = {
   item: 'defaultValue' /** it automatically skips null or default values*/
 }
 
-const { useQuery } = factoryParameters(parameterConfig, defaultValue,  /** optional namespace, (creates a prefix separated by a dot)*/);
+// exports a hook (`useQuery`), and a utility method `createQueryString` that let's you create a query string based on the described object anywhere outside of components etc.
+const { useQuery, createQueryString } = factoryParameters(parameterConfig, defaultValue,  /** optional namespace, (creates a prefix separated by a dot)*/);
+
 
 const Component = () => {
- const { values, pushState, replaceState, resetPush, resetReplace, createQueryString } = useQuery()
+ const { values, pushState, replaceState, resetPush, resetReplace, createQueryString, batchReplaceState, batchPushState } = useQuery()
  return (
    <>
      <button onClick={() => pushState((values) => void ( values.item = "newValue" ))}>push new state</button>
