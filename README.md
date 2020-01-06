@@ -28,6 +28,7 @@ const parameterConfig = {
   /* ... more keys, any depth. */
 };
 
+// default value is either an object or a factory () => defaultValue
 const defaultValue = {
   item: 'defaultValue' /** it automatically skips null or default values*/
 }
