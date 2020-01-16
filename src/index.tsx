@@ -10,6 +10,8 @@ export {
 export {
   factoryParameters,
   useBatchQuery,
-  DEFAULT_NAMESPACE
+  useStore,
+  DEFAULT_NAMESPACE,
+  StoreContext
 } from './lib/store'
 export { pm } from './lib/utils'

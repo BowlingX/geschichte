@@ -70,12 +70,17 @@ export const geschichte = <T = object>(
 
 type InitialValuesProvider<T = object> = T | (() => T)
 
-export const useBatchQuery = () => {
-  const [useStore] = useContext(StoreContext) as [
-    UseStore<StoreState<any>>,
-    StoreApi<StoreState<any>>
+export const useStore = <T = any>() => {
+  const [store] = useContext(StoreContext) as [
+    UseStore<StoreState<T>>,
+    StoreApi<StoreState<T>>
   ]
-  return useStore(
+  return store
+}
+
+export const useBatchQuery = <T = any>() => {
+  const store = useStore<T>()
+  return store(
     ({ batchPushState, batchReplaceState }) => ({
       batchPushState,
       batchReplaceState
