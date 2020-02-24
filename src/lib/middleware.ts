@@ -44,6 +44,7 @@ export interface InnerNamespace<T> {
   [ns: string]: NamespaceValues<T>
 }
 export interface StoreState<ValueState = object> {
+  updateFromQuery: (query: string) => void
   batchReplaceState: (
     ns: readonly string[],
     fn: (...valueState: ValueState[]) => void
@@ -276,16 +277,8 @@ export const converter = <T extends GenericObject>(
 ): StoreState<T> => {
   const memoizedGetInitialQueries = memoizeOne(parseSearchString)
 
-  const unregisterListener = historyInstance.listen((location, action) => {
-    // don't handle our own actions
-    if (
-      (action === 'REPLACE' || action === 'PUSH') &&
-      location.state &&
-      location.state.__g__
-    ) {
-      return
-    }
-    const nextQueries = memoizedGetInitialQueries(location.search)
+  const updateFromQuery = (search: string) => {
+    const nextQueries = memoizedGetInitialQueries(search)
     const namespaces = get().namespaces
     Object.keys(namespaces).forEach(ns => {
       set(
@@ -302,6 +295,18 @@ export const converter = <T extends GenericObject>(
         ns
       )
     })
+  }
+
+  const unregisterListener = historyInstance.listen((location, action) => {
+    // don't handle our own actions
+    if (
+      (action === 'REPLACE' || action === 'PUSH') &&
+      location.state &&
+      location.state.__g__
+    ) {
+      return
+    }
+    updateFromQuery(location.search)
   })
 
   const reset = (ns: string, event: HistoryEventType) =>
@@ -411,6 +416,7 @@ export const converter = <T extends GenericObject>(
       }, HistoryEventType.REGISTER)
       // unregister history event listener
       unregisterListener()
-    }
+    },
+    updateFromQuery
   }
 }
