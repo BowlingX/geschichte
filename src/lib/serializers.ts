@@ -8,12 +8,18 @@ const join = (value: readonly any[], separator: string) => value.join(separator)
 const split = (value: string, separator: string) => value.split(separator)
 
 const intSerializer: Serializer = {
-  deserialize: (value: string): number | null => parseInt(value, 10) || null,
+  deserialize: (value: string): number | null => {
+    const num = parseInt(value, 10)
+    return Number.isNaN(num) ? null : num
+  },
   serialize: (value?: number): string => String(value)
 }
 
 const floatSerializer: Serializer = {
-  deserialize: (value: string): number | null => parseFloat(value) || null,
+  deserialize: (value: string): number | null => {
+    const num = parseFloat(value)
+    return Number.isNaN(num) ? null : num
+  },
   serialize: (value?: number): string => String(value)
 }
 

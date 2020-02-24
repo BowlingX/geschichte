@@ -62,6 +62,12 @@ describe('serializers', () => {
     it('should deserialize', () => {
       expect(deserialize('2')).toEqual(2)
     })
+    it('should deserialize 0', () => {
+      expect(deserialize('0')).toEqual(0)
+    })
+    it('should deserialize string to null', () => {
+      expect(deserialize('xyz')).toEqual(null)
+    })
   })
 
   describe('float', () => {
@@ -71,6 +77,12 @@ describe('serializers', () => {
     })
     it('should deserialize', () => {
       expect(deserialize('2.0')).toEqual(2.0)
+    })
+    it('should deserialize 0.0', () => {
+      expect(deserialize('0.0')).toEqual(0)
+    })
+    it('should deserialize string to null', () => {
+      expect(deserialize('xyz')).toEqual(null)
     })
   })
 
