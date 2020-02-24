@@ -712,18 +712,27 @@
 			"kind": 256,
 			"kindString": "Interface",
 			"flags": {},
-			"typeParameter": [
-				{
-					"id": 387,
-					"name": "T",
-					"kind": 131072,
-					"kindString": "Type parameter",
-					"flags": {}
-				}
-			],
 			"children": [
 				{
 					"id": 388,
+					"name": "children",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "lib/provider.tsx",
+							"line": 18,
+							"character": 19
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "React.ReactNode"
+					}
+				},
+				{
+					"id": 387,
 					"name": "history",
 					"kind": 1024,
 					"kindString": "Property",
@@ -734,7 +743,7 @@
 					"sources": [
 						{
 							"fileName": "lib/provider.tsx",
-							"line": 18,
+							"line": 17,
 							"character": 18
 						}
 					],
@@ -749,15 +758,98 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
-						388
+						388,
+						387
 					]
 				}
 			],
 			"sources": [
 				{
 					"fileName": "lib/provider.tsx",
-					"line": 16,
+					"line": 15,
 					"character": 15
+				}
+			]
+		},
+		{
+			"id": 389,
+			"name": "Refs",
+			"kind": 256,
+			"kindString": "Interface",
+			"flags": {},
+			"children": [
+				{
+					"id": 390,
+					"name": "updateFromQuery",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "lib/provider.tsx",
+							"line": 22,
+							"character": 26
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 391,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 392,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 393,
+											"name": "query",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "lib/provider.tsx",
+									"line": 22,
+									"character": 27
+								}
+							]
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						390
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "lib/provider.tsx",
+					"line": 21,
+					"character": 14
 				}
 			]
 		},
@@ -3068,7 +3160,7 @@
 			"defaultValue": "\"_\""
 		},
 		{
-			"id": 389,
+			"id": 394,
 			"name": "Geschichte",
 			"kind": 32,
 			"kindString": "Variable",
@@ -3079,28 +3171,38 @@
 			"sources": [
 				{
 					"fileName": "lib/provider.tsx",
-					"line": 21,
+					"line": 25,
 					"character": 23
 				}
 			],
 			"type": {
 				"type": "reference",
-				"name": "FC",
+				"name": "ForwardRefExoticComponent",
 				"typeArguments": [
 					{
-						"type": "reference",
-						"name": "Props",
-						"id": 386,
-						"typeArguments": [
+						"type": "intersection",
+						"types": [
 							{
-								"type": "intrinsic",
-								"name": "any"
+								"type": "reference",
+								"name": "Props",
+								"id": 386
+							},
+							{
+								"type": "reference",
+								"name": "RefAttributes",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "Refs",
+										"id": 389
+									}
+								]
 							}
 						]
 					}
 				]
 			},
-			"defaultValue": " forwardRef(\n  ({ children, history }, ref) => {\n    const value = useMemo(() => geschichte(history), []) as [\n      UseStore<StoreState<any>>,\n      StoreApi<StoreState<any>>\n    ]\n    const [useStore] = value\n    const state = useStore(\n      ({ unregister, updateFromQuery }: StoreState<any>) => ({\n        unregister,\n        updateFromQuery\n      }),\n      shallow\n    )\n    useImperativeHandle(\n      ref,\n      () => ({\n        updateFromQuery: state.updateFromQuery\n      }),\n      [state]\n    )\n    useEffect(() => {\n      const { unregister } = state\n      return () => {\n        return unregister()\n      }\n    }, [state])\n    return (\n      <StoreContext.Provider value={value}>{children}</StoreContext.Provider>\n    )\n  }\n)"
+			"defaultValue": " forwardRef<Refs, Props>(\n  ({ children, history }, ref) => {\n    const value = useMemo(() => geschichte(history), []) as [\n      UseStore<StoreState<any>>,\n      StoreApi<StoreState<any>>\n    ]\n    const [useStore] = value\n    const state = useStore(\n      ({ unregister, updateFromQuery }: StoreState<any>) => ({\n        unregister,\n        updateFromQuery\n      }),\n      shallow\n    )\n    useImperativeHandle(\n      ref,\n      () => ({\n        updateFromQuery: state.updateFromQuery\n      }),\n      [state]\n    )\n    useEffect(() => {\n      const { unregister } = state\n      return () => {\n        return unregister()\n      }\n    }, [state])\n    return (\n      <StoreContext.Provider value={value}>{children}</StoreContext.Provider>\n    )\n  }\n)"
 		},
 		{
 			"id": 174,
@@ -6513,6 +6615,7 @@
 				224,
 				158,
 				386,
+				389,
 				1,
 				239
 			]
@@ -6540,7 +6643,7 @@
 			"children": [
 				173,
 				80,
-				389,
+				394,
 				174
 			]
 		},
