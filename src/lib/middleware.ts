@@ -281,23 +281,23 @@ export const converter = <T extends GenericObject>(
     const nextQueries = memoizedGetInitialQueries(search)
     const namespaces = get().namespaces
     Object.keys(namespaces).forEach(ns => {
-      set(
-        (state: NamespaceValues<T>) => {
-          // it's possible that the state has been deleted while we loop through the states.
-          if (!state.mappedConfig) {
-            return
-          }
-          state.query = applyFlatConfigToState(
-            state.mappedConfig,
-            nextQueries,
-            ns,
-            state.values,
-            state.initialValues
-          )
-        },
-        HistoryEventType.REGISTER,
-        ns
-      )
+      // It's possible that the ns got cleared while we are applying the new state.
+      // here we explicitly get the reference to the ns, `namespaces` is too weak.
+      if (get().namespaces[ns]) {
+        set(
+          (state: NamespaceValues<T>) => {
+            state.query = applyFlatConfigToState(
+              state.mappedConfig,
+              nextQueries,
+              ns,
+              state.values,
+              state.initialValues
+            )
+          },
+          HistoryEventType.REGISTER,
+          ns
+        )
+      }
     })
   }
 

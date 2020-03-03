@@ -205,9 +205,7 @@ export const factoryParameters = <T = {}>(
 
       return () => {
         unsubscribe()
-        if (unregister) {
-          unregister()
-        }
+        unregister()
       }
     }, [])
 
