@@ -283,6 +283,10 @@ export const converter = <T extends GenericObject>(
     Object.keys(namespaces).forEach(ns => {
       set(
         (state: NamespaceValues<T>) => {
+          // it's possible that the state has been deleted while we loop through the states.
+          if (!state.mappedConfig) {
+            return
+          }
           state.query = applyFlatConfigToState(
             state.mappedConfig,
             nextQueries,
