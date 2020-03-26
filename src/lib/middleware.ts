@@ -306,6 +306,7 @@ export const converter = <T extends GenericObject>(
     if (
       (action === 'REPLACE' || action === 'PUSH') &&
       location.state &&
+      // @ts-ignore
       location.state.__g__
     ) {
       return

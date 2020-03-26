@@ -87,8 +87,10 @@ What works though is to hijack the browser's `pushState` and `replaceState` meth
 We also need to keep the currrent state, because `Geschichte` uses a `__g__` property
 to mark if it pushes something (to not create an infinite loop :)).
 
-```js
-let globalHistoryObject
+```typescript jsx
+let globalGeschichteRef: React.RefObject<any> = React.createRef()
+let globalHistoryObject: any = createBrowserHistory()
+
 if (typeof window !== 'undefined') {
   // We replace push and replace state to keep the current history state.
   // This will allow next.js and history.js work together
@@ -96,23 +98,25 @@ if (typeof window !== 'undefined') {
   const originalReplaceState = History.prototype.replaceState
 
   History.prototype.pushState = function(...args) {
+    // eslint-disable-next-line prefer-const
     let [state, title, url] = args
-    const historyState = state.state && state.state.__g__
+    const paramConverterState = state.state && state.state.__g__
 
-    // if the push was issued from Geschichte, we update the as url here to make sure next.js
+    // if the push was issued from the param converter, we update the as url here to make sure next.js
     // does not replace it when we navigate back
-    if (historyState) {
+    if (paramConverterState) {
       state = { ...state, as: url }
     }
 
     originalPushState.call(
+      // @ts-ignore
       this,
       { ...window.history.state, ...state },
       title,
       url
     )
-    // Only if it happened from an external change that was not done by Geschichte
-    if (!historyState) {
+    // Only if it happened from an external change that was not the param converter
+    if (!paramConverterState && url) {
       // To make the next url available on the internal history object we replace it with the next url
       globalHistoryObject.replace(url)
     }
@@ -120,13 +124,33 @@ if (typeof window !== 'undefined') {
 
   History.prototype.replaceState = function(...args) {
     const [state, title, url] = args
-    return originalReplaceState.call(
+    const paramConverterState = state.state && state.state.__g__
+    originalReplaceState.call(
       this,
       { ...window.history.state, ...state },
       title,
       url
     )
+
+    if (
+      globalGeschichteRef &&
+      globalGeschichteRef.current &&
+      !paramConverterState &&
+      url
+    ) {
+      const query = url.split('?')
+      globalGeschichteRef.current.updateFromQuery(query[1] || '')
+    }
   }
+}
+
+
+const YourApp = () => {
+    return (
+        <Geschichte history={globalHistoryObject} ref={globalGeschichteRef}>
+            <App />
+        </Geschichte>
+    )
 }
 ```
 
