@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>geschichte</title>
+	<title>geschichte - v0.1.0</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">geschichte</a>
+					<a href="index.html" class="title">geschichte - v0.1.0</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -56,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> geschichte</h1>
+			<h1> geschichte - v0.1.0</h1>
 		</div>
 	</div>
 </header>
@@ -148,45 +148,69 @@ const App = () =&gt; (
 				<code>history.js</code> about the change (with <code>replace</code>, so we don&#39;t create an entry).</p>
 				<p>We also need to keep the currrent state, because <code>Geschichte</code> uses a <code>__g__</code> property
 				to mark if it pushes something (to not create an infinite loop :)).</p>
-				<pre><code class="language-js"><span class="hljs-keyword">let</span> globalHistoryObject
-<span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-built_in">window</span> !== <span class="hljs-string">'undefined'</span>) {
-  <span class="hljs-comment">// We replace push and replace state to keep the current history state.</span>
-  <span class="hljs-comment">// This will allow next.js and history.js work together</span>
-  <span class="hljs-keyword">const</span> originalPushState = History.prototype.pushState
-  <span class="hljs-keyword">const</span> originalReplaceState = History.prototype.replaceState
+				<pre><code class="language-typescript">let globalGeschichteRef: React.RefObject&lt;any&gt; = React.createRef()
+let globalHistoryObject: any = createBrowserHistory()
 
-  History.prototype.pushState = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
-    <span class="hljs-keyword">let</span> [state, title, url] = args
-    <span class="hljs-keyword">const</span> historyState = state.state &amp;&amp; state.state.__g__
+if (typeof window !== 'undefined') {
+  // We replace push and replace state to keep the current history state.
+  // This will allow next.js and history.js work together
+  const originalPushState = History.prototype.pushState
+  const originalReplaceState = History.prototype.replaceState
 
-    <span class="hljs-comment">// if the push was issued from Geschichte, we update the as url here to make sure next.js</span>
-    <span class="hljs-comment">// does not replace it when we navigate back</span>
-    <span class="hljs-keyword">if</span> (historyState) {
-      state = { ...state, <span class="hljs-attr">as</span>: url }
+  History.prototype.pushState = function(...args) {
+    // eslint-disable-next-line prefer-const
+    let [state, title, url] = args
+    const paramConverterState = state.state &amp;&amp; state.state.__g__
+
+    // if the push was issued from the param converter, we update the as url here to make sure next.js
+    // does not replace it when we navigate back
+    if (paramConverterState) {
+      state = { ...state, as: url }
     }
 
     originalPushState.call(
-      <span class="hljs-keyword">this</span>,
+      // @ts-ignore
+      this,
       { ...window.history.state, ...state },
       title,
       url
     )
-    <span class="hljs-comment">// Only if it happened from an external change that was not done by Geschichte</span>
-    <span class="hljs-keyword">if</span> (!historyState) {
-      <span class="hljs-comment">// To make the next url available on the internal history object we replace it with the next url</span>
+    // Only if it happened from an external change that was not the param converter
+    if (!paramConverterState &amp;&amp; url) {
+      // To make the next url available on the internal history object we replace it with the next url
       globalHistoryObject.replace(url)
     }
   }
 
-  History.prototype.replaceState = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">...args</span>) </span>{
-    <span class="hljs-keyword">const</span> [state, title, url] = args
-    <span class="hljs-keyword">return</span> originalReplaceState.call(
-      <span class="hljs-keyword">this</span>,
+  History.prototype.replaceState = function(...args) {
+    const [state, title, url] = args
+    const paramConverterState = state.state &amp;&amp; state.state.__g__
+    originalReplaceState.call(
+      this,
       { ...window.history.state, ...state },
       title,
       url
     )
+
+    if (
+      globalGeschichteRef &amp;&amp;
+      globalGeschichteRef.current &amp;&amp;
+      !paramConverterState &amp;&amp;
+      url
+    ) {
+      const query = url.split('?')
+      globalGeschichteRef.current.updateFromQuery(query[1] || '')
+    }
   }
+}
+
+
+const YourApp = () =&gt; {
+    return (
+        &lt;Geschichte history={globalHistoryObject} ref={globalGeschichteRef}&gt;
+            &lt;App /&gt;
+        &lt;/Geschichte&gt;
+    )
 }</code></pre>
 				<p>An example repo will follow.</p>
 			</div>
