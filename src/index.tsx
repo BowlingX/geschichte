@@ -1,4 +1,4 @@
-export { Geschichte as default } from './lib/provider'
+export { default } from './lib/adapters/History.js'
 export {
   serializers,
   Serializer,
@@ -7,7 +7,10 @@ export {
   arrayStringSerializer,
   DEFAULT_SEPARATOR
 } from './lib/serializers'
+export { StoreState } from './lib/middleware'
 export {
+  HistoryManagement,
+  geschichte,
   factoryParameters,
   useBatchQuery,
   useStore,

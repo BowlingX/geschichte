@@ -4,7 +4,7 @@ import { Patch, produceWithPatches } from 'immer'
 import memoizeOne from 'memoize-one'
 import { parse, stringify } from 'query-string'
 import { GetState, State, StoreApi } from 'zustand'
-import { Config, MappedConfig } from './store'
+import { Config, HistoryManagement, MappedConfig } from './store'
 import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState
@@ -101,7 +101,7 @@ export declare type StateCreator<T extends State> = (
   api: StoreApi<StoreState<T>>
 ) => StoreState<T>
 
-export const historyManagement = <T>(historyInstance: History) => (
+export const historyManagement = <T>(historyInstance: HistoryManagement) => (
   apply: StateCreator<T>
 ) => (
   set: ImmerProducer<T>,
@@ -176,10 +176,7 @@ export const historyManagement = <T>(historyInstance: History) => (
               ...otherQueries,
               ...reducedQueries
             })
-            historyInstance[method]({
-              search: query === '' ? '' : `?${query}`,
-              state: { __g__: true }
-            })
+            historyInstance[method](query === '' ? '' : `?${query}`)
 
             // We safe the current state of `query` for all affected namespaces
             return {
@@ -269,7 +266,7 @@ export const immerWithPatches = <T>(config: ImmerStateCreator<T>) => (
 const parseSearchString = (search: string) => parse(search)
 
 export const converter = <T extends GenericObject>(
-  historyInstance: History
+  historyInstance: HistoryManagement
 ) => (
   set: NamespaceProducer<T> & GenericConverter<T>,
   get: GetState<StoreState<T>>,
@@ -300,19 +297,6 @@ export const converter = <T extends GenericObject>(
       }
     })
   }
-
-  const unregisterListener = historyInstance.listen((location, action) => {
-    // don't handle our own actions
-    if (
-      (action === 'REPLACE' || action === 'PUSH') &&
-      location.state &&
-      // @ts-ignore
-      location.state.__g__
-    ) {
-      return
-    }
-    updateFromQuery(location.search)
-  })
 
   const reset = (ns: string, event: HistoryEventType) =>
     set(
@@ -346,7 +330,7 @@ export const converter = <T extends GenericObject>(
     },
     /** the initial queries when the script got executed first (usually on page load). */
     initialQueries: () =>
-      memoizedGetInitialQueries(historyInstance.location.search),
+      memoizedGetInitialQueries(historyInstance.initialSearch),
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
     /** pushes a new state for a given namespace, (will use history.pushState) */
@@ -419,8 +403,6 @@ export const converter = <T extends GenericObject>(
         // return a new object for namespaces
         return {}
       }, HistoryEventType.REGISTER)
-      // unregister history event listener
-      unregisterListener()
     },
     updateFromQuery
   }

@@ -1,6 +1,4 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
-import { History } from 'history'
-import LocationState = History.LocationState
 import produce, { Draft } from 'immer'
 import memoizeOne from 'memoize-one'
 import { stringify } from 'query-string'
@@ -51,9 +49,15 @@ export interface MappedConfig {
   readonly [queryParameter: string]: MappedParameter
 }
 
-export const geschichte = <T = object>(
-  historyInstance: History<LocationState>
-) => {
+export interface HistoryManagement {
+  /** the initial search string (e.g. ?query=test), contains the questionsmark */
+  readonly initialSearch: string
+  // tslint:disable-next-line:no-mixed-interface
+  readonly push: (next: string) => void
+  readonly replace: (next: string) => void
+}
+
+export const geschichte = <T = object>(historyInstance: HistoryManagement) => {
   const thisStore = converter<T>(historyInstance)
   const storeWithHistory = historyManagement<T>(historyInstance)(thisStore)
 

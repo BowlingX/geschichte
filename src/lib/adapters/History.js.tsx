@@ -9,22 +9,32 @@ import React, {
 import { StoreApi, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
-import { StoreState } from './middleware'
-import { geschichte, StoreContext } from './store'
+import { StoreState } from '../middleware'
+import { geschichte, HistoryManagement, StoreContext } from '../store'
 
-interface Props {
+export interface Props {
   /** a history instance (e.g. createBrowserHistory()) */
   readonly history: History
   readonly children: React.ReactNode
 }
 
-interface Refs {
+export interface Refs {
   readonly updateFromQuery: (query: string) => void
 }
 
-export const Geschichte = forwardRef<Refs, Props>(
+const GeschichteWithHistory = forwardRef<Refs, Props>(
   ({ children, history }, ref) => {
-    const value = useMemo(() => geschichte(history), []) as [
+    const historyInstance: HistoryManagement = useMemo(() => {
+      return {
+        initialSearch: history.location.search,
+        push: (next: string) =>
+          history.push({ search: next, state: { __g__: true } }),
+        replace: (next: string) =>
+          history.replace({ search: next, state: { __g__: true } })
+      }
+    }, [history])
+
+    const value = useMemo(() => geschichte(historyInstance), []) as [
       UseStore<StoreState<any>>,
       StoreApi<StoreState<any>>
     ]
@@ -36,6 +46,22 @@ export const Geschichte = forwardRef<Refs, Props>(
       }),
       shallow
     )
+
+    useEffect(() => {
+      return history.listen((location, action) => {
+        // don't handle our own actions
+        if (
+          (action === 'REPLACE' || action === 'PUSH') &&
+          location.state &&
+          // @ts-ignore
+          location.state.__g__
+        ) {
+          return
+        }
+        state.updateFromQuery(location.search)
+      })
+    }, [history, state.updateFromQuery])
+
     useImperativeHandle(
       ref,
       () => ({
@@ -54,3 +80,5 @@ export const Geschichte = forwardRef<Refs, Props>(
     )
   }
 )
+
+export default GeschichteWithHistory
