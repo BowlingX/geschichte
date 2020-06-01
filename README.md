@@ -80,4 +80,21 @@ It works out of the box with react-router (by providing the same `history` insta
 
 ### Using with next.js
 
-...Will be release in the next version...
+Nextjs support is build in, but requires a different Instance.
+
+```tsx
+
+import React, { FC, memo, ReactNode } from 'react'
+import { GeschichteForNextjs } from 'geschichte'
+import Router, { useRouter } from 'next/router'
+
+const GeschichteWithHistory: FC<{ children: ReactNode }> = (props) => {
+  const { asPath } = useRouter()
+  return (
+      <GeschichteForNextjs Router={Router} asPath={asPath} {...props}/>
+  )
+}
+
+export default memo(GeschichteWithHistory)
+
+```
