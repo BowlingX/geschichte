@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "geschichte - v2.0.1",
+	"name": "geschichte - v2.1.0",
 	"kind": 0,
 	"flags": {},
 	"children": [
@@ -23,8 +23,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 14,
+							"fileName": "src/lib/middleware.ts",
+							"line": 13,
 							"character": 6
 						}
 					]
@@ -39,8 +39,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 16,
+							"fileName": "src/lib/middleware.ts",
+							"line": 15,
 							"character": 10
 						}
 					]
@@ -55,8 +55,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 15,
+							"fileName": "src/lib/middleware.ts",
+							"line": 14,
 							"character": 9
 						}
 					]
@@ -75,8 +75,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 13,
+					"fileName": "src/lib/middleware.ts",
+					"line": 12,
 					"character": 28
 				}
 			]
@@ -141,7 +141,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 45,
 											"character": 39
 										}
@@ -154,7 +154,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 44,
 					"character": 23
 				}
@@ -196,8 +196,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 19,
+					"fileName": "src/lib/middleware.ts",
+					"line": 18,
 					"character": 30
 				}
 			]
@@ -224,7 +224,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 54,
 							"character": 24
 						}
@@ -244,7 +244,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 56,
 							"character": 15
 						}
@@ -285,7 +285,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 56,
 									"character": 16
 								}
@@ -303,7 +303,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 57,
 							"character": 18
 						}
@@ -344,7 +344,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 57,
 									"character": 19
 								}
@@ -366,7 +366,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 52,
 					"character": 34
 				}
@@ -424,8 +424,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 43,
+					"fileName": "src/lib/middleware.ts",
+					"line": 42,
 					"character": 31
 				}
 			]
@@ -467,7 +467,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 48,
 					"character": 29
 				}
@@ -492,7 +492,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 36,
 							"character": 15
 						}
@@ -517,7 +517,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 41,
 							"character": 15
 						}
@@ -544,7 +544,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 37,
 							"character": 21
 						}
@@ -574,7 +574,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 40,
 					"character": 32
 				}
@@ -615,8 +615,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 29,
+							"fileName": "src/lib/middleware.ts",
+							"line": 28,
 							"character": 8
 						}
 					],
@@ -636,8 +636,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 27,
+							"fileName": "src/lib/middleware.ts",
+							"line": 26,
 							"character": 15
 						}
 					],
@@ -656,8 +656,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 28,
+							"fileName": "src/lib/middleware.ts",
+							"line": 27,
 							"character": 14
 						}
 					],
@@ -677,8 +677,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 30,
+							"fileName": "src/lib/middleware.ts",
+							"line": 29,
 							"character": 7
 						}
 					],
@@ -700,8 +700,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 25,
+							"fileName": "src/lib/middleware.ts",
+							"line": 24,
 							"character": 13
 						}
 					],
@@ -720,8 +720,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 31,
+							"fileName": "src/lib/middleware.ts",
+							"line": 30,
 							"character": 13
 						}
 					],
@@ -748,8 +748,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 31,
+									"fileName": "src/lib/middleware.ts",
+									"line": 30,
 									"character": 14
 								}
 							]
@@ -766,8 +766,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 26,
+							"fileName": "src/lib/middleware.ts",
+							"line": 25,
 							"character": 8
 						}
 					],
@@ -794,8 +794,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 23,
+					"fileName": "src/lib/middleware.ts",
+					"line": 22,
 					"character": 32
 				}
 			]
@@ -819,7 +819,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 36,
 							"character": 15
 						}
@@ -839,7 +839,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 37,
 							"character": 21
 						}
@@ -863,7 +863,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 35,
 					"character": 26
 				}
@@ -886,6 +886,245 @@
 			},
 			"children": [
 				{
+					"id": 405,
+					"name": "Router",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "src/lib/adapters/Next.js.tsx",
+							"line": 12,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 406,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"children": [
+								{
+									"id": 407,
+									"name": "asPath",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/lib/adapters/Next.js.tsx",
+											"line": 13,
+											"character": 19
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 409,
+									"name": "push",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/lib/adapters/Next.js.tsx",
+											"line": 15,
+											"character": 17
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 410,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 411,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 412,
+															"name": "url",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														},
+														{
+															"id": 413,
+															"name": "as",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 15,
+													"character": 18
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 414,
+									"name": "replace",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/lib/adapters/Next.js.tsx",
+											"line": 16,
+											"character": 20
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 415,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 416,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 417,
+															"name": "url",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														},
+														{
+															"id": 418,
+															"name": "as",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "any"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 16,
+													"character": 21
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 408,
+									"name": "route",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/lib/adapters/Next.js.tsx",
+											"line": 14,
+											"character": 18
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										407,
+										409,
+										414,
+										408
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/lib/adapters/Next.js.tsx",
+									"line": 12,
+									"character": 18
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 419,
+					"name": "asPath",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "src/lib/adapters/Next.js.tsx",
+							"line": 18,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
 					"id": 398,
 					"name": "children",
 					"kind": 1024,
@@ -896,7 +1135,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/adapters/History.js.tsx",
+							"fileName": "src/lib/adapters/History.js.tsx",
 							"line": 19,
 							"character": 19
 						}
@@ -919,7 +1158,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/adapters/History.js.tsx",
+							"fileName": "src/lib/adapters/History.js.tsx",
 							"line": 18,
 							"character": 18
 						}
@@ -935,6 +1174,8 @@
 					"title": "Properties",
 					"kind": 1024,
 					"children": [
+						405,
+						419,
 						398,
 						397
 					]
@@ -942,9 +1183,14 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/adapters/History.js.tsx",
+					"fileName": "src/lib/adapters/History.js.tsx",
 					"line": 16,
 					"character": 22
+				},
+				{
+					"fileName": "src/lib/adapters/Next.js.tsx",
+					"line": 11,
+					"character": 15
 				}
 			]
 		},
@@ -967,7 +1213,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/adapters/History.js.tsx",
+							"fileName": "src/lib/adapters/History.js.tsx",
 							"line": 23,
 							"character": 26
 						}
@@ -1008,7 +1254,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/adapters/History.js.tsx",
+									"fileName": "src/lib/adapters/History.js.tsx",
 									"line": 23,
 									"character": 27
 								}
@@ -1028,7 +1274,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/adapters/History.js.tsx",
+					"fileName": "src/lib/adapters/History.js.tsx",
 					"line": 22,
 					"character": 21
 				}
@@ -1053,7 +1299,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 2,
 							"character": 22
 						}
@@ -1094,7 +1340,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 2,
 									"character": 23
 								}
@@ -1112,7 +1358,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 3,
 							"character": 20
 						}
@@ -1164,7 +1410,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 3,
 									"character": 21
 								}
@@ -1185,7 +1431,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 1,
 					"character": 27
 				}
@@ -1219,8 +1465,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 52,
+							"fileName": "src/lib/middleware.ts",
+							"line": 51,
 							"character": 16
 						}
 					],
@@ -1305,8 +1551,8 @@
 													],
 													"sources": [
 														{
-															"fileName": "lib/middleware.ts",
-															"line": 54,
+															"fileName": "src/lib/middleware.ts",
+															"line": 53,
 															"character": 7
 														}
 													]
@@ -1322,8 +1568,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 52,
+									"fileName": "src/lib/middleware.ts",
+									"line": 51,
 									"character": 17
 								}
 							]
@@ -1340,8 +1586,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 48,
+							"fileName": "src/lib/middleware.ts",
+							"line": 47,
 							"character": 19
 						}
 					],
@@ -1426,8 +1672,8 @@
 													],
 													"sources": [
 														{
-															"fileName": "lib/middleware.ts",
-															"line": 50,
+															"fileName": "src/lib/middleware.ts",
+															"line": 49,
 															"character": 7
 														}
 													]
@@ -1443,8 +1689,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 48,
+									"fileName": "src/lib/middleware.ts",
+									"line": 47,
 									"character": 20
 								}
 							]
@@ -1461,8 +1707,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 72,
+							"fileName": "src/lib/middleware.ts",
+							"line": 71,
 							"character": 16
 						}
 					],
@@ -1489,8 +1735,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 72,
+									"fileName": "src/lib/middleware.ts",
+									"line": 71,
 									"character": 17
 								}
 							]
@@ -1507,8 +1753,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 56,
+							"fileName": "src/lib/middleware.ts",
+							"line": 55,
 							"character": 12
 						}
 					],
@@ -1534,8 +1780,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 57,
+							"fileName": "src/lib/middleware.ts",
+							"line": 56,
 							"character": 11
 						}
 					],
@@ -1564,8 +1810,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 60,
+							"fileName": "src/lib/middleware.ts",
+							"line": 59,
 							"character": 10
 						}
 					],
@@ -1677,8 +1923,8 @@
 											],
 											"sources": [
 												{
-													"fileName": "lib/middleware.ts",
-													"line": 67,
+													"fileName": "src/lib/middleware.ts",
+													"line": 66,
 													"character": 6
 												}
 											]
@@ -1688,8 +1934,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 60,
+									"fileName": "src/lib/middleware.ts",
+									"line": 59,
 									"character": 11
 								}
 							]
@@ -1706,8 +1952,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 58,
+							"fileName": "src/lib/middleware.ts",
+							"line": 57,
 							"character": 14
 						}
 					],
@@ -1733,8 +1979,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 70,
+							"fileName": "src/lib/middleware.ts",
+							"line": 69,
 							"character": 11
 						}
 					],
@@ -1774,8 +2020,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 70,
+									"fileName": "src/lib/middleware.ts",
+									"line": 69,
 									"character": 12
 								}
 							]
@@ -1792,8 +2038,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 71,
+							"fileName": "src/lib/middleware.ts",
+							"line": 70,
 							"character": 14
 						}
 					],
@@ -1833,8 +2079,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 71,
+									"fileName": "src/lib/middleware.ts",
+									"line": 70,
 									"character": 15
 								}
 							]
@@ -1854,8 +2100,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 69,
+							"fileName": "src/lib/middleware.ts",
+							"line": 68,
 							"character": 12
 						}
 					],
@@ -1882,8 +2128,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 69,
+									"fileName": "src/lib/middleware.ts",
+									"line": 68,
 									"character": 13
 								}
 							]
@@ -1900,8 +2146,8 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 47,
+							"fileName": "src/lib/middleware.ts",
+							"line": 46,
 							"character": 17
 						}
 					],
@@ -1941,8 +2187,8 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
-									"line": 47,
+									"fileName": "src/lib/middleware.ts",
+									"line": 46,
 									"character": 18
 								}
 							]
@@ -1971,8 +2217,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 46,
+					"fileName": "src/lib/middleware.ts",
+					"line": 45,
 					"character": 27
 				}
 			]
@@ -1996,8 +2242,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 85,
+					"fileName": "src/lib/middleware.ts",
+					"line": 84,
 					"character": 28
 				}
 			],
@@ -2078,8 +2324,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 85,
+							"fileName": "src/lib/middleware.ts",
+							"line": 84,
 							"character": 33
 						}
 					]
@@ -2105,8 +2351,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 91,
+					"fileName": "src/lib/middleware.ts",
+					"line": 90,
 					"character": 25
 				}
 			],
@@ -2196,8 +2442,8 @@
 											],
 											"sources": [
 												{
-													"fileName": "lib/middleware.ts",
-													"line": 92,
+													"fileName": "src/lib/middleware.ts",
+													"line": 91,
 													"character": 14
 												}
 											]
@@ -2281,8 +2527,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 91,
+							"fileName": "src/lib/middleware.ts",
+							"line": 90,
 							"character": 30
 						}
 					]
@@ -2312,8 +2558,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 235,
+					"fileName": "src/lib/middleware.ts",
+					"line": 234,
 					"character": 37
 				}
 			],
@@ -2431,8 +2677,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 235,
+							"fileName": "src/lib/middleware.ts",
+							"line": 234,
 							"character": 56
 						}
 					]
@@ -2456,7 +2702,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 75,
 					"character": 26
 				}
@@ -2491,7 +2737,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 75,
 									"character": 44
 								}
@@ -2518,8 +2764,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 76,
+					"fileName": "src/lib/middleware.ts",
+					"line": 75,
 					"character": 35
 				}
 			],
@@ -2582,8 +2828,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 76,
+							"fileName": "src/lib/middleware.ts",
+							"line": 75,
 							"character": 40
 						}
 					]
@@ -2609,8 +2855,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 80,
+					"fileName": "src/lib/middleware.ts",
+					"line": 79,
 					"character": 29
 				}
 			],
@@ -2691,8 +2937,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 80,
+							"fileName": "src/lib/middleware.ts",
+							"line": 79,
 							"character": 34
 						}
 					]
@@ -2716,8 +2962,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 75,
+					"fileName": "src/lib/middleware.ts",
+					"line": 74,
 					"character": 30
 				}
 			],
@@ -2764,8 +3010,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 75,
+							"fileName": "src/lib/middleware.ts",
+							"line": 74,
 							"character": 35
 						}
 					]
@@ -2791,8 +3037,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 34,
+					"fileName": "src/lib/middleware.ts",
+					"line": 33,
 					"character": 29
 				}
 			],
@@ -2865,8 +3111,8 @@
 											],
 											"sources": [
 												{
-													"fileName": "lib/middleware.ts",
-													"line": 36,
+													"fileName": "src/lib/middleware.ts",
+													"line": 35,
 													"character": 15
 												}
 											]
@@ -2882,8 +3128,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 34,
+							"fileName": "src/lib/middleware.ts",
+							"line": 33,
 							"character": 34
 						}
 					]
@@ -2909,8 +3155,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 38,
+					"fileName": "src/lib/middleware.ts",
+					"line": 37,
 					"character": 32
 				}
 			],
@@ -2983,8 +3229,8 @@
 											],
 											"sources": [
 												{
-													"fileName": "lib/middleware.ts",
-													"line": 40,
+													"fileName": "src/lib/middleware.ts",
+													"line": 39,
 													"character": 15
 												}
 											]
@@ -3000,8 +3246,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 38,
+							"fileName": "src/lib/middleware.ts",
+							"line": 37,
 							"character": 37
 						}
 					]
@@ -3027,8 +3273,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 241,
+					"fileName": "src/lib/middleware.ts",
+					"line": 240,
 					"character": 33
 				}
 			],
@@ -3090,8 +3336,8 @@
 											],
 											"sources": [
 												{
-													"fileName": "lib/middleware.ts",
-													"line": 242,
+													"fileName": "src/lib/middleware.ts",
+													"line": 241,
 													"character": 16
 												}
 											]
@@ -3118,8 +3364,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 241,
+							"fileName": "src/lib/middleware.ts",
+							"line": 240,
 							"character": 38
 						}
 					]
@@ -3149,8 +3395,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 98,
+					"fileName": "src/lib/middleware.ts",
+					"line": 97,
 					"character": 32
 				}
 			],
@@ -3288,8 +3534,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
-							"line": 98,
+							"fileName": "src/lib/middleware.ts",
+							"line": 97,
 							"character": 51
 						}
 					]
@@ -3307,7 +3553,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 29,
 					"character": 30
 				}
@@ -3329,7 +3575,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 72,
 					"character": 30
 				}
@@ -3351,7 +3597,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/adapters/History.js.tsx",
+					"fileName": "src/lib/adapters/History.js.tsx",
 					"line": 26,
 					"character": 34
 				}
@@ -3383,7 +3629,7 @@
 					}
 				]
 			},
-			"defaultValue": " forwardRef<Refs, Props>(\n  ({ children, history }, ref) => {\n    const historyInstance: HistoryManagement = useMemo(() => {\n      return {\n        initialSearch: history.location.search,\n        push: (next: string) =>\n          history.push({ search: next, state: { __g__: true } }),\n        replace: (next: string) =>\n          history.replace({ search: next, state: { __g__: true } })\n      }\n    }, [history])\n\n    const value = useMemo(() => geschichte(historyInstance), []) as [\n      UseStore<StoreState<any>>,\n      StoreApi<StoreState<any>>\n    ]\n    const [useStore] = value\n    const state = useStore(\n      ({ unregister, updateFromQuery }: StoreState<any>) => ({\n        unregister,\n        updateFromQuery\n      }),\n      shallow\n    )\n\n    useEffect(() => {\n      return history.listen((location, action) => {\n        // don't handle our own actions\n        if (\n          (action === 'REPLACE' || action === 'PUSH') &&\n          location.state &&\n          // @ts-ignore\n          location.state.__g__\n        ) {\n          return\n        }\n        state.updateFromQuery(location.search)\n      })\n    }, [history, state.updateFromQuery])\n\n    useImperativeHandle(\n      ref,\n      () => ({\n        updateFromQuery: state.updateFromQuery\n      }),\n      [state]\n    )\n    useEffect(() => {\n      const { unregister } = state\n      return () => {\n        return unregister()\n      }\n    }, [state])\n    return (\n      <StoreContext.Provider value={value}>{children}</StoreContext.Provider>\n    )\n  }\n)"
+			"defaultValue": " forwardRef<Refs, Props>(\n  ({ children, history }, ref) => {\n    const historyInstance: HistoryManagement = useMemo(() => {\n      return {\n        initialSearch: history.location.search,\n        push: (next: string) =>\n          history.push({ search: next, state: { __g__: true } }),\n        replace: (next: string) =>\n          history.replace({ search: next, state: { __g__: true } })\n      }\n    }, [history])\n\n    const value = useMemo(() => geschichte(historyInstance), [\n      historyInstance\n    ]) as [UseStore<StoreState<any>>, StoreApi<StoreState<any>>]\n    const [useStore] = value\n    const state = useStore(\n      ({ unregister, updateFromQuery }: StoreState<any>) => ({\n        unregister,\n        updateFromQuery\n      }),\n      shallow\n    )\n\n    useEffect(() => {\n      return history.listen((location, action) => {\n        // don't handle our own actions\n        if (\n          (action === 'REPLACE' || action === 'PUSH') &&\n          location.state &&\n          // @ts-ignore\n          location.state.__g__\n        ) {\n          return\n        }\n        state.updateFromQuery(location.search)\n      })\n    }, [history, state.updateFromQuery])\n\n    useImperativeHandle(\n      ref,\n      () => ({\n        updateFromQuery: state.updateFromQuery\n      }),\n      [state]\n    )\n    useEffect(() => {\n      const { unregister } = state\n      return () => {\n        return unregister()\n      }\n    }, [state])\n    return (\n      <StoreContext.Provider value={value}>{children}</StoreContext.Provider>\n    )\n  }\n)"
 		},
 		{
 			"id": 184,
@@ -3396,7 +3642,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 31,
 					"character": 25
 				}
@@ -3456,6 +3702,455 @@
 				]
 			},
 			"defaultValue": " createContext<\n  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>] | null\n>(null)"
+		},
+		{
+			"id": 422,
+			"name": "GeschichteForNextjs",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {
+				"isExported": true,
+				"isConst": true
+			},
+			"signatures": [
+				{
+					"id": 423,
+					"name": "GeschichteForNextjs",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 424,
+							"name": "__namedParameters",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"originalName": "__0",
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 425,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"children": [
+										{
+											"id": 432,
+											"name": "Router",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 21,
+													"character": 66
+												}
+											],
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 433,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {
+														"isExported": true
+													},
+													"children": [
+														{
+															"id": 434,
+															"name": "asPath",
+															"kind": 32,
+															"kindString": "Variable",
+															"flags": {
+																"isExported": true
+															},
+															"sources": [
+																{
+																	"fileName": "src/lib/adapters/Next.js.tsx",
+																	"line": 13,
+																	"character": 19
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														},
+														{
+															"id": 436,
+															"name": "push",
+															"kind": 32,
+															"kindString": "Variable",
+															"flags": {
+																"isExported": true
+															},
+															"sources": [
+																{
+																	"fileName": "src/lib/adapters/Next.js.tsx",
+																	"line": 15,
+																	"character": 17
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 437,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {
+																		"isExported": true
+																	},
+																	"signatures": [
+																		{
+																			"id": 438,
+																			"name": "__call",
+																			"kind": 4096,
+																			"kindString": "Call signature",
+																			"flags": {},
+																			"parameters": [
+																				{
+																					"id": 439,
+																					"name": "url",
+																					"kind": 32768,
+																					"kindString": "Parameter",
+																					"flags": {},
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "string"
+																					}
+																				},
+																				{
+																					"id": 440,
+																					"name": "as",
+																					"kind": 32768,
+																					"kindString": "Parameter",
+																					"flags": {},
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "string"
+																					}
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "any"
+																			}
+																		}
+																	],
+																	"sources": [
+																		{
+																			"fileName": "src/lib/adapters/Next.js.tsx",
+																			"line": 15,
+																			"character": 18
+																		}
+																	]
+																}
+															}
+														},
+														{
+															"id": 441,
+															"name": "replace",
+															"kind": 32,
+															"kindString": "Variable",
+															"flags": {
+																"isExported": true
+															},
+															"sources": [
+																{
+																	"fileName": "src/lib/adapters/Next.js.tsx",
+																	"line": 16,
+																	"character": 20
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 442,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {
+																		"isExported": true
+																	},
+																	"signatures": [
+																		{
+																			"id": 443,
+																			"name": "__call",
+																			"kind": 4096,
+																			"kindString": "Call signature",
+																			"flags": {},
+																			"parameters": [
+																				{
+																					"id": 444,
+																					"name": "url",
+																					"kind": 32768,
+																					"kindString": "Parameter",
+																					"flags": {},
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "string"
+																					}
+																				},
+																				{
+																					"id": 445,
+																					"name": "as",
+																					"kind": 32768,
+																					"kindString": "Parameter",
+																					"flags": {},
+																					"type": {
+																						"type": "intrinsic",
+																						"name": "string"
+																					}
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "any"
+																			}
+																		}
+																	],
+																	"sources": [
+																		{
+																			"fileName": "src/lib/adapters/Next.js.tsx",
+																			"line": 16,
+																			"character": 21
+																		}
+																	]
+																}
+															}
+														},
+														{
+															"id": 435,
+															"name": "route",
+															"kind": 32,
+															"kindString": "Variable",
+															"flags": {
+																"isExported": true
+															},
+															"sources": [
+																{
+																	"fileName": "src/lib/adapters/Next.js.tsx",
+																	"line": 14,
+																	"character": 18
+																}
+															],
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"groups": [
+														{
+															"title": "Variables",
+															"kind": 32,
+															"children": [
+																434,
+																436,
+																441,
+																435
+															]
+														}
+													]
+												}
+											}
+										},
+										{
+											"id": 431,
+											"name": "asPath",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 21,
+													"character": 58
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 426,
+											"name": "children",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 21,
+													"character": 50
+												}
+											],
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "undefined"
+													},
+													{
+														"type": "intrinsic",
+														"name": "null"
+													},
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "number"
+													},
+													{
+														"type": "intrinsic",
+														"name": "false"
+													},
+													{
+														"type": "intrinsic",
+														"name": "true"
+													},
+													{
+														"type": "reference",
+														"name": "__type"
+													},
+													{
+														"type": "reference",
+														"name": "ReactElement",
+														"typeArguments": [
+															{
+																"type": "intrinsic",
+																"name": "any"
+															},
+															{
+																"type": "union",
+																"types": [
+																	{
+																		"type": "intrinsic",
+																		"name": "string"
+																	},
+																	{
+																		"type": "reflection",
+																		"declaration": {
+																			"id": 427,
+																			"name": "__type",
+																			"kind": 65536,
+																			"kindString": "Type literal",
+																			"flags": {},
+																			"signatures": [
+																				{
+																					"id": 428,
+																					"name": "__call",
+																					"kind": 4096,
+																					"kindString": "Call signature",
+																					"flags": {},
+																					"parameters": [
+																						{
+																							"id": 429,
+																							"name": "props",
+																							"kind": 32768,
+																							"kindString": "Parameter",
+																							"flags": {},
+																							"type": {
+																								"type": "typeParameter",
+																								"name": "P"
+																							}
+																						}
+																					],
+																					"type": {
+																						"type": "union",
+																						"types": [
+																							{
+																								"type": "reference",
+																								"name": "ReactElement"
+																							},
+																							{
+																								"type": "intrinsic",
+																								"name": "null"
+																							}
+																						]
+																					}
+																				}
+																			]
+																		}
+																	},
+																	{
+																		"type": "reflection",
+																		"declaration": {
+																			"id": 430,
+																			"name": "__type",
+																			"kind": 65536,
+																			"kindString": "Type literal",
+																			"flags": {}
+																		}
+																	}
+																]
+															}
+														]
+													},
+													{
+														"type": "reference",
+														"name": "ReactNodeArray"
+													},
+													{
+														"type": "reference",
+														"name": "ReactPortal"
+													}
+												]
+											}
+										}
+									],
+									"groups": [
+										{
+											"title": "Variables",
+											"kind": 32,
+											"children": [
+												432,
+												431,
+												426
+											]
+										}
+									],
+									"sources": [
+										{
+											"fileName": "src/lib/adapters/Next.js.tsx",
+											"line": 21,
+											"character": 40
+										}
+									]
+								}
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Element"
+					}
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/lib/adapters/Next.js.tsx",
+					"line": 21,
+					"character": 25
+				}
+			]
 		},
 		{
 			"id": 132,
@@ -3572,7 +4267,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 152,
 					"character": 48
 				}
@@ -3666,7 +4361,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/utils.ts",
+											"fileName": "src/lib/utils.ts",
 											"line": 183,
 											"character": 14
 										}
@@ -3722,7 +4417,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 181,
 					"character": 35
 				}
@@ -3816,7 +4511,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/serializers.ts",
+											"fileName": "src/lib/serializers.ts",
 											"line": 52,
 											"character": 13
 										}
@@ -3874,7 +4569,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/serializers.ts",
+											"fileName": "src/lib/serializers.ts",
 											"line": 54,
 											"character": 11
 										}
@@ -3897,7 +4592,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 49,
 					"character": 33
 				}
@@ -3991,7 +4686,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/serializers.ts",
+											"fileName": "src/lib/serializers.ts",
 											"line": 43,
 											"character": 13
 										}
@@ -4049,7 +4744,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/serializers.ts",
+											"fileName": "src/lib/serializers.ts",
 											"line": 45,
 											"character": 11
 										}
@@ -4072,7 +4767,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 40,
 					"character": 31
 				}
@@ -4166,7 +4861,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/serializers.ts",
+											"fileName": "src/lib/serializers.ts",
 											"line": 34,
 											"character": 13
 										}
@@ -4224,7 +4919,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "lib/serializers.ts",
+											"fileName": "src/lib/serializers.ts",
 											"line": 36,
 											"character": 11
 										}
@@ -4247,7 +4942,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 31,
 					"character": 34
 				}
@@ -4305,8 +5000,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 268,
+					"fileName": "src/lib/middleware.ts",
+					"line": 267,
 					"character": 22
 				}
 			]
@@ -4380,7 +5075,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 13,
 					"character": 30
 				}
@@ -4490,7 +5185,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 77,
 					"character": 35
 				}
@@ -4594,7 +5289,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 130,
 					"character": 30
 				}
@@ -4650,7 +5345,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 58,
 					"character": 20
 				}
@@ -4743,7 +5438,7 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 261,
 											"character": 38
 										}
@@ -4761,7 +5456,7 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 261,
 											"character": 19
 										}
@@ -4788,7 +5483,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 96,
 					"character": 30
 				}
@@ -4862,7 +5557,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 57,
 					"character": 21
 				}
@@ -4934,7 +5629,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 215,
 					"character": 26
 				}
@@ -4999,7 +5694,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 32,
 					"character": 28
 				}
@@ -5129,7 +5824,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 60,
 					"character": 23
 				}
@@ -5207,7 +5902,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 36,
 					"character": 16
 				}
@@ -5260,8 +5955,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 104,
+					"fileName": "src/lib/middleware.ts",
+					"line": 103,
 					"character": 30
 				}
 			]
@@ -5319,8 +6014,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 246,
+					"fileName": "src/lib/middleware.ts",
+					"line": 245,
 					"character": 29
 				}
 			]
@@ -5379,7 +6074,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 6,
 					"character": 10
 				}
@@ -5481,8 +6176,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 214,
+					"fileName": "src/lib/middleware.ts",
+					"line": 213,
 					"character": 23
 				}
 			]
@@ -5529,8 +6224,8 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
-					"line": 266,
+					"fileName": "src/lib/middleware.ts",
+					"line": 265,
 					"character": 23
 				}
 			]
@@ -5584,7 +6279,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 8,
 					"character": 15
 				}
@@ -5648,7 +6343,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 48,
 					"character": 22
 				}
@@ -5700,12 +6395,44 @@
 							"name": "string"
 						}
 					}
+				},
+				{
+					"id": 420,
+					"name": "split",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"parameters": [
+						{
+							"id": 421,
+							"name": "url",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
 				}
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 8,
+					"character": 11
+				},
+				{
+					"fileName": "src/lib/adapters/Next.js.tsx",
+					"line": 9,
 					"character": 11
 				}
 			]
@@ -5752,7 +6479,7 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 89,
 											"character": 20
 										}
@@ -5838,8 +6565,8 @@
 																	],
 																	"sources": [
 																		{
-																			"fileName": "lib/middleware.ts",
-																			"line": 54,
+																			"fileName": "src/lib/middleware.ts",
+																			"line": 53,
 																			"character": 7
 																		}
 																	]
@@ -5864,7 +6591,7 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 90,
 											"character": 23
 										}
@@ -5950,8 +6677,8 @@
 																	],
 																	"sources": [
 																		{
-																			"fileName": "lib/middleware.ts",
-																			"line": 50,
+																			"fileName": "src/lib/middleware.ts",
+																			"line": 49,
 																			"character": 7
 																		}
 																	]
@@ -5985,7 +6712,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 85,
 					"character": 26
 				}
@@ -6037,7 +6764,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 77,
 					"character": 21
 				}
@@ -6086,7 +6813,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 68,
 							"character": 13
 						}
@@ -6141,7 +6868,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 69,
 							"character": 11
 						}
@@ -6160,7 +6887,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 67,
 					"character": 23
 				}
@@ -6222,7 +6949,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 19,
 							"character": 13
 						}
@@ -6273,7 +7000,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 23,
 							"character": 11
 						}
@@ -6292,7 +7019,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 18,
 					"character": 21
 				}
@@ -6354,7 +7081,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 11,
 							"character": 13
 						}
@@ -6405,7 +7132,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 15,
 							"character": 11
 						}
@@ -6424,7 +7151,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 10,
 					"character": 19
 				}
@@ -6454,7 +7181,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 75,
 							"character": 12
 						}
@@ -6476,7 +7203,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 76,
 							"character": 10
 						}
@@ -6498,7 +7225,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 77,
 							"character": 13
 						}
@@ -6520,7 +7247,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 78,
 							"character": 9
 						}
@@ -6542,7 +7269,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 79,
 							"character": 6
 						}
@@ -6564,7 +7291,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 80,
 							"character": 7
 						}
@@ -6586,7 +7313,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 81,
 							"character": 5
 						}
@@ -6608,7 +7335,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 82,
 							"character": 8
 						}
@@ -6639,7 +7366,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 74,
 					"character": 24
 				}
@@ -6692,7 +7419,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 27,
 							"character": 13
 						}
@@ -6743,7 +7470,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 28,
 							"character": 11
 						}
@@ -6762,7 +7489,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 26,
 					"character": 22
 				}
@@ -6830,6 +7557,7 @@
 			"title": "Functions",
 			"kind": 64,
 			"children": [
+				422,
 				132,
 				142,
 				59,
