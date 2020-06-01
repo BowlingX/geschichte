@@ -2,6 +2,7 @@
 import { History } from 'history'
 import React, {
   forwardRef,
+  ReactNode,
   useEffect,
   useImperativeHandle,
   useMemo
@@ -15,14 +16,14 @@ import { geschichte, HistoryManagement, StoreContext } from '../store'
 export interface Props {
   /** a history instance (e.g. createBrowserHistory()) */
   readonly history: History
-  readonly children: React.ReactNode
+  readonly children?: ReactNode
 }
 
 export interface Refs {
   readonly updateFromQuery: (query: string) => void
 }
 
-const GeschichteWithHistory = forwardRef<Refs, Props>(
+export const GeschichteWithHistory = forwardRef<Refs, Props>(
   ({ children, history }, ref) => {
     const historyInstance: HistoryManagement = useMemo(() => {
       return {

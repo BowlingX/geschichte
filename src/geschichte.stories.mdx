@@ -1,6 +1,6 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { App } from './examples/index.tsx'
-import Geschichte from './index'
+import {GeschichteWithHistory as Geschichte} from './lib/adapters/History.js.tsx'
 import { createBrowserHistory } from 'history'
 
 export const history = createBrowserHistory()
