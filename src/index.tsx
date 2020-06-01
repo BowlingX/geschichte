@@ -18,3 +18,4 @@ export {
   StoreContext
 } from './lib/store'
 export { pm } from './lib/utils'
+export { default as GeschichteForNextjs } from './lib/adapters/Next.js'

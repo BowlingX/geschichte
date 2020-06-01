@@ -35,10 +35,9 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
       }
     }, [history])
 
-    const value = useMemo(() => geschichte(historyInstance), []) as [
-      UseStore<StoreState<any>>,
-      StoreApi<StoreState<any>>
-    ]
+    const value = useMemo(() => geschichte(historyInstance), [
+      historyInstance
+    ]) as [UseStore<StoreState<any>>, StoreApi<StoreState<any>>]
     const [useStore] = value
     const state = useStore(
       ({ unregister, updateFromQuery }: StoreState<any>) => ({

@@ -1,5 +1,4 @@
 /* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation readonly-array */
-import { History } from 'history'
 import { Patch, produceWithPatches } from 'immer'
 import memoizeOne from 'memoize-one'
 import { parse, stringify } from 'query-string'
