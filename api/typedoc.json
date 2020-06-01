@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "geschichte - v2.0.0",
+	"name": "geschichte - v2.0.1",
 	"kind": 0,
 	"flags": {},
 	"children": [
@@ -891,18 +891,19 @@
 					"kind": 1024,
 					"kindString": "Property",
 					"flags": {
-						"isExported": true
+						"isExported": true,
+						"isOptional": true
 					},
 					"sources": [
 						{
 							"fileName": "lib/adapters/History.js.tsx",
-							"line": 18,
+							"line": 19,
 							"character": 19
 						}
 					],
 					"type": {
 						"type": "reference",
-						"name": "React.ReactNode"
+						"name": "ReactNode"
 					}
 				},
 				{
@@ -919,7 +920,7 @@
 					"sources": [
 						{
 							"fileName": "lib/adapters/History.js.tsx",
-							"line": 17,
+							"line": 18,
 							"character": 18
 						}
 					],
@@ -942,7 +943,7 @@
 			"sources": [
 				{
 					"fileName": "lib/adapters/History.js.tsx",
-					"line": 15,
+					"line": 16,
 					"character": 22
 				}
 			]
@@ -967,7 +968,7 @@
 					"sources": [
 						{
 							"fileName": "lib/adapters/History.js.tsx",
-							"line": 22,
+							"line": 23,
 							"character": 26
 						}
 					],
@@ -1008,7 +1009,7 @@
 							"sources": [
 								{
 									"fileName": "lib/adapters/History.js.tsx",
-									"line": 22,
+									"line": 23,
 									"character": 27
 								}
 							]
@@ -1028,7 +1029,7 @@
 			"sources": [
 				{
 					"fileName": "lib/adapters/History.js.tsx",
-					"line": 21,
+					"line": 22,
 					"character": 21
 				}
 			]
@@ -3351,8 +3352,8 @@
 			"sources": [
 				{
 					"fileName": "lib/adapters/History.js.tsx",
-					"line": 25,
-					"character": 27
+					"line": 26,
+					"character": 34
 				}
 			],
 			"type": {
