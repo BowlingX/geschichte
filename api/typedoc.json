@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "geschichte - v0.1.0",
+	"name": "geschichte - v2.1.1",
 	"kind": 0,
 	"flags": {},
 	"children": [
@@ -928,6 +928,267 @@
 									}
 								},
 								{
+									"id": 419,
+									"name": "events",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/lib/adapters/Next.js.tsx",
+											"line": 17,
+											"character": 19
+										}
+									],
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 420,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 429,
+													"name": "off",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/lib/adapters/Next.js.tsx",
+															"line": 19,
+															"character": 18
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 430,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"signatures": [
+																{
+																	"id": 431,
+																	"name": "__call",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 432,
+																			"name": "event",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "string"
+																			}
+																		},
+																		{
+																			"id": 433,
+																			"name": "handler",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "reflection",
+																				"declaration": {
+																					"id": 434,
+																					"name": "__type",
+																					"kind": 65536,
+																					"kindString": "Type literal",
+																					"flags": {},
+																					"signatures": [
+																						{
+																							"id": 435,
+																							"name": "__call",
+																							"kind": 4096,
+																							"kindString": "Call signature",
+																							"flags": {},
+																							"parameters": [
+																								{
+																									"id": 436,
+																									"name": "args",
+																									"kind": 32768,
+																									"kindString": "Parameter",
+																									"flags": {
+																										"isRest": true
+																									},
+																									"type": {
+																										"type": "intrinsic",
+																										"name": "any"
+																									}
+																								}
+																							],
+																							"type": {
+																								"type": "intrinsic",
+																								"name": "any"
+																							}
+																						}
+																					],
+																					"sources": [
+																						{
+																							"fileName": "src/lib/adapters/Next.js.tsx",
+																							"line": 19,
+																							"character": 44
+																						}
+																					]
+																				}
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																}
+															],
+															"sources": [
+																{
+																	"fileName": "src/lib/adapters/Next.js.tsx",
+																	"line": 19,
+																	"character": 19
+																}
+															]
+														}
+													}
+												},
+												{
+													"id": 421,
+													"name": "on",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "src/lib/adapters/Next.js.tsx",
+															"line": 18,
+															"character": 17
+														}
+													],
+													"type": {
+														"type": "reflection",
+														"declaration": {
+															"id": 422,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"signatures": [
+																{
+																	"id": 423,
+																	"name": "__call",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"parameters": [
+																		{
+																			"id": 424,
+																			"name": "event",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "string"
+																			}
+																		},
+																		{
+																			"id": 425,
+																			"name": "handler",
+																			"kind": 32768,
+																			"kindString": "Parameter",
+																			"flags": {},
+																			"type": {
+																				"type": "reflection",
+																				"declaration": {
+																					"id": 426,
+																					"name": "__type",
+																					"kind": 65536,
+																					"kindString": "Type literal",
+																					"flags": {},
+																					"signatures": [
+																						{
+																							"id": 427,
+																							"name": "__call",
+																							"kind": 4096,
+																							"kindString": "Call signature",
+																							"flags": {},
+																							"parameters": [
+																								{
+																									"id": 428,
+																									"name": "args",
+																									"kind": 32768,
+																									"kindString": "Parameter",
+																									"flags": {
+																										"isRest": true
+																									},
+																									"type": {
+																										"type": "intrinsic",
+																										"name": "any"
+																									}
+																								}
+																							],
+																							"type": {
+																								"type": "intrinsic",
+																								"name": "any"
+																							}
+																						}
+																					],
+																					"sources": [
+																						{
+																							"fileName": "src/lib/adapters/Next.js.tsx",
+																							"line": 18,
+																							"character": 43
+																						}
+																					]
+																				}
+																			}
+																		}
+																	],
+																	"type": {
+																		"type": "intrinsic",
+																		"name": "any"
+																	}
+																}
+															],
+															"sources": [
+																{
+																	"fileName": "src/lib/adapters/Next.js.tsx",
+																	"line": 18,
+																	"character": 18
+																}
+															]
+														}
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Variables",
+													"kind": 32,
+													"children": [
+														429,
+														421
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 17,
+													"character": 20
+												}
+											]
+										}
+									}
+								},
+								{
 									"id": 409,
 									"name": "push",
 									"kind": 32,
@@ -1088,6 +1349,7 @@
 									"kind": 32,
 									"children": [
 										407,
+										419,
 										409,
 										414,
 										408
@@ -1102,26 +1364,6 @@
 								}
 							]
 						}
-					}
-				},
-				{
-					"id": 419,
-					"name": "asPath",
-					"kind": 1024,
-					"kindString": "Property",
-					"flags": {
-						"isExported": true
-					},
-					"sources": [
-						{
-							"fileName": "src/lib/adapters/Next.js.tsx",
-							"line": 18,
-							"character": 17
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
 					}
 				},
 				{
@@ -1167,6 +1409,26 @@
 						"type": "reference",
 						"name": "History"
 					}
+				},
+				{
+					"id": 437,
+					"name": "initialPath",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "src/lib/adapters/Next.js.tsx",
+							"line": 22,
+							"character": 22
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
 				}
 			],
 			"groups": [
@@ -1175,9 +1437,9 @@
 					"kind": 1024,
 					"children": [
 						405,
-						419,
 						398,
-						397
+						397,
+						437
 					]
 				}
 			],
@@ -3704,7 +3966,7 @@
 			"defaultValue": " createContext<\n  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>] | null\n>(null)"
 		},
 		{
-			"id": 422,
+			"id": 440,
 			"name": "GeschichteForNextjs",
 			"kind": 64,
 			"kindString": "Function",
@@ -3714,14 +3976,14 @@
 			},
 			"signatures": [
 				{
-					"id": 423,
+					"id": 441,
 					"name": "GeschichteForNextjs",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 424,
+							"id": 442,
 							"name": "__namedParameters",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -3730,7 +3992,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 425,
+									"id": 443,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -3739,7 +4001,7 @@
 									},
 									"children": [
 										{
-											"id": 432,
+											"id": 450,
 											"name": "Router",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3749,14 +4011,14 @@
 											"sources": [
 												{
 													"fileName": "src/lib/adapters/Next.js.tsx",
-													"line": 21,
-													"character": 66
+													"line": 25,
+													"character": 71
 												}
 											],
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 433,
+													"id": 451,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
@@ -3765,7 +4027,7 @@
 													},
 													"children": [
 														{
-															"id": 434,
+															"id": 452,
 															"name": "asPath",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3785,7 +4047,284 @@
 															}
 														},
 														{
-															"id": 436,
+															"id": 464,
+															"name": "events",
+															"kind": 32,
+															"kindString": "Variable",
+															"flags": {
+																"isExported": true
+															},
+															"sources": [
+																{
+																	"fileName": "src/lib/adapters/Next.js.tsx",
+																	"line": 17,
+																	"character": 19
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 465,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {
+																		"isExported": true
+																	},
+																	"children": [
+																		{
+																			"id": 474,
+																			"name": "off",
+																			"kind": 32,
+																			"kindString": "Variable",
+																			"flags": {
+																				"isExported": true
+																			},
+																			"sources": [
+																				{
+																					"fileName": "src/lib/adapters/Next.js.tsx",
+																					"line": 19,
+																					"character": 18
+																				}
+																			],
+																			"type": {
+																				"type": "reflection",
+																				"declaration": {
+																					"id": 475,
+																					"name": "__type",
+																					"kind": 65536,
+																					"kindString": "Type literal",
+																					"flags": {
+																						"isExported": true
+																					},
+																					"signatures": [
+																						{
+																							"id": 476,
+																							"name": "__call",
+																							"kind": 4096,
+																							"kindString": "Call signature",
+																							"flags": {},
+																							"parameters": [
+																								{
+																									"id": 477,
+																									"name": "event",
+																									"kind": 32768,
+																									"kindString": "Parameter",
+																									"flags": {},
+																									"type": {
+																										"type": "intrinsic",
+																										"name": "string"
+																									}
+																								},
+																								{
+																									"id": 478,
+																									"name": "handler",
+																									"kind": 32768,
+																									"kindString": "Parameter",
+																									"flags": {},
+																									"type": {
+																										"type": "reflection",
+																										"declaration": {
+																											"id": 479,
+																											"name": "__type",
+																											"kind": 65536,
+																											"kindString": "Type literal",
+																											"flags": {
+																												"isExported": true
+																											},
+																											"signatures": [
+																												{
+																													"id": 480,
+																													"name": "__call",
+																													"kind": 4096,
+																													"kindString": "Call signature",
+																													"flags": {},
+																													"parameters": [
+																														{
+																															"id": 481,
+																															"name": "args",
+																															"kind": 32768,
+																															"kindString": "Parameter",
+																															"flags": {
+																																"isRest": true
+																															},
+																															"type": {
+																																"type": "intrinsic",
+																																"name": "any"
+																															}
+																														}
+																													],
+																													"type": {
+																														"type": "intrinsic",
+																														"name": "any"
+																													}
+																												}
+																											],
+																											"sources": [
+																												{
+																													"fileName": "src/lib/adapters/Next.js.tsx",
+																													"line": 19,
+																													"character": 44
+																												}
+																											]
+																										}
+																									}
+																								}
+																							],
+																							"type": {
+																								"type": "intrinsic",
+																								"name": "any"
+																							}
+																						}
+																					],
+																					"sources": [
+																						{
+																							"fileName": "src/lib/adapters/Next.js.tsx",
+																							"line": 19,
+																							"character": 19
+																						}
+																					]
+																				}
+																			}
+																		},
+																		{
+																			"id": 466,
+																			"name": "on",
+																			"kind": 32,
+																			"kindString": "Variable",
+																			"flags": {
+																				"isExported": true
+																			},
+																			"sources": [
+																				{
+																					"fileName": "src/lib/adapters/Next.js.tsx",
+																					"line": 18,
+																					"character": 17
+																				}
+																			],
+																			"type": {
+																				"type": "reflection",
+																				"declaration": {
+																					"id": 467,
+																					"name": "__type",
+																					"kind": 65536,
+																					"kindString": "Type literal",
+																					"flags": {
+																						"isExported": true
+																					},
+																					"signatures": [
+																						{
+																							"id": 468,
+																							"name": "__call",
+																							"kind": 4096,
+																							"kindString": "Call signature",
+																							"flags": {},
+																							"parameters": [
+																								{
+																									"id": 469,
+																									"name": "event",
+																									"kind": 32768,
+																									"kindString": "Parameter",
+																									"flags": {},
+																									"type": {
+																										"type": "intrinsic",
+																										"name": "string"
+																									}
+																								},
+																								{
+																									"id": 470,
+																									"name": "handler",
+																									"kind": 32768,
+																									"kindString": "Parameter",
+																									"flags": {},
+																									"type": {
+																										"type": "reflection",
+																										"declaration": {
+																											"id": 471,
+																											"name": "__type",
+																											"kind": 65536,
+																											"kindString": "Type literal",
+																											"flags": {
+																												"isExported": true
+																											},
+																											"signatures": [
+																												{
+																													"id": 472,
+																													"name": "__call",
+																													"kind": 4096,
+																													"kindString": "Call signature",
+																													"flags": {},
+																													"parameters": [
+																														{
+																															"id": 473,
+																															"name": "args",
+																															"kind": 32768,
+																															"kindString": "Parameter",
+																															"flags": {
+																																"isRest": true
+																															},
+																															"type": {
+																																"type": "intrinsic",
+																																"name": "any"
+																															}
+																														}
+																													],
+																													"type": {
+																														"type": "intrinsic",
+																														"name": "any"
+																													}
+																												}
+																											],
+																											"sources": [
+																												{
+																													"fileName": "src/lib/adapters/Next.js.tsx",
+																													"line": 18,
+																													"character": 43
+																												}
+																											]
+																										}
+																									}
+																								}
+																							],
+																							"type": {
+																								"type": "intrinsic",
+																								"name": "any"
+																							}
+																						}
+																					],
+																					"sources": [
+																						{
+																							"fileName": "src/lib/adapters/Next.js.tsx",
+																							"line": 18,
+																							"character": 18
+																						}
+																					]
+																				}
+																			}
+																		}
+																	],
+																	"groups": [
+																		{
+																			"title": "Variables",
+																			"kind": 32,
+																			"children": [
+																				474,
+																				466
+																			]
+																		}
+																	],
+																	"sources": [
+																		{
+																			"fileName": "src/lib/adapters/Next.js.tsx",
+																			"line": 17,
+																			"character": 20
+																		}
+																	]
+																}
+															}
+														},
+														{
+															"id": 454,
 															"name": "push",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3802,7 +4341,7 @@
 															"type": {
 																"type": "reflection",
 																"declaration": {
-																	"id": 437,
+																	"id": 455,
 																	"name": "__type",
 																	"kind": 65536,
 																	"kindString": "Type literal",
@@ -3811,14 +4350,14 @@
 																	},
 																	"signatures": [
 																		{
-																			"id": 438,
+																			"id": 456,
 																			"name": "__call",
 																			"kind": 4096,
 																			"kindString": "Call signature",
 																			"flags": {},
 																			"parameters": [
 																				{
-																					"id": 439,
+																					"id": 457,
 																					"name": "url",
 																					"kind": 32768,
 																					"kindString": "Parameter",
@@ -3829,7 +4368,7 @@
 																					}
 																				},
 																				{
-																					"id": 440,
+																					"id": 458,
 																					"name": "as",
 																					"kind": 32768,
 																					"kindString": "Parameter",
@@ -3857,7 +4396,7 @@
 															}
 														},
 														{
-															"id": 441,
+															"id": 459,
 															"name": "replace",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3874,7 +4413,7 @@
 															"type": {
 																"type": "reflection",
 																"declaration": {
-																	"id": 442,
+																	"id": 460,
 																	"name": "__type",
 																	"kind": 65536,
 																	"kindString": "Type literal",
@@ -3883,14 +4422,14 @@
 																	},
 																	"signatures": [
 																		{
-																			"id": 443,
+																			"id": 461,
 																			"name": "__call",
 																			"kind": 4096,
 																			"kindString": "Call signature",
 																			"flags": {},
 																			"parameters": [
 																				{
-																					"id": 444,
+																					"id": 462,
 																					"name": "url",
 																					"kind": 32768,
 																					"kindString": "Parameter",
@@ -3901,7 +4440,7 @@
 																					}
 																				},
 																				{
-																					"id": 445,
+																					"id": 463,
 																					"name": "as",
 																					"kind": 32768,
 																					"kindString": "Parameter",
@@ -3929,7 +4468,7 @@
 															}
 														},
 														{
-															"id": 435,
+															"id": 453,
 															"name": "route",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3954,10 +4493,11 @@
 															"title": "Variables",
 															"kind": 32,
 															"children": [
-																434,
-																436,
-																441,
-																435
+																452,
+																464,
+																454,
+																459,
+																453
 															]
 														}
 													]
@@ -3965,27 +4505,7 @@
 											}
 										},
 										{
-											"id": 431,
-											"name": "asPath",
-											"kind": 32,
-											"kindString": "Variable",
-											"flags": {
-												"isExported": true
-											},
-											"sources": [
-												{
-													"fileName": "src/lib/adapters/Next.js.tsx",
-													"line": 21,
-													"character": 58
-												}
-											],
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
-										},
-										{
-											"id": 426,
+											"id": 444,
 											"name": "children",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3995,7 +4515,7 @@
 											"sources": [
 												{
 													"fileName": "src/lib/adapters/Next.js.tsx",
-													"line": 21,
+													"line": 25,
 													"character": 50
 												}
 											],
@@ -4048,21 +4568,21 @@
 																	{
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 427,
+																			"id": 445,
 																			"name": "__type",
 																			"kind": 65536,
 																			"kindString": "Type literal",
 																			"flags": {},
 																			"signatures": [
 																				{
-																					"id": 428,
+																					"id": 446,
 																					"name": "__call",
 																					"kind": 4096,
 																					"kindString": "Call signature",
 																					"flags": {},
 																					"parameters": [
 																						{
-																							"id": 429,
+																							"id": 447,
 																							"name": "props",
 																							"kind": 32768,
 																							"kindString": "Parameter",
@@ -4093,7 +4613,7 @@
 																	{
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 430,
+																			"id": 448,
 																			"name": "__type",
 																			"kind": 65536,
 																			"kindString": "Type literal",
@@ -4114,6 +4634,26 @@
 													}
 												]
 											}
+										},
+										{
+											"id": 449,
+											"name": "initialPath",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 25,
+													"character": 63
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
 										}
 									],
 									"groups": [
@@ -4121,16 +4661,16 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												432,
-												431,
-												426
+												450,
+												444,
+												449
 											]
 										}
 									],
 									"sources": [
 										{
 											"fileName": "src/lib/adapters/Next.js.tsx",
-											"line": 21,
+											"line": 25,
 											"character": 40
 										}
 									]
@@ -4147,7 +4687,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/adapters/Next.js.tsx",
-					"line": 21,
+					"line": 25,
 					"character": 25
 				}
 			]
@@ -6397,14 +6937,14 @@
 					}
 				},
 				{
-					"id": 420,
+					"id": 438,
 					"name": "split",
 					"kind": 4096,
 					"kindString": "Call signature",
 					"flags": {},
 					"parameters": [
 						{
-							"id": 421,
+							"id": 439,
 							"name": "url",
 							"kind": 32768,
 							"kindString": "Parameter",
@@ -7557,7 +8097,7 @@
 			"title": "Functions",
 			"kind": 64,
 			"children": [
-				422,
+				440,
 				132,
 				142,
 				59,
