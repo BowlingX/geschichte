@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "geschichte - v2.1.1",
+	"name": "geschichte - v2.1.2",
 	"kind": 0,
 	"flags": {},
 	"children": [
@@ -1367,6 +1367,26 @@
 					}
 				},
 				{
+					"id": 437,
+					"name": "asPath",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "src/lib/adapters/Next.js.tsx",
+							"line": 22,
+							"character": 17
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
 					"id": 398,
 					"name": "children",
 					"kind": 1024,
@@ -1409,26 +1429,6 @@
 						"type": "reference",
 						"name": "History"
 					}
-				},
-				{
-					"id": 437,
-					"name": "initialPath",
-					"kind": 1024,
-					"kindString": "Property",
-					"flags": {
-						"isExported": true
-					},
-					"sources": [
-						{
-							"fileName": "src/lib/adapters/Next.js.tsx",
-							"line": 22,
-							"character": 22
-						}
-					],
-					"type": {
-						"type": "intrinsic",
-						"name": "string"
-					}
 				}
 			],
 			"groups": [
@@ -1437,9 +1437,9 @@
 					"kind": 1024,
 					"children": [
 						405,
+						437,
 						398,
-						397,
-						437
+						397
 					]
 				}
 			],
@@ -4012,7 +4012,7 @@
 												{
 													"fileName": "src/lib/adapters/Next.js.tsx",
 													"line": 25,
-													"character": 71
+													"character": 66
 												}
 											],
 											"type": {
@@ -4505,6 +4505,26 @@
 											}
 										},
 										{
+											"id": 449,
+											"name": "asPath",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {
+												"isExported": true
+											},
+											"sources": [
+												{
+													"fileName": "src/lib/adapters/Next.js.tsx",
+													"line": 25,
+													"character": 58
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
 											"id": 444,
 											"name": "children",
 											"kind": 32,
@@ -4634,26 +4654,6 @@
 													}
 												]
 											}
-										},
-										{
-											"id": 449,
-											"name": "initialPath",
-											"kind": 32,
-											"kindString": "Variable",
-											"flags": {
-												"isExported": true
-											},
-											"sources": [
-												{
-													"fileName": "src/lib/adapters/Next.js.tsx",
-													"line": 25,
-													"character": 63
-												}
-											],
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
 										}
 									],
 									"groups": [
@@ -4662,8 +4662,8 @@
 											"kind": 32,
 											"children": [
 												450,
-												444,
-												449
+												449,
+												444
 											]
 										}
 									],
