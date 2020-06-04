@@ -19,12 +19,12 @@ interface Props {
       readonly off: (event: string, handler: (...args: any) => any) => any
     }
   }
-  readonly initialPath: string
+  readonly asPath: string
 }
 
-const GeschichteForNextjs: FC<Props> = ({ children, initialPath, Router }) => {
+const GeschichteForNextjs: FC<Props> = ({ children, asPath, Router }) => {
   const historyInstance: HistoryManagement = useMemo(() => {
-    const initial = split(initialPath)
+    const initial = split(asPath)
     const [, query] = initial
     return {
       initialSearch: `?${query || ''}`,
@@ -56,18 +56,16 @@ const GeschichteForNextjs: FC<Props> = ({ children, initialPath, Router }) => {
   const { updateFromQuery } = state
 
   useEffect(() => {
-    const { unregister } = state
-    const handler = (url: string) => {
-      const [, query] = split(url)
-      updateFromQuery(`?${query || ''}`)
-    }
-    Router.events.on('routeChangeStart', handler)
-    return () => {
-      Router.events.off('routeChangeStart', handler)
-      unregister()
-    }
-  }, [updateFromQuery])
+    const [, query] = split(asPath)
+    updateFromQuery(`?${query || ''}`)
+  }, [asPath, updateFromQuery])
 
+  useEffect(() => {
+    const { unregister } = state
+    return () => {
+      return unregister()
+    }
+  }, [state])
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
 }
 
