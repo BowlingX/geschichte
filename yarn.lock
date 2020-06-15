@@ -7332,10 +7332,10 @@ immer@1.10.0:
   resolved "https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
   integrity sha512-O3sR1/opvCDGLEVcvrGTMtLac8GJ5IwZC4puPrLuRj3l7ICKvkmA0vGuU9OW8mV9WIBRnaxp5GJh9IEAaNOoYg==
 
-immer@^5.0.0:
-  version "5.3.6"
-  resolved "https://registry.yarnpkg.com/immer/-/immer-5.3.6.tgz#51eab8cbbeb13075fe2244250f221598818cac04"
-  integrity sha512-pqWQ6ozVfNOUDjrLfm4Pt7q4Q12cGw2HUZgry4Q5+Myxu9nmHRkWBpI0J4+MK0AxbdFtdMTwEGVl7Vd+vEiK+A==
+immer@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/immer/-/immer-7.0.1.tgz#830f44a36c4181c0eca4385e7782e164e5eb9249"
+  integrity sha512-DpWL/ES2Ba8KwW+A5AgNRoJPZP8LxdHejKXar1VfbF5a7ATvvekzmmNSQxje+WG0DIhuanvFEumFffVqyCLmBQ==
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -15493,7 +15493,7 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-zustand@^2.2.1:
+zustand@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/zustand/-/zustand-2.2.3.tgz#07ee668bf600a5e0dcff8f8b60f35faa149f65d5"
   integrity sha512-SSd5DzbwUN0b8ePW4I+8mSdXQc6UOqTgYzlMtoNvf7pogmFoXjeE0wZwCVopoZBnzz/uRBD2dsozzM2FXDQcXw==

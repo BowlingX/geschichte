@@ -1,5 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
-import produce, { Draft } from 'immer'
+import produce, { Draft, enablePatches } from 'immer'
 import memoizeOne from 'memoize-one'
 import { stringify } from 'query-string'
 import {
@@ -25,6 +25,8 @@ import {
   createQueryObject,
   flattenConfig
 } from './utils'
+
+enablePatches()
 
 export const DEFAULT_NAMESPACE = 'default'
 
