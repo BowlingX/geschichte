@@ -17,5 +17,5 @@ export {
   DEFAULT_NAMESPACE,
   StoreContext
 } from './lib/store'
-export { pm } from './lib/utils'
+export { pm, flattenConfig } from './lib/utils'
 export { default as GeschichteForNextjs } from './lib/adapters/Next.js'
