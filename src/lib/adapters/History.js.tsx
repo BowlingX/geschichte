@@ -27,7 +27,7 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
   ({ children, history }, ref) => {
     const historyInstance: HistoryManagement = useMemo(() => {
       return {
-        initialSearch: history.location.search,
+        initialSearch: () => history.location.search,
         push: (next: string) =>
           history.push({ search: next, state: { __g__: true } }),
         replace: (next: string) =>

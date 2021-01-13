@@ -24,10 +24,11 @@ interface Props {
 
 const GeschichteForNextjs: FC<Props> = ({ children, asPath, Router }) => {
   const historyInstance: HistoryManagement = useMemo(() => {
-    const initial = split(asPath)
-    const [, query] = initial
     return {
-      initialSearch: `?${query || ''}`,
+      initialSearch: () => {
+        const [, query] = split(Router.asPath)
+        return `?${query || ''}`
+      },
       push: (next: string) => {
         const [path] = split(Router.asPath)
         Router.push(Router.route, `${path}${next}`)

@@ -255,7 +255,7 @@ export const immerWithPatches = <T>(config: ImmerStateCreator<T>) => (
           // @ts-ignore
           // FIXME: Need to check why this causes an error
         )(currentState)
-        return valueMapper(changes, nextValues)
+        return valueMapper(changes, nextValues as StoreState<T>)
       }, `action_${HistoryEventType[type]}`)
     },
     get,
@@ -329,7 +329,7 @@ export const converter = <T extends GenericObject>(
     },
     /** the initial queries when the script got executed first (usually on page load). */
     initialQueries: () =>
-      memoizedGetInitialQueries(historyInstance.initialSearch),
+      memoizedGetInitialQueries(historyInstance.initialSearch()),
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
     /** pushes a new state for a given namespace, (will use history.pushState) */

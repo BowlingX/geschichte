@@ -53,7 +53,7 @@ export interface MappedConfig {
 
 export interface HistoryManagement {
   /** the initial search string (e.g. ?query=test), contains the questionsmark */
-  readonly initialSearch: string
+  readonly initialSearch: () => string
   // tslint:disable-next-line:no-mixed-interface
   readonly push: (next: string) => void
   readonly replace: (next: string) => void
