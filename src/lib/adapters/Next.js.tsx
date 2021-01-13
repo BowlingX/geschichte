@@ -26,7 +26,8 @@ const GeschichteForNextjs: FC<Props> = ({ children, asPath, Router }) => {
   const historyInstance: HistoryManagement = useMemo(() => {
     return {
       initialSearch: () => {
-        const [, query] = split(Router.asPath)
+        const [, query] =
+          typeof window === 'undefined' ? split(asPath) : split(Router.asPath)
         return `?${query || ''}`
       },
       push: (next: string) => {
