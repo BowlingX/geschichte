@@ -81,7 +81,7 @@
     "expect": "^24.9.0",
     "gh-pages": "^2.1.1",
     "history": "^4.10.1",
-    "immer": "^7.0.1",
+    "immer": "^8.0.1",
     "jest": "^24.9.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
