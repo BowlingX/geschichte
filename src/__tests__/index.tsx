@@ -61,36 +61,80 @@ describe('<Geschichte />', () => {
       )
     }
 
-    const renderd = mount(
+    const rendered = mount(
       <Geschichte history={history}>
         <Component />
       </Geschichte>
     )
 
     it('changes the state when we click the button', () => {
-      expect(renderd.text()).toEqual('test')
-      renderd.find('button[name="pushState"]').simulate('click')
-      expect(renderd.text()).toEqual('foo')
+      expect(rendered.text()).toEqual('test')
+      rendered.find('button[name="pushState"]').simulate('click')
+      expect(rendered.text()).toEqual('foo')
       expect(history.location.search).toEqual('?test.wow=foo')
     })
 
     it('changes the state when we use `pushBatch`', () => {
-      renderd.find('button[name="pushBatch"]').simulate('click')
-      expect(renderd.text()).toEqual('wasBatch')
+      rendered.find('button[name="pushBatch"]').simulate('click')
+      expect(rendered.text()).toEqual('wasBatch')
       expect(history.location.search).toEqual(
         '?test.wow=wasBatch&test2.wow=anotherOne'
       )
     })
 
     it('should reset the state properly', () => {
-      renderd.find('button[name="pushBatch"]').simulate('click')
-      expect(renderd.text()).toEqual('wasBatch')
+      rendered.find('button[name="pushBatch"]').simulate('click')
+      expect(rendered.text()).toEqual('wasBatch')
       expect(history.location.search).toEqual(
         '?test.wow=wasBatch&test2.wow=anotherOne'
       )
-      renderd.find('button[name="resetPush"]').simulate('click')
-      expect(renderd.text()).toEqual('test')
+      rendered.find('button[name="resetPush"]').simulate('click')
+      expect(rendered.text()).toEqual('test')
       expect(history.location.search).toEqual('?test2.wow=anotherOne')
+    })
+  })
+
+  describe('renders with hash', () => {
+    const { useQuery } = factoryParameters(
+      {
+        someParameter: pm('someParameter', serializers.string)
+      },
+      { someParameter: 'test' }
+    )
+    const historyWithHash = createMemoryHistory({
+      initialEntries: ['/#this-is-a-hash']
+    })
+
+    const Component = () => {
+      const {
+        values: { someParameter },
+        pushState
+      } = useQuery()
+
+      return (
+        <>
+          <p>{someParameter}</p>
+          <button
+            name="pushState"
+            onClick={() =>
+              pushState(state => void (state.someParameter = 'foo'))
+            }
+          />
+        </>
+      )
+    }
+
+    const rendered = mount(
+      <Geschichte history={historyWithHash}>
+        <Component />
+      </Geschichte>
+    )
+    it('should keep the hash on pushState', () => {
+      expect(rendered.text()).toEqual('test')
+      rendered.find('button[name="pushState"]').simulate('click')
+      expect(rendered.text()).toEqual('foo')
+      expect(historyWithHash.location.search).toEqual('?someParameter=foo')
+      expect(historyWithHash.location.hash).toEqual('#this-is-a-hash')
     })
   })
 })

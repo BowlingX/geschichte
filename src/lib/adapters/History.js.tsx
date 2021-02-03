@@ -28,10 +28,19 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     const historyInstance: HistoryManagement = useMemo(() => {
       return {
         initialSearch: () => history.location.search,
-        push: (next: string) =>
-          history.push({ search: next, state: { __g__: true } }),
+        push: (next: string) => {
+          history.push({
+            hash: history.location.hash,
+            search: next,
+            state: { __g__: true }
+          })
+        },
         replace: (next: string) =>
-          history.replace({ search: next, state: { __g__: true } })
+          history.replace({
+            hash: history.location.hash,
+            search: next,
+            state: { __g__: true }
+          })
       }
     }, [history])
 
