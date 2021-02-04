@@ -10,7 +10,7 @@ export {
 export { StoreState } from './lib/middleware'
 export {
   HistoryManagement,
-  geschichte,
+  useGeschichte,
   factoryParameters,
   useBatchQuery,
   useStore,

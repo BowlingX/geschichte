@@ -11,7 +11,7 @@ import { StoreApi, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import { StoreState } from '../middleware'
-import { geschichte, HistoryManagement, StoreContext } from '../store'
+import { HistoryManagement, StoreContext, useGeschichte } from '../store'
 
 export interface Props {
   /** a history instance (e.g. createBrowserHistory()) */
@@ -44,11 +44,10 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
       }
     }, [history])
 
-    const value = useMemo(() => geschichte(historyInstance), [
+    const value = useMemo(() => useGeschichte(historyInstance), [
       historyInstance
-    ]) as [UseStore<StoreState<any>>, StoreApi<StoreState<any>>]
-    const [useStore] = value
-    const state = useStore(
+    ])
+    const state = value(
       ({ unregister, updateFromQuery }: StoreState<any>) => ({
         unregister,
         updateFromQuery

@@ -10,7 +10,7 @@ import {
   useMemo,
   useState
 } from 'react'
-import { create, StateCreator, StoreApi, UseStore } from 'zustand'
+import create, { State, StateCreator, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import {
@@ -29,10 +29,9 @@ import {
 enablePatches()
 
 export const DEFAULT_NAMESPACE = 'default'
-
-export const StoreContext = createContext<
-  [UseStore<StoreState<any>>, StoreApi<StoreState<any>>] | null
->(null)
+export const StoreContext = createContext<UseStore<StoreState<State>> | null>(
+  null
+)
 
 export interface Parameter {
   readonly name: string
@@ -59,7 +58,9 @@ export interface HistoryManagement {
   readonly replace: (next: string) => void
 }
 
-export const geschichte = <T = object>(historyInstance: HistoryManagement) => {
+export const useGeschichte = <T extends State>(
+  historyInstance: HistoryManagement
+) => {
   const thisStore = converter<T>(historyInstance)
   const storeWithHistory = historyManagement<T>(historyInstance)(thisStore)
 
@@ -69,22 +70,20 @@ export const geschichte = <T = object>(historyInstance: HistoryManagement) => {
   if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     // tslint:disable-next-line:no-submodule-imports
     const { devtools } = require('zustand/middleware')
-    return create(devtools(middleware, 'geschichte'))
+    return create(devtools(middleware, 'geschichte')) as UseStore<
+      StoreState<State>
+    >
   }
   return create(middleware)
 }
 
-type InitialValuesProvider<T = object> = T | (() => T)
+type InitialValuesProvider<T extends State> = T | (() => T)
 
-export const useStore = <T = any>() => {
-  const [store] = useContext(StoreContext) as [
-    UseStore<StoreState<T>>,
-    StoreApi<StoreState<T>>
-  ]
-  return store
+export const useStore = <T extends State>() => {
+  return useContext(StoreContext) as UseStore<StoreState<T>>
 }
 
-export const useBatchQuery = <T = any>() => {
+export const useBatchQuery = <T extends State>() => {
   const store = useStore<T>()
   return store(
     ({ batchPushState, batchReplaceState }) => ({
@@ -95,7 +94,7 @@ export const useBatchQuery = <T = any>() => {
   )
 }
 
-export const factoryParameters = <T = {}>(
+export const factoryParameters = <T extends State>(
   config: Config,
   // tslint:disable-next-line:no-object-literal-type-assertion
   defaultInitialValues: InitialValuesProvider<T> = {} as T,
@@ -133,10 +132,7 @@ export const factoryParameters = <T = {}>(
   const memInitBlank = memoizeOne(initBlank)
 
   const useQuery = () => {
-    const [useStore, api] = useContext(StoreContext) as [
-      UseStore<StoreState<T>>,
-      StoreApi<StoreState<T>>
-    ]
+    const useStore = useContext(StoreContext) as UseStore<StoreState<T>>
 
     const {
       register,
@@ -165,7 +161,7 @@ export const factoryParameters = <T = {}>(
     )
 
     const initialRegisterState = useMemo(() => {
-      const namespaceData = api.getState().namespaces[ns] || {}
+      const namespaceData = useStore.getState().namespaces[ns] || {}
       const { values, query, initialValues } = namespaceData
       if (values) {
         return {
@@ -175,7 +171,7 @@ export const factoryParameters = <T = {}>(
         }
       }
       return memInitBlank(initialQueries())
-    }, [api])
+    }, [useStore])
 
     const [currentState, setCurrentState] = useState({
       initialValues: initialRegisterState.initialValues,
@@ -192,7 +188,7 @@ export const factoryParameters = <T = {}>(
         initialRegisterState.values
       )
 
-      const unsubscribe = api.subscribe<{
+      const unsubscribe = useStore.subscribe<{
         readonly values: T
         readonly initialValues: T
       }>(

@@ -19,7 +19,7 @@ export interface GenericObject {
   [key: string]: any
 }
 
-export interface NamespaceValues<ValueState> {
+export interface NamespaceValues<ValueState extends State> {
   /** the amount of elements currently subscribed to the namespaces values */
   subscribers: number
   values: ValueState
@@ -39,24 +39,24 @@ export type ReplaceStateFunction<T> = (
   valueCreator: (state: T) => void
 ) => void
 
-export interface InnerNamespace<T> {
+export interface InnerNamespace<T extends State> {
   [ns: string]: NamespaceValues<T>
 }
-export interface StoreState<ValueState = object> {
-  updateFromQuery: (query: string) => void
-  batchReplaceState: (
+export interface StoreState<ValueState extends State> extends State {
+  readonly updateFromQuery: (query: string) => void
+  readonly batchReplaceState: (
     ns: readonly string[],
     fn: (...valueState: ValueState[]) => void
   ) => void
-  batchPushState: (
+  readonly batchPushState: (
     ns: readonly string[],
     fn: (...valueState: ValueState[]) => void
   ) => void
   namespaces: InnerNamespace<ValueState>
-  pushState: PushStateFunction<ValueState>
-  replaceState: ReplaceStateFunction<ValueState>
+  readonly pushState: PushStateFunction<ValueState>
+  readonly replaceState: ReplaceStateFunction<ValueState>
   /** registers a new namespace */
-  register: (
+  readonly register: (
     config: Config,
     mappedConfig: MappedConfig,
     ns: string,
@@ -65,29 +65,31 @@ export interface StoreState<ValueState = object> {
     values: ValueState
   ) => () => void
   /** will delete all namespaces and remove the history listener */
-  unregister: () => void
-  resetPush: (ns: string) => void
-  resetReplace: (ns: string) => void
-  initialQueries: () => object
+  readonly unregister: () => void
+  readonly resetPush: (ns: string) => void
+  readonly resetReplace: (ns: string) => void
+  readonly initialQueries: () => object
 }
 
-type NamespaceProducerFunction<T> = (state: NamespaceValues<T>) => void
-type InnerNamespaceProducerFunction<T> = (
+type NamespaceProducerFunction<T extends State> = (
+  state: NamespaceValues<T>
+) => void
+type InnerNamespaceProducerFunction<T extends State> = (
   state: InnerNamespace<T>
 ) => InnerNamespace<T> | void
 
-export type NamespaceProducer<T> = (
+export type NamespaceProducer<T extends State> = (
   stateProducer: NamespaceProducerFunction<T>,
   eventType: HistoryEventType,
   ns?: string
 ) => void
-export type GenericConverter<T> = (
+export type GenericConverter<T extends State> = (
   stateProducer: InnerNamespaceProducerFunction<T>,
   eventType: HistoryEventType,
   ns?: string
 ) => void
 
-export type ImmerProducer<T> = (
+export type ImmerProducer<T extends State> = (
   stateMapper: (changes: Patch[], values: StoreState<T>) => StoreState<T>,
   fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
   eventType: HistoryEventType,
@@ -100,9 +102,9 @@ export declare type StateCreator<T extends State> = (
   api: StoreApi<StoreState<T>>
 ) => StoreState<T>
 
-export const historyManagement = <T>(historyInstance: HistoryManagement) => (
-  apply: StateCreator<T>
-) => (
+export const historyManagement = <T extends State>(
+  historyInstance: HistoryManagement
+) => (apply: StateCreator<T>) => (
   set: ImmerProducer<T>,
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
@@ -210,7 +212,7 @@ export const historyManagement = <T>(historyInstance: HistoryManagement) => (
  * If a namespace is given, will forward the mutation instead of updating
  * the whole state. Initializes the namespace if it does not exist yet
  */
-const namespaceProducer = <T>(
+const namespaceProducer = <T extends State>(
   fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
   ns?: string
 ) => (state: StoreState<T>) => {
@@ -231,30 +233,31 @@ const namespaceProducer = <T>(
   state.namespaces[ns] = next as NamespaceValues<T>
 }
 
-export declare type ImmerStateCreator<T extends State> = (
+export type ImmerStateCreator<T extends State> = (
   fn: ImmerProducer<T>,
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
 ) => StoreState<T>
 
-export declare type SetImmerState<T> = (
+export type SetImmerState<T> = (
   stateProducer: (state: T) => T,
   debugMiddlewareKey: string
 ) => void
 
-export const immerWithPatches = <T>(config: ImmerStateCreator<T>) => (
+export const immerWithPatches = <T extends State>(
+  config: ImmerStateCreator<T>
+) => (
   set: SetImmerState<StoreState<T>>,
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
 ) =>
   config(
     (valueMapper, fn, type: HistoryEventType, ns?: string) => {
-      return set((currentState: StoreState<T>) => {
+      return set(currentState => {
         const [nextValues, changes] = produceWithPatches(
           namespaceProducer(fn, ns)
-          // @ts-ignore
-          // FIXME: Need to check why this causes an error
-        )(currentState)
+          // FIXME: Not sure why this is not working properly with the types
+        )(currentState as any)
         return valueMapper(changes, nextValues as StoreState<T>)
       }, `action_${HistoryEventType[type]}`)
     },
@@ -264,7 +267,7 @@ export const immerWithPatches = <T>(config: ImmerStateCreator<T>) => (
 
 const parseSearchString = (search: string) => parse(search)
 
-export const converter = <T extends GenericObject>(
+export const converter = <T extends State>(
   historyInstance: HistoryManagement
 ) => (
   set: NamespaceProducer<T> & GenericConverter<T>,
