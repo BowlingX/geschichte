@@ -29,7 +29,7 @@ import {
 enablePatches()
 
 export const DEFAULT_NAMESPACE = 'default'
-export const StoreContext = createContext<UseStore<StoreState<State>> | null>(
+export const StoreContext = createContext<UseStore<StoreState<any>> | null>(
   null
 )
 
@@ -77,9 +77,9 @@ export const useGeschichte = <T extends State>(
   return create(middleware)
 }
 
-type InitialValuesProvider<T extends State> = T | (() => T)
+type InitialValuesProvider<T> = T | (() => T)
 
-export const useStore = <T extends State>() => {
+export const useStore = <T>() => {
   return useContext(StoreContext) as UseStore<StoreState<T>>
 }
 
@@ -94,7 +94,7 @@ export const useBatchQuery = <T extends State>() => {
   )
 }
 
-export const factoryParameters = <T extends State>(
+export const factoryParameters = <T>(
   config: Config,
   // tslint:disable-next-line:no-object-literal-type-assertion
   defaultInitialValues: InitialValuesProvider<T> = {} as T,

@@ -19,7 +19,7 @@ export interface GenericObject {
   [key: string]: any
 }
 
-export interface NamespaceValues<ValueState extends State> {
+export interface NamespaceValues<ValueState> {
   /** the amount of elements currently subscribed to the namespaces values */
   subscribers: number
   values: ValueState
@@ -39,10 +39,10 @@ export type ReplaceStateFunction<T> = (
   valueCreator: (state: T) => void
 ) => void
 
-export interface InnerNamespace<T extends State> {
+export interface InnerNamespace<T> {
   [ns: string]: NamespaceValues<T>
 }
-export interface StoreState<ValueState extends State> extends State {
+export interface StoreState<ValueState> extends State {
   readonly updateFromQuery: (query: string) => void
   readonly batchReplaceState: (
     ns: readonly string[],
@@ -71,32 +71,30 @@ export interface StoreState<ValueState extends State> extends State {
   readonly initialQueries: () => object
 }
 
-type NamespaceProducerFunction<T extends State> = (
-  state: NamespaceValues<T>
-) => void
-type InnerNamespaceProducerFunction<T extends State> = (
+type NamespaceProducerFunction<T> = (state: NamespaceValues<T>) => void
+type InnerNamespaceProducerFunction<T> = (
   state: InnerNamespace<T>
 ) => InnerNamespace<T> | void
 
-export type NamespaceProducer<T extends State> = (
+export type NamespaceProducer<T> = (
   stateProducer: NamespaceProducerFunction<T>,
   eventType: HistoryEventType,
   ns?: string
 ) => void
-export type GenericConverter<T extends State> = (
+export type GenericConverter<T> = (
   stateProducer: InnerNamespaceProducerFunction<T>,
   eventType: HistoryEventType,
   ns?: string
 ) => void
 
-export type ImmerProducer<T extends State> = (
+export type ImmerProducer<T> = (
   stateMapper: (changes: Patch[], values: StoreState<T>) => StoreState<T>,
   fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
   eventType: HistoryEventType,
   ns?: string
 ) => void
 
-export declare type StateCreator<T extends State> = (
+export declare type StateCreator<T> = (
   set: NamespaceProducer<T> & GenericConverter<T>,
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
@@ -212,7 +210,7 @@ export const historyManagement = <T extends State>(
  * If a namespace is given, will forward the mutation instead of updating
  * the whole state. Initializes the namespace if it does not exist yet
  */
-const namespaceProducer = <T extends State>(
+const namespaceProducer = <T>(
   fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
   ns?: string
 ) => (state: StoreState<T>) => {
@@ -233,7 +231,7 @@ const namespaceProducer = <T extends State>(
   state.namespaces[ns] = next as NamespaceValues<T>
 }
 
-export type ImmerStateCreator<T extends State> = (
+export type ImmerStateCreator<T> = (
   fn: ImmerProducer<T>,
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
@@ -244,9 +242,7 @@ export type SetImmerState<T> = (
   debugMiddlewareKey: string
 ) => void
 
-export const immerWithPatches = <T extends State>(
-  config: ImmerStateCreator<T>
-) => (
+export const immerWithPatches = <T>(config: ImmerStateCreator<T>) => (
   set: SetImmerState<StoreState<T>>,
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
@@ -267,9 +263,7 @@ export const immerWithPatches = <T extends State>(
 
 const parseSearchString = (search: string) => parse(search)
 
-export const converter = <T extends State>(
-  historyInstance: HistoryManagement
-) => (
+export const converter = <T>(historyInstance: HistoryManagement) => (
   set: NamespaceProducer<T> & GenericConverter<T>,
   get: GetState<StoreState<T>>,
   api: StoreApi<StoreState<T>>
