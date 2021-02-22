@@ -3,7 +3,7 @@ import { Patch, produceWithPatches } from 'immer'
 import memoizeOne from 'memoize-one'
 import { parse, stringify } from 'query-string'
 import { GetState, State, StoreApi } from 'zustand'
-import { Config, HistoryManagement, MappedConfig } from './store'
+import { Config, HistoryManagement, MappedConfig, RouterOptions } from './store'
 import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState
@@ -32,11 +32,13 @@ export interface NamespaceValues<ValueState> {
 
 export type PushStateFunction<T> = (
   ns: string,
-  valueCreator: (state: T) => void
+  valueCreator: (state: T) => void,
+  routerOptions?: RouterOptions
 ) => void
 export type ReplaceStateFunction<T> = (
   ns: string,
-  valueCreator: (state: T) => void
+  valueCreator: (state: T) => void,
+  routerOptions?: RouterOptions
 ) => void
 
 export interface InnerNamespace<T> {
@@ -46,11 +48,13 @@ export interface StoreState<ValueState> extends State {
   readonly updateFromQuery: (query: string) => void
   readonly batchReplaceState: (
     ns: readonly string[],
-    fn: (...valueState: ValueState[]) => void
+    fn: (...valueState: ValueState[]) => void,
+    routerOptions?: RouterOptions
   ) => void
   readonly batchPushState: (
     ns: readonly string[],
-    fn: (...valueState: ValueState[]) => void
+    fn: (...valueState: ValueState[]) => void,
+    routerOptions?: RouterOptions
   ) => void
   namespaces: InnerNamespace<ValueState>
   readonly pushState: PushStateFunction<ValueState>
@@ -79,12 +83,14 @@ type InnerNamespaceProducerFunction<T> = (
 export type NamespaceProducer<T> = (
   stateProducer: NamespaceProducerFunction<T>,
   eventType: HistoryEventType,
-  ns?: string
+  ns?: string,
+  routerOptions?: RouterOptions
 ) => void
 export type GenericConverter<T> = (
   stateProducer: InnerNamespaceProducerFunction<T>,
   eventType: HistoryEventType,
-  ns?: string
+  ns?: string,
+  routerOptions?: RouterOptions
 ) => void
 
 export type ImmerProducer<T> = (
@@ -111,7 +117,8 @@ export const historyManagement = <T extends State>(
     (
       fn: NamespaceProducerFunction<T> | InnerNamespaceProducerFunction<T>,
       type: HistoryEventType,
-      ns?: string
+      ns?: string,
+      options?: RouterOptions
     ) => {
       // we call the `immerWithPatches` middleware
       return set(
@@ -175,7 +182,7 @@ export const historyManagement = <T extends State>(
               ...otherQueries,
               ...reducedQueries
             })
-            historyInstance[method](query === '' ? '' : `?${query}`)
+            historyInstance[method](query === '' ? '' : `?${query}`, options)
 
             // We safe the current state of `query` for all affected namespaces
             return {
@@ -305,23 +312,29 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
     /** batch pushes the given namespaces */
     batchPushState: (
       ns: readonly string[],
-      fn: (...valueState: T[]) => void
+      fn: (...valueState: T[]) => void,
+      routerOptions
     ) => {
       set(
         (state: InnerNamespace<T>) =>
           void fn(...ns.map(thisNs => (state[thisNs] || {}).values)),
-        HistoryEventType.PUSH
+        HistoryEventType.PUSH,
+        undefined,
+        routerOptions
       )
     },
     /** batch replaces the given namespaces */
     batchReplaceState: (
       ns: readonly string[],
-      fn: (...valueState: T[]) => void
+      fn: (...valueState: T[]) => void,
+      routerOptions
     ) => {
       set(
         (state: InnerNamespace<T>) =>
           void fn(...ns.map(thisNs => (state[thisNs] || {}).values)),
-        HistoryEventType.REPLACE
+        HistoryEventType.REPLACE,
+        undefined,
+        routerOptions
       )
     },
     /** the initial queries when the script got executed first (usually on page load). */
@@ -330,11 +343,12 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
     /** pushes a new state for a given namespace, (will use history.pushState) */
-    pushState: (ns: string, fn: (values: T) => void) =>
+    pushState: (ns: string, fn: (values: T) => void, routerOptions) =>
       (set as NamespaceProducer<T>)(
         state => fn(state.values),
         HistoryEventType.PUSH,
-        ns
+        ns,
+        routerOptions
       ),
     /** registers a new namespace and initializes it's configuration */
     register: (

@@ -50,12 +50,13 @@ export interface MappedConfig {
   readonly [queryParameter: string]: MappedParameter
 }
 
+export type RouterOptions = Record<string, any>
+
 export interface HistoryManagement {
   /** the initial search string (e.g. ?query=test), contains the questionsmark */
   readonly initialSearch: () => string
-  // tslint:disable-next-line:no-mixed-interface
-  readonly push: (next: string) => void
-  readonly replace: (next: string) => void
+  readonly push: (next: string, options?: RouterOptions) => void
+  readonly replace: (next: string, options?: RouterOptions) => void
 }
 
 export const useGeschichte = <T extends State>(
@@ -228,8 +229,12 @@ export const factoryParameters = <T>(
         createQueryString: (customValues?: Partial<T>) =>
           stringify(createQuery(customValues || values)),
         initialValues,
-        pushState: (state: (state: T) => void) => pushState(ns, state),
-        replaceState: (state: (state: T) => void) => replaceState(ns, state),
+        pushState: (state: (state: T) => void, options?: Record<string, any>) =>
+          pushState(ns, state, options),
+        replaceState: (
+          state: (state: T) => void,
+          options?: Record<string, any>
+        ) => replaceState(ns, state, options),
         resetPush: () => resetPush(ns),
         resetReplace: () => resetReplace(ns),
         values

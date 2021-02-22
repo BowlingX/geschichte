@@ -3,7 +3,12 @@ import React, { FC, useEffect, useMemo } from 'react'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import { StoreState } from '../middleware'
-import { HistoryManagement, StoreContext, useGeschichte } from '../store'
+import {
+  HistoryManagement,
+  RouterOptions,
+  StoreContext,
+  useGeschichte
+} from '../store'
 
 const split = (url: string) => url.split('?')
 
@@ -11,8 +16,8 @@ interface Props {
   readonly Router: {
     readonly asPath: string
     readonly route: string
-    readonly push: (url: string, as: string) => any
-    readonly replace: (url: string, as: string) => any
+    readonly push: (url: string, as: string, options?: RouterOptions) => any
+    readonly replace: (url: string, as: string, options?: RouterOptions) => any
     readonly events: {
       readonly on: (event: string, handler: (...args: any) => any) => any
       readonly off: (event: string, handler: (...args: any) => any) => any
@@ -29,13 +34,13 @@ const GeschichteForNextjs: FC<Props> = ({ children, asPath, Router }) => {
           typeof window === 'undefined' ? split(asPath) : split(Router.asPath)
         return `?${query || ''}`
       },
-      push: (next: string) => {
+      push: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.push(Router.route, `${path}${next}`)
+        Router.push(Router.route, `${path}${next}`, options)
       },
-      replace: (next: string) => {
+      replace: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.replace(Router.route, `${path}${next}`)
+        Router.replace(Router.route, `${path}${next}`, options)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
