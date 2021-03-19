@@ -44,6 +44,14 @@ export type ReplaceStateFunction<T> = (
 export interface InnerNamespace<T> {
   [ns: string]: NamespaceValues<T>
 }
+
+interface RegistryPayload<ValueState> {
+  unsubscribe: () => void
+  values: ValueState
+  initialValues: ValueState
+  initialValuesChanged: boolean
+}
+
 export interface StoreState<ValueState> extends State {
   readonly updateFromQuery: (query: string) => void
   readonly batchReplaceState: (
@@ -67,7 +75,7 @@ export interface StoreState<ValueState> extends State {
     initialValues: ValueState,
     query: object,
     values: ValueState
-  ) => () => void
+  ) => RegistryPayload<ValueState>
   /** will delete all namespaces and remove the history listener */
   readonly unregister: () => void
   readonly resetPush: (ns: string) => void
@@ -360,15 +368,25 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
       values: T
     ) => {
       const current = get().namespaces[ns]
+      const defaultsEqual = current?.initialValues === initialValues
       if (current !== undefined) {
         set(
           state => {
             state.subscribers = state.subscribers + 1
+            if (!defaultsEqual) {
+              state.initialValues = initialValues
+              state.values = initialValues
+            }
           },
-          HistoryEventType.REGISTER,
+          defaultsEqual ? HistoryEventType.REGISTER : HistoryEventType.REPLACE,
           ns
         )
-        return current.unsubscribe
+        return {
+          initialValues: get().namespaces[ns].initialValues,
+          initialValuesChanged: !defaultsEqual,
+          unsubscribe: get().namespaces[ns].unsubscribe,
+          values: get().namespaces[ns].values
+        }
       }
       // read initial query state:
       set(
@@ -396,8 +414,12 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
         HistoryEventType.REGISTER,
         ns
       )
-
-      return get().namespaces[ns].unsubscribe
+      return {
+        initialValues,
+        initialValuesChanged: true,
+        unsubscribe: get().namespaces[ns].unsubscribe,
+        values: initialValues
+      }
     },
     replaceState: (ns: string, fn: (values: T) => void) =>
       (set as NamespaceProducer<T>)(

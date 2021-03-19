@@ -7,7 +7,6 @@ import React, {
   useImperativeHandle,
   useMemo
 } from 'react'
-import { StoreApi, UseStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import { StoreState } from '../middleware'

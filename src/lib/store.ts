@@ -102,16 +102,14 @@ export const factoryParameters = <T>(
   ns: string = DEFAULT_NAMESPACE
 ) => {
   const flatConfig = flattenConfig(config)
+  const createInitialValues = (d: InitialValuesProvider<T>) =>
+    typeof d === 'function' ? (d as () => T)() : d
 
-  const initBlank = (initialQueries: object) => {
+  const initBlank = (initialQueries: object, initialValues: T) => {
     // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
     // the initial state.
     // tslint:disable-next-line:no-let
     let thisQuery = {}
-    const initialValues =
-      typeof defaultInitialValues === 'function'
-        ? (defaultInitialValues as () => T)()
-        : defaultInitialValues
     // We produce a new state here instead of mutating defaultInitialValues.
     // Otherwise it's possible that it get's reused across executions and that will yield to readonly errors.
     const values = produce(initialValues, (draft: Draft<T>) => {
@@ -131,6 +129,7 @@ export const factoryParameters = <T>(
   }
 
   const memInitBlank = memoizeOne(initBlank)
+  const memCreateInitialValues = memoizeOne(createInitialValues)
 
   const useQuery = () => {
     const useStore = useContext(StoreContext) as UseStore<StoreState<T>>
@@ -163,7 +162,8 @@ export const factoryParameters = <T>(
 
     const initialRegisterState = useMemo(() => {
       const namespaceData = useStore.getState().namespaces[ns] || {}
-      const { values, query, initialValues } = namespaceData
+      const initialValues = memCreateInitialValues(defaultInitialValues)
+      const { values, query } = namespaceData
       if (values) {
         return {
           initialValues,
@@ -171,8 +171,8 @@ export const factoryParameters = <T>(
           values
         }
       }
-      return memInitBlank(initialQueries())
-    }, [useStore])
+      return memInitBlank(initialQueries(), initialValues)
+    }, [useStore, defaultInitialValues])
 
     const [currentState, setCurrentState] = useState({
       initialValues: initialRegisterState.initialValues,
@@ -180,7 +180,12 @@ export const factoryParameters = <T>(
     })
 
     useEffect(() => {
-      const unregister = register(
+      const {
+        unsubscribe: unregister,
+        values,
+        initialValues,
+        initialValuesChanged
+      } = register(
         config,
         flatConfig,
         ns,
@@ -188,7 +193,9 @@ export const factoryParameters = <T>(
         initialRegisterState.query,
         initialRegisterState.values
       )
-
+      if (initialValuesChanged) {
+        setCurrentState({ values, initialValues })
+      }
       const unsubscribe = useStore.subscribe<{
         readonly values: T
         readonly initialValues: T
@@ -210,7 +217,7 @@ export const factoryParameters = <T>(
         unsubscribe()
         unregister()
       }
-    }, [])
+    }, [initialRegisterState.initialValues])
 
     const values = currentState.values
     const initialValues = currentState.initialValues
