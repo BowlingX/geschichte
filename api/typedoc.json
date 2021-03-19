@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "geschichte - v5.0.2",
+	"name": "geschichte - v5.1.0",
 	"kind": 0,
 	"flags": {},
 	"children": [
@@ -6096,10 +6096,27 @@
 							"name": "initialState",
 							"kind": 32768,
 							"kindString": "Parameter",
-							"flags": {},
+							"flags": {
+								"isOptional": true
+							},
 							"type": {
-								"type": "typeParameter",
-								"name": "T"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"name": "Partial",
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						}
 					],
@@ -6267,7 +6284,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/store.ts",
-											"line": 268,
+											"line": 274,
 											"character": 38
 										}
 									],
@@ -6285,7 +6302,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/store.ts",
-											"line": 268,
+											"line": 274,
 											"character": 19
 										}
 									],
