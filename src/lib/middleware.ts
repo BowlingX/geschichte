@@ -374,11 +374,16 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
           state => {
             state.subscribers = state.subscribers + 1
             if (!defaultsEqual) {
-              state.initialValues = initialValues
-              state.values = initialValues
+              state.query = applyFlatConfigToState(
+                state.mappedConfig,
+                query,
+                ns,
+                state.values,
+                initialValues
+              )
             }
           },
-          defaultsEqual ? HistoryEventType.REGISTER : HistoryEventType.REPLACE,
+          HistoryEventType.REGISTER,
           ns
         )
         return {
