@@ -131,7 +131,7 @@ export const createQueryObject = <T = object>(
   config: MappedConfig,
   ns: string,
   values: Partial<T>,
-  initialState: T
+  initialState?: Partial<T> | null
 ) => {
   return Object.keys(config).reduce((next, parameter) => {
     const { path, serializer } = config[parameter]

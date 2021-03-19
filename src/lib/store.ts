@@ -258,10 +258,16 @@ export const factoryParameters = <T>(
     )
   }
 
-  const createQueryString = (values: Partial<T>): string => {
-    const initialValues = memCreateInitialValues(defaultInitialValues)
+  const createQueryString = (
+    values: Partial<T>,
+    initialValues?: Partial<T> | null
+  ): string => {
+    const thisInitialValues =
+      typeof initialValues === 'undefined'
+        ? memCreateInitialValues(defaultInitialValues)
+        : initialValues
     return stringify(
-      createQueryObject<T>(flatConfig, ns, values, initialValues)
+      createQueryObject<T>(flatConfig, ns, values, thisInitialValues)
     )
   }
 
