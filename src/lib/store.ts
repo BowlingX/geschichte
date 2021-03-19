@@ -180,12 +180,7 @@ export const factoryParameters = <T>(
     })
 
     useEffect(() => {
-      const {
-        unsubscribe: unregister,
-        values,
-        initialValues,
-        initialValuesChanged
-      } = register(
+      const { unsubscribe: unregister, values, initialValues } = register(
         config,
         flatConfig,
         ns,
@@ -193,9 +188,7 @@ export const factoryParameters = <T>(
         initialRegisterState.query,
         initialRegisterState.values
       )
-      if (initialValuesChanged) {
-        setCurrentState({ values, initialValues })
-      }
+      setCurrentState({ values, initialValues })
       const unsubscribe = useStore.subscribe<{
         readonly values: T
         readonly initialValues: T
@@ -217,7 +210,7 @@ export const factoryParameters = <T>(
         unsubscribe()
         unregister()
       }
-    }, [initialRegisterState.initialValues])
+    }, [initialRegisterState])
 
     const values = currentState.values
     const initialValues = currentState.initialValues

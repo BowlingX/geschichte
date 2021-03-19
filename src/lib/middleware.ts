@@ -49,7 +49,6 @@ interface RegistryPayload<ValueState> {
   unsubscribe: () => void
   values: ValueState
   initialValues: ValueState
-  initialValuesChanged: boolean
 }
 
 export interface StoreState<ValueState> extends State {
@@ -374,9 +373,10 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
           state => {
             state.subscribers = state.subscribers + 1
             if (!defaultsEqual) {
+              state.initialValues = initialValues
               state.query = applyFlatConfigToState(
                 state.mappedConfig,
-                query,
+                memoizedGetInitialQueries(historyInstance.initialSearch()),
                 ns,
                 state.values,
                 initialValues
@@ -388,7 +388,6 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
         )
         return {
           initialValues: get().namespaces[ns].initialValues,
-          initialValuesChanged: !defaultsEqual,
           unsubscribe: get().namespaces[ns].unsubscribe,
           values: get().namespaces[ns].values
         }
@@ -421,7 +420,6 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
       )
       return {
         initialValues,
-        initialValuesChanged: true,
         unsubscribe: get().namespaces[ns].unsubscribe,
         values: initialValues
       }
