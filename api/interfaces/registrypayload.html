@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Parameter | geschichte - v5.0.0</title>
+	<title>RegistryPayload | geschichte - v5.0.0</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,26 +56,29 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="parameter.html">Parameter</a>
+					<a href="registrypayload.html">RegistryPayload</a>
 				</li>
 			</ul>
-			<h1>Interface Parameter</h1>
+			<h1>Interface RegistryPayload&lt;ValueState&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>ValueState</h4>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Parameter</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="mappedparameter.html" class="tsd-signature-type">MappedParameter</a>
-							</li>
-						</ul>
+						<span class="target">RegistryPayload</span>
 					</li>
 				</ul>
 			</section>
@@ -83,35 +86,72 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parameter.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parameter.html#serializer" class="tsd-kind-icon">serializer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="registrypayload.html#initialvalues" class="tsd-kind-icon">initial<wbr>Values</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="registrypayload.html#initialvalueschanged" class="tsd-kind-icon">initial<wbr>Values<wbr>Changed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="registrypayload.html#unsubscribe" class="tsd-kind-icon">unsubscribe</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="registrypayload.html#values" class="tsd-kind-icon">values</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="initialvalues" class="tsd-anchor"></a>
+					<h3>initial<wbr>Values</h3>
+					<div class="tsd-signature tsd-kind-icon">initial<wbr>Values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ValueState</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/e04078b/src/lib/store.ts#L37">src/lib/store.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/e04078b/src/lib/middleware.ts#L51">src/lib/middleware.ts:51</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="serializer" class="tsd-anchor"></a>
-					<h3>serializer</h3>
-					<div class="tsd-signature tsd-kind-icon">serializer<span class="tsd-signature-symbol">:</span> <a href="serializer.html" class="tsd-signature-type">Serializer</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="initialvalueschanged" class="tsd-anchor"></a>
+					<h3>initial<wbr>Values<wbr>Changed</h3>
+					<div class="tsd-signature tsd-kind-icon">initial<wbr>Values<wbr>Changed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/e04078b/src/lib/store.ts#L38">src/lib/store.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/e04078b/src/lib/middleware.ts#L52">src/lib/middleware.ts:52</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="unsubscribe" class="tsd-anchor"></a>
+					<h3>unsubscribe</h3>
+					<div class="tsd-signature tsd-kind-icon">unsubscribe<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/e04078b/src/lib/middleware.ts#L49">src/lib/middleware.ts:49</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+					<a name="values" class="tsd-anchor"></a>
+					<h3>values</h3>
+					<div class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ValueState</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/e04078b/src/lib/middleware.ts#L50">src/lib/middleware.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -129,14 +169,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="parameter.html" class="tsd-kind-icon">Parameter</a>
+					<li class="current tsd-kind-interface tsd-has-type-parameter tsd-is-not-exported">
+						<a href="registrypayload.html" class="tsd-kind-icon">Registry<wbr>Payload</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="parameter.html#name" class="tsd-kind-icon">name</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="registrypayload.html#initialvalues" class="tsd-kind-icon">initial<wbr>Values</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="parameter.html#serializer" class="tsd-kind-icon">serializer</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="registrypayload.html#initialvalueschanged" class="tsd-kind-icon">initial<wbr>Values<wbr>Changed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="registrypayload.html#unsubscribe" class="tsd-kind-icon">unsubscribe</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
+								<a href="registrypayload.html#values" class="tsd-kind-icon">values</a>
 							</li>
 						</ul>
 					</li>
