@@ -188,7 +188,12 @@ export const factoryParameters = <T>(
         initialRegisterState.query,
         initialRegisterState.values
       )
-      setCurrentState({ values, initialValues })
+      if (
+        initialRegisterState.values !== values ||
+        initialRegisterState.initialValues !== initialValues
+      ) {
+        setCurrentState({ values, initialValues })
+      }
       const unsubscribe = useStore.subscribe<{
         readonly values: T
         readonly initialValues: T

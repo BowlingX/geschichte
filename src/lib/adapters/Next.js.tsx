@@ -16,8 +16,16 @@ interface Props {
   readonly Router: {
     readonly asPath: string
     readonly route: string
-    readonly push: (url: string, as: string, options?: RouterOptions) => any
-    readonly replace: (url: string, as: string, options?: RouterOptions) => any
+    readonly push: (
+      url: string,
+      as: string | undefined,
+      options?: RouterOptions
+    ) => any
+    readonly replace: (
+      url: string,
+      as: string | undefined,
+      options?: RouterOptions
+    ) => any
     readonly events: {
       readonly on: (event: string, handler: (...args: any) => any) => any
       readonly off: (event: string, handler: (...args: any) => any) => any

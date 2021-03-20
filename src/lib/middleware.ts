@@ -77,8 +77,8 @@ export interface StoreState<ValueState> extends State {
   ) => RegistryPayload<ValueState>
   /** will delete all namespaces and remove the history listener */
   readonly unregister: () => void
-  readonly resetPush: (ns: string) => void
-  readonly resetReplace: (ns: string) => void
+  readonly resetPush: (ns: string, routerOptions?: RouterOptions) => void
+  readonly resetReplace: (ns: string, routerOptions?: RouterOptions) => void
   readonly initialQueries: () => object
 }
 
@@ -308,11 +308,16 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
     })
   }
 
-  const reset = (ns: string, event: HistoryEventType) =>
+  const reset = (
+    ns: string,
+    event: HistoryEventType,
+    routerOptions?: RouterOptions
+  ) =>
     set(
       (state: NamespaceValues<T>) => void (state.values = state.initialValues),
       event,
-      ns
+      ns,
+      routerOptions
     )
 
   return {
@@ -421,17 +426,20 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
       return {
         initialValues,
         unsubscribe: get().namespaces[ns].unsubscribe,
-        values: initialValues
+        values
       }
     },
-    replaceState: (ns: string, fn: (values: T) => void) =>
+    replaceState: (ns: string, fn: (values: T) => void, routerOptions) =>
       (set as NamespaceProducer<T>)(
         state => fn(state.values),
         HistoryEventType.REPLACE,
-        ns
+        ns,
+        routerOptions
       ),
-    resetPush: (ns: string) => reset(ns, HistoryEventType.PUSH),
-    resetReplace: (ns: string) => reset(ns, HistoryEventType.REPLACE),
+    resetPush: (ns: string, routerOptions) =>
+      reset(ns, HistoryEventType.PUSH, routerOptions),
+    resetReplace: (ns: string, routerOptions) =>
+      reset(ns, HistoryEventType.REPLACE, routerOptions),
     /** cleans up this instance */
     unregister: () => {
       ;(set as GenericConverter<T>)(() => {
