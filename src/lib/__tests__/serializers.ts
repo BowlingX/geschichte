@@ -11,6 +11,9 @@ describe('serializers', () => {
     it('should deserialize', () => {
       expect(deserialize('string')).toEqual('string')
     })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).toEqual(null)
+    })
   })
   describe('arrayString', () => {
     const { serialize, deserialize } = serializers.arrayString
@@ -19,6 +22,9 @@ describe('serializers', () => {
     })
     it('should deserialize', () => {
       expect(deserialize('a_b')).toEqual(['a', 'b'])
+    })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).toEqual([])
     })
   })
 
@@ -30,6 +36,9 @@ describe('serializers', () => {
     it('should deserialize', () => {
       expect(deserialize('1.2_2.01')).toEqual([1.2, 2.01])
     })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).toEqual([])
+    })
   })
 
   describe('arrayInt', () => {
@@ -39,6 +48,9 @@ describe('serializers', () => {
     })
     it('should deserialize', () => {
       expect(deserialize('1_2')).toEqual([1, 2])
+    })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).toEqual([])
     })
   })
 
@@ -51,6 +63,9 @@ describe('serializers', () => {
     })
     it('should deserialize', () => {
       expect(deserialize('10/10/1985')).toEqual(new Date('10/10/1985'))
+    })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).not.toBeNull()
     })
   })
 
@@ -67,6 +82,9 @@ describe('serializers', () => {
     })
     it('should deserialize string to null', () => {
       expect(deserialize('xyz')).toEqual(null)
+    })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).toEqual(null)
     })
   })
 
@@ -95,6 +113,9 @@ describe('serializers', () => {
     it('should deserialize', () => {
       expect(deserialize('1')).toEqual(true)
       expect(deserialize('0')).toEqual(false)
+    })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).toEqual(false)
     })
   })
 })
