@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "geschichte - v5.1.2",
+	"name": "geschichte - v0.1.0",
 	"kind": 0,
 	"flags": {},
 	"children": [
@@ -1805,8 +1805,17 @@
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
-												"type": "intrinsic",
-												"name": "string"
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "intrinsic",
+														"name": "null"
+													}
+												]
 											}
 										}
 									],
@@ -4152,7 +4161,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 72,
+					"line": 81,
 					"character": 30
 				}
 			],
@@ -5360,8 +5369,17 @@
 													"kindString": "Parameter",
 													"flags": {},
 													"type": {
-														"type": "intrinsic",
-														"name": "string"
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "string"
+															},
+															{
+																"type": "intrinsic",
+																"name": "null"
+															}
+														]
 													}
 												}
 											],
@@ -5390,7 +5408,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/serializers.ts",
-											"line": 52,
+											"line": 60,
 											"character": 13
 										}
 									]
@@ -5448,7 +5466,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/serializers.ts",
-											"line": 54,
+											"line": 62,
 											"character": 11
 										}
 									]
@@ -5471,7 +5489,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 49,
+					"line": 57,
 					"character": 33
 				}
 			]
@@ -5535,8 +5553,17 @@
 													"kindString": "Parameter",
 													"flags": {},
 													"type": {
-														"type": "intrinsic",
-														"name": "string"
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "string"
+															},
+															{
+																"type": "intrinsic",
+																"name": "null"
+															}
+														]
 													}
 												}
 											],
@@ -5565,7 +5592,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/serializers.ts",
-											"line": 43,
+											"line": 51,
 											"character": 13
 										}
 									]
@@ -5623,7 +5650,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/serializers.ts",
-											"line": 45,
+											"line": 53,
 											"character": 11
 										}
 									]
@@ -5646,7 +5673,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 40,
+					"line": 48,
 					"character": 31
 				}
 			]
@@ -5710,8 +5737,17 @@
 													"kindString": "Parameter",
 													"flags": {},
 													"type": {
-														"type": "intrinsic",
-														"name": "string"
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "string"
+															},
+															{
+																"type": "intrinsic",
+																"name": "null"
+															}
+														]
 													}
 												}
 											],
@@ -5740,7 +5776,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/serializers.ts",
-											"line": 34,
+											"line": 42,
 											"character": 13
 										}
 									]
@@ -5798,7 +5834,7 @@
 									"sources": [
 										{
 											"fileName": "src/lib/serializers.ts",
-											"line": 36,
+											"line": 44,
 											"character": 11
 										}
 									]
@@ -5821,7 +5857,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 31,
+					"line": 39,
 					"character": 34
 				}
 			]
@@ -6236,7 +6272,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 58,
+					"line": 66,
 					"character": 20
 				}
 			]
@@ -7136,8 +7172,17 @@
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "intrinsic",
-								"name": "string"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -7694,8 +7739,17 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								}
 							],
@@ -7708,7 +7762,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 68,
+							"line": 77,
 							"character": 13
 						}
 					]
@@ -7763,7 +7817,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 69,
+							"line": 78,
 							"character": 11
 						}
 					]
@@ -7782,7 +7836,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 67,
+					"line": 76,
 					"character": 23
 				}
 			],
@@ -7821,8 +7875,17 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								}
 							],
@@ -7844,7 +7907,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 19,
+							"line": 23,
 							"character": 13
 						}
 					]
@@ -7895,7 +7958,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 23,
+							"line": 30,
 							"character": 11
 						}
 					]
@@ -7914,7 +7977,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 18,
+					"line": 22,
 					"character": 21
 				}
 			],
@@ -7953,8 +8016,17 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								}
 							],
@@ -7976,7 +8048,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 11,
+							"line": 12,
 							"character": 13
 						}
 					]
@@ -8027,7 +8099,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 15,
+							"line": 19,
 							"character": 11
 						}
 					]
@@ -8046,7 +8118,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 10,
+					"line": 11,
 					"character": 19
 				}
 			],
@@ -8076,7 +8148,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 75,
+							"line": 84,
 							"character": 12
 						}
 					],
@@ -8098,7 +8170,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 76,
+							"line": 85,
 							"character": 10
 						}
 					],
@@ -8120,7 +8192,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 77,
+							"line": 86,
 							"character": 13
 						}
 					],
@@ -8142,7 +8214,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 78,
+							"line": 87,
 							"character": 9
 						}
 					],
@@ -8164,7 +8236,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 79,
+							"line": 88,
 							"character": 6
 						}
 					],
@@ -8186,7 +8258,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 80,
+							"line": 89,
 							"character": 7
 						}
 					],
@@ -8208,7 +8280,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 81,
+							"line": 90,
 							"character": 5
 						}
 					],
@@ -8230,7 +8302,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 82,
+							"line": 91,
 							"character": 8
 						}
 					],
@@ -8261,7 +8333,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 74,
+					"line": 83,
 					"character": 24
 				}
 			],
@@ -8300,21 +8372,39 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "string"
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						}
 					],
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 27,
+							"line": 34,
 							"character": 13
 						}
 					]
@@ -8365,7 +8455,7 @@
 					"sources": [
 						{
 							"fileName": "src/lib/serializers.ts",
-							"line": 28,
+							"line": 36,
 							"character": 11
 						}
 					]
@@ -8384,7 +8474,7 @@
 			"sources": [
 				{
 					"fileName": "src/lib/serializers.ts",
-					"line": 26,
+					"line": 33,
 					"character": 22
 				}
 			],
