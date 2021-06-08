@@ -32,9 +32,17 @@ interface Props {
     }
   }
   readonly asPath: string
+  readonly defaultPushOptions?: RouterOptions
+  readonly defaultReplaceOptions?: RouterOptions
 }
 
-const GeschichteForNextjs: FC<Props> = ({ children, asPath, Router }) => {
+const GeschichteForNextjs: FC<Props> = ({
+  children,
+  asPath,
+  Router,
+  defaultPushOptions,
+  defaultReplaceOptions
+}) => {
   const historyInstance: HistoryManagement = useMemo(() => {
     return {
       initialSearch: () => {
@@ -44,15 +52,21 @@ const GeschichteForNextjs: FC<Props> = ({ children, asPath, Router }) => {
       },
       push: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.push(Router.route, `${path}${next}`, options)
+        Router.push(Router.route, `${path}${next}`, {
+          ...defaultPushOptions,
+          ...options
+        })
       },
       replace: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.replace(Router.route, `${path}${next}`, options)
+        Router.replace(Router.route, `${path}${next}`, {
+          ...defaultReplaceOptions,
+          ...options
+        })
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [defaultPushOptions, defaultReplaceOptions])
 
   const useStore = useMemo(() => useGeschichte(historyInstance), [
     historyInstance
