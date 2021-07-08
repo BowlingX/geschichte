@@ -65,8 +65,7 @@ const GeschichteForNextjs: FC<Props> = ({
         })
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultPushOptions, defaultReplaceOptions])
+  }, [defaultPushOptions, defaultReplaceOptions, Router])
 
   const useStore = useMemo(() => useGeschichte(historyInstance), [
     historyInstance
