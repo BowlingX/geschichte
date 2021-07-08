@@ -83,7 +83,9 @@ const GeschichteForNextjs: FC<Props> = ({
 
   useEffect(() => {
     const [, query] = split(asPath)
-    updateFromQuery(`?${query || ''}`)
+    requestAnimationFrame(() => {
+      updateFromQuery(`?${query || ''}`)
+    })
   }, [asPath, updateFromQuery])
 
   useEffect(() => {
