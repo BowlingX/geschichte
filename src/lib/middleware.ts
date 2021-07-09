@@ -283,10 +283,8 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
   api: StoreApi<StoreState<T>>
 ): StoreState<T> => {
   const memoizedGetInitialQueries = memoizeOne(parseSearchString)
-  // tslint:disable-next-line:no-let
-  let lastSearchString: string
+
   const updateFromQuery = (search: string) => {
-    lastSearchString = search
     const nextQueries = memoizedGetInitialQueries(search)
     const namespaces = get().namespaces
     Object.keys(namespaces).forEach(ns => {
@@ -353,9 +351,7 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
     },
     /** the initial queries when the script got executed first (usually on page load). */
     initialQueries: () =>
-      memoizedGetInitialQueries(
-        lastSearchString || historyInstance.initialSearch()
-      ),
+      memoizedGetInitialQueries(historyInstance.initialSearch()),
     /** here we store all data and configurations for the different namespaces */
     namespaces: {},
     /** pushes a new state for a given namespace, (will use history.pushState) */
@@ -385,9 +381,7 @@ export const converter = <T>(historyInstance: HistoryManagement) => (
               state.initialValues = initialValues
               state.query = applyFlatConfigToState(
                 state.mappedConfig,
-                memoizedGetInitialQueries(
-                  lastSearchString || historyInstance.initialSearch()
-                ),
+                memoizedGetInitialQueries(historyInstance.initialSearch()),
                 ns,
                 state.values,
                 initialValues

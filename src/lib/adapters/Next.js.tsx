@@ -1,5 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-array */
-import React, { FC, useEffect, useMemo } from 'react'
+import React, { FC, useEffect, useMemo, useRef } from 'react'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import { StoreState } from '../middleware'
@@ -41,13 +41,14 @@ const GeschichteForNextjs: FC<Props> = ({
   defaultPushOptions,
   defaultReplaceOptions
 }) => {
+  const lastClientSideQuery = useRef(initialClientOnlyAsPath)
   const historyInstance: HistoryManagement = useMemo(() => {
     return {
       initialSearch: () => {
         const [, query] =
           typeof window === 'undefined'
             ? split(asPath)
-            : split(initialClientOnlyAsPath || Router.asPath)
+            : split(lastClientSideQuery.current || Router.asPath)
         return `?${query || ''}`
       },
       push: (next: string, options) => {
@@ -66,7 +67,7 @@ const GeschichteForNextjs: FC<Props> = ({
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultPushOptions, defaultReplaceOptions])
+  }, [])
 
   const useStore = useMemo(() => useGeschichte(historyInstance), [
     historyInstance
@@ -84,7 +85,12 @@ const GeschichteForNextjs: FC<Props> = ({
 
   useEffect(() => {
     const [, query] = split(asPath)
-    updateFromQuery(`?${query || ''}`)
+    const nextQuery = `?${query || ''}`
+    if (initialClientOnlyAsPath) {
+      // tslint:disable-next-line
+      lastClientSideQuery.current = nextQuery
+    }
+    updateFromQuery(nextQuery)
   }, [asPath, updateFromQuery])
 
   useEffect(() => {
