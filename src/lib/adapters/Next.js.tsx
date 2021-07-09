@@ -26,11 +26,8 @@ interface Props {
       as: string | undefined,
       options?: RouterOptions
     ) => any
-    readonly events: {
-      readonly on: (event: string, handler: (...args: any) => any) => any
-      readonly off: (event: string, handler: (...args: any) => any) => any
-    }
   }
+  readonly initialClientOnlyAsPath?: string
   readonly asPath: string
   readonly defaultPushOptions?: RouterOptions
   readonly defaultReplaceOptions?: RouterOptions
@@ -39,6 +36,7 @@ interface Props {
 const GeschichteForNextjs: FC<Props> = ({
   children,
   asPath,
+  initialClientOnlyAsPath,
   Router,
   defaultPushOptions,
   defaultReplaceOptions
@@ -47,7 +45,9 @@ const GeschichteForNextjs: FC<Props> = ({
     return {
       initialSearch: () => {
         const [, query] =
-          typeof window === 'undefined' ? split(asPath) : split(Router.asPath)
+          typeof window === 'undefined'
+            ? split(asPath)
+            : split(initialClientOnlyAsPath || Router.asPath)
         return `?${query || ''}`
       },
       push: (next: string, options) => {
@@ -65,7 +65,12 @@ const GeschichteForNextjs: FC<Props> = ({
         })
       }
     }
-  }, [defaultPushOptions, defaultReplaceOptions, Router])
+  }, [
+    defaultPushOptions,
+    defaultReplaceOptions,
+    Router,
+    initialClientOnlyAsPath
+  ])
 
   const useStore = useMemo(() => useGeschichte(historyInstance), [
     historyInstance
