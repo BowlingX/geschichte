@@ -11,11 +11,11 @@ export const pm = (name: string, serializer: Serializer) => (): Parameter => ({
 })
 
 export const createOrApplyPath = (
-  obj: GenericObject,
+  obj: GenericObject | null,
   path: readonly string[],
   value: any = null
 ) => {
-  let current = obj
+  let current = obj || {}
   let thisPath: ReadonlyArray<string> = [...path]
   while (thisPath.length > 1) {
     const [head, ...tail] = thisPath

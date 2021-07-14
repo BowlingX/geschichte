@@ -33,6 +33,10 @@ describe('utils', () => {
   })
 
   describe('createOrApplyPath', () => {
+    it('should handle null', () => {
+      const result = createOrApplyPath(null, ['some', 'path'], 'new value')
+      expect(result).toEqual(null)
+    })
     it('should map an object', () => {
       const object = {
         some: {
