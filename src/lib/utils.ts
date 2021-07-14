@@ -20,10 +20,10 @@ export const createOrApplyPath = (
   while (thisPath.length > 1) {
     const [head, ...tail] = thisPath
     thisPath = tail
-    if (current?.[head] === undefined) {
+    if (current && current[head] === undefined) {
       current[head] = {}
     }
-    current = current[head]
+    current = current?.[head]
   }
   if (current) {
     current[thisPath[0]] = value

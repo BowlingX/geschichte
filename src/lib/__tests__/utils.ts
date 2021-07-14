@@ -44,6 +44,28 @@ describe('utils', () => {
         'new value'
       )
       expect(result).toEqual({ some: null })
+      const result2 = createOrApplyPath(
+        { some: { path: null } },
+        ['some', 'path', '0'],
+        'new value'
+      )
+      expect(result2).toEqual({ some: { path: null } })
+    })
+    it('should create leaves', () => {
+      const result = createOrApplyPath(
+        { some: { path: {} } },
+        ['some', 'path', 'test'],
+        'new value'
+      )
+      expect(result).toEqual({ some: { path: { test: 'new value' } } })
+    })
+    it('should handle arrays', () => {
+      const result = createOrApplyPath(
+        { some: { path: [] } },
+        ['some', 'path', '0'],
+        { test: 'value ' }
+      )
+      expect(result).toEqual({ some: { path: [{ test: 'value ' }] } })
     })
     it('should map an object', () => {
       const object = {
