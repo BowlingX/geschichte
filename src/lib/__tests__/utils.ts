@@ -37,6 +37,14 @@ describe('utils', () => {
       const result = createOrApplyPath(null, ['some', 'path'], 'new value')
       expect(result).toEqual(null)
     })
+    it('should handle null of key inside object', () => {
+      const result = createOrApplyPath(
+        { some: null },
+        ['some', 'path'],
+        'new value'
+      )
+      expect(result).toEqual({ some: null })
+    })
     it('should map an object', () => {
       const object = {
         some: {
