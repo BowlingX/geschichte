@@ -1,6 +1,6 @@
 {
 	"id": 0,
-	"name": "geschichte - v5.4.3",
+	"name": "geschichte - v5.4.4",
 	"kind": 0,
 	"flags": {},
 	"children": [
@@ -5578,9 +5578,18 @@
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "reference",
-								"name": "GenericObject",
-								"id": 237
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"name": "GenericObject",
+										"id": 237
+									},
+									{
+										"type": "intrinsic",
+										"name": "null"
+									}
+								]
 							}
 						},
 						{
@@ -5615,9 +5624,18 @@
 						}
 					],
 					"type": {
-						"type": "reference",
-						"name": "GenericObject",
-						"id": 237
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "null"
+							},
+							{
+								"type": "reference",
+								"name": "GenericObject",
+								"id": 237
+							}
+						]
 					}
 				}
 			],
