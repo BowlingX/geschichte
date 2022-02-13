@@ -88,7 +88,7 @@ export const useGeschichte = <T extends State>(
       SetState<StoreState<T>>,
       GetState<StoreState<T>>,
       StoreApi<StoreState<T>>
-    >(subscribeWithSelector(devtools(middleware, 'geschichte')))
+    >(subscribeWithSelector(devtools(middleware, { name: 'geschichte' })))
   }
   return create<
     StoreState<T>,
