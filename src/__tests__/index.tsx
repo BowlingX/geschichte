@@ -37,7 +37,8 @@ describe('<Geschichte />', () => {
       } = useQuery()
       const { values: secondValues } = secondNamespaceUseQuery()
 
-      const { batchPushState } = useBatchQuery()
+      // tslint:disable-next-line:readonly-keyword
+      const { batchPushState } = useBatchQuery<{ someParameter: string }>()
       return (
         <>
           <p>{someParameter}</p>

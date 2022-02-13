@@ -10,7 +10,18 @@ import {
   useMemo,
   useState
 } from 'react'
-import create, { State, StateCreator, UseStore } from 'zustand'
+import create, {
+  GetState,
+  Mutate,
+  SetState,
+  State,
+  StateCreator,
+  StoreApi,
+  UseBoundStore
+} from 'zustand'
+// tslint:disable-next-line:no-submodule-imports
+import { subscribeWithSelector } from 'zustand/middleware'
+
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import {
@@ -29,9 +40,9 @@ import {
 enablePatches()
 
 export const DEFAULT_NAMESPACE = 'default'
-export const StoreContext = createContext<UseStore<StoreState<any>> | null>(
-  null
-)
+export const StoreContext = createContext<UseBoundStore<
+  StoreState<any>
+> | null>(null)
 
 export interface Parameter {
   readonly name: string
@@ -68,20 +79,29 @@ export const useGeschichte = <T extends State>(
   const middleware = (immerWithPatches<T>(
     storeWithHistory
   ) as unknown) as StateCreator<StoreState<T>>
+
   if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     // tslint:disable-next-line:no-submodule-imports
     const { devtools } = require('zustand/middleware')
-    return create(devtools(middleware, 'geschichte')) as UseStore<
-      StoreState<State>
-    >
+    return create<
+      StoreState<T>,
+      SetState<StoreState<T>>,
+      GetState<StoreState<T>>,
+      StoreApi<StoreState<T>>
+    >(subscribeWithSelector(devtools(middleware, 'geschichte')))
   }
-  return create(middleware)
+  return create<
+    StoreState<T>,
+    SetState<StoreState<T>>,
+    GetState<StoreState<T>>,
+    StoreApi<StoreState<T>>
+  >(subscribeWithSelector(middleware))
 }
 
 type InitialValuesProvider<T> = T | (() => T)
 
 export const useStore = <T>() => {
-  return useContext(StoreContext) as UseStore<StoreState<T>>
+  return useContext(StoreContext) as UseBoundStore<StoreState<T>>
 }
 
 export const useBatchQuery = <T extends State>() => {
@@ -132,7 +152,13 @@ export const factoryParameters = <T>(
   const memCreateInitialValues = memoizeOne(createInitialValues)
 
   const useQuery = () => {
-    const useStore = useContext(StoreContext) as UseStore<StoreState<T>>
+    const useStore = useContext(StoreContext) as UseBoundStore<
+      StoreState<T>,
+      Mutate<
+        StoreApi<StoreState<T>>,
+        [['zustand/subscribeWithSelector', never]]
+      >
+    >
 
     const {
       register,
@@ -194,21 +220,18 @@ export const factoryParameters = <T>(
       ) {
         setCurrentState({ values, initialValues })
       }
-      const unsubscribe = useStore.subscribe<{
-        readonly values: T
-        readonly initialValues: T
-      }>(
-        state => {
-          if (state) {
-            setCurrentState(state)
-          }
-        },
+      const unsubscribe = useStore.subscribe(
         state =>
           state.namespaces[ns] && {
             initialValues: state.namespaces[ns].initialValues,
             values: state.namespaces[ns].values
           },
-        shallow
+        state => {
+          if (state) {
+            setCurrentState(state)
+          }
+        },
+        { equalityFn: shallow }
       )
 
       return () => {
