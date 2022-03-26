@@ -1,4 +1,4 @@
-# 📖 Geschichte
+# 📖 Geschichte (/ɡəˈʃɪçtə/)
 
 ![CircleCI](https://img.shields.io/circleci/build/gh/BowlingX/geschichte)
 ![Codecov](https://img.shields.io/codecov/c/github/bowlingx/geschichte)
