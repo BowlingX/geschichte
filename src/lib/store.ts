@@ -8,7 +8,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState
+  useState,
 } from 'react'
 import create, {
   GetState,
@@ -17,7 +17,7 @@ import create, {
   State,
   StateCreator,
   StoreApi,
-  UseBoundStore
+  UseBoundStore,
 } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import { subscribeWithSelector } from 'zustand/middleware'
@@ -28,13 +28,13 @@ import {
   converter,
   historyManagement,
   immerWithPatches,
-  StoreState
+  StoreState,
 } from './middleware'
 import { Serializer } from './serializers'
 import {
   applyFlatConfigToState,
   createQueryObject,
-  flattenConfig
+  flattenConfig,
 } from './utils'
 
 enablePatches()
@@ -76,9 +76,9 @@ export const useGeschichte = <T extends State>(
   const thisStore = converter<T>(historyInstance)
   const storeWithHistory = historyManagement<T>(historyInstance)(thisStore)
 
-  const middleware = (immerWithPatches<T>(
+  const middleware = immerWithPatches<T>(
     storeWithHistory
-  ) as unknown) as StateCreator<StoreState<T>>
+  ) as unknown as StateCreator<StoreState<T>>
 
   if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     // tslint:disable-next-line:no-submodule-imports
@@ -109,7 +109,7 @@ export const useBatchQuery = <T extends State>() => {
   return store(
     ({ batchPushState, batchReplaceState }) => ({
       batchPushState,
-      batchReplaceState
+      batchReplaceState,
     }),
     shallow
   )
@@ -144,7 +144,7 @@ export const factoryParameters = <T>(
     return {
       initialValues,
       query: thisQuery,
-      values
+      values,
     }
   }
 
@@ -166,7 +166,7 @@ export const factoryParameters = <T>(
       replaceState,
       resetPush,
       resetReplace,
-      initialQueries
+      initialQueries,
     } = useStore(
       ({
         register,
@@ -174,14 +174,14 @@ export const factoryParameters = <T>(
         replaceState,
         resetPush,
         resetReplace,
-        initialQueries
+        initialQueries,
       }) => ({
         initialQueries,
         pushState,
         register,
         replaceState,
         resetPush,
-        resetReplace
+        resetReplace,
       }),
       shallow
     )
@@ -194,7 +194,7 @@ export const factoryParameters = <T>(
         return {
           initialValues,
           query,
-          values
+          values,
         }
       }
       return memInitBlank(initialQueries(), initialValues)
@@ -202,11 +202,15 @@ export const factoryParameters = <T>(
 
     const [currentState, setCurrentState] = useState({
       initialValues: initialRegisterState.initialValues,
-      values: initialRegisterState.values
+      values: initialRegisterState.values,
     })
 
     useEffect(() => {
-      const { unsubscribe: unregister, values, initialValues } = register(
+      const {
+        unsubscribe: unregister,
+        values,
+        initialValues,
+      } = register(
         config,
         flatConfig,
         ns,
@@ -221,12 +225,12 @@ export const factoryParameters = <T>(
         setCurrentState({ values, initialValues })
       }
       const unsubscribe = useStore.subscribe(
-        state =>
+        (state) =>
           state.namespaces[ns] && {
             initialValues: state.namespaces[ns].initialValues,
-            values: state.namespaces[ns].values
+            values: state.namespaces[ns].values,
           },
-        state => {
+        (state) => {
           if (state) {
             setCurrentState(state)
           }
@@ -265,7 +269,7 @@ export const factoryParameters = <T>(
         ) => replaceState(ns, state, options),
         resetPush: () => resetPush(ns),
         resetReplace: () => resetReplace(ns),
-        values
+        values,
       }),
       [
         values,
@@ -274,7 +278,7 @@ export const factoryParameters = <T>(
         replaceState,
         resetPush,
         resetReplace,
-        createQuery
+        createQuery,
       ]
     )
   }

@@ -7,41 +7,42 @@ const history = createBrowserHistory()
 
 const config = {
   abc: {
-    test: pm('z', serializers.string)
+    test: pm('z', serializers.string),
   },
   arg: pm('arg', serializers.string),
-  test: pm('foo', serializers.string)
+  test: pm('foo', serializers.string),
 }
 
 const { useQuery } = factoryParameters(config, {
   abc: {
-    test: 'arg'
+    test: 'arg',
   },
   arg: 'blub',
-  test: 'haha'
+  test: 'haha',
 })
 
 const { useQuery: useAnotherQuery } = factoryParameters(
   config,
   () => ({
     abc: {
-      test: 'arg'
+      test: 'arg',
     },
     arg: 'xyz',
-    test: 'another'
+    test: 'another',
   }),
   'wow'
 )
 
 const InnerApp = () => {
   const { values, pushState } = useQuery()
+  console.log(values)
   return (
     <>
       <input
         type="text"
         value={values.test}
-        onChange={event => {
-          pushState(state => void (state.test = event.target.value))
+        onChange={(event) => {
+          pushState((state) => void (state.test = event.target.value))
         }}
       />
       <p>{JSON.stringify(values)}</p>
@@ -56,8 +57,8 @@ const DifferentApp = () => {
       <input
         type="text"
         value={otherNsValues.test}
-        onChange={event => {
-          pushState(state => void (state.test = event.target.value))
+        onChange={(event) => {
+          pushState((state) => void (state.test = event.target.value))
         }}
       />
       <button onClick={() => resetPush()}>Reset</button>

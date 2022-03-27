@@ -7,7 +7,7 @@ import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store'
 
 export const pm = (name: string, serializer: Serializer) => (): Parameter => ({
   name,
-  serializer
+  serializer,
 })
 
 export const createOrApplyPath = (
@@ -66,7 +66,7 @@ const findDeepPatches = (
     }
     return [
       ...next,
-      ...findDeepPatches(config[item] as Config, [...basePath, item])
+      ...findDeepPatches(config[item] as Config, [...basePath, item]),
     ]
   }, [])
 }
@@ -102,7 +102,7 @@ export const createQueriesFromPatch = <T = object>(
       )
       return {
         ...next,
-        ...createQueriesFromPatch<T>(config, ns, patches, state, initialState)
+        ...createQueriesFromPatch<T>(config, ns, patches, state, initialState),
       }
     }
 
@@ -121,7 +121,7 @@ export const createQueriesFromPatch = <T = object>(
     return {
       ...next,
       [formatNamespace(name, ns)]:
-        nextValue === undefined ? nextValue : serializer.serialize(nextValue)
+        nextValue === undefined ? nextValue : serializer.serialize(nextValue),
     }
   }, {})
 }
@@ -146,7 +146,7 @@ export const createQueryObject = <T = object>(
     }
     return {
       ...next,
-      [formatNamespace(parameter, ns)]: serializer.serialize(nextValue)
+      [formatNamespace(parameter, ns)]: serializer.serialize(nextValue),
     }
   }, {})
 }
@@ -162,15 +162,15 @@ export const applyDiffWithCreateQueriesFromPatch = <T = object>(
   const query = createQueriesFromPatch(config, ns, patch, state, initialState)
   const nextQueries: GenericObject = {
     ...currentQuery,
-    ...query
+    ...query,
   }
 
   return Object.keys(nextQueries)
-    .filter(key => nextQueries[key] !== undefined)
+    .filter((key) => nextQueries[key] !== undefined)
     .reduce((next, key) => {
       return {
         ...next,
-        [key]: nextQueries[key]
+        [key]: nextQueries[key],
       }
     }, {})
 }
@@ -204,7 +204,7 @@ export const applyFlatConfigToState = <T = object>(
 
     return {
       ...next,
-      [nsQueryParameter]: maybeValue
+      [nsQueryParameter]: maybeValue,
     }
   }, {})
 }
@@ -233,14 +233,14 @@ export const flattenConfig = (
           ...next,
           [name]: {
             path: nextPath,
-            ...rest
-          }
+            ...rest,
+          },
         }
       }
       if (typeof v === 'object') {
         return {
           ...next,
-          ...flattenConfig(v, nextPath)
+          ...flattenConfig(v, nextPath),
         }
       }
       return next

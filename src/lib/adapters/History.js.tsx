@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   useEffect,
   useImperativeHandle,
-  useMemo
+  useMemo,
 } from 'react'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
@@ -28,34 +28,40 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
       return {
         initialSearch: () => history.location.search,
         push: (next: string) => {
-          history.push({
-            hash: history.location.hash,
-            search: next,
-            state: { __g__: true }
-          })
+          history.push(
+            {
+              hash: history.location.hash,
+              search: next,
+            },
+            { __g__: true }
+          )
         },
         replace: (next: string) =>
-          history.replace({
-            hash: history.location.hash,
-            search: next,
-            state: { __g__: true }
-          })
+          history.replace(
+            {
+              hash: history.location.hash,
+              search: next,
+            },
+            { __g__: true }
+          ),
       }
     }, [history])
 
-    const value = useMemo(() => useGeschichte(historyInstance), [
-      historyInstance
-    ])
+    const value = useMemo(
+      () => useGeschichte(historyInstance),
+      [historyInstance]
+    )
     const state = value(
       ({ unregister, updateFromQuery }: StoreState<any>) => ({
         unregister,
-        updateFromQuery
+        updateFromQuery,
       }),
       shallow
     )
 
     useEffect(() => {
-      return history.listen((location, action) => {
+      return history.listen((update) => {
+        const { action, location } = update
         // don't handle our own actions
         if (
           (action === 'REPLACE' || action === 'PUSH') &&
@@ -72,7 +78,7 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     useImperativeHandle(
       ref,
       () => ({
-        updateFromQuery: state.updateFromQuery
+        updateFromQuery: state.updateFromQuery,
       }),
       [state]
     )

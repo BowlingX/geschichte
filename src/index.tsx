@@ -5,7 +5,7 @@ export {
   arrayFloatSerializer,
   arrayIntSerializer,
   arrayStringSerializer,
-  DEFAULT_SEPARATOR
+  DEFAULT_SEPARATOR,
 } from './lib/serializers'
 export { StoreState } from './lib/middleware'
 export {
@@ -15,7 +15,7 @@ export {
   useBatchQuery,
   useStore,
   DEFAULT_NAMESPACE,
-  StoreContext
+  StoreContext,
 } from './lib/store'
 export { pm, flattenConfig, createOrApplyPath } from './lib/utils'
 export { default as GeschichteForNextjs } from './lib/adapters/Next.js'

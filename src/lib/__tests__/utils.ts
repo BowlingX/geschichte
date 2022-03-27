@@ -7,7 +7,7 @@ import {
   createOrApplyPath,
   createQueriesFromPatch,
   flattenConfig,
-  pm
+  pm,
 } from '../utils'
 
 describe('utils', () => {
@@ -16,17 +16,17 @@ describe('utils', () => {
       somethingElse: {
         deeper: pm('anotherOne', serializers.int),
         evenDeeper: {
-          test: pm('deeper', serializers.string)
-        }
+          test: pm('deeper', serializers.string),
+        },
       },
-      state: pm('theParameter', serializers.int)
+      state: pm('theParameter', serializers.int),
     }
     it('should create a flat config from `config`', () => {
       const flatConfig = flattenConfig(config)
       expect(Object.keys(flatConfig)).toEqual([
         'anotherOne',
         'deeper',
-        'theParameter'
+        'theParameter',
       ])
       expect(flatConfig).toMatchSnapshot()
     })
@@ -70,13 +70,13 @@ describe('utils', () => {
     it('should map an object', () => {
       const object = {
         some: {
-          path: 'test'
+          path: 'test',
         },
         somewhere: {
           else: {
-            deep: 'xyz'
-          }
-        }
+            deep: 'xyz',
+          },
+        },
       }
 
       createOrApplyPath(object, ['some', 'path'], 'new value')
@@ -85,9 +85,9 @@ describe('utils', () => {
         some: { path: 'new value' },
         somewhere: {
           else: {
-            deep: 'xyz'
-          }
-        }
+            deep: 'xyz',
+          },
+        },
       })
     })
   })
@@ -97,25 +97,25 @@ describe('utils', () => {
       parameter: pm('p', serializers.string),
       somewhere: {
         else: {
-          here: pm('deep', serializers.string)
-        }
-      }
+          here: pm('deep', serializers.string),
+        },
+      },
     }
     const initialState = {
       parameter: 'something',
       somewhere: {
         else: {
-          here: 'xyz'
-        }
-      }
+          here: 'xyz',
+        },
+      },
     }
     it('should generate undefined values for undefined queries', () => {
       const patch: readonly Patch[] = [
         {
           op: 'add',
           path: ['namespaces', DEFAULT_NAMESPACE, 'values', 'parameter'],
-          value: undefined
-        }
+          value: undefined,
+        },
       ]
       const nextQueries = createQueriesFromPatch(
         config,
@@ -132,8 +132,8 @@ describe('utils', () => {
         {
           op: 'add',
           path: ['namespaces', DEFAULT_NAMESPACE, 'values', 'somewhere'],
-          value: undefined
-        }
+          value: undefined,
+        },
       ]
       const nextQueries = createQueriesFromPatch(
         config,

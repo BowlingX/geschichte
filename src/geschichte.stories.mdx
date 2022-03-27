@@ -1,17 +1,17 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Preview, ArgsTable } from '@storybook/addon-docs';
 import { App } from './examples/index.tsx'
 import {GeschichteWithHistory as Geschichte} from './lib/adapters/History.js.tsx'
 import { createBrowserHistory } from 'history'
 
 export const history = createBrowserHistory()
 
-<Meta title="Components|Geschichte" />
+<Meta title="Components/Geschichte" />
 
 # Geschichte Provider
 
 Provides a global state for all namespaces.
 
-<Props of={Geschichte} />
+<ArgsTable of={Geschichte} />
 
 ## Example
 

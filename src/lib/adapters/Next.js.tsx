@@ -7,7 +7,7 @@ import {
   HistoryManagement,
   RouterOptions,
   StoreContext,
-  useGeschichte
+  useGeschichte,
 } from '../store'
 
 const split = (url: string) => url.split('?')
@@ -39,7 +39,7 @@ const GeschichteForNextjs: FC<Props> = ({
   initialClientOnlyAsPath,
   Router,
   defaultPushOptions,
-  defaultReplaceOptions
+  defaultReplaceOptions,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
   const historyInstance: HistoryManagement = useMemo(() => {
@@ -55,28 +55,29 @@ const GeschichteForNextjs: FC<Props> = ({
         const [path] = split(Router.asPath)
         Router.push(Router.route, `${path}${next}`, {
           ...defaultPushOptions,
-          ...options
+          ...options,
         })
       },
       replace: (next: string, options) => {
         const [path] = split(Router.asPath)
         Router.replace(Router.route, `${path}${next}`, {
           ...defaultReplaceOptions,
-          ...options
+          ...options,
         })
-      }
+      },
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const useStore = useMemo(() => useGeschichte(historyInstance), [
-    historyInstance
-  ])
+  const useStore = useMemo(
+    () => useGeschichte(historyInstance),
+    [historyInstance]
+  )
   const state = useStore(
     // tslint:disable-next-line:no-shadowed-variable
     ({ unregister, updateFromQuery }: StoreState<any>) => ({
       unregister,
-      updateFromQuery
+      updateFromQuery,
     }),
     shallow
   )

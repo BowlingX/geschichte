@@ -1,5 +1,6 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
-import { mount } from 'enzyme'
+import { render, cleanup, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import React, {
   createContext,
@@ -7,15 +8,15 @@ import React, {
   useCallback,
   useContext,
   useMemo,
-  useState
+  useState,
 } from 'react'
 import Geschichte, { factoryParameters, pm, serializers } from '../index'
 
 const config = {
-  someParameter: pm('wow', serializers.string)
+  someParameter: pm('wow', serializers.string),
 }
 const defaultValues = () => ({
-  someParameter: 'test'
+  someParameter: 'test',
 })
 
 interface Props<T = {}> {
@@ -33,12 +34,12 @@ const ConfigurableProductSearchContext = createContext(
 
 const SearchProvider: FC<Props> = ({
   defaultValues: thisDefaultValues,
-  children
+  children,
 }) => {
   const value = useMemo(() => {
     return factoryParameters(config, () => ({
       ...defaultValues(),
-      ...thisDefaultValues
+      ...thisDefaultValues,
     }))
   }, [thisDefaultValues])
 
@@ -56,14 +57,16 @@ const useQuery = () => {
   return thisUseQuery()
 }
 
+afterEach(cleanup)
+
 describe('<Geschichte /> dynamic defaults', () => {
   const history = createMemoryHistory()
 
   const ComponentThatDisplaysValue = () => {
     const {
-      values: { someParameter }
+      values: { someParameter },
     } = useQuery()
-    return <span>{someParameter}</span>
+    return <span role="content">{someParameter}</span>
   }
 
   const ComponentThatUsesQuery = () => {
@@ -71,13 +74,15 @@ describe('<Geschichte /> dynamic defaults', () => {
     return (
       <>
         <button
-          name="pushState"
-          onClick={() => pushState(state => void (state.someParameter = 'foo'))}
+          title="pushState"
+          onClick={() =>
+            pushState((state) => void (state.someParameter = 'foo'))
+          }
         />
       </>
     )
   }
-  it('should apply new default values when they change', () => {
+  it('should apply new default values when they change', async () => {
     const Component = () => {
       const [values, setValues] = useState({ someParameter: 'current default' })
 
@@ -86,26 +91,25 @@ describe('<Geschichte /> dynamic defaults', () => {
       }, [setValues])
 
       return (
-        <>
-          <SearchProvider defaultValues={values}>
-            <ComponentThatUsesQuery />
-            <ComponentThatDisplaysValue />
-            <button name="resetDefaults" onClick={setNewDefaults} />
-          </SearchProvider>
-        </>
+        <SearchProvider defaultValues={values}>
+          <ComponentThatUsesQuery />
+          <ComponentThatDisplaysValue />
+          <button title="resetDefaults" onClick={setNewDefaults} />
+        </SearchProvider>
       )
     }
 
-    const Test = () => (
+    const DefaultTest = () => (
       <Geschichte history={history}>
         <Component />
       </Geschichte>
     )
 
-    const rendered = mount(<Test />)
-    expect(rendered.text()).toEqual('current default')
-    rendered.find('button[name="resetDefaults"]').simulate('click')
-    expect(rendered.text()).toEqual('new default')
+    render(<DefaultTest />)
+
+    expect(screen.getByRole('content').textContent).toEqual('current default')
+    userEvent.click(screen.getByTitle('resetDefaults'))
+    expect(screen.getByRole('content').textContent).toEqual('new default')
   })
 
   it('should apply new defaults in different trees when they change', () => {
@@ -121,21 +125,22 @@ describe('<Geschichte /> dynamic defaults', () => {
           <ComponentThatUsesQuery />
           <SearchProvider defaultValues={values}>
             <ComponentThatDisplaysValue />
-            <button name="resetDefaults" onClick={setNewDefaults} />
+            <button title="resetDefaults" onClick={setNewDefaults} />
           </SearchProvider>
         </>
       )
     }
 
-    const Test = () => (
+    const DifferentTreesTest = () => (
       <Geschichte history={history}>
         <Component />
       </Geschichte>
     )
 
-    const rendered = mount(<Test />)
-    expect(rendered.text()).toEqual('current default')
-    rendered.find('button[name="resetDefaults"]').simulate('click')
-    expect(rendered.text()).toEqual('new default')
+    render(<DifferentTreesTest />)
+
+    expect(screen.getByRole('content').textContent).toEqual('current default')
+    userEvent.click(screen.getByTitle('resetDefaults'))
+    expect(screen.getByRole('content').textContent).toEqual('new default')
   })
 })
