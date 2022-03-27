@@ -53,7 +53,7 @@
     "query-string": "^7.1.1"
   },
   "peerDependencies": {
-    "history": "^4",
+    "history": "^5",
     "immer": ">=7",
     "react": ">=16.8",
     "react-dom": ">=16.8",

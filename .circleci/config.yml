@@ -1,23 +1,23 @@
 # https://circleci.com/docs/2.0/language-javascript/
 version: 2
 jobs:
-  'node-12':
+  'node-14':
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     working_directory: ~/geschichte
     steps:
       - checkout
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - v2-dependencies-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
       - run: yarn test
       - run: yarn run cov:send
   'node-latest':
@@ -28,30 +28,30 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+            - v2-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
       - run: yarn test
       - run: yarn run cov:send
   publish:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     working_directory: ~/geschichte
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+            - v2-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
       - run: yarn semantic-release
       - run: yarn build-storybook && yarn doc:html && yarn doc:json
       - run: git config user.email "david@vexquisit.com"
@@ -65,7 +65,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - 'node-12'
+      - 'node-14'
       - 'node-latest'
       - publish:
           filters:
@@ -73,5 +73,5 @@ workflows:
               only:
                 - master
           requires:
-            - 'node-12'
+            - 'node-14'
             - 'node-latest'
