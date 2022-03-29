@@ -7,6 +7,10 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials"
   ],
+  reactOptions: {
+    fastRefresh: true,
+    strictMode: true,
+  },
   core: {
     builder: "webpack5",
   },

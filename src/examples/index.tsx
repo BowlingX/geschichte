@@ -35,7 +35,6 @@ const { useQuery: useAnotherQuery } = factoryParameters(
 
 const InnerApp = () => {
   const { values, pushState } = useQuery()
-  console.log(values)
   return (
     <>
       <input

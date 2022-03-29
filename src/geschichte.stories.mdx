@@ -1,4 +1,4 @@
-import { Meta, Preview, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { App } from './examples/index.tsx'
 import {GeschichteWithHistory as Geschichte} from './lib/adapters/History.js.tsx'
 import { createBrowserHistory } from 'history'
@@ -34,6 +34,6 @@ export const App = () => (
 
 ## Test
 
-<Preview>
+<Canvas>
     <App />
-</Preview>
+</Canvas>
