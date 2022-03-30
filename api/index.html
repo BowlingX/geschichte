@@ -1,431 +1,54 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>geschichte - v0.1.0</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">geschichte - v0.1.0</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<ul class="tsd-breadcrumb">
-				<li>
-					<a href="globals.html">Globals</a>
-				</li>
-			</ul>
-			<h1> geschichte - v0.1.0</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#📖-geschichte" id="📖-geschichte" style="color: inherit; text-decoration: none;">
-					<h1>📖 Geschichte</h1>
-				</a>
-				<p><img src="https://img.shields.io/circleci/build/gh/BowlingX/geschichte" alt="CircleCI">
-					<img src="https://img.shields.io/codecov/c/github/bowlingx/geschichte" alt="Codecov">
-					<img src="https://img.shields.io/npm/v/geschichte" alt="npm">
-				<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
-				<p><code>Geschichte</code> (german for History / Story / Tale) Let&#39;s you manage query-parameters with hooks.
-				Uses <code>immer</code> and <code>zustand</code> to manage the internal state.</p>
-				<p>Documentation &amp; Demo: <a href="https://bowlingx.github.io/geschichte/index.html">https://bowlingx.github.io/geschichte/index.html</a></p>
-				<p>API: <a href="https://bowlingx.github.io/geschichte/api/index.html">https://bowlingx.github.io/geschichte/api/index.html</a></p>
-				<pre><code>yarn <span class="hljs-keyword">add</span><span class="bash"> geschichte</span>
-
-npm install geschichte</code></pre>
-				<a href="#basic-example" id="basic-example" style="color: inherit; text-decoration: none;">
-					<h2>Basic Example</h2>
-				</a>
-				<pre><code class="language-typescript">
-import Geschichte, { pm, factoryParameters, serializers } from 'geschichte'
-import { createBrowserHistory } from 'history'
-
-const parameterConfig = {
-  item: pm('queryParameter', serializers.string /** a basic collection of serializers is availble, like date, int, float, arrays */ )
-  /* ... more keys, any depth. */
-};
-
-// default value is either an object or a factory () =&gt; defaultValue
-const defaultValue = {
-  item: 'defaultValue' /** it automatically skips null or default values*/
-}
-
-// exports a hook (`useQuery`), and a utility method `createQueryString` that let's you create a query string based on the described object anywhere outside of components etc.
-const { useQuery, createQueryString } = factoryParameters(parameterConfig, defaultValue,  /** optional namespace, (creates a prefix separated by a dot)*/);
-
-
-const Component = () =&gt; {
- const { values, pushState, replaceState, resetPush, resetReplace, createQueryString, batchReplaceState, batchPushState } = useQuery()
- return (
-   &lt;&gt;
-     &lt;button onClick={() =&gt; pushState((values) =&gt; void ( values.item = "newValue" ))}&gt;push new state&lt;/button&gt;
-     &lt;button onClick={() =&gt; replaceState((values) =&gt; void ( values.item = "anotherOne" ))}&gt;replace state&lt;/button&gt;
-     &lt;button onClick={resetPush}&gt;reset (push) to defaults&lt;/button&gt;
-     &lt;button onClick={resetReplace}&gt;reset (replace) to defaults&lt;/button&gt;
-     &lt;div&gt;{JSON.stringify(values)}&lt;/div&gt;
-     &lt;div&gt;The current queryString: {createQueryString()}&lt;/div&gt;
-   &lt;/&gt; 
- )
-}
-
-const App = () =&gt; (
-  &lt;Geschichte history={createBrowserHistory()}&gt;
-    &lt;Component /&gt;
-  &lt;/Geschichte&gt;
-)</code></pre>
-				<a href="#concept" id="concept" style="color: inherit; text-decoration: none;">
-					<h2>Concept</h2>
-				</a>
-				<p><code>Geschichte</code> let&#39;s you describe and serialize an arbitrary object of any depth to your browsers query and history.
-					It takes care of updating the next state and current query in a efficient way using <code>immerjs</code>.
-				It works on both the browser and server side (with <code>createMemoryHistory</code>)</p>
-				<a href="#naming" id="naming" style="color: inherit; text-decoration: none;">
-					<h3>Naming</h3>
-				</a>
-				<p>I was inspired by <code>immer</code> and <code>zustand</code>, so I picked a fitting german name :).</p>
-				<a href="#agenda" id="agenda" style="color: inherit; text-decoration: none;">
-					<h2>Agenda</h2>
-				</a>
-				<ul>
-					<li>Add more tests</li>
-					<li>Propper examples and documentation of the full API</li>
-					<li>Describe Use-Cases</li>
-				</ul>
-				<a href="#compability" id="compability" style="color: inherit; text-decoration: none;">
-					<h2>Compability</h2>
-				</a>
-				<p>It works out of the box with react-router (by providing the same <code>history</code> instance).</p>
-				<a href="#using-with-nextjs" id="using-with-nextjs" style="color: inherit; text-decoration: none;">
-					<h3>Using with next.js</h3>
-				</a>
-				<p>Nextjs support is build in, but requires a different Instance.</p>
-				<pre><code class="language-tsx">
-import React, { FC, memo, ReactNode } from &#39;react&#39;
-import { GeschichteForNextjs } from &#39;geschichte&#39;
-import Router, { useRouter } from &#39;next/router&#39;
-
-const GeschichteWithHistory: FC&lt;{ children: ReactNode }&gt; = (props) =&gt; {
-  const { asPath } = useRouter()
-  return (
-      &lt;GeschichteForNextjs Router={Router} asPath={asPath} {...props}/&gt;
-  )
-}
-
-export default memo(GeschichteWithHistory)
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>geschichte</title><meta name="description" content="Documentation for geschichte"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">geschichte</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>geschichte</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#📖-geschichte-ɡəˈʃɪçtə" id="📖-geschichte-ɡəˈʃɪçtə" style="color: inherit; text-decoration: none;">
+  <h1>📖 Geschichte (/ɡəˈʃɪçtə/)</h1>
+</a>
+<p><img src="https://img.shields.io/circleci/build/gh/BowlingX/geschichte" alt="CircleCI">
+<img src="https://img.shields.io/codecov/c/github/bowlingx/geschichte" alt="Codecov">
+<img src="https://img.shields.io/npm/v/geschichte" alt="npm">
+<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a></p>
+<p><code>Geschichte</code> (german for History / Story / Tale) Let&#39;s you manage query-parameters with hooks.
+Uses <code>immer</code> and <code>zustand</code> to manage the internal state.</p>
+<p>Documentation &amp; Demo: <a href="https://bowlingx.github.io/geschichte/index.html">https://bowlingx.github.io/geschichte/index.html</a></p>
+<p>API: <a href="https://bowlingx.github.io/geschichte/api/index.html">https://bowlingx.github.io/geschichte/api/index.html</a></p>
+<pre><code><span class="hl-0">yarn</span><span class="hl-1"> </span><span class="hl-0">add</span><span class="hl-1"> </span><span class="hl-0">geschichte</span><br/><br/><span class="hl-0">npm</span><span class="hl-1"> </span><span class="hl-0">install</span><span class="hl-1"> </span><span class="hl-0">geschichte</span>
 </code></pre>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="enums/historyeventtype.html" class="tsd-kind-icon">History<wbr>Event<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/config.html" class="tsd-kind-icon">Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/genericobject.html" class="tsd-kind-icon">Generic<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/historymanagement.html" class="tsd-kind-icon">History<wbr>Management</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/innernamespace.html" class="tsd-kind-icon">Inner<wbr>Namespace</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/mappedconfig.html" class="tsd-kind-icon">Mapped<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/mappedparameter.html" class="tsd-kind-icon">Mapped<wbr>Parameter</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/namespacevalues.html" class="tsd-kind-icon">Namespace<wbr>Values</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/parameter.html" class="tsd-kind-icon">Parameter</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/props.html" class="tsd-kind-icon">Props</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/refs.html" class="tsd-kind-icon">Refs</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-not-exported">
-						<a href="interfaces/registrypayload.html" class="tsd-kind-icon">Registry<wbr>Payload</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/serializer.html" class="tsd-kind-icon">Serializer</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-has-type-parameter">
-						<a href="interfaces/storestate.html" class="tsd-kind-icon">Store<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#genericconverter" class="tsd-kind-icon">Generic<wbr>Converter</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#immerproducer" class="tsd-kind-icon">Immer<wbr>Producer</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#immerstatecreator" class="tsd-kind-icon">Immer<wbr>State<wbr>Creator</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter tsd-is-not-exported">
-						<a href="globals.html#initialvaluesprovider" class="tsd-kind-icon">Initial<wbr>Values<wbr>Provider</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter tsd-is-not-exported">
-						<a href="globals.html#innernamespaceproducerfunction" class="tsd-kind-icon">Inner<wbr>Namespace<wbr>Producer<wbr>Function</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#namespaceproducer" class="tsd-kind-icon">Namespace<wbr>Producer</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter tsd-is-not-exported">
-						<a href="globals.html#namespaceproducerfunction" class="tsd-kind-icon">Namespace<wbr>Producer<wbr>Function</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#pushstatefunction" class="tsd-kind-icon">Push<wbr>State<wbr>Function</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#replacestatefunction" class="tsd-kind-icon">Replace<wbr>State<wbr>Function</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#routeroptions" class="tsd-kind-icon">Router<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#setimmerstate" class="tsd-kind-icon">Set<wbr>Immer<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
-						<a href="globals.html#statecreator" class="tsd-kind-icon">State<wbr>Creator</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#default_namespace" class="tsd-kind-icon">DEFAULT_<wbr>NAMESPACE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#default_separator" class="tsd-kind-icon">DEFAULT_<wbr>SEPARATOR</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#geschichtewithhistory" class="tsd-kind-icon">Geschichte<wbr>With<wbr>History</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="globals.html#storecontext" class="tsd-kind-icon">Store<wbr>Context</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#geschichtefornextjs" class="tsd-kind-icon">Geschichte<wbr>For<wbr>Nextjs</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#applydiffwithcreatequeriesfrompatch" class="tsd-kind-icon">apply<wbr>Diff<wbr>With<wbr>Create<wbr>Queries<wbr>From<wbr>Patch</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#applyflatconfigtostate" class="tsd-kind-icon">apply<wbr>Flat<wbr>Config<wbr>ToState</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#arrayfloatserializer" class="tsd-kind-icon">array<wbr>Float<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#arrayintserializer" class="tsd-kind-icon">array<wbr>Int<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#arraystringserializer" class="tsd-kind-icon">array<wbr>String<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#converter" class="tsd-kind-icon">converter</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#createorapplypath" class="tsd-kind-icon">create<wbr>OrApply<wbr>Path</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#createqueriesfrompatch" class="tsd-kind-icon">create<wbr>Queries<wbr>From<wbr>Patch</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#createqueryobject" class="tsd-kind-icon">create<wbr>Query<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#dateserializer" class="tsd-kind-icon">date<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#factoryparameters" class="tsd-kind-icon">factory<wbr>Parameters</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#finddeeppatches" class="tsd-kind-icon">find<wbr>Deep<wbr>Patches</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#flattenconfig" class="tsd-kind-icon">flatten<wbr>Config</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#formatnamespace" class="tsd-kind-icon">format<wbr>Namespace</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#get" class="tsd-kind-icon">get</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#historymanagement" class="tsd-kind-icon">history<wbr>Management</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#immerwithpatches" class="tsd-kind-icon">immer<wbr>With<wbr>Patches</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#join" class="tsd-kind-icon">join</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter tsd-is-not-exported">
-						<a href="globals.html#namespaceproducer" class="tsd-kind-icon">namespace<wbr>Producer</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#parsesearchstring" class="tsd-kind-icon">parse<wbr>Search<wbr>String</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#pm" class="tsd-kind-icon">pm</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="globals.html#skipvalue" class="tsd-kind-icon">skip<wbr>Value</a>
-					</li>
-					<li class=" tsd-kind-function tsd-is-not-exported">
-						<a href="globals.html#split" class="tsd-kind-icon">split</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#usebatchquery" class="tsd-kind-icon">use<wbr>Batch<wbr>Query</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#usegeschichte" class="tsd-kind-icon">use<wbr>Geschichte</a>
-					</li>
-					<li class=" tsd-kind-function tsd-has-type-parameter">
-						<a href="globals.html#usestore" class="tsd-kind-icon">use<wbr>Store</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-is-not-exported">
-						<a href="globals.html#booleanserializer" class="tsd-kind-icon">boolean<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-is-not-exported">
-						<a href="globals.html#floatserializer" class="tsd-kind-icon">float<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-is-not-exported">
-						<a href="globals.html#intserializer" class="tsd-kind-icon">int<wbr>Serializer</a>
-					</li>
-					<li class=" tsd-kind-object-literal">
-						<a href="globals.html#serializers" class="tsd-kind-icon">serializers</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-is-not-exported">
-						<a href="globals.html#stringserializer" class="tsd-kind-icon">string<wbr>Serializer</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
-</body>
-</html>
+
+<a href="#basic-example" id="basic-example" style="color: inherit; text-decoration: none;">
+  <h2>Basic Example</h2>
+</a>
+<pre><code class="language-typescript"><br/><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-0">Geschichte</span><span class="hl-1">, { </span><span class="hl-0">pm</span><span class="hl-1">, </span><span class="hl-0">factoryParameters</span><span class="hl-1">, </span><span class="hl-0">serializers</span><span class="hl-1"> } </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;geschichte&#39;</span><br/><span class="hl-2">import</span><span class="hl-1"> { </span><span class="hl-0">createBrowserHistory</span><span class="hl-1"> } </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;history&#39;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">parameterConfig</span><span class="hl-1"> = {</span><br/><span class="hl-1">  </span><span class="hl-0">item:</span><span class="hl-1"> </span><span class="hl-6">pm</span><span class="hl-1">(</span><span class="hl-3">&#39;queryParameter&#39;</span><span class="hl-1">, </span><span class="hl-0">serializers</span><span class="hl-1">.</span><span class="hl-0">string</span><span class="hl-1"> </span><span class="hl-7">/** a basic collection of serializers is availble, like date, int, float, arrays */</span><span class="hl-1"> )</span><br/><span class="hl-1">  </span><span class="hl-7">/* ... more keys, any depth. */</span><br/><span class="hl-1">};</span><br/><br/><span class="hl-7">// default value is either an object or a factory () =&gt; defaultValue</span><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-5">defaultValue</span><span class="hl-1"> = {</span><br/><span class="hl-1">  </span><span class="hl-0">item:</span><span class="hl-1"> </span><span class="hl-3">&#39;defaultValue&#39;</span><span class="hl-1"> </span><span class="hl-7">/** it automatically skips null or default values*/</span><br/><span class="hl-1">}</span><br/><br/><span class="hl-7">// exports a hook (`useQuery`), and a utility method `createQueryString` that let&#39;s you create a query string based on the described object anywhere outside of components etc.</span><br/><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">useQuery</span><span class="hl-1">, </span><span class="hl-5">createQueryString</span><span class="hl-1"> } = </span><span class="hl-6">factoryParameters</span><span class="hl-1">(</span><span class="hl-0">parameterConfig</span><span class="hl-1">, </span><span class="hl-0">defaultValue</span><span class="hl-1">,  </span><span class="hl-7">/** optional namespace, (creates a prefix separated by a dot)*/</span><span class="hl-1">);</span><br/><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">Component</span><span class="hl-1"> = () </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1"> </span><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">values</span><span class="hl-1">, </span><span class="hl-5">pushState</span><span class="hl-1">, </span><span class="hl-5">replaceState</span><span class="hl-1">, </span><span class="hl-5">resetPush</span><span class="hl-1">, </span><span class="hl-5">resetReplace</span><span class="hl-1">, </span><span class="hl-5">createQueryString</span><span class="hl-1">, </span><span class="hl-5">batchReplaceState</span><span class="hl-1">, </span><span class="hl-5">batchPushState</span><span class="hl-1"> } = </span><span class="hl-6">useQuery</span><span class="hl-1">()</span><br/><span class="hl-1"> </span><span class="hl-2">return</span><span class="hl-1"> (</span><br/><span class="hl-1">   &lt;&gt;</span><br/><span class="hl-1">     &lt;</span><span class="hl-0">button</span><span class="hl-1"> </span><span class="hl-0">onClick</span><span class="hl-1">={() =&gt; </span><span class="hl-6">pushState</span><span class="hl-1">((</span><span class="hl-0">values</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-8">void</span><span class="hl-1"> ( </span><span class="hl-8">values</span><span class="hl-1">.</span><span class="hl-8">item</span><span class="hl-1"> = </span><span class="hl-3">&quot;newValue&quot;</span><span class="hl-1"> ))}&gt;</span><span class="hl-0">push</span><span class="hl-1"> </span><span class="hl-4">new</span><span class="hl-1"> </span><span class="hl-0">state</span><span class="hl-1">&lt;/</span><span class="hl-0">button</span><span class="hl-1">&gt;</span><br/><span class="hl-1">     &lt;</span><span class="hl-0">button</span><span class="hl-1"> </span><span class="hl-0">onClick</span><span class="hl-1">={() =&gt; </span><span class="hl-6">replaceState</span><span class="hl-1">((</span><span class="hl-0">values</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> </span><span class="hl-8">void</span><span class="hl-1"> ( </span><span class="hl-8">values</span><span class="hl-1">.</span><span class="hl-8">item</span><span class="hl-1"> = </span><span class="hl-3">&quot;anotherOne&quot;</span><span class="hl-1"> ))}&gt;</span><span class="hl-0">replace</span><span class="hl-1"> </span><span class="hl-0">state</span><span class="hl-1">&lt;/</span><span class="hl-0">button</span><span class="hl-1">&gt;</span><br/><span class="hl-1">     &lt;</span><span class="hl-0">button</span><span class="hl-1"> </span><span class="hl-0">onClick</span><span class="hl-1">={</span><span class="hl-0">resetPush</span><span class="hl-1">}&gt;</span><span class="hl-6">reset</span><span class="hl-1"> (</span><span class="hl-0">push</span><span class="hl-1">) </span><span class="hl-0">to</span><span class="hl-1"> </span><span class="hl-0">defaults</span><span class="hl-1">&lt;/</span><span class="hl-0">button</span><span class="hl-1">&gt;</span><br/><span class="hl-1">     &lt;</span><span class="hl-0">button</span><span class="hl-1"> </span><span class="hl-0">onClick</span><span class="hl-1">={</span><span class="hl-0">resetReplace</span><span class="hl-1">}&gt;</span><span class="hl-6">reset</span><span class="hl-1"> (</span><span class="hl-0">replace</span><span class="hl-1">) </span><span class="hl-0">to</span><span class="hl-1"> </span><span class="hl-0">defaults</span><span class="hl-1">&lt;/</span><span class="hl-0">button</span><span class="hl-1">&gt;</span><br/><span class="hl-1">     &lt;</span><span class="hl-8">div</span><span class="hl-1">&gt;{JSON.stringify(values)}&lt;/</span><span class="hl-0">div</span><span class="hl-1">&gt;</span><br/><span class="hl-1">     &lt;</span><span class="hl-8">div</span><span class="hl-1">&gt;</span><span class="hl-0">The</span><span class="hl-1"> </span><span class="hl-0">current</span><span class="hl-1"> </span><span class="hl-0">queryString</span><span class="hl-1">: {</span><span class="hl-6">createQueryString</span><span class="hl-1">()}&lt;/</span><span class="hl-8">div</span><span class="hl-1">&gt;</span><br/><span class="hl-1">   &lt;/&gt; </span><br/><span class="hl-1"> )</span><br/><span class="hl-1">}</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">App</span><span class="hl-1"> = () </span><span class="hl-4">=&gt;</span><span class="hl-1"> (</span><br/><span class="hl-1">  &lt;</span><span class="hl-0">Geschichte</span><span class="hl-1"> </span><span class="hl-0">history</span><span class="hl-1">={</span><span class="hl-6">createBrowserHistory</span><span class="hl-1">()}&gt;</span><br/><span class="hl-1">    &lt;</span><span class="hl-0">Component</span><span class="hl-1"> /&gt;</span><br/><span class="hl-1">  &lt;/</span><span class="hl-0">Geschichte</span><span class="hl-1">&gt;</span><br/><span class="hl-1">)</span>
+</code></pre>
+
+<a href="#concept" id="concept" style="color: inherit; text-decoration: none;">
+  <h2>Concept</h2>
+</a>
+<p><code>Geschichte</code> let&#39;s you describe and serialize an arbitrary object of any depth to your browsers query and history. 
+It takes care of updating the next state and current query in a efficient way using <code>immerjs</code>.
+It works on both the browser and server side (with <code>createMemoryHistory</code>)</p>
+
+<a href="#naming" id="naming" style="color: inherit; text-decoration: none;">
+  <h3>Naming</h3>
+</a>
+<p>I was inspired by <code>immer</code> and <code>zustand</code>, so I picked a fitting german name :).</p>
+
+<a href="#agenda" id="agenda" style="color: inherit; text-decoration: none;">
+  <h2>Agenda</h2>
+</a>
+<ul>
+<li>Add more tests</li>
+<li>Propper examples and documentation of the full API</li>
+<li>Describe Use-Cases</li>
+</ul>
+
+<a href="#compability" id="compability" style="color: inherit; text-decoration: none;">
+  <h2>Compability</h2>
+</a>
+<p>It works out of the box with react-router (by providing the same <code>history</code> instance).</p>
+
+<a href="#using-with-nextjs" id="using-with-nextjs" style="color: inherit; text-decoration: none;">
+  <h3>Using with next.js</h3>
+</a>
+<p>Nextjs support is build in, but requires a different Instance.</p>
+<pre><code class="language-tsx"><br/><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-0">React</span><span class="hl-1">, { </span><span class="hl-0">FC</span><span class="hl-1">, </span><span class="hl-0">memo</span><span class="hl-1">, </span><span class="hl-0">ReactNode</span><span class="hl-1"> } </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;react&#39;</span><br/><span class="hl-2">import</span><span class="hl-1"> { </span><span class="hl-0">GeschichteForNextjs</span><span class="hl-1"> } </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;geschichte&#39;</span><br/><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-0">Router</span><span class="hl-1">, { </span><span class="hl-0">useRouter</span><span class="hl-1"> } </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&#39;next/router&#39;</span><br/><br/><span class="hl-4">const</span><span class="hl-1"> </span><span class="hl-6">GeschichteWithHistory</span><span class="hl-1">: </span><span class="hl-8">FC</span><span class="hl-1">&lt;{ </span><span class="hl-0">children</span><span class="hl-1">: </span><span class="hl-8">ReactNode</span><span class="hl-1"> }&gt; = (</span><span class="hl-0">props</span><span class="hl-1">) </span><span class="hl-4">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-4">const</span><span class="hl-1"> { </span><span class="hl-5">asPath</span><span class="hl-1"> } = </span><span class="hl-6">useRouter</span><span class="hl-1">()</span><br/><span class="hl-1">  </span><span class="hl-2">return</span><span class="hl-1"> (</span><br/><span class="hl-1">      </span><span class="hl-9">&lt;</span><span class="hl-8">GeschichteForNextjs</span><span class="hl-1"> </span><span class="hl-10">Router</span><span class="hl-1">=</span><span class="hl-4">{</span><span class="hl-0">Router</span><span class="hl-4">}</span><span class="hl-1"> </span><span class="hl-10">asPath</span><span class="hl-1">=</span><span class="hl-4">{</span><span class="hl-0">asPath</span><span class="hl-4">}</span><span class="hl-1"> </span><span class="hl-4">{</span><span class="hl-1">...</span><span class="hl-0">props</span><span class="hl-4">}</span><span class="hl-9">/&gt;</span><br/><span class="hl-1">  )</span><br/><span class="hl-1">}</span><br/><br/><span class="hl-2">export</span><span class="hl-1"> </span><span class="hl-2">default</span><span class="hl-1"> </span><span class="hl-6">memo</span><span class="hl-1">(</span><span class="hl-0">GeschichteWithHistory</span><span class="hl-1">)</span><br/>
+</code></pre>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-interface"><a href="interfaces/HistoryManagement.html" class="tsd-kind-icon">History<wbr/>Management</a></li><li class="tsd-kind-interface"><a href="interfaces/Serializer.html" class="tsd-kind-icon">Serializer</a></li><li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/StoreState.html" class="tsd-kind-icon">Store<wbr/>State</a></li><li class="tsd-kind-variable"><a href="modules.html#DEFAULT_NAMESPACE" class="tsd-kind-icon">DEFAULT_<wbr/>NAMESPACE</a></li><li class="tsd-kind-variable"><a href="modules.html#DEFAULT_SEPARATOR" class="tsd-kind-icon">DEFAULT_<wbr/>SEPARATOR</a></li><li class="tsd-kind-variable"><a href="modules.html#GeschichteForNextjs" class="tsd-kind-icon">Geschichte<wbr/>For<wbr/>Nextjs</a></li><li class="tsd-kind-variable"><a href="modules.html#StoreContext" class="tsd-kind-icon">Store<wbr/>Context</a></li><li class="tsd-kind-variable"><a href="modules.html#default" class="tsd-kind-icon">default</a></li><li class="tsd-kind-variable"><a href="modules.html#serializers" class="tsd-kind-icon">serializers</a></li><li class="tsd-kind-function"><a href="modules.html#arrayFloatSerializer" class="tsd-kind-icon">array<wbr/>Float<wbr/>Serializer</a></li><li class="tsd-kind-function"><a href="modules.html#arrayIntSerializer" class="tsd-kind-icon">array<wbr/>Int<wbr/>Serializer</a></li><li class="tsd-kind-function"><a href="modules.html#arrayStringSerializer" class="tsd-kind-icon">array<wbr/>String<wbr/>Serializer</a></li><li class="tsd-kind-function"><a href="modules.html#createOrApplyPath" class="tsd-kind-icon">create<wbr/>Or<wbr/>Apply<wbr/>Path</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#factoryParameters" class="tsd-kind-icon">factory<wbr/>Parameters</a></li><li class="tsd-kind-function"><a href="modules.html#flattenConfig" class="tsd-kind-icon">flatten<wbr/>Config</a></li><li class="tsd-kind-function"><a href="modules.html#pm" class="tsd-kind-icon">pm</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useBatchQuery" class="tsd-kind-icon">use<wbr/>Batch<wbr/>Query</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useGeschichte" class="tsd-kind-icon">use<wbr/>Geschichte</a></li><li class="tsd-kind-function tsd-has-type-parameter"><a href="modules.html#useStore" class="tsd-kind-icon">use<wbr/>Store</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
