@@ -1,5 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
-import produce, { Draft, enablePatches } from 'immer'
+import { Draft, enablePatches, produce } from 'immer'
 import memoizeOne from 'memoize-one'
 import { stringify } from 'query-string'
 import {
@@ -100,7 +100,7 @@ export const useGeschichte = <T extends State>(
 
 type InitialValuesProvider<T> = T | (() => T)
 
-export const useStore = <T>() => {
+export const useStore = <T extends object>() => {
   return useContext(StoreContext) as UseBoundStore<StoreState<T>>
 }
 
@@ -115,7 +115,7 @@ export const useBatchQuery = <T extends State>() => {
   )
 }
 
-export const factoryParameters = <T>(
+export const factoryParameters = <T extends object>(
   config: Config,
   // tslint:disable-next-line:no-object-literal-type-assertion
   defaultInitialValues: InitialValuesProvider<T> = {} as T,

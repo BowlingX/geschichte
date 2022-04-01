@@ -180,7 +180,7 @@ export const applyDiffWithCreateQueriesFromPatch = <T = object>(
  * Important: Mutates `state`.
  * @return an object with the keys that have been processed
  */
-export const applyFlatConfigToState = <T = object>(
+export const applyFlatConfigToState = <T extends object>(
   config: MappedConfig,
   queryValues: { readonly [index: string]: any },
   ns: string,

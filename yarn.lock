@@ -1166,6 +1166,20 @@
     resolve-from "^5.0.0"
     resolve-global "^1.0.0"
 
+"@digitak/grubber@^3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@digitak/grubber/-/grubber-3.1.1.tgz#13c02833f5ed0c342cb1f9cfec1fd104fb9f943e"
+  integrity sha512-xHpmj3Erk5AA/nKpOJzap23TJSV0MFRTgtciG8XZg0GP0CUwms0g02SQQaKEPCe2mvKVlqfzad3xV4DiHlq2jA==
+
+"@digitak/tsc-esm@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@digitak/tsc-esm/-/tsc-esm-3.1.2.tgz#4bc000bd08848b47badba6075e22bf8b3e86e2d0"
+  integrity sha512-9pey4YgsWA5dmE/KFahIvNukRItibNBryzqKnHr72JRBOk4WP1ZFQWzYJA3DzlPgLEzlcR+j4McXZJFl+2NVCA==
+  dependencies:
+    "@digitak/grubber" "^3.1.1"
+    fast-glob "^3.2.5"
+    relaxed-json "^1.0.3"
+
 "@discoveryjs/json-ext@^0.5.3":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
@@ -5240,7 +5254,7 @@ comma-separated-tokens@^1.0.0:
   resolved "https://registry.yarnpkg.com/comma-separated-tokens/-/comma-separated-tokens-1.0.8.tgz#632b80b6117867a158f1080ad498b2fbe7e3f5ea"
   integrity sha512-GHuDRO12Sypu2cV70d1dkA2EUmXHgntrzbpvOB+Qy+49ypNfGgFQIC2fhhXbnyrJRynDCAARsT7Ou0M6hirpfw==
 
-commander@^2.12.1, commander@^2.18.0, commander@^2.19.0, commander@^2.20.0:
+commander@^2.12.1, commander@^2.18.0, commander@^2.19.0, commander@^2.20.0, commander@^2.6.0:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -6828,7 +6842,7 @@ fast-glob@^2.2.6:
     merge2 "^1.2.3"
     micromatch "^3.1.10"
 
-fast-glob@^3.2.9:
+fast-glob@^3.2.5, fast-glob@^3.2.9:
   version "3.2.11"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.11.tgz#a1172ad95ceb8a16e20caa5c5e56480e5129c1d9"
   integrity sha512-xrO3+1bxSo3ZVHAnqzyuewYT6aMFHRAd4Kcs92MAonjwQZLsK9d0SF1IyQ3k5PoirxTW0Oe/RqFgMQ6TcNE5Ew==
@@ -12431,6 +12445,14 @@ relateurl@^0.2.7:
   version "0.2.7"
   resolved "https://registry.yarnpkg.com/relateurl/-/relateurl-0.2.7.tgz#54dbf377e51440aca90a4cd274600d3ff2d888a9"
   integrity sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+
+relaxed-json@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/relaxed-json/-/relaxed-json-1.0.3.tgz#eb2101ae0ee60e82267d95ed0ddf19a3604b8c1e"
+  integrity sha512-b7wGPo7o2KE/g7SqkJDDbav6zmrEeP4TK2VpITU72J/M949TLe/23y/ZHJo+pskcGM52xIfFoT9hydwmgr1AEg==
+  dependencies:
+    chalk "^2.4.2"
+    commander "^2.6.0"
 
 remark-external-links@^8.0.0:
   version "8.0.0"

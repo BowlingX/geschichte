@@ -1,9 +1,10 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "target": "esnext",
-    "outDir": "build/mjs",
-    "module": "esnext"
+    "declaration": false,
+    "target": "es2017",
+    "outDir": "build/cjs",
+    "module": "CommonJS"
   },
   "exclude": [
     "node_modules/**",

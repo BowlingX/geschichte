@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "outDir": "build/cjs",
+    "target": "esnext",
+    "outDir": "build/mjs",
+    "module": "esnext",
     "rootDir": "src",
     "moduleResolution": "node",
-    "module": "commonjs",
     "declaration": true,
     "inlineSourceMap": false,
     "jsx": "react",
