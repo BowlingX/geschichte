@@ -1044,7 +1044,7 @@
 				{
 					"fileName": "lib/adapters/NextJs.tsx",
 					"line": 36,
-					"character": 6
+					"character": 13
 				}
 			],
 			"type": {
@@ -1593,7 +1593,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 118,
+					"line": 116,
 					"character": 13
 				}
 			],
@@ -2372,7 +2372,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 107,
+					"line": 105,
 					"character": 13
 				}
 			],
@@ -2744,7 +2744,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 103,
+					"line": 101,
 					"character": 13
 				}
 			],
