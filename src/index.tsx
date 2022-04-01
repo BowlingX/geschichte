@@ -1,4 +1,4 @@
-export { default } from './lib/adapters/HistoryJs'
+export { GeschichteWithHistory as default } from './lib/adapters/HistoryJs'
 export {
   serializers,
   Serializer,
@@ -18,4 +18,4 @@ export {
   StoreContext,
 } from './lib/store'
 export { pm, flattenConfig, createOrApplyPath } from './lib/utils'
-export { default as GeschichteForNextjs } from './lib/adapters/NextJs'
+export { GeschichteForNextjs } from './lib/adapters/NextJs'

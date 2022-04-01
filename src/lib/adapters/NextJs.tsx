@@ -33,7 +33,7 @@ interface Props {
   readonly defaultReplaceOptions?: RouterOptions
 }
 
-const GeschichteForNextjs: FC<Props> = ({
+export const GeschichteForNextjs: FC<Props> = ({
   children,
   asPath,
   initialClientOnlyAsPath,
@@ -104,5 +104,3 @@ const GeschichteForNextjs: FC<Props> = ({
     <StoreContext.Provider value={useStore}>{children}</StoreContext.Provider>
   )
 }
-
-export default GeschichteForNextjs

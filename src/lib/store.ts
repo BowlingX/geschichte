@@ -20,7 +20,7 @@ import create, {
   UseBoundStore,
 } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
-import { subscribeWithSelector } from 'zustand/middleware'
+import { subscribeWithSelector, devtools } from 'zustand/middleware'
 
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
@@ -81,8 +81,6 @@ export const useGeschichte = <T extends State>(
   ) as unknown as StateCreator<StoreState<T>>
 
   if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
-    // tslint:disable-next-line:no-submodule-imports
-    const { devtools } = require('zustand/middleware')
     return create<
       StoreState<T>,
       SetState<StoreState<T>>,
