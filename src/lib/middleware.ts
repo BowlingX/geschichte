@@ -82,7 +82,9 @@ export interface StoreState<ValueState extends object> extends State {
   readonly initialQueries: () => object
 }
 
-type NamespaceProducerFunction<T extends object> = (state: NamespaceValues<T>) => void
+type NamespaceProducerFunction<T extends object> = (
+  state: NamespaceValues<T>
+) => void
 type InnerNamespaceProducerFunction<T extends object> = (
   state: InnerNamespace<T>
 ) => InnerNamespace<T> | void
