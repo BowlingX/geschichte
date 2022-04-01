@@ -974,7 +974,11 @@
 					"name": "ValueState",
 					"kind": 131072,
 					"kindString": "Type parameter",
-					"flags": {}
+					"flags": {},
+					"type": {
+						"type": "intrinsic",
+						"name": "object"
+					}
 				}
 			],
 			"extendedTypes": [
@@ -1038,7 +1042,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/adapters/Next.js.tsx",
+					"fileName": "lib/adapters/NextJs.tsx",
 					"line": 36,
 					"character": 6
 				}
@@ -1139,7 +1143,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/adapters/History.js.tsx",
+					"fileName": "lib/adapters/HistoryJs.tsx",
 					"line": 25,
 					"character": 13
 				}
@@ -1606,7 +1610,11 @@
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
-							"flags": {}
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
 						}
 					],
 					"parameters": [
@@ -2753,7 +2761,11 @@
 							"name": "T",
 							"kind": 131072,
 							"kindString": "Type parameter",
-							"flags": {}
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
 						}
 					],
 					"type": {
