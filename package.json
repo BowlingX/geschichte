@@ -2,9 +2,18 @@
   "name": "geschichte",
   "version": "0.1.0",
   "description": "manage query parameters with react-hooks",
-  "main": "build/main/index.js",
-  "typings": "build/main/index.d.ts",
-  "module": "build/module/index.js",
+  "main": "build/cjs/index.js",
+  "typings": "build/mjs/index.d.ts",
+  "module": "build/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./build/mjs/index.js",
+      "require": "./build/cjs/index.js"
+    }
+  },
+  "files": [
+    "build"
+  ],
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -25,7 +34,7 @@
   ],
   "scripts": {
     "describe": "npm-scripts-info",
-    "build": "run-s clean && run-p build:*",
+    "build": "run-s clean && run-p build:* && ./esm-postbuild.sh",
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json",
     "fix": "run-s fix:*",
