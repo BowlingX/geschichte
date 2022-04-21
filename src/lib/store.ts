@@ -1,7 +1,7 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import produce, { Draft, enablePatches } from 'immer'
 import memoizeOne from 'memoize-one'
-import { stringify } from 'query-string'
+import { stringify, parse } from 'query-string'
 import {
   createContext,
   useCallback,
@@ -296,5 +296,24 @@ export const factoryParameters = <T>(
     )
   }
 
-  return { useQuery, createQueryString }
+  const parseQueryString = (
+    query: string,
+    initialValues?: Partial<T> | null
+  ): Partial<T> => {
+    const thisInitialValues =
+      typeof initialValues === 'undefined'
+        ? memCreateInitialValues(defaultInitialValues)
+        : initialValues
+    return produce({}, (draft: Draft<T>) => {
+      applyFlatConfigToState(
+        flatConfig,
+        parse(query),
+        ns,
+        draft as T,
+        thisInitialValues as T
+      )
+    })
+  }
+
+  return { useQuery, createQueryString, parseQueryString }
 }
