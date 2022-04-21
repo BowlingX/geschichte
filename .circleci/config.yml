@@ -72,6 +72,7 @@ workflows:
             branches:
               only:
                 - master
+                - 7.x
           requires:
             - 'node-14'
             - 'node-latest'
