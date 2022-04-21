@@ -1,9 +1,9 @@
 # https://circleci.com/docs/2.0/language-javascript/
 version: 2
 jobs:
-  'node-12':
+  'node-14':
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -39,7 +39,7 @@ jobs:
       - run: yarn run cov:send
   publish:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -55,7 +55,7 @@ jobs:
       - run: yarn semantic-release
   publish-docs:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -80,7 +80,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - 'node-12'
+      - 'node-14'
       - 'node-latest'
       - publish:
           filters:
@@ -90,7 +90,7 @@ workflows:
                 - 7.x
                 - 6.x
           requires:
-            - 'node-12'
+            - 'node-14'
             - 'node-latest'
       - publish-docs:
           filters:
@@ -98,5 +98,5 @@ workflows:
               only:
                 - master
           requires:
-            - 'node-12'
+            - 'node-14'
             - 'node-latest'
