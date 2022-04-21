@@ -1,7 +1,7 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import produce, { Draft, enablePatches } from 'immer'
 import memoizeOne from 'memoize-one'
-import { stringify, parse } from 'query-string'
+import { parse, stringify } from 'query-string'
 import {
   createContext,
   useCallback,

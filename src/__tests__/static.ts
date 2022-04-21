@@ -8,7 +8,7 @@ describe('static parseQueryString', () => {
   const initialValues = { someParameter: 'test' }
   const { parseQueryString } = factoryParameters(
     {
-      someParameter: pm('wow', serializers.string),
+      someParameter: pm('wow', serializers.string)
     },
     initialValues
   )
