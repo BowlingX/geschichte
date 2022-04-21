@@ -1,23 +1,23 @@
 # https://circleci.com/docs/2.0/language-javascript/
 version: 2
 jobs:
-  'node-14':
+  'node-12':
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:12
     working_directory: ~/geschichte
     steps:
       - checkout
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v2-dependencies-
+            - v1-dependencies-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
       - run: yarn run cov:send
   'node-latest':
@@ -28,31 +28,46 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
-            - v2-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
       - run: yarn run cov:send
   publish:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:12
     working_directory: ~/geschichte
     steps:
       - checkout
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
-            - v2-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run: yarn install
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn semantic-release
+  publish-docs:
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/geschichte
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn build-storybook && yarn doc:html && yarn doc:json
       - run: git config user.email "david@vexquisit.com"
       - run: git config user.name "ci-build"
@@ -65,7 +80,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - 'node-14'
+      - 'node-12'
       - 'node-latest'
       - publish:
           filters:
@@ -73,6 +88,15 @@ workflows:
               only:
                 - master
                 - 7.x
+                - 6.x
           requires:
-            - 'node-14'
+            - 'node-12'
+            - 'node-latest'
+      - publish-docs:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - 'node-12'
             - 'node-latest'
