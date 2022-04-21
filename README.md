@@ -33,8 +33,10 @@ const defaultValue = {
   item: 'defaultValue' /** it automatically skips null or default values*/
 }
 
-// exports a hook (`useQuery`), and a utility method `createQueryString` that let's you create a query string based on the described object anywhere outside of components etc.
-const { useQuery, createQueryString } = factoryParameters(parameterConfig, defaultValue,  /** optional namespace, (creates a prefix separated by a dot)*/);
+// exports a hook (`useQuery`), and 
+// utility methods `createQueryString` that let's you create a query string based on the described object anywhere outside of components etc.
+// `parseQueryString` let's you parse a query string into an object as defined in the `parameterConfig`.
+const { useQuery, createQueryString, parseQueryString } = factoryParameters(parameterConfig, defaultValue,  /** optional namespace, (creates a prefix separated by a dot)*/);
 
 
 const Component = () => {
