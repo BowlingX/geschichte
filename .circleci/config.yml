@@ -53,6 +53,21 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn semantic-release
+  publish-docs:
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/geschichte
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn build-storybook && yarn doc:html && yarn doc:json
       - run: git config user.email "david@vexquisit.com"
       - run: git config user.name "ci-build"
@@ -72,7 +87,16 @@ workflows:
             branches:
               only:
                 - master
+                - 7.x
                 - 6.x
+          requires:
+            - 'node-12'
+            - 'node-latest'
+      - publish-docs:
+          filters:
+            branches:
+              only:
+                - master
           requires:
             - 'node-12'
             - 'node-latest'
