@@ -24,7 +24,11 @@ import Geschichte, { pm, factoryParameters, serializers } from 'geschichte'
 import { createBrowserHistory } from 'history'
 
 const parameterConfig = {
-  item: pm('queryParameter', serializers.string /** a basic collection of serializers is availble, like date, int, float, arrays */ )
+  item: pm(
+    'queryParameter', 
+    serializers.string, /** a basic collection of serializers is availble, like date, int, float, arrays */
+    (value?: V, initialValue?: V) => boolean  /** define an optional skip function which will determine if the parameter will be included in the url or not */
+    )
   /* ... more keys, any depth. */
 };
 
