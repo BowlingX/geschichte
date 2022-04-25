@@ -5,10 +5,29 @@ import { GenericObject } from './middleware'
 import { Serializer } from './serializers'
 import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store'
 
-export const pm = (name: string, serializer: Serializer) => (): Parameter => ({
-  name,
-  serializer
-})
+/**
+ * Default skip implementation
+ */
+export function defaultSkipValue<V>(value?: V, initialValue?: V): boolean {
+  return (
+    value === undefined ||
+    value === null ||
+    shallowEqual(value, initialValue) ||
+    (Array.isArray(value) && value.length === 0)
+  )
+}
+
+export function pm<V>(
+  name: string,
+  serializer: Serializer<V>,
+  thisSkipValue: (value?: V, initialValue?: V) => boolean = defaultSkipValue
+): () => Parameter<V> {
+  return (): Parameter<V> => ({
+    name,
+    serializer,
+    skipValue: thisSkipValue,
+  })
+}
 
 export const createOrApplyPath = (
   obj: GenericObject | null,
@@ -43,15 +62,6 @@ export const get = <T = object>(
     return next ? next[key] : undefined
   }, object)
 }
-
-/**
- * Default skip implementation
- */
-export const skipValue = (value?: any, initialValue?: any) =>
-  value === undefined ||
-  value === null ||
-  shallowEqual(value, initialValue) ||
-  (Array.isArray(value) && value.length === 0)
 
 /**
  * @return a list of patches that deeply match the given config object
@@ -110,7 +120,7 @@ export const createQueriesFromPatch = <T = object>(
       return next
     }
 
-    const { name, serializer, skip } = possibleParameter()
+    const { name, serializer, skipValue } = possibleParameter() as Parameter
     // @ts-ignore
     const value = get(state, objectPath)
     // @ts-ignore
@@ -136,7 +146,7 @@ export const createQueryObject = <T = object>(
   initialState?: Partial<T> | null
 ) => {
   return Object.keys(config).reduce((next, parameter) => {
-    const { path, serializer } = config[parameter]
+    const { path, serializer, skipValue } = config[parameter]
     const possibleValue = get(values, path)
     const nextValue = skipValue(possibleValue, get(initialState, path))
       ? undefined
@@ -188,7 +198,7 @@ export const applyFlatConfigToState = <T = object>(
   initialState: T
 ) => {
   return Object.keys(config).reduce((next, queryParameter) => {
-    const { path, serializer } = config[queryParameter]
+    const { path, serializer, skipValue } = config[queryParameter]
     const nsQueryParameter = formatNamespace(queryParameter, ns)
     const maybeValue = queryValues[nsQueryParameter]
 
