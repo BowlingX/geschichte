@@ -11,6 +11,7 @@ Object {
       "deserialize": [Function],
       "serialize": [Function],
     },
+    "skipValue": [Function],
   },
   "deeper": Object {
     "path": Array [
@@ -22,6 +23,7 @@ Object {
       "deserialize": [Function],
       "serialize": [Function],
     },
+    "skipValue": [Function],
   },
   "theParameter": Object {
     "path": Array [
@@ -31,6 +33,7 @@ Object {
       "deserialize": [Function],
       "serialize": [Function],
     },
+    "skipValue": [Function],
   },
 }
 `;
