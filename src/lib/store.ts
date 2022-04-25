@@ -1,7 +1,7 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import produce, { Draft, enablePatches } from 'immer'
 import memoizeOne from 'memoize-one'
-import { stringify, parse } from 'query-string'
+import { parse, stringify } from 'query-string'
 import {
   createContext,
   useCallback,
@@ -44,9 +44,11 @@ export const StoreContext = createContext<UseBoundStore<
   StoreState<any>
 > | null>(null)
 
-export interface Parameter {
+export interface Parameter<V = any> {
   readonly name: string
-  readonly serializer: Serializer
+  readonly serializer: Serializer<V>
+  // tslint:disable-next-line:no-mixed-interface
+  readonly skipValue: (value?: V, initialValue?: V) => boolean
 }
 
 export interface MappedParameter extends Parameter {

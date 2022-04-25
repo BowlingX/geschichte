@@ -1,6 +1,6 @@
-export interface Serializer {
-  readonly deserialize: (value: string | null) => any
-  readonly serialize: (value?: any) => string | null
+export interface Serializer<V = any> {
+  readonly deserialize: (value: string | null) => V | undefined | null
+  readonly serialize: (value?: V) => string | undefined | null
 }
 
 const join = (value: readonly any[], separator: string) => value.join(separator)
@@ -8,7 +8,7 @@ const join = (value: readonly any[], separator: string) => value.join(separator)
 const split = (value: string | null, separator: string) =>
   value?.split(separator) || []
 
-const intSerializer: Serializer = {
+const intSerializer: Serializer<number> = {
   deserialize: (value: string | null): number | null => {
     if (value === null) {
       return value
@@ -19,7 +19,7 @@ const intSerializer: Serializer = {
   serialize: (value?: number): string => String(value),
 }
 
-const floatSerializer: Serializer = {
+const floatSerializer: Serializer<number> = {
   deserialize: (value: string | null): number | null => {
     if (value === null) {
       return value
@@ -30,35 +30,37 @@ const floatSerializer: Serializer = {
   serialize: (value?: number): string => String(value),
 }
 
-const stringSerializer: Serializer = {
+const stringSerializer: Serializer<string> = {
   deserialize: (value: string | null): string | null =>
     value === null ? null : String(value),
   serialize: (value?: string): string => String(value),
 }
 
-export const arrayStringSerializer: (separator: string) => Serializer = (
+export const arrayStringSerializer: (
   separator: string
-) => ({
+) => Serializer<readonly string[]> = (separator: string) => ({
   deserialize: (value: string | null): readonly string[] | null =>
     split(value, separator),
   serialize: (value?: readonly string[]): string | null =>
     (value && join(value, separator)) || null,
 })
 
-export const arrayIntSerializer: (separator: string) => Serializer = (
+export const arrayIntSerializer: (
   separator: string
-) => ({
+) => Serializer<readonly number[]> = (separator: string) => ({
   deserialize: (value: string | null): readonly number[] | null =>
-    split(value, separator).map(intSerializer.deserialize),
+    split(value, separator).map(intSerializer.deserialize) as readonly number[],
   serialize: (value?: readonly number[]): string | null =>
     (value && join(value, separator)) || null,
 })
 
-export const arrayFloatSerializer: (separator: string) => Serializer = (
+export const arrayFloatSerializer: (
   separator: string
-) => ({
+) => Serializer<readonly number[]> = (separator: string) => ({
   deserialize: (value: string | null): readonly number[] | null =>
-    split(value, separator).map(floatSerializer.deserialize),
+    split(value, separator).map(
+      floatSerializer.deserialize
+    ) as readonly number[],
   serialize: (value?: readonly number[]): string | null =>
     (value && join(value, separator)) || null,
 })
@@ -66,11 +68,11 @@ export const arrayFloatSerializer: (separator: string) => Serializer = (
 const dateSerializer = (
   locale: string = 'en-us',
   timeZone: string = 'UTC'
-): Serializer => ({
+): Serializer<Date> => ({
   deserialize: (value: string | null): Date =>
     value ? new Date(value) : new Date(),
-  serialize: (value: Date): string =>
-    value.toLocaleDateString(locale, { timeZone }),
+  serialize: (value?: Date): string | undefined =>
+    value?.toLocaleDateString(locale, { timeZone }),
 })
 
 const booleanSerializer: Serializer = {
