@@ -25,7 +25,7 @@ export function pm<V>(
   return (): Parameter<V> => ({
     name,
     serializer,
-    skipValue: thisSkipValue,
+    skipValue: thisSkipValue
   })
 }
 
