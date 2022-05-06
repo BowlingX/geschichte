@@ -1,60 +1,12 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 import { mount } from 'enzyme'
 import { createMemoryHistory } from 'history'
-import React, {
-  createContext,
-  FC,
-  useCallback,
-  useContext,
-  useMemo,
-  useState
-} from 'react'
-import Geschichte, { factoryParameters, pm, serializers } from '../index'
-
-const config = {
-  someParameter: pm('wow', serializers.string)
-}
-const defaultValues = () => ({
-  someParameter: 'test'
-})
-
-interface Props<T = {}> {
-  readonly defaultValues: T
-}
-
-const defaultProductSearchWithoutCustomization = factoryParameters(
-  config,
-  defaultValues
-)
-
-const ConfigurableProductSearchContext = createContext(
-  defaultProductSearchWithoutCustomization
-)
-
-const SearchProvider: FC<Props> = ({
-  defaultValues: thisDefaultValues,
-  children
-}) => {
-  const value = useMemo(() => {
-    return factoryParameters(config, () => ({
-      ...defaultValues(),
-      ...thisDefaultValues
-    }))
-  }, [thisDefaultValues])
-
-  return (
-    <ConfigurableProductSearchContext.Provider value={value}>
-      {children}
-    </ConfigurableProductSearchContext.Provider>
-  )
-}
-
-const useQuery = () => {
-  const { useQuery: thisUseQuery } = useContext(
-    ConfigurableProductSearchContext
-  )
-  return thisUseQuery()
-}
+import React, { useCallback, useState } from 'react'
+import {
+  SearchProvider,
+  useQuery as useDefaultQuery
+} from '../examples/defaults'
+import Geschichte from '../index'
 
 describe('<Geschichte /> dynamic defaults', () => {
   const history = createMemoryHistory()
@@ -62,12 +14,12 @@ describe('<Geschichte /> dynamic defaults', () => {
   const ComponentThatDisplaysValue = () => {
     const {
       values: { someParameter }
-    } = useQuery()
+    } = useDefaultQuery()
     return <span>{someParameter}</span>
   }
 
   const ComponentThatUsesQuery = () => {
-    const { pushState } = useQuery()
+    const { pushState } = useDefaultQuery()
     return (
       <>
         <button
