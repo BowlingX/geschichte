@@ -185,18 +185,8 @@ export const factoryParameters = <T extends object>(
       }),
       shallow
     )
-
     const initialRegisterState = useMemo(() => {
-      const namespaceData = useStore.getState().namespaces[ns] || {}
       const initialValues = memCreateInitialValues(defaultInitialValues)
-      const { values, query } = namespaceData
-      if (values) {
-        return {
-          initialValues,
-          query,
-          values,
-        }
-      }
       return memInitBlank(initialQueries(), initialValues)
     }, [useStore, defaultInitialValues])
 
@@ -220,7 +210,9 @@ export const factoryParameters = <T extends object>(
       )
       if (
         initialRegisterState.values !== values ||
-        initialRegisterState.initialValues !== initialValues
+        initialRegisterState.initialValues !== initialValues ||
+        currentState.initialValues !== initialValues ||
+        currentState.values !== values
       ) {
         setCurrentState({ values, initialValues })
       }

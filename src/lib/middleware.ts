@@ -27,7 +27,7 @@ export interface NamespaceValues<ValueState extends object> {
   mappedConfig: MappedConfig
   config: Config
   query: object
-  unsubscribe: () => void
+  unsubscribe: () => boolean
 }
 
 export type PushStateFunction<T> = (
@@ -46,7 +46,7 @@ export interface InnerNamespace<T extends object> {
 }
 
 interface RegistryPayload<ValueState> {
-  unsubscribe: () => void
+  unsubscribe: () => boolean
   values: ValueState
   initialValues: ValueState
 }
@@ -424,11 +424,12 @@ export const converter =
                   delete thisState[ns]
                 }
               }, HistoryEventType.REGISTER)
+              return !get().namespaces[ns]
             }
             state.mappedConfig = mappedConfig
             state.config = config
             state.initialValues = initialValues
-            state.values = initialValues
+            state.values = values
             state.query = query
           },
           HistoryEventType.REGISTER,
