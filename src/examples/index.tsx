@@ -1,6 +1,6 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 import { createBrowserHistory } from 'history'
-import React, { createContext, FC, useCallback, useMemo, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import Geschichte, { factoryParameters, pm, serializers } from '../index'
 import { SearchProvider, useQuery as useDefaultableQuery } from './defaults'
 
