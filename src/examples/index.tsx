@@ -1,7 +1,8 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 import { createBrowserHistory } from 'history'
-import React from 'react'
+import React, { createContext, FC, useCallback, useMemo, useState } from 'react'
 import Geschichte, { factoryParameters, pm, serializers } from '../index'
+import { SearchProvider, useQuery as useDefaultableQuery } from './defaults'
 
 const history = createBrowserHistory()
 
@@ -65,9 +66,40 @@ const DifferentApp = () => {
   )
 }
 
+const ComponentThatDisplaysValue = () => {
+  const {
+    values: { someParameter },
+    initialValues,
+  } = useDefaultableQuery()
+  return (
+    <div>
+      Now: {someParameter}, {JSON.stringify(initialValues)}
+    </div>
+  )
+}
+
+const DefaultValueWrapper = () => {
+  const [values, setValues] = useState({ someParameter: 'current default' })
+
+  const setNewDefaults = useCallback(() => {
+    setValues({ someParameter: 'new default' })
+  }, [setValues])
+
+  return (
+    <SearchProvider defaultValues={values}>
+      <button title="resetDefaults" onClick={setNewDefaults}>
+        Update defaults
+      </button>
+      <ComponentThatDisplaysValue />
+      <ComponentThatDisplaysValue />
+    </SearchProvider>
+  )
+}
+
 export const App = () => (
   <>
     <Geschichte history={history}>
+      <DefaultValueWrapper />
       <h3>A sample Appliations</h3>
       <InnerApp />
       <DifferentApp />
