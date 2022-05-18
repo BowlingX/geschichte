@@ -31,6 +31,8 @@ interface Props {
   readonly asPath: string
   readonly defaultPushOptions?: RouterOptions
   readonly defaultReplaceOptions?: RouterOptions
+  // tslint:disable-next-line:no-mixed-interface
+  readonly createAsPath?: (queryParams: string) => string
 }
 
 export const GeschichteForNextjs: FC<Props> = ({
@@ -40,6 +42,7 @@ export const GeschichteForNextjs: FC<Props> = ({
   Router,
   defaultPushOptions,
   defaultReplaceOptions,
+  createAsPath,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
   const historyInstance: HistoryManagement = useMemo(() => {
@@ -53,21 +56,23 @@ export const GeschichteForNextjs: FC<Props> = ({
       },
       push: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.push(`${path}${next}`, undefined, {
+        const nextAsPath = createAsPath ? createAsPath(next) : `${path}${next}`
+        Router.push(Router.route, nextAsPath, {
           ...defaultPushOptions,
           ...options,
         })
       },
       replace: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.replace(`${path}${next}`, undefined, {
+        const nextAsPath = createAsPath ? createAsPath(next) : `${path}${next}`
+        Router.replace(Router.route, nextAsPath, {
           ...defaultReplaceOptions,
           ...options,
         })
       },
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [createAsPath])
 
   const useStore = useMemo(
     () => useGeschichte(historyInstance),
