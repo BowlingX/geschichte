@@ -20,12 +20,12 @@ interface Props {
       url: string,
       as: string | undefined,
       options?: RouterOptions
-    ) => any
+    ) => Promise<boolean>
     readonly replace: (
       url: string,
       as: string | undefined,
       options?: RouterOptions
-    ) => any
+    ) => Promise<boolean>
   }
   readonly initialClientOnlyAsPath?: string
   readonly asPath: string
@@ -35,9 +35,12 @@ interface Props {
   readonly routerReplace?: (
     queryParams: string,
     options: RouterOptions
-  ) => string
+  ) => Promise<boolean>
   // tslint:disable-next-line:no-mixed-interface
-  readonly routerPush?: (queryParams: string, options: RouterOptions) => string
+  readonly routerPush?: (
+    queryParams: string,
+    options: RouterOptions
+  ) => Promise<boolean>
 }
 
 export const GeschichteForNextjs: FC<Props> = ({
@@ -62,26 +65,28 @@ export const GeschichteForNextjs: FC<Props> = ({
       },
       push: (next: string, options) => {
         if (routerPush) {
-          return routerPush(next, {
+          routerPush(next, {
             ...defaultReplaceOptions,
             ...options,
           })
+          return
         }
         const [path] = split(Router.asPath)
-        return Router.push(Router.route, `${path}${next}`, {
+        Router.push(Router.route, `${path}${next}`, {
           ...defaultPushOptions,
           ...options,
         })
       },
       replace: (next: string, options) => {
         if (routerReplace) {
-          return routerReplace(next, {
+          routerReplace(next, {
             ...defaultReplaceOptions,
             ...options,
           })
+          return
         }
         const [path] = split(Router.asPath)
-        return Router.replace(Router.route, `${path}${next}`, {
+        Router.replace(Router.route, `${path}${next}`, {
           ...defaultReplaceOptions,
           ...options,
         })
