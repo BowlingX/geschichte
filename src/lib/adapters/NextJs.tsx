@@ -53,14 +53,14 @@ export const GeschichteForNextjs: FC<Props> = ({
       },
       push: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.push(Router.route, `${path}${next}`, {
+        Router.push(`${path}${next}`, undefined, {
           ...defaultPushOptions,
           ...options,
         })
       },
       replace: (next: string, options) => {
         const [path] = split(Router.asPath)
-        Router.replace(Router.route, `${path}${next}`, {
+        Router.replace(`${path}${next}`, undefined, {
           ...defaultReplaceOptions,
           ...options,
         })
