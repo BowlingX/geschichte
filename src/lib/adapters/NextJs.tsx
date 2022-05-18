@@ -32,7 +32,12 @@ interface Props {
   readonly defaultPushOptions?: RouterOptions
   readonly defaultReplaceOptions?: RouterOptions
   // tslint:disable-next-line:no-mixed-interface
-  readonly createAsPath?: (queryParams: string) => string
+  readonly routerReplace?: (
+    queryParams: string,
+    options: RouterOptions
+  ) => string
+  // tslint:disable-next-line:no-mixed-interface
+  readonly routerPush?: (queryParams: string, options: RouterOptions) => string
 }
 
 export const GeschichteForNextjs: FC<Props> = ({
@@ -42,7 +47,8 @@ export const GeschichteForNextjs: FC<Props> = ({
   Router,
   defaultPushOptions,
   defaultReplaceOptions,
-  createAsPath,
+  routerReplace,
+  routerPush,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
   const historyInstance: HistoryManagement = useMemo(() => {
@@ -55,24 +61,34 @@ export const GeschichteForNextjs: FC<Props> = ({
         return `?${query || ''}`
       },
       push: (next: string, options) => {
+        if (routerPush) {
+          return routerPush(next, {
+            ...defaultReplaceOptions,
+            ...options,
+          })
+        }
         const [path] = split(Router.asPath)
-        const nextAsPath = createAsPath ? createAsPath(next) : `${path}${next}`
-        Router.push(Router.route, nextAsPath, {
+        return Router.push(Router.route, `${path}${next}`, {
           ...defaultPushOptions,
           ...options,
         })
       },
       replace: (next: string, options) => {
+        if (routerReplace) {
+          return routerReplace(next, {
+            ...defaultReplaceOptions,
+            ...options,
+          })
+        }
         const [path] = split(Router.asPath)
-        const nextAsPath = createAsPath ? createAsPath(next) : `${path}${next}`
-        Router.replace(Router.route, nextAsPath, {
+        return Router.replace(Router.route, `${path}${next}`, {
           ...defaultReplaceOptions,
           ...options,
         })
       },
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [createAsPath])
+  }, [routerReplace, routerPush])
 
   const useStore = useMemo(
     () => useGeschichte(historyInstance),
