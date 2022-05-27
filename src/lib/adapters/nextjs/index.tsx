@@ -8,8 +8,12 @@ import React, {
   useRef,
   useState,
 } from 'react'
-// tslint:disable-next-line:no-submodule-imports
-import { useRouter, Router as Router$, default as NextRouter } from 'next/router.js'
+import {
+  useRouter,
+  Router as Router$,
+  default as NextRouter,
+  // tslint:disable-next-line:no-submodule-imports
+} from 'next/router.js'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import { StoreState } from '../../middleware'
