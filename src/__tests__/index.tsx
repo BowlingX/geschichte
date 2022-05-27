@@ -3,13 +3,8 @@ import { render, cleanup, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import React from 'react'
-import Geschichte, {
-  factoryParameters,
-  pm,
-  serializers,
-  useBatchQuery,
-} from '../index'
-
+import { factoryParameters, pm, serializers, useBatchQuery } from '../index'
+import Geschichte from '../lib/adapters/historyjs'
 afterEach(cleanup)
 
 describe('<Geschichte />', () => {

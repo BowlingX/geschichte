@@ -93,3 +93,5 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     )
   }
 )
+
+export default GeschichteWithHistory

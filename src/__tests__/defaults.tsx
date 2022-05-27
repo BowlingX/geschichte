@@ -3,7 +3,7 @@ import { render, cleanup, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import React, { useCallback, useState } from 'react'
-import Geschichte from '../index'
+import Geschichte from '../lib/adapters/historyjs'
 import {
   SearchProvider,
   useQuery as useDefaultQuery,
