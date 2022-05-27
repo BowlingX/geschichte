@@ -23,7 +23,7 @@ API: https://bowlingx.github.io/geschichte/api/index.html
 ```typescript jsx
 
 import { pm, factoryParameters, serializers } from 'geschichte'
-import GeschichteForHistory from 'geschichte/adapters/historyjs'
+import GeschichteForHistory from 'geschichte/historyjs'
 import { createBrowserHistory } from 'history'
 
 const parameterConfig = {
@@ -96,7 +96,7 @@ Nextjs support is build in, but requires a different Adapter.
 /** _app.tsx */
 
 import React, { FC, memo, ReactNode } from 'react'
-import GeschichteForNextjs from 'geschichte/adapters/nextjs'
+import GeschichteForNextjs from 'geschichte/nextjs'
 import type { AppProps } from 'next/app'
 
 function App({ Component, pageProps }: AppProps) {

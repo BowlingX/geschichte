@@ -9,13 +9,13 @@ import React, {
   useState,
 } from 'react'
 // tslint:disable-next-line:no-submodule-imports
-import Router, { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router.js'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import { StoreState } from '../middleware'
 import { HistoryManagement, StoreContext, useGeschichte } from '../store'
 
-const split = (url: string) => url.split('?')
+const split = (url?: string) => url?.split('?') || []
 
 interface TransitionOptions {
   readonly shallow?: boolean
