@@ -9,3 +9,6 @@ coverage
 *.log
 
 package-lock.json
+
+nextjs.d.ts
+historyjs.d.ts

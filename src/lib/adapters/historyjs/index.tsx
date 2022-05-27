@@ -9,8 +9,8 @@ import React, {
 } from 'react'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
-import { StoreState } from '../middleware'
-import { HistoryManagement, StoreContext, useGeschichte } from '../store'
+import { StoreState } from '../../middleware'
+import { HistoryManagement, StoreContext, useGeschichte } from '../../store'
 
 export interface Props {
   /** a history instance (e.g. createBrowserHistory()) */

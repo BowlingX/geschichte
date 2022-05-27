@@ -12,18 +12,21 @@
       "require": "./build/cjs/index.js"
     },
     "./nextjs": {
-      "types": "./build/mjs/lib/adapters/nextjs.d.ts",
-      "import": "./build/mjs/lib/adapters/nextjs.js",
-      "require": "./build/cjs/lib/adapters/nextjs.js"
+      "types": "./build/mjs/lib/adapters/nextjs/index.d.ts",
+      "import": "./build/mjs/lib/adapters/nextjs/index.js",
+      "require": "./build/cjs/lib/adapters/nextjs/index.js"
     },
     "./historyjs": {
-      "types": "./build/mjs/lib/adapters/historyjs.d.ts",
-      "import": "./build/mjs/lib/adapters/historyjs.js",
-      "require": "./build/cjs/lib/adapters/historyjs.js"
-    }
+      "types": "./build/mjs/lib/adapters/historyjs/index.d.ts",
+      "import": "./build/mjs/lib/adapters/historyjs/index.js",
+      "require": "./build/cjs/lib/adapters/historyjs/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "files": [
-    "build"
+    "build",
+    "nextjs.d.ts",
+    "historyjs.d.ts"
   ],
   "sideEffects": false,
   "repository": {

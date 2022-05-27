@@ -9,11 +9,11 @@ import React, {
   useState,
 } from 'react'
 // tslint:disable-next-line:no-submodule-imports
-import Router, { useRouter } from 'next/router.js'
+import { useRouter, Router as Router$, default as NextRouter } from 'next/router.js'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
-import { StoreState } from '../middleware'
-import { HistoryManagement, StoreContext, useGeschichte } from '../store'
+import { StoreState } from '../../middleware'
+import { HistoryManagement, StoreContext, useGeschichte } from '../../store'
 
 const split = (url?: string) => url?.split('?') || []
 
@@ -29,6 +29,9 @@ interface Props {
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
 }
+
+// FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
+const Router = (NextRouter as any as { readonly default: Router$ }).default
 
 export const GeschichteForNextjs: FC<Props> = ({
   children,
