@@ -1,4 +1,3 @@
-export { GeschichteWithHistory as default } from './lib/adapters/HistoryJs'
 export {
   serializers,
   Serializer,
@@ -23,4 +22,3 @@ export {
   createOrApplyPath,
   defaultSkipValue,
 } from './lib/utils'
-export { GeschichteForNextjs } from './lib/adapters/NextJs'

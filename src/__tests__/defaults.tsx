@@ -60,11 +60,11 @@ describe('<Geschichte /> dynamic defaults', () => {
     render(<DefaultTest />)
 
     expect(screen.getByRole('content').textContent).toEqual('current default')
-    userEvent.click(screen.getByTitle('resetDefaults'))
+    await userEvent.click(screen.getByTitle('resetDefaults'))
     expect(screen.getByRole('content').textContent).toEqual('new default')
   })
 
-  it('should apply new defaults in different trees when they change', () => {
+  it('should apply new defaults in different trees when they change', async () => {
     const Component = () => {
       const [values, setValues] = useState({ someParameter: 'current default' })
 
@@ -92,7 +92,7 @@ describe('<Geschichte /> dynamic defaults', () => {
     render(<DifferentTreesTest />)
 
     expect(screen.getByRole('content').textContent).toEqual('current default')
-    userEvent.click(screen.getByTitle('resetDefaults'))
+    await userEvent.click(screen.getByTitle('resetDefaults'))
     expect(screen.getByRole('content').textContent).toEqual('new default')
   })
 })

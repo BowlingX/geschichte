@@ -1,5 +1,4 @@
 /* tslint:disable:no-expression-statement */
-import expect from 'expect'
 import { serializers } from '../serializers'
 
 describe('serializers', () => {

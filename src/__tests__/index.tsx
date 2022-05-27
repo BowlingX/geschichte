@@ -76,43 +76,43 @@ describe('<Geschichte />', () => {
       expect(screen.getByRole('content').textContent).toEqual('myInitialState')
     })
 
-    it('changes the state when we click the button', () => {
+    it('changes the state when we click the button', async () => {
       render(
         <Geschichte history={history}>
           <Component />
         </Geschichte>
       )
       expect(screen.getByRole('content').textContent).toEqual('test')
-      userEvent.click(screen.getByTitle('pushState'))
+      await userEvent.click(screen.getByTitle('pushState'))
       expect(screen.getByRole('content').textContent).toEqual('foo')
       expect(history.location.search).toEqual('?test.wow=foo')
     })
 
-    it('changes the state when we use `pushBatch`', () => {
+    it('changes the state when we use `pushBatch`', async () => {
       render(
         <Geschichte history={history}>
           <Component />
         </Geschichte>
       )
-      userEvent.click(screen.getByTitle('pushBatch'))
+      await userEvent.click(screen.getByTitle('pushBatch'))
       expect(screen.getByRole('content').textContent).toEqual('wasBatch')
       expect(history.location.search).toEqual(
         '?test.wow=wasBatch&test2.wow=anotherOne'
       )
     })
 
-    it('should reset the state properly', () => {
+    it('should reset the state properly', async () => {
       render(
         <Geschichte history={history}>
           <Component />
         </Geschichte>
       )
-      userEvent.click(screen.getByTitle('pushBatch'))
+      await userEvent.click(screen.getByTitle('pushBatch'))
       expect(screen.getByRole('content').textContent).toEqual('wasBatch')
       expect(history.location.search).toEqual(
         '?test.wow=wasBatch&test2.wow=anotherOne'
       )
-      userEvent.click(screen.getByTitle('resetPush'))
+      await userEvent.click(screen.getByTitle('resetPush'))
       expect(screen.getByRole('content').textContent).toEqual('test')
       expect(history.location.search).toEqual('?test2.wow=anotherOne')
     })
@@ -148,14 +148,14 @@ describe('<Geschichte />', () => {
       )
     }
 
-    it('should keep the hash on pushState', () => {
+    it('should keep the hash on pushState', async () => {
       render(
         <Geschichte history={historyWithHash}>
           <Component />
         </Geschichte>
       )
       expect(screen.getByRole('content').textContent).toEqual('test')
-      userEvent.click(screen.getByTitle('pushState'))
+      await userEvent.click(screen.getByTitle('pushState'))
       expect(screen.getByRole('content').textContent).toEqual('foo')
       expect(historyWithHash.location.search).toEqual('?someParameter=foo')
       expect(historyWithHash.location.hash).toEqual('#this-is-a-hash')

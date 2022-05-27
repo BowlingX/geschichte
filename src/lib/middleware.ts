@@ -1,7 +1,6 @@
 /* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation readonly-array */
 import { Patch, produceWithPatches } from 'immer'
 import memoizeOne from 'memoize-one'
-import { parse, stringify } from 'query-string'
 import { GetState, State, StoreApi } from 'zustand'
 import { Config, HistoryManagement, MappedConfig, RouterOptions } from './store'
 import {
@@ -188,10 +187,10 @@ export const historyManagement =
                 {}
               )
 
-              const query = stringify({
+              const query = new URLSearchParams({
                 ...otherQueries,
                 ...reducedQueries,
-              })
+              }).toString()
               historyInstance[method](query === '' ? '' : `?${query}`, options)
 
               // We safe the current state of `query` for all affected namespaces
@@ -283,7 +282,8 @@ export const immerWithPatches =
       api
     )
 
-const parseSearchString = (search: string) => parse(search)
+const parseSearchString = (search: string) =>
+  Object.fromEntries(new URLSearchParams(search).entries())
 
 export const converter =
   <T extends object>(historyInstance: HistoryManagement) =>

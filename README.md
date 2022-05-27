@@ -22,7 +22,8 @@ API: https://bowlingx.github.io/geschichte/api/index.html
 
 ```typescript jsx
 
-import Geschichte, { pm, factoryParameters, serializers } from 'geschichte'
+import { pm, factoryParameters, serializers } from 'geschichte'
+import GeschichteForHistory from 'geschichte/adapters/historyjs'
 import { createBrowserHistory } from 'history'
 
 const parameterConfig = {
@@ -88,21 +89,24 @@ It works out of the box with react-router (by providing the same `history` insta
 
 ### Using with next.js
 
-Nextjs support is build in, but requires a different Instance.
+Nextjs support is build in, but requires a different Adapter.
 
 ```tsx
 
-import React, { FC, memo, ReactNode } from 'react'
-import { GeschichteForNextjs } from 'geschichte'
-import Router, { useRouter } from 'next/router'
+/** _app.tsx */
 
-const GeschichteWithHistory: FC<{ children: ReactNode }> = (props) => {
-  const { asPath } = useRouter()
-  return (
-      <GeschichteForNextjs Router={Router} asPath={asPath} {...props}/>
-  )
+import React, { FC, memo, ReactNode } from 'react'
+import GeschichteForNextjs from 'geschichte/adapters/nextjs'
+import type { AppProps } from 'next/app'
+
+function App({ Component, pageProps }: AppProps) {
+    return (
+        <GeschichteForNextjs>
+          <Component {...pageProps} />
+        </GeschichteForNextjs>
+    )
 }
 
-export default memo(GeschichteWithHistory)
+export default memo(App)
 
 ```

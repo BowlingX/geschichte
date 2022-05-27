@@ -1,5 +1,4 @@
 /* tslint:disable:no-expression-statement */
-import expect from 'expect'
 import { Patch } from 'immer'
 import { serializers } from '../serializers'
 import { DEFAULT_NAMESPACE } from '../store'

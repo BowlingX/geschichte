@@ -1,7 +1,6 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { Draft, enablePatches, produce } from 'immer'
 import memoizeOne from 'memoize-one'
-import { parse, stringify } from 'query-string'
 import {
   createContext,
   useCallback,
@@ -251,7 +250,7 @@ export const factoryParameters = <T extends object>(
         createQuery: (customValues?: Partial<T>) =>
           createQuery(customValues || values),
         createQueryString: (customValues?: Partial<T>) =>
-          stringify(createQuery(customValues || values)),
+          new URLSearchParams(createQuery(customValues || values)).toString(),
         initialValues,
         pushState: (state: (state: T) => void, options?: Record<string, any>) =>
           pushState(ns, state, options),
@@ -283,9 +282,9 @@ export const factoryParameters = <T extends object>(
       typeof initialValues === 'undefined'
         ? memCreateInitialValues(defaultInitialValues)
         : initialValues
-    return stringify(
+    return new URLSearchParams(
       createQueryObject<T>(flatConfig, ns, values, thisInitialValues)
-    )
+    ).toString()
   }
 
   const parseQueryString = (
@@ -297,9 +296,10 @@ export const factoryParameters = <T extends object>(
         ? memCreateInitialValues(defaultInitialValues)
         : initialValues
     return produce({}, (draft: Draft<T>) => {
+      const parsedQuery = new URLSearchParams(query)
       applyFlatConfigToState(
         flatConfig,
-        parse(query),
+        Object.fromEntries(parsedQuery.entries()),
         ns,
         draft as T,
         thisInitialValues as T

@@ -1,57 +1,41 @@
 /* tslint:disable:no-expression-statement readonly-array */
-import React, { FC, useEffect, useMemo, useRef } from 'react'
+import React, {
+  FC,
+  memo,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
+// tslint:disable-next-line:no-submodule-imports
+import Router, { useRouter } from 'next/router'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import { StoreState } from '../middleware'
-import {
-  HistoryManagement,
-  RouterOptions,
-  StoreContext,
-  useGeschichte,
-} from '../store'
+import { HistoryManagement, StoreContext, useGeschichte } from '../store'
 
 const split = (url: string) => url.split('?')
 
+interface TransitionOptions {
+  readonly shallow?: boolean
+  readonly locale?: string | false
+  readonly scroll?: boolean
+}
+
 interface Props {
-  readonly Router: {
-    readonly asPath: string
-    readonly route: string
-    readonly push: (
-      url: string,
-      as: string | undefined,
-      options?: RouterOptions
-    ) => Promise<boolean>
-    readonly replace: (
-      url: string,
-      as: string | undefined,
-      options?: RouterOptions
-    ) => Promise<boolean>
-  }
   readonly initialClientOnlyAsPath?: string
   readonly asPath: string
-  readonly defaultPushOptions?: RouterOptions
-  readonly defaultReplaceOptions?: RouterOptions
-  // tslint:disable-next-line:no-mixed-interface
-  readonly routerReplace?: (
-    queryParams: string,
-    options: RouterOptions
-  ) => Promise<boolean>
-  // tslint:disable-next-line:no-mixed-interface
-  readonly routerPush?: (
-    queryParams: string,
-    options: RouterOptions
-  ) => Promise<boolean>
+  readonly defaultPushOptions?: TransitionOptions
+  readonly defaultReplaceOptions?: TransitionOptions
 }
 
 export const GeschichteForNextjs: FC<Props> = ({
   children,
   asPath,
   initialClientOnlyAsPath,
-  Router,
   defaultPushOptions,
   defaultReplaceOptions,
-  routerReplace,
-  routerPush,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
   const historyInstance: HistoryManagement = useMemo(() => {
@@ -64,13 +48,6 @@ export const GeschichteForNextjs: FC<Props> = ({
         return `?${query || ''}`
       },
       push: (next: string, options) => {
-        if (routerPush) {
-          routerPush(next, {
-            ...defaultReplaceOptions,
-            ...options,
-          })
-          return
-        }
         const [path] = split(Router.asPath)
         Router.push(Router.route, `${path}${next}`, {
           ...defaultPushOptions,
@@ -78,13 +55,6 @@ export const GeschichteForNextjs: FC<Props> = ({
         })
       },
       replace: (next: string, options) => {
-        if (routerReplace) {
-          routerReplace(next, {
-            ...defaultReplaceOptions,
-            ...options,
-          })
-          return
-        }
         const [path] = split(Router.asPath)
         Router.replace(Router.route, `${path}${next}`, {
           ...defaultReplaceOptions,
@@ -93,7 +63,7 @@ export const GeschichteForNextjs: FC<Props> = ({
       },
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [routerReplace, routerPush])
+  }, [])
 
   const useStore = useMemo(
     () => useGeschichte(historyInstance),
@@ -101,7 +71,7 @@ export const GeschichteForNextjs: FC<Props> = ({
   )
   const state = useStore(
     // tslint:disable-next-line:no-shadowed-variable
-    ({ unregister, updateFromQuery }: StoreState<any>) => ({
+    ({ unregister, updateFromQuery }: StoreState<object>) => ({
       unregister,
       updateFromQuery,
     }),
@@ -130,3 +100,53 @@ export const GeschichteForNextjs: FC<Props> = ({
     <StoreContext.Provider value={useStore}>{children}</StoreContext.Provider>
   )
 }
+
+type ClientOnlyProps = Pick<
+  Props,
+  'defaultPushOptions' | 'defaultReplaceOptions'
+> & {
+  readonly children: ReactNode
+  readonly omitQueries?: boolean
+}
+
+// see https://nextjs.org/docs/api-reference/next/router#routerpush for options;
+// in general we want shallow (see https://nextjs.org/docs/routing/shallow-routing) routing in most cases and not scroll
+const defaultRoutingOptions = { scroll: false, shallow: true }
+
+export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
+  omitQueries = true,
+  defaultPushOptions = defaultRoutingOptions,
+  defaultReplaceOptions = defaultRoutingOptions,
+  ...props
+}) => {
+  const { asPath } = useRouter()
+
+  const thisAsPath = useMemo(() => {
+    if (omitQueries) {
+      const [path] = asPath.split('?')
+      return path
+    }
+    return asPath
+  }, [asPath, omitQueries])
+
+  const [pp, setPp] = useState(thisAsPath)
+
+  useEffect(() => {
+    // We have to render the page always as if it would be rendered without query parameters, because
+    // nextjs does not include the query parameters in the cache key. To not add side effects for other clients,
+    // we set the path including query parameters on client mount.
+    setPp(asPath)
+  }, [asPath])
+
+  return (
+    <GeschichteForNextjs
+      initialClientOnlyAsPath={thisAsPath}
+      defaultReplaceOptions={defaultReplaceOptions}
+      defaultPushOptions={defaultPushOptions}
+      asPath={pp}
+      {...props}
+    />
+  )
+}
+
+export default memo<ClientOnlyProps>(GeschichteForNextjsWrapper)
