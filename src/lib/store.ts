@@ -67,8 +67,14 @@ export type RouterOptions = Record<string, any>
 export interface HistoryManagement {
   /** the initial search string (e.g. ?query=test), contains the questionsmark */
   readonly initialSearch: () => string
-  readonly push: (next: string, options?: RouterOptions) => void
-  readonly replace: (next: string, options?: RouterOptions) => void
+  readonly push: (
+    queryObject: Record<string, string>,
+    options?: RouterOptions
+  ) => Promise<unknown>
+  readonly replace: (
+    queryObject: Record<string, string>,
+    options?: RouterOptions
+  ) => Promise<unknown>
 }
 
 export const useGeschichte = <T extends State>(

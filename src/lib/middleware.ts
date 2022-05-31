@@ -33,12 +33,12 @@ export type PushStateFunction<T> = (
   ns: string,
   valueCreator: (state: T) => void,
   routerOptions?: RouterOptions
-) => void
+) => Promise<unknown>
 export type ReplaceStateFunction<T> = (
   ns: string,
   valueCreator: (state: T) => void,
   routerOptions?: RouterOptions
-) => void
+) => Promise<unknown>
 
 export interface InnerNamespace<T extends object> {
   [ns: string]: NamespaceValues<T>
@@ -56,12 +56,12 @@ export interface StoreState<ValueState extends object> extends State {
     ns: readonly string[],
     fn: (...valueState: ValueState[]) => void,
     routerOptions?: RouterOptions
-  ) => void
+  ) => Promise<unknown>
   readonly batchPushState: (
     ns: readonly string[],
     fn: (...valueState: ValueState[]) => void,
     routerOptions?: RouterOptions
-  ) => void
+  ) => Promise<unknown>
   namespaces: InnerNamespace<ValueState>
   readonly pushState: PushStateFunction<ValueState>
   readonly replaceState: ReplaceStateFunction<ValueState>
@@ -93,13 +93,13 @@ export type NamespaceProducer<T extends object> = (
   eventType: HistoryEventType,
   ns?: string,
   routerOptions?: RouterOptions
-) => void
+) => Promise<unknown>
 export type GenericConverter<T extends object> = (
   stateProducer: InnerNamespaceProducerFunction<T>,
   eventType: HistoryEventType,
   ns?: string,
   routerOptions?: RouterOptions
-) => void
+) => Promise<unknown>
 
 export type ImmerProducer<T extends object> = (
   stateMapper: (changes: Patch[], values: StoreState<T>) => StoreState<T>,
@@ -129,94 +129,105 @@ export const historyManagement =
         ns?: string,
         options?: RouterOptions
       ) => {
-        // we call the `immerWithPatches` middleware
-        return set(
-          (changes: Patch[], values: StoreState<T>) => {
-            if (changes.length === 0) {
-              return values
-            }
-            if (type !== HistoryEventType.REGISTER) {
-              // if namespace is not given, calculate what namespaces are affected
-              const affectedNamespaces: string[] = ns
-                ? [ns]
-                : changes.reduce((next: string[], change: Patch) => {
-                    const {
-                      path: [, namespace],
-                    } = change
+        return new Promise<unknown>((resolve, reject) => {
+          set(
+            (changes: Patch[], values: StoreState<T>) => {
+              if (changes.length === 0) {
+                resolve(null)
+                return values
+              }
+              if (type !== HistoryEventType.REGISTER) {
+                // if namespace is not given, calculate what namespaces are affected
+                const affectedNamespaces: string[] = ns
+                  ? [ns]
+                  : changes.reduce((next: string[], change: Patch) => {
+                      const {
+                        path: [, namespace],
+                      } = change
 
-                    if (next.indexOf(namespace as string) === -1) {
-                      return [...next, namespace as string]
-                    }
-                    return next
-                  }, [])
+                      if (next.indexOf(namespace as string) === -1) {
+                        return [...next, namespace as string]
+                      }
+                      return next
+                    }, [])
 
-              const uniqueQueries: {
-                [key: string]: any
-              } = affectedNamespaces.reduce((next, thisNs) => {
-                const { config, query: currentQuery } = get().namespaces[thisNs]
-                return {
-                  ...next,
-                  [thisNs]: applyDiffWithCreateQueriesFromPatch(
-                    config,
-                    thisNs,
-                    currentQuery,
-                    changes,
-                    values.namespaces[thisNs].values,
-                    values.namespaces[thisNs].initialValues
-                  ),
-                }
-              }, {})
-
-              const method = type === HistoryEventType.PUSH ? 'push' : 'replace'
-
-              const otherQueries = Object.keys(values.namespaces).reduce(
-                (next, thisNs) => {
-                  if (affectedNamespaces.indexOf(thisNs) !== -1) {
-                    return next
-                  }
+                const uniqueQueries: {
+                  [key: string]: any
+                } = affectedNamespaces.reduce((next, thisNs) => {
+                  const { config, query: currentQuery } =
+                    get().namespaces[thisNs]
                   return {
                     ...next,
-                    ...values.namespaces[thisNs].query,
+                    [thisNs]: applyDiffWithCreateQueriesFromPatch(
+                      config,
+                      thisNs,
+                      currentQuery,
+                      changes,
+                      values.namespaces[thisNs].values,
+                      values.namespaces[thisNs].initialValues
+                    ),
                   }
-                },
-                {}
-              )
+                }, {})
 
-              const reducedQueries = Object.keys(uniqueQueries).reduce(
-                (next, thisNs) => ({ ...next, ...uniqueQueries[thisNs] }),
-                {}
-              )
+                const method =
+                  type === HistoryEventType.PUSH ? 'push' : 'replace'
 
-              const query = new URLSearchParams({
-                ...otherQueries,
-                ...reducedQueries,
-              }).toString()
-              historyInstance[method](query === '' ? '' : `?${query}`, options)
-
-              // We safe the current state of `query` for all affected namespaces
-              return {
-                ...values,
-                namespaces: {
-                  ...values.namespaces,
-                  ...affectedNamespaces.reduce((next: any, thisNs: string) => {
+                const otherQueries = Object.keys(values.namespaces).reduce(
+                  (next, thisNs) => {
+                    if (affectedNamespaces.indexOf(thisNs) !== -1) {
+                      return next
+                    }
                     return {
                       ...next,
-                      [thisNs]: {
-                        ...values.namespaces[thisNs],
-                        query: uniqueQueries[thisNs],
-                      },
+                      ...values.namespaces[thisNs].query,
                     }
-                  }, {}),
-                },
+                  },
+                  {}
+                )
+
+                const reducedQueries = Object.keys(uniqueQueries).reduce(
+                  (next, thisNs) => ({ ...next, ...uniqueQueries[thisNs] }),
+                  {}
+                )
+
+                const queryObject = Object.freeze({
+                  ...otherQueries,
+                  ...reducedQueries,
+                })
+
+                historyInstance[method](queryObject, options)
+                  .then(resolve)
+                  .catch(reject)
+
+                // We save the current state of `query` for all affected namespaces
+                return {
+                  ...values,
+                  namespaces: {
+                    ...values.namespaces,
+                    ...affectedNamespaces.reduce(
+                      (next: any, thisNs: string) => {
+                        return {
+                          ...next,
+                          [thisNs]: {
+                            ...values.namespaces[thisNs],
+                            query: uniqueQueries[thisNs],
+                          },
+                        }
+                      },
+                      {}
+                    ),
+                  },
+                }
               }
-            }
-            return values
-          },
-          fn as NamespaceProducerFunction<T> &
-            InnerNamespaceProducerFunction<T>,
-          type,
-          ns
-        )
+              resolve(null)
+              return values
+            },
+            fn as NamespaceProducerFunction<T> &
+              InnerNamespaceProducerFunction<T>,
+            type,
+            ns
+          )
+        })
         // H
       },
       get,
@@ -338,7 +349,7 @@ export const converter =
         fn: (...valueState: T[]) => void,
         routerOptions
       ) => {
-        set(
+        return set(
           (state: InnerNamespace<T>) =>
             void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
           HistoryEventType.PUSH,
@@ -352,7 +363,7 @@ export const converter =
         fn: (...valueState: T[]) => void,
         routerOptions
       ) => {
-        set(
+        return set(
           (state: InnerNamespace<T>) =>
             void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
           HistoryEventType.REPLACE,

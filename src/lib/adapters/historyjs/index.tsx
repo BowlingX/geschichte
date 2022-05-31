@@ -22,25 +22,30 @@ export interface Refs {
   readonly updateFromQuery: (query: string) => void
 }
 
+const createSearch = (query: Record<string, string>) => {
+  const queryString = new URLSearchParams(query).toString()
+  return queryString === '' ? '' : `?${queryString}`
+}
+
 export const GeschichteWithHistory = forwardRef<Refs, Props>(
   ({ children, history }, ref) => {
     const historyInstance: HistoryManagement = useMemo(() => {
       return {
         initialSearch: () => history.location.search,
-        push: (next: string) => {
+        push: async (query: Record<string, string>) => {
           history.push(
             {
               hash: history.location.hash,
-              search: next,
+              search: createSearch(query),
             },
             { __g__: true }
           )
         },
-        replace: (next: string) =>
+        replace: async (query: Record<string, string>) =>
           history.replace(
             {
               hash: history.location.hash,
-              search: next,
+              search: createSearch(query),
             },
             { __g__: true }
           ),
