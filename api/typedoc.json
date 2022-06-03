@@ -24,7 +24,7 @@
 					"sources": [
 						{
 							"fileName": "lib/store.ts",
-							"line": 70,
+							"line": 69,
 							"character": 11
 						}
 					],
@@ -56,7 +56,7 @@
 					"sources": [
 						{
 							"fileName": "lib/store.ts",
-							"line": 71,
+							"line": 70,
 							"character": 11
 						}
 					],
@@ -70,13 +70,25 @@
 							"parameters": [
 								{
 									"id": 82,
-									"name": "next",
+									"name": "queryObject",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										],
+										"qualifiedName": "Record",
+										"package": "typescript",
+										"name": "Record"
 									}
 								},
 								{
@@ -94,8 +106,16 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "void"
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "unknown"
+									}
+								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
+								"name": "Promise"
 							}
 						}
 					]
@@ -111,7 +131,7 @@
 					"sources": [
 						{
 							"fileName": "lib/store.ts",
-							"line": 72,
+							"line": 74,
 							"character": 11
 						}
 					],
@@ -125,13 +145,25 @@
 							"parameters": [
 								{
 									"id": 86,
-									"name": "next",
+									"name": "queryObject",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										],
+										"qualifiedName": "Record",
+										"package": "typescript",
+										"name": "Record"
 									}
 								},
 								{
@@ -149,8 +181,16 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "void"
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "unknown"
+									}
+								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
+								"name": "Promise"
 							}
 						}
 					]
@@ -170,7 +210,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 68,
+					"line": 67,
 					"character": 17
 				}
 			]
@@ -353,7 +393,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 66,
+							"line": 65,
 							"character": 2
 						}
 					],
@@ -380,7 +420,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 67,
+							"line": 66,
 							"character": 11
 						}
 					],
@@ -407,7 +447,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 68,
+							"line": 67,
 							"character": 11
 						}
 					],
@@ -434,7 +474,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 61,
+							"line": 60,
 							"character": 11
 						}
 					],
@@ -528,8 +568,16 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "void"
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "unknown"
+									}
+								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
+								"name": "Promise"
 							}
 						}
 					]
@@ -545,7 +593,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 56,
+							"line": 55,
 							"character": 11
 						}
 					],
@@ -639,8 +687,16 @@
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "void"
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "unknown"
+									}
+								],
+								"qualifiedName": "Promise",
+								"package": "typescript",
+								"name": "Promise"
 							}
 						}
 					]
@@ -656,7 +712,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 82,
+							"line": 81,
 							"character": 11
 						}
 					],
@@ -685,7 +741,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 70,
+							"line": 69,
 							"character": 11
 						}
 					],
@@ -794,7 +850,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 80,
+							"line": 79,
 							"character": 11
 						}
 					],
@@ -849,7 +905,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 81,
+							"line": 80,
 							"character": 11
 						}
 					],
@@ -904,7 +960,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 79,
+							"line": 78,
 							"character": 11
 						}
 					],
@@ -936,7 +992,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 55,
+							"line": 54,
 							"character": 11
 						}
 					],
@@ -996,7 +1052,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 54,
+					"line": 53,
 					"character": 17
 				}
 			],
@@ -1033,7 +1089,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 42,
+					"line": 41,
 					"character": 13
 				}
 			],
@@ -1065,35 +1121,6 @@
 			"defaultValue": "'_'"
 		},
 		{
-			"id": 199,
-			"name": "GeschichteForNextjs",
-			"kind": 32,
-			"kindString": "Variable",
-			"flags": {
-				"isConst": true
-			},
-			"sources": [
-				{
-					"fileName": "lib/adapters/NextJs.tsx",
-					"line": 46,
-					"character": 13
-				}
-			],
-			"type": {
-				"type": "reference",
-				"typeArguments": [
-					{
-						"type": "reference",
-						"name": "Props"
-					}
-				],
-				"qualifiedName": "React.FC",
-				"package": "@types/react",
-				"name": "FC"
-			},
-			"defaultValue": "..."
-		},
-		{
 			"id": 172,
 			"name": "StoreContext",
 			"kind": 32,
@@ -1104,7 +1131,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 43,
+					"line": 42,
 					"character": 13
 				}
 			],
@@ -1166,52 +1193,6 @@
 			"defaultValue": "..."
 		},
 		{
-			"id": 200,
-			"name": "default",
-			"kind": 32,
-			"kindString": "Variable",
-			"flags": {
-				"isConst": true
-			},
-			"sources": [
-				{
-					"fileName": "lib/adapters/HistoryJs.tsx",
-					"line": 25,
-					"character": 13
-				}
-			],
-			"type": {
-				"type": "reference",
-				"typeArguments": [
-					{
-						"type": "intersection",
-						"types": [
-							{
-								"type": "reference",
-								"name": "Props"
-							},
-							{
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "reference",
-										"name": "Refs"
-									}
-								],
-								"qualifiedName": "React.RefAttributes",
-								"package": "@types/react",
-								"name": "RefAttributes"
-							}
-						]
-					}
-				],
-				"qualifiedName": "React.ForwardRefExoticComponent",
-				"package": "@types/react",
-				"name": "ForwardRefExoticComponent"
-			},
-			"defaultValue": "..."
-		},
-		{
 			"id": 1,
 			"name": "serializers",
 			"kind": 32,
@@ -1241,6 +1222,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 86,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reference",
 								"id": 15,
@@ -1267,6 +1255,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 87,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reference",
 								"id": 15,
@@ -1293,6 +1288,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 88,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reference",
 								"id": 15,
@@ -1319,6 +1321,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 89,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reference",
 								"id": 15,
@@ -1338,6 +1347,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 90,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reflection",
 								"declaration": {
@@ -1404,6 +1420,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 91,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reference",
 								"id": 15,
@@ -1423,6 +1446,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 92,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reference",
 								"id": 15,
@@ -1442,6 +1472,13 @@
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/serializers.ts",
+									"line": 93,
+									"character": 2
+								}
+							],
 							"type": {
 								"type": "reference",
 								"id": 15,
@@ -1804,7 +1841,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 118,
+					"line": 123,
 					"character": 13
 				}
 			],
@@ -2083,6 +2120,13 @@
 																	"kind": 1024,
 																	"kindString": "Property",
 																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "lib/store.ts",
+																			"line": 256,
+																			"character": 8
+																		}
+																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
@@ -2144,6 +2188,13 @@
 																	"kind": 1024,
 																	"kindString": "Property",
 																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "lib/store.ts",
+																			"line": 258,
+																			"character": 8
+																		}
+																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
@@ -2211,6 +2262,13 @@
 																	"kind": 1024,
 																	"kindString": "Property",
 																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "lib/store.ts",
+																			"line": 261,
+																			"character": 8
+																		}
+																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
@@ -2298,8 +2356,16 @@
 																						}
 																					],
 																					"type": {
-																						"type": "intrinsic",
-																						"name": "void"
+																						"type": "reference",
+																						"typeArguments": [
+																							{
+																								"type": "intrinsic",
+																								"name": "unknown"
+																							}
+																						],
+																						"qualifiedName": "Promise",
+																						"package": "typescript",
+																						"name": "Promise"
 																					}
 																				}
 																			]
@@ -2313,6 +2379,13 @@
 																	"kind": 1024,
 																	"kindString": "Property",
 																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "lib/store.ts",
+																			"line": 263,
+																			"character": 8
+																		}
+																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
@@ -2400,8 +2473,16 @@
 																						}
 																					],
 																					"type": {
-																						"type": "intrinsic",
-																						"name": "void"
+																						"type": "reference",
+																						"typeArguments": [
+																							{
+																								"type": "intrinsic",
+																								"name": "unknown"
+																							}
+																						],
+																						"qualifiedName": "Promise",
+																						"package": "typescript",
+																						"name": "Promise"
 																					}
 																				}
 																			]
@@ -2415,6 +2496,13 @@
 																	"kind": 1024,
 																	"kindString": "Property",
 																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "lib/store.ts",
+																			"line": 267,
+																			"character": 8
+																		}
+																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
@@ -2446,6 +2534,13 @@
 																	"kind": 1024,
 																	"kindString": "Property",
 																	"flags": {},
+																	"sources": [
+																		{
+																			"fileName": "lib/store.ts",
+																			"line": 268,
+																			"character": 8
+																		}
+																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
@@ -2758,7 +2853,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 107,
+					"line": 112,
 					"character": 13
 				}
 			],
@@ -2895,8 +2990,16 @@
 														}
 													],
 													"type": {
-														"type": "intrinsic",
-														"name": "void"
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "intrinsic",
+																"name": "unknown"
+															}
+														],
+														"qualifiedName": "Promise",
+														"package": "typescript",
+														"name": "Promise"
 													}
 												}
 											]
@@ -3007,8 +3110,16 @@
 														}
 													],
 													"type": {
-														"type": "intrinsic",
-														"name": "void"
+														"type": "reference",
+														"typeArguments": [
+															{
+																"type": "intrinsic",
+																"name": "unknown"
+															}
+														],
+														"qualifiedName": "Promise",
+														"package": "typescript",
+														"name": "Promise"
 													}
 												}
 											]
@@ -3040,7 +3151,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 75,
+					"line": 80,
 					"character": 13
 				}
 			],
@@ -3130,7 +3241,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 103,
+					"line": 108,
 					"character": 13
 				}
 			],
@@ -3214,9 +3325,7 @@
 			"children": [
 				171,
 				32,
-				199,
 				172,
-				200,
 				1
 			]
 		},
