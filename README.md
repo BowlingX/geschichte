@@ -23,7 +23,7 @@ API: https://bowlingx.github.io/geschichte/api/index.html
 ```typescript jsx
 
 import { pm, factoryParameters, serializers } from 'geschichte'
-import GeschichteForHistory from 'geschichte/historyjs'
+import { GeschichteWithHistory } from 'geschichte/historyjs'
 import { createBrowserHistory } from 'history'
 
 const parameterConfig = {
@@ -61,9 +61,9 @@ const Component = () => {
 }
 
 const App = () => (
-  <Geschichte history={createBrowserHistory()}>
+  <GeschichteWithHistory history={createBrowserHistory()}>
     <Component />
-  </Geschichte>
+  </GeschichteWithHistory>
 )
 ```
 
