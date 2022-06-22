@@ -10,7 +10,7 @@
 `Geschichte` (german for History / Story / Tale) Let's you manage query-parameters with hooks.
 Uses `immer` and `zustand` to manage the internal state.
 
-Documentation & Demo: https://bowlingx.github.io/geschichte/index.html
+Documentation & Demo: https://bowlingx.github.io/geschichte/iframe.html
 
 API: https://bowlingx.github.io/geschichte/api/index.html
 
