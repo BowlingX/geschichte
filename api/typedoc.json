@@ -1158,30 +1158,11 @@
 											}
 										],
 										"name": "StoreState"
-									},
-									{
-										"type": "reference",
-										"typeArguments": [
-											{
-												"type": "reference",
-												"id": 33,
-												"typeArguments": [
-													{
-														"type": "intrinsic",
-														"name": "any"
-													}
-												],
-												"name": "StoreState"
-											}
-										],
-										"qualifiedName": "StoreApi",
-										"package": "zustand",
-										"name": "StoreApi"
 									}
 								],
-								"qualifiedName": "UseBoundStore",
+								"qualifiedName": "StoreApi",
 								"package": "zustand",
-								"name": "UseBoundStore"
+								"name": "StoreApi"
 							}
 						]
 					}
@@ -1841,7 +1822,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 123,
+					"line": 115,
 					"character": 13
 				}
 			],
@@ -2123,7 +2104,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 256,
+																			"line": 247,
 																			"character": 8
 																		}
 																	],
@@ -2191,7 +2172,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 258,
+																			"line": 249,
 																			"character": 8
 																		}
 																	],
@@ -2265,7 +2246,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 261,
+																			"line": 252,
 																			"character": 8
 																		}
 																	],
@@ -2382,7 +2363,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 263,
+																			"line": 254,
 																			"character": 8
 																		}
 																	],
@@ -2499,7 +2480,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 267,
+																			"line": 258,
 																			"character": 8
 																		}
 																	],
@@ -2537,7 +2518,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 268,
+																			"line": 259,
 																			"character": 8
 																		}
 																	],
@@ -2853,7 +2834,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 112,
+					"line": 104,
 					"character": 13
 				}
 			],
@@ -3194,35 +3175,59 @@
 						"typeArguments": [
 							{
 								"type": "reference",
-								"id": 33,
 								"typeArguments": [
 									{
 										"type": "reference",
-										"id": 90,
-										"name": "T"
-									}
-								],
-								"name": "StoreState"
-							},
-							{
-								"type": "reference",
-								"typeArguments": [
-									{
-										"type": "reference",
-										"id": 33,
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 90,
-												"name": "T"
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 33,
+														"typeArguments": [
+															{
+																"type": "reference",
+																"id": 90,
+																"name": "T"
+															}
+														],
+														"name": "StoreState"
+													}
+												],
+												"qualifiedName": "StoreApi",
+												"package": "zustand",
+												"name": "StoreApi"
+											},
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "reference",
+														"id": 33,
+														"typeArguments": [
+															{
+																"type": "reference",
+																"id": 90,
+																"name": "T"
+															}
+														],
+														"name": "StoreState"
+													}
+												],
+												"qualifiedName": "StoreSubscribeWithSelector",
+												"package": "zustand",
+												"name": "StoreSubscribeWithSelector"
 											}
 										],
-										"name": "StoreState"
+										"qualifiedName": "Write",
+										"package": "zustand",
+										"name": "Write"
 									}
 								],
-								"qualifiedName": "StoreApi",
+								"qualifiedName": "WithDevtools",
 								"package": "zustand",
-								"name": "StoreApi"
+								"name": "WithDevtools"
 							}
 						],
 						"qualifiedName": "UseBoundStore",
@@ -3241,7 +3246,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 108,
+					"line": 100,
 					"character": 13
 				}
 			],
@@ -3268,18 +3273,6 @@
 					"type": {
 						"type": "reference",
 						"typeArguments": [
-							{
-								"type": "reference",
-								"id": 33,
-								"typeArguments": [
-									{
-										"type": "reference",
-										"id": 170,
-										"name": "T"
-									}
-								],
-								"name": "StoreState"
-							},
 							{
 								"type": "reference",
 								"typeArguments": [
