@@ -39,9 +39,9 @@ import {
 enablePatches()
 
 export const DEFAULT_NAMESPACE = 'default'
-export const StoreContext = createContext<UseBoundStore<
-  StoreState<any>
-> | null>(null)
+export const StoreContext = createContext<StoreApi<StoreState<any>> | null>(
+  null
+)
 
 export interface Parameter<V = any> {
   readonly name: string
@@ -83,30 +83,22 @@ export const useGeschichte = <T extends State>(
   const thisStore = converter<T>(historyInstance)
   const storeWithHistory = historyManagement<T>(historyInstance)(thisStore)
 
-  const middleware = immerWithPatches<T>(
+  const middleware = immerWithPatches(
     storeWithHistory
-  ) as unknown as StateCreator<StoreState<T>>
+  ) as unknown as StateCreator<StoreState<T>, any>
 
   if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
-    return create<
-      StoreState<T>,
-      SetState<StoreState<T>>,
-      GetState<StoreState<T>>,
-      StoreApi<StoreState<T>>
-    >(subscribeWithSelector(devtools(middleware, { name: 'geschichte' })))
+    return create(
+      subscribeWithSelector(devtools(middleware, { name: 'geschichte' }))
+    )
   }
-  return create<
-    StoreState<T>,
-    SetState<StoreState<T>>,
-    GetState<StoreState<T>>,
-    StoreApi<StoreState<T>>
-  >(subscribeWithSelector(middleware))
+  return create(subscribeWithSelector(middleware))
 }
 
 type InitialValuesProvider<T> = T | (() => T)
 
 export const useStore = <T extends object>() => {
-  return useContext(StoreContext) as UseBoundStore<StoreState<T>>
+  return useContext(StoreContext) as UseBoundStore<StoreApi<StoreState<T>>>
 }
 
 export const useBatchQuery = <T extends State>() => {
@@ -158,7 +150,6 @@ export const factoryParameters = <T extends object>(
 
   const useQuery = () => {
     const useStore = useContext(StoreContext) as UseBoundStore<
-      StoreState<T>,
       Mutate<
         StoreApi<StoreState<T>>,
         [['zustand/subscribeWithSelector', never]]
