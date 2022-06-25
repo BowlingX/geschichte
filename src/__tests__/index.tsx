@@ -111,6 +111,12 @@ describe('<Geschichte />', () => {
       expect(screen.getByRole('content').textContent).toEqual('test')
       expect(history.location.search).toEqual('?test2.wow=anotherOne')
     })
+
+    it('should throw when `Provider` not in scope', () => {
+      expect(() => render(<Component />)).toThrow(
+        'Cannot find `GeschichteProvider` in React tree context. Please provide outer <GeschichteProvider />.'
+      )
+    })
   })
 
   describe('renders with hash', () => {

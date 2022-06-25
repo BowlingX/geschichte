@@ -80,7 +80,7 @@
     "next": ">=11",
     "react": ">=16.8",
     "react-dom": ">=16.8",
-    "zustand": "^4"
+    "zustand": "4.0.0-rc.1 - 4"
   },
   "peerDependenciesMeta": {
     "next": {

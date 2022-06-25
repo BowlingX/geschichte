@@ -87,7 +87,7 @@ export const useGeschichte = <T extends State>(
     storeWithHistory
   ) as unknown as StateCreator<StoreState<T>, any>
 
-  if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
+  if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
     return create(
       subscribeWithSelector(devtools(middleware, { name: 'geschichte' }))
     )
@@ -97,8 +97,19 @@ export const useGeschichte = <T extends State>(
 
 type InitialValuesProvider<T> = T | (() => T)
 
+const assertContextExists = <T>(value: T | null): T => {
+  if (process.env.NODE_ENV !== 'production' && value === null) {
+    throw new Error(
+      'Cannot find `GeschichteProvider` in React tree context. Please provide outer <GeschichteProvider />.'
+    )
+  }
+  return value as T
+}
+
 export const useStore = <T extends object>() => {
-  return useContext(StoreContext) as UseBoundStore<StoreApi<StoreState<T>>>
+  return assertContextExists(
+    useContext(StoreContext) as UseBoundStore<StoreApi<StoreState<T>>>
+  )
 }
 
 export const useBatchQuery = <T extends State>() => {
@@ -149,12 +160,14 @@ export const factoryParameters = <T extends object>(
   const memCreateInitialValues = memoizeOne(createInitialValues)
 
   const useQuery = () => {
-    const useStore = useContext(StoreContext) as UseBoundStore<
-      Mutate<
-        StoreApi<StoreState<T>>,
-        [['zustand/subscribeWithSelector', never]]
+    const useStore = assertContextExists(
+      useContext(StoreContext) as UseBoundStore<
+        Mutate<
+          StoreApi<StoreState<T>>,
+          [['zustand/subscribeWithSelector', never]]
+        >
       >
-    >
+    )
 
     const {
       register,
