@@ -1,5 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-array */
-import React, { FC, memo, ReactNode, useEffect, useMemo } from 'react'
+import React, { FC, memo, ReactNode, useEffect, useMemo, useRef } from 'react'
 import {
   Router as Router$,
   default as NextRouter,
@@ -53,10 +53,13 @@ export const GeschichteForNextjs: FC<Props> = ({
   routerPush,
   routerReplace,
 }) => {
+  const lastClientSideQuery = useRef<string>()
   const historyInstance: HistoryManagement = useMemo(() => {
     return {
       initialSearch: () => {
-        return typeof window === 'undefined' ? '?' : window.location.search
+        return typeof window === 'undefined'
+          ? '?'
+          : lastClientSideQuery.current || window.location.search
       },
       push: (query, options) => {
         const [pathname] = split(Router.asPath)
@@ -104,8 +107,13 @@ export const GeschichteForNextjs: FC<Props> = ({
 
   useEffect(() => {
     updateFromQuery(window.location.search)
+    // tslint:disable-next-line
+    lastClientSideQuery.current = window.location.search
     const routeChangeStartHandler = (path: string) => {
-      updateFromQuery(queryFromPath(path))
+      const query = queryFromPath(path)
+      // tslint:disable-next-line
+      lastClientSideQuery.current = query
+      updateFromQuery(query)
     }
     Router.events.on('routeChangeStart', routeChangeStartHandler)
     return () => {
