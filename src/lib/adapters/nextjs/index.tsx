@@ -24,6 +24,7 @@ declare type Url = UrlObject | string
 interface Props {
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
+  readonly changeEvent: 'routeChangeComplete' | 'routeChangeStart'
   // tslint:disable-next-line:no-mixed-interface
   readonly routerPush?: (
     url: Url,
@@ -52,6 +53,7 @@ export const GeschichteForNextjs: FC<Props> = ({
   defaultReplaceOptions,
   routerPush,
   routerReplace,
+  changeEvent,
 }) => {
   const lastClientSideQuery = useRef<string>()
   const historyInstance: HistoryManagement = useMemo(() => {
@@ -106,20 +108,21 @@ export const GeschichteForNextjs: FC<Props> = ({
   const { updateFromQuery } = state
 
   useEffect(() => {
-    updateFromQuery(window.location.search)
+    const initialSearch = window.location.search
     // tslint:disable-next-line
-    lastClientSideQuery.current = window.location.search
+    lastClientSideQuery.current = initialSearch
+    updateFromQuery(initialSearch)
     const routeChangeStartHandler = (path: string) => {
       const query = queryFromPath(path)
       // tslint:disable-next-line
       lastClientSideQuery.current = query
       updateFromQuery(query)
     }
-    Router.events.on('routeChangeStart', routeChangeStartHandler)
+    Router.events.on(changeEvent, routeChangeStartHandler)
     return () => {
-      Router.events.off('routeChangeStart', routeChangeStartHandler)
+      Router.events.off(changeEvent, routeChangeStartHandler)
     }
-  }, [updateFromQuery])
+  }, [updateFromQuery, changeEvent])
 
   useEffect(() => {
     const { unregister } = state
@@ -141,6 +144,7 @@ type ClientOnlyProps = Pick<
 > & {
   readonly children: ReactNode
   readonly omitQueries?: boolean
+  readonly changeEvent?: Props['changeEvent']
 }
 
 // see https://nextjs.org/docs/api-reference/next/router#routerpush for options;
@@ -151,12 +155,14 @@ export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
   omitQueries = true,
   defaultPushOptions = defaultRoutingOptions,
   defaultReplaceOptions = defaultRoutingOptions,
+  changeEvent = 'routeChangeStart',
   ...props
 }) => {
   return (
     <GeschichteForNextjs
       defaultReplaceOptions={defaultReplaceOptions}
       defaultPushOptions={defaultPushOptions}
+      changeEvent={changeEvent}
       {...props}
     />
   )
