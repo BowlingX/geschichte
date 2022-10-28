@@ -225,13 +225,15 @@ export const applyFlatConfigToState = <T extends object>(
  * @return a key/value object with the object containing the defined parameters as key.
  */
 export const flattenConfig = (
-  config: Config,
-  path: readonly string[] = []
+  config: Config | readonly Config[],
+  path: readonly (string | number)[] = []
 ): MappedConfig => {
   return Object.keys(config).reduce(
-    (next: { readonly [index: string]: any }, key) => {
-      const v = config[key]
-      const nextPath: ReadonlyArray<string> = [...path, key]
+    (next: { readonly [index: string]: any }, key: string | number) => {
+      const v = Array.isArray(config)
+        ? config[key as number]
+        : (config as Config)[key as string]
+      const nextPath: ReadonlyArray<string | number> = [...path, key]
       if (typeof v === 'function') {
         const { name, ...rest } = v()
         if (next[name] !== undefined) {
