@@ -2632,8 +2632,24 @@
 							"kindString": "Parameter",
 							"flags": {},
 							"type": {
-								"type": "reference",
-								"name": "Config"
+								"type": "union",
+								"types": [
+									{
+										"type": "reference",
+										"name": "Config"
+									},
+									{
+										"type": "typeOperator",
+										"operator": "readonly",
+										"target": {
+											"type": "array",
+											"elementType": {
+												"type": "reference",
+												"name": "Config"
+											}
+										}
+									}
+								]
 							}
 						},
 						{
@@ -2648,8 +2664,17 @@
 								"target": {
 									"type": "array",
 									"elementType": {
-										"type": "intrinsic",
-										"name": "string"
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
 									}
 								}
 							},
