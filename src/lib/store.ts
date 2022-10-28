@@ -55,7 +55,7 @@ export interface MappedParameter extends Parameter {
 }
 
 export interface Config {
-  readonly [propName: string]: Config | (() => Parameter)
+  readonly [propName: string]: this | this[] | (() => Parameter)
 }
 
 export interface MappedConfig {
