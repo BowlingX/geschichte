@@ -41,6 +41,11 @@ interface Props {
 // FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
 const Router = (NextRouter as any as { readonly default: Router$ }).default
 
+const queryFromPath = (path: string) => {
+  const [, query] = split(path)
+  return `?${query || ''}`
+}
+
 export const GeschichteForNextjs: FC<Props> = ({
   children,
   defaultPushOptions,
@@ -51,7 +56,7 @@ export const GeschichteForNextjs: FC<Props> = ({
   const historyInstance: HistoryManagement = useMemo(() => {
     return {
       initialSearch: () => {
-        return typeof window === 'undefined' ? '?' : Router.asPath
+        return typeof window === 'undefined' ? '?' : window.location.search
       },
       push: (query, options) => {
         const [pathname] = split(Router.asPath)
@@ -98,10 +103,9 @@ export const GeschichteForNextjs: FC<Props> = ({
   const { updateFromQuery } = state
 
   useEffect(() => {
+    updateFromQuery(window.location.search)
     const routeChangeStartHandler = (path: string) => {
-      const [, query] = split(path)
-      const nextQuery = `?${query || ''}`
-      updateFromQuery(nextQuery)
+      updateFromQuery(queryFromPath(path))
     }
     Router.events.on('routeChangeStart', routeChangeStartHandler)
     return () => {
