@@ -24,7 +24,7 @@ declare type Url = UrlObject | string
 interface Props {
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
-  readonly changeEvent: 'routeChangeComplete' | 'routeChangeStart'
+  readonly changeEvent: 'routeChangeComplete' | 'routeChangeStart' | 'beforeHistoryChange'
   // tslint:disable-next-line:no-mixed-interface
   readonly routerPush?: (
     url: Url,
@@ -155,7 +155,7 @@ export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
   omitQueries = true,
   defaultPushOptions = defaultRoutingOptions,
   defaultReplaceOptions = defaultRoutingOptions,
-  changeEvent = 'routeChangeStart',
+  changeEvent = 'beforeHistoryChange',
   ...props
 }) => {
   return (
