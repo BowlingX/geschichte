@@ -10,9 +10,7 @@ import {
   useState,
 } from 'react'
 import create, {
-  GetState,
   Mutate,
-  SetState,
   State,
   StateCreator,
   StoreApi,

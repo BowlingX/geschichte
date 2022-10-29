@@ -24,7 +24,10 @@ declare type Url = UrlObject | string
 interface Props {
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
-  readonly changeEvent: 'routeChangeComplete' | 'routeChangeStart' | 'beforeHistoryChange'
+  readonly changeEvent:
+    | 'routeChangeComplete'
+    | 'routeChangeStart'
+    | 'beforeHistoryChange'
   // tslint:disable-next-line:no-mixed-interface
   readonly routerPush?: (
     url: Url,
