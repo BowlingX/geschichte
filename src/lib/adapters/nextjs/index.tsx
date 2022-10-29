@@ -1,6 +1,15 @@
 /* tslint:disable:no-expression-statement readonly-array */
-import React, { FC, memo, ReactNode, useEffect, useMemo, useRef } from 'react'
+import React, {
+  FC,
+  memo,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import {
+  useRouter,
   Router as Router$,
   default as NextRouter,
   // tslint:disable-next-line:no-submodule-imports
@@ -22,12 +31,10 @@ interface TransitionOptions {
 declare type Url = UrlObject | string
 
 interface Props {
+  readonly initialClientOnlyAsPath?: string
+  readonly asPath: string
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
-  readonly changeEvent:
-    | 'routeChangeComplete'
-    | 'routeChangeStart'
-    | 'beforeHistoryChange'
   // tslint:disable-next-line:no-mixed-interface
   readonly routerPush?: (
     url: Url,
@@ -45,26 +52,24 @@ interface Props {
 // FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
 const Router = (NextRouter as any as { readonly default: Router$ }).default
 
-const queryFromPath = (path: string) => {
-  const [, query] = split(path)
-  return `?${query || ''}`
-}
-
 export const GeschichteForNextjs: FC<Props> = ({
   children,
+  asPath,
+  initialClientOnlyAsPath,
   defaultPushOptions,
   defaultReplaceOptions,
   routerPush,
   routerReplace,
-  changeEvent,
 }) => {
-  const lastClientSideQuery = useRef<string>()
+  const lastClientSideQuery = useRef(initialClientOnlyAsPath)
   const historyInstance: HistoryManagement = useMemo(() => {
     return {
       initialSearch: () => {
-        return typeof window === 'undefined'
-          ? '?'
-          : lastClientSideQuery.current || window.location.search
+        const [, query] =
+          typeof window === 'undefined'
+            ? split(asPath)
+            : split(lastClientSideQuery.current || Router.asPath)
+        return `?${query || ''}`
       },
       push: (query, options) => {
         const [pathname] = split(Router.asPath)
@@ -111,21 +116,14 @@ export const GeschichteForNextjs: FC<Props> = ({
   const { updateFromQuery } = state
 
   useEffect(() => {
-    const initialSearch = window.location.search
-    // tslint:disable-next-line
-    lastClientSideQuery.current = initialSearch
-    updateFromQuery(initialSearch)
-    const routeChangeStartHandler = (path: string) => {
-      const query = queryFromPath(path)
+    const [, query] = split(asPath)
+    const nextQuery = `?${query || ''}`
+    if (initialClientOnlyAsPath) {
       // tslint:disable-next-line
-      lastClientSideQuery.current = query
-      updateFromQuery(query)
+      lastClientSideQuery.current = nextQuery
     }
-    Router.events.on(changeEvent, routeChangeStartHandler)
-    return () => {
-      Router.events.off(changeEvent, routeChangeStartHandler)
-    }
-  }, [updateFromQuery, changeEvent])
+    updateFromQuery(nextQuery)
+  }, [asPath, updateFromQuery])
 
   useEffect(() => {
     const { unregister } = state
@@ -147,7 +145,6 @@ type ClientOnlyProps = Pick<
 > & {
   readonly children: ReactNode
   readonly omitQueries?: boolean
-  readonly changeEvent?: Props['changeEvent']
 }
 
 // see https://nextjs.org/docs/api-reference/next/router#routerpush for options;
@@ -158,14 +155,33 @@ export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
   omitQueries = true,
   defaultPushOptions = defaultRoutingOptions,
   defaultReplaceOptions = defaultRoutingOptions,
-  changeEvent = 'beforeHistoryChange',
   ...props
 }) => {
+  const { asPath } = useRouter()
+
+  const thisAsPath = useMemo(() => {
+    if (omitQueries) {
+      const [path] = asPath.split('?')
+      return path
+    }
+    return asPath
+  }, [asPath, omitQueries])
+
+  const [pp, setPp] = useState(thisAsPath)
+
+  useEffect(() => {
+    // We have to render the page always as if it would be rendered without query parameters, because
+    // nextjs does not include the query parameters in the cache key. To not add side effects for other clients,
+    // we set the path including query parameters on client mount.
+    setPp(asPath)
+  }, [asPath])
+
   return (
     <GeschichteForNextjs
+      initialClientOnlyAsPath={thisAsPath}
       defaultReplaceOptions={defaultReplaceOptions}
       defaultPushOptions={defaultPushOptions}
-      changeEvent={changeEvent}
+      asPath={pp}
       {...props}
     />
   )
