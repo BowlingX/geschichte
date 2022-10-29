@@ -24,7 +24,7 @@
 					"sources": [
 						{
 							"fileName": "lib/store.ts",
-							"line": 69,
+							"line": 67,
 							"character": 11
 						}
 					],
@@ -56,7 +56,7 @@
 					"sources": [
 						{
 							"fileName": "lib/store.ts",
-							"line": 70,
+							"line": 68,
 							"character": 11
 						}
 					],
@@ -131,7 +131,7 @@
 					"sources": [
 						{
 							"fileName": "lib/store.ts",
-							"line": 74,
+							"line": 72,
 							"character": 11
 						}
 					],
@@ -210,7 +210,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 67,
+					"line": 65,
 					"character": 17
 				}
 			]
@@ -393,7 +393,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 65,
+							"line": 73,
 							"character": 2
 						}
 					],
@@ -420,7 +420,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 66,
+							"line": 74,
 							"character": 11
 						}
 					],
@@ -447,7 +447,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 67,
+							"line": 75,
 							"character": 11
 						}
 					],
@@ -474,7 +474,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 60,
+							"line": 68,
 							"character": 11
 						}
 					],
@@ -593,7 +593,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 55,
+							"line": 63,
 							"character": 11
 						}
 					],
@@ -712,7 +712,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 81,
+							"line": 89,
 							"character": 11
 						}
 					],
@@ -741,7 +741,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 69,
+							"line": 77,
 							"character": 11
 						}
 					],
@@ -808,8 +808,20 @@
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "intrinsic",
-										"name": "object"
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "intrinsic",
+												"name": "string"
+											}
+										],
+										"qualifiedName": "Record",
+										"package": "typescript",
+										"name": "Record"
 									}
 								},
 								{
@@ -850,7 +862,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 79,
+							"line": 87,
 							"character": 11
 						}
 					],
@@ -905,7 +917,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 80,
+							"line": 88,
 							"character": 11
 						}
 					],
@@ -960,7 +972,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 78,
+							"line": 86,
 							"character": 11
 						}
 					],
@@ -992,7 +1004,7 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 54,
+							"line": 62,
 							"character": 11
 						}
 					],
@@ -1052,7 +1064,7 @@
 			"sources": [
 				{
 					"fileName": "lib/middleware.ts",
-					"line": 53,
+					"line": 61,
 					"character": 17
 				}
 			],
@@ -1089,7 +1101,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 41,
+					"line": 39,
 					"character": 13
 				}
 			],
@@ -1131,7 +1143,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 42,
+					"line": 40,
 					"character": 13
 				}
 			],
@@ -1822,7 +1834,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 126,
+					"line": 124,
 					"character": 13
 				}
 			],
@@ -2104,7 +2116,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 260,
+																			"line": 258,
 																			"character": 8
 																		}
 																	],
@@ -2172,7 +2184,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 262,
+																			"line": 260,
 																			"character": 8
 																		}
 																	],
@@ -2246,7 +2258,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 265,
+																			"line": 263,
 																			"character": 8
 																		}
 																	],
@@ -2363,7 +2375,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 267,
+																			"line": 265,
 																			"character": 8
 																		}
 																	],
@@ -2480,7 +2492,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 271,
+																			"line": 269,
 																			"character": 8
 																		}
 																	],
@@ -2518,7 +2530,7 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/store.ts",
-																			"line": 272,
+																			"line": 270,
 																			"character": 8
 																		}
 																	],
@@ -2859,7 +2871,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 115,
+					"line": 113,
 					"character": 13
 				}
 			],
@@ -3157,7 +3169,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 80,
+					"line": 78,
 					"character": 13
 				}
 			],
@@ -3271,7 +3283,7 @@
 			"sources": [
 				{
 					"fileName": "lib/store.ts",
-					"line": 109,
+					"line": 107,
 					"character": 13
 				}
 			],
