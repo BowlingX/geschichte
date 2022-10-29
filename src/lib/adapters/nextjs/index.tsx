@@ -31,7 +31,7 @@ interface TransitionOptions {
 declare type Url = UrlObject | string
 
 interface Props {
-  readonly initialClientOnlyAsPath?: string
+  readonly initialClientOnlyAsPath: string
   readonly asPath: string
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
@@ -51,6 +51,11 @@ interface Props {
 
 // FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
 const Router = (NextRouter as any as { readonly default: Router$ }).default
+
+const queryFromPath = (path: string) => {
+  const [, query] = split(path)
+  return `?${query || ''}`
+}
 
 export const GeschichteForNextjs: FC<Props> = ({
   children,
@@ -116,14 +121,20 @@ export const GeschichteForNextjs: FC<Props> = ({
   const { updateFromQuery } = state
 
   useEffect(() => {
-    const [, query] = split(asPath)
-    const nextQuery = `?${query || ''}`
-    if (initialClientOnlyAsPath) {
+    // tslint:disable-next-line
+    lastClientSideQuery.current = window.location.href
+    updateFromQuery(window.location.search)
+    const routeChangeStartHandler = (path: string) => {
+      const nextQuery = queryFromPath(path)
       // tslint:disable-next-line
-      lastClientSideQuery.current = nextQuery
+      lastClientSideQuery.current = path
+      updateFromQuery(nextQuery)
     }
-    updateFromQuery(nextQuery)
-  }, [asPath, updateFromQuery])
+    Router.events.on('beforeHistoryChange', routeChangeStartHandler)
+    return () => {
+      Router.events.off('beforeHistoryChange', routeChangeStartHandler)
+    }
+  }, [updateFromQuery])
 
   useEffect(() => {
     const { unregister } = state
