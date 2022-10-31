@@ -195,7 +195,8 @@ export const applyFlatConfigToState = <T extends object>(
   queryValues: { readonly [index: string]: any },
   ns: string,
   state: T,
-  initialState: T
+  initialState: T,
+  apply = true
 ) => {
   return Object.keys(config).reduce((next, queryParameter) => {
     const { path, serializer, skipValue } = config[queryParameter]
@@ -206,9 +207,16 @@ export const applyFlatConfigToState = <T extends object>(
       maybeValue === undefined
         ? get(initialState, path)
         : serializer.deserialize(maybeValue)
-    createOrApplyPath(state, path, value)
+
+    if (apply) {
+      createOrApplyPath(state, path, value)
+    }
 
     if (skipValue(value, get(initialState, path))) {
+      return next
+    }
+
+    if (typeof maybeValue === 'undefined') {
       return next
     }
 

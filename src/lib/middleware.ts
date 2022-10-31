@@ -304,34 +304,6 @@ export const immerWithPatches =
 const parseSearchString = (search: string) =>
   Object.fromEntries(new URLSearchParams(search).entries())
 
-const skipUndefinedKeys = (
-  obj: Record<string, unknown>
-): Record<string, string> => {
-  return Object.keys(obj)
-    .filter((key) => typeof obj[key] !== 'undefined')
-    .reduce((next, key) => {
-      return {
-        ...next,
-        [key]: obj[key],
-      }
-    }, {})
-}
-
-const groupByNamespace = (queries: Record<string, string>) => {
-  return Object.keys(queries).reduce((prev, parameter) => {
-    const [thisNs] = parameter.split('.')
-    const ns = thisNs === parameter ? DEFAULT_NAMESPACE : thisNs
-    return {
-      ...prev,
-      [ns]: {
-        ...(prev[ns] || {}),
-        [parameter]: queries[parameter],
-      },
-    }
-    // tslint:disable-next-line:no-object-literal-type-assertion
-  }, {} as Record<string, Record<string, string>>)
-}
-
 export const converter =
   <T extends object>(historyInstance: HistoryManagement) =>
   (
@@ -344,18 +316,21 @@ export const converter =
     const updateFromQuery = (search: string) => {
       const nextQueries = memoizedGetInitialQueries(search)
       const namespaces = get().namespaces
-      const queriesByNamespace = groupByNamespace(nextQueries)
       Object.keys(namespaces).forEach((ns) => {
         // It's possible that the ns got cleared while we are applying the new state.
         // here we explicitly get the reference to the ns, `namespaces` is too weak.
         if (get().namespaces[ns]) {
+          const outerState = get().namespaces[ns]
+          const thisNextQueries = applyFlatConfigToState(
+            outerState.mappedConfig,
+            nextQueries,
+            ns,
+            {},
+            outerState.initialValues,
+            false
+          )
           // We might have already the correct state applied that match the query parameters
-          if (
-            !shallow(
-              skipUndefinedKeys(get().namespaces[ns].query),
-              queriesByNamespace[ns] || {}
-            )
-          ) {
+          if (!shallow(get().namespaces[ns].query, thisNextQueries)) {
             set(
               (state: NamespaceValues<T>) => {
                 state.query = applyFlatConfigToState(

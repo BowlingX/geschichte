@@ -124,11 +124,17 @@ export const GeschichteForNextjs: FC<Props> = ({
     // tslint:disable-next-line
     lastClientSideQuery.current = window.location.href
     updateFromQuery(window.location.search)
+    // tslint:disable-next-line:no-let
+    let skipEvent = true
     const routeChangeStartHandler = (path: string) => {
       const nextQuery = queryFromPath(path)
       // tslint:disable-next-line
       lastClientSideQuery.current = path
-      updateFromQuery(nextQuery)
+      // skip execution for first render
+      if (!skipEvent) {
+        updateFromQuery(nextQuery)
+      }
+      skipEvent = false
     }
     Router.events.on('beforeHistoryChange', routeChangeStartHandler)
     return () => {
