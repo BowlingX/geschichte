@@ -3,7 +3,7 @@ version: 2
 jobs:
   node-18:
     docker:
-      - image: circleci/node:18.12.1
+      - image: cimg/node:18.12.1
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -39,7 +39,7 @@ jobs:
       - run: yarn run cov:send
   publish:
     docker:
-      - image: circleci/node:18.12.1
+      - image: cimg/node:18.12.1
     working_directory: ~/geschichte
     steps:
       - checkout
