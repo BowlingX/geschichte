@@ -1,9 +1,9 @@
 # https://circleci.com/docs/2.0/language-javascript/
 version: 2
 jobs:
-  node-18:
+  node-lts:
     docker:
-      - image: cimg/node:18.12.1
+      - image: cimg/node:lts
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -22,7 +22,7 @@ jobs:
       - run: yarn run cov:send
   'node-latest':
     docker:
-      - image: circleci/node:latest
+      - image: cimg/node:current
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -39,7 +39,7 @@ jobs:
       - run: yarn run cov:send
   publish:
     docker:
-      - image: cimg/node:18.12.1
+      - image: cimg/node:lts
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -65,7 +65,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - 'node-18'
+      - 'node-lts'
       - 'node-latest'
       - publish:
           filters:
@@ -73,5 +73,5 @@ workflows:
               only:
                 - master
           requires:
-            - 'node-18'
+            - 'node-lts'
             - 'node-latest'
