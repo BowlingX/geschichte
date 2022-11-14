@@ -1,6 +1,6 @@
-import { pm } from '../lib/utils'
-import { serializers } from '../lib/serializers'
-import { factoryParameters } from '../lib/store'
+import { pm } from '../lib/utils.js'
+import { serializers } from '../lib/serializers.js'
+import { factoryParameters } from '../lib/store.js'
 import React, { createContext, FC, useContext, useMemo } from 'react'
 
 const config = {

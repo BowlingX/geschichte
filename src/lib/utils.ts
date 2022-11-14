@@ -1,9 +1,9 @@
 /* tslint:disable:no-expression-statement no-let no-submodule-imports no-object-mutation */
 import { Patch } from 'immer'
 import shallowEqual from 'zustand/shallow'
-import { GenericObject } from './middleware'
-import { Serializer } from './serializers'
-import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store'
+import { GenericObject } from './middleware.js'
+import { Serializer } from './serializers.js'
+import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store.js'
 
 /**
  * Default skip implementation

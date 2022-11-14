@@ -16,8 +16,8 @@ import {
 } from 'next/router.js'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
-import { StoreState } from '../../middleware'
-import { HistoryManagement, StoreContext, useGeschichte } from '../../store'
+import { StoreState } from '../../middleware.js'
+import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
 import type { UrlObject } from 'url'
 
 const split = (url?: string) => url?.split('?') || []

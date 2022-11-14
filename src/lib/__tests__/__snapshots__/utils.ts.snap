@@ -1,35 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`utils flattenConfig should create a flat config from \`config\` 1`] = `
-Object {
-  "anotherOne": Object {
-    "path": Array [
+{
+  "anotherOne": {
+    "path": [
       "somethingElse",
       "deeper",
     ],
-    "serializer": Object {
+    "serializer": {
       "deserialize": [Function],
       "serialize": [Function],
     },
     "skipValue": [Function],
   },
-  "deeper": Object {
-    "path": Array [
+  "deeper": {
+    "path": [
       "somethingElse",
       "evenDeeper",
       "test",
     ],
-    "serializer": Object {
+    "serializer": {
       "deserialize": [Function],
       "serialize": [Function],
     },
     "skipValue": [Function],
   },
-  "theParameter": Object {
-    "path": Array [
+  "theParameter": {
+    "path": [
       "state",
     ],
-    "serializer": Object {
+    "serializer": {
       "deserialize": [Function],
       "serialize": [Function],
     },

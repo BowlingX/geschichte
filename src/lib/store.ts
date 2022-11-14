@@ -1,6 +1,6 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { Draft, enablePatches, produce } from 'immer'
-import memoizeOne from 'memoize-one'
+import memoizeOneImport from 'memoize-one'
 import {
   createContext,
   useCallback,
@@ -9,15 +9,11 @@ import {
   useMemo,
   useState,
 } from 'react'
-import create, {
-  Mutate,
-  State,
-  StateCreator,
-  StoreApi,
-  UseBoundStore,
-} from 'zustand'
+import create, { Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
+
+const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
@@ -26,13 +22,13 @@ import {
   historyManagement,
   immerWithPatches,
   StoreState,
-} from './middleware'
-import { Serializer } from './serializers'
+} from './middleware.js'
+import { Serializer } from './serializers.js'
 import {
   applyFlatConfigToState,
   createQueryObject,
   flattenConfig,
-} from './utils'
+} from './utils.js'
 
 enablePatches()
 
@@ -75,7 +71,7 @@ export interface HistoryManagement {
   ) => Promise<unknown>
 }
 
-export const useGeschichte = <T extends State>(
+export const useGeschichte = <T extends object>(
   historyInstance: HistoryManagement
 ) => {
   const thisStore = converter<T>(historyInstance)
@@ -110,7 +106,7 @@ export const useStore = <T extends object>() => {
   )
 }
 
-export const useBatchQuery = <T extends State>() => {
+export const useBatchQuery = <T extends object>() => {
   const store = useStore<T>()
   return store(
     ({ batchPushState, batchReplaceState }) => ({

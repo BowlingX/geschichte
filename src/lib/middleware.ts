@@ -1,20 +1,21 @@
 /* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation readonly-array */
 import { Patch, produceWithPatches } from 'immer'
-import memoizeOne from 'memoize-one'
-import { GetState, State, StoreApi } from 'zustand'
+import memoizeOneImport from 'memoize-one'
+import { StoreApi } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import shallow from 'zustand/shallow'
 import {
   Config,
-  DEFAULT_NAMESPACE,
   HistoryManagement,
   MappedConfig,
   RouterOptions,
-} from './store'
+} from './store.js'
 import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState,
-} from './utils'
+} from './utils.js'
+
+const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
 export enum HistoryEventType {
   PUSH,
@@ -58,7 +59,7 @@ interface RegistryPayload<ValueState> {
   initialValues: ValueState
 }
 
-export interface StoreState<ValueState extends object> extends State {
+export interface StoreState<ValueState extends object> {
   readonly updateFromQuery: (query: string) => void
   readonly batchReplaceState: (
     ns: readonly string[],
@@ -118,16 +119,16 @@ export type ImmerProducer<T extends object> = (
 
 export declare type StateCreator<T extends object> = (
   set: NamespaceProducer<T> & GenericConverter<T>,
-  get: GetState<StoreState<T>>,
+  get: StoreApi<StoreState<T>>['getState'],
   api: StoreApi<StoreState<T>>
 ) => StoreState<T>
 
 export const historyManagement =
-  <T extends State>(historyInstance: HistoryManagement) =>
+  <T extends object>(historyInstance: HistoryManagement) =>
   (apply: StateCreator<T>) =>
   (
     set: ImmerProducer<T>,
-    get: GetState<StoreState<T>>,
+    get: StoreApi<StoreState<T>>['getState'],
     api: StoreApi<StoreState<T>>
   ) =>
     apply(
@@ -271,7 +272,7 @@ const namespaceProducer =
 
 export type ImmerStateCreator<T extends object> = (
   fn: ImmerProducer<T>,
-  get: GetState<StoreState<T>>,
+  get: StoreApi<StoreState<T>>['getState'],
   api: StoreApi<StoreState<T>>
 ) => StoreState<T>
 
@@ -284,7 +285,7 @@ export const immerWithPatches =
   <T extends object>(config: ImmerStateCreator<T>) =>
   (
     set: SetImmerState<StoreState<T>>,
-    get: GetState<StoreState<T>>,
+    get: StoreApi<StoreState<T>>['getState'],
     api: StoreApi<StoreState<T>>
   ) =>
     config(
@@ -308,7 +309,7 @@ export const converter =
   <T extends object>(historyInstance: HistoryManagement) =>
   (
     set: NamespaceProducer<T> & GenericConverter<T>,
-    get: GetState<StoreState<T>>,
+    get: StoreApi<StoreState<T>>['getState'],
     api: StoreApi<StoreState<T>>
   ): StoreState<T> => {
     const memoizedGetInitialQueries = memoizeOne(parseSearchString)

@@ -1,8 +1,8 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 
-import { factoryParameters } from '../lib/store'
-import { defaultSkipValue, pm } from '../lib/utils'
-import { Serializer } from '../lib/serializers'
+import { factoryParameters } from '../lib/store.js'
+import { defaultSkipValue, pm } from '../lib/utils.js'
+import { Serializer } from '../lib/serializers.js'
 
 export const nullableBooleanSerializer: Serializer = {
   deserialize: (value: string | null) => {

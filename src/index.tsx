@@ -1,24 +1,24 @@
 export {
   serializers,
-  Serializer,
+  type Serializer,
   arrayFloatSerializer,
   arrayIntSerializer,
   arrayStringSerializer,
   DEFAULT_SEPARATOR,
-} from './lib/serializers'
-export { StoreState } from './lib/middleware'
+} from './lib/serializers.js'
+export { type StoreState } from './lib/middleware.js'
 export {
-  HistoryManagement,
+  type HistoryManagement,
   useGeschichte,
   factoryParameters,
   useBatchQuery,
   useStore,
   DEFAULT_NAMESPACE,
   StoreContext,
-} from './lib/store'
+} from './lib/store.js'
 export {
   pm,
   flattenConfig,
   createOrApplyPath,
   defaultSkipValue,
-} from './lib/utils'
+} from './lib/utils.js'

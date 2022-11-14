@@ -1,9 +1,9 @@
 # https://circleci.com/docs/2.0/language-javascript/
 version: 2
 jobs:
-  'node-14':
+  node-18:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:18
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -39,7 +39,7 @@ jobs:
       - run: yarn run cov:send
   publish:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:18
     working_directory: ~/geschichte
     steps:
       - checkout
@@ -65,7 +65,7 @@ workflows:
   version: 2
   build:
     jobs:
-      - 'node-14'
+      - 'node-18'
       - 'node-latest'
       - publish:
           filters:
@@ -73,5 +73,5 @@ workflows:
               only:
                 - master
           requires:
-            - 'node-14'
+            - 'node-18'
             - 'node-latest'

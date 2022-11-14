@@ -1,11 +1,13 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
-import { render, cleanup, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, cleanup, screen, act } from '@testing-library/react'
+import userEventImport from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import React from 'react'
-import { factoryParameters, pm, serializers, useBatchQuery } from '../index'
-import Geschichte from '../lib/adapters/historyjs'
+import { factoryParameters, pm, serializers, useBatchQuery } from '../index.js'
+import Geschichte from '../lib/adapters/historyjs/index.js'
 afterEach(cleanup)
+
+const userEvent = userEventImport.default || userEventImport
 
 describe('<Geschichte />', () => {
   const history = createMemoryHistory()
@@ -78,7 +80,9 @@ describe('<Geschichte />', () => {
         </Geschichte>
       )
       expect(screen.getByRole('content').textContent).toEqual('test')
-      await userEvent.click(screen.getByTitle('pushState'))
+      await act(async () => {
+        await userEvent.click(screen.getByTitle('pushState'))
+      })
       expect(screen.getByRole('content').textContent).toEqual('foo')
       expect(history.location.search).toEqual('?test.wow=foo')
     })
@@ -89,7 +93,9 @@ describe('<Geschichte />', () => {
           <Component />
         </Geschichte>
       )
-      await userEvent.click(screen.getByTitle('pushBatch'))
+      await act(async () => {
+        await userEvent.click(screen.getByTitle('pushBatch'))
+      })
       expect(screen.getByRole('content').textContent).toEqual('wasBatch')
       expect(history.location.search).toEqual(
         '?test.wow=wasBatch&test2.wow=anotherOne'
@@ -102,12 +108,16 @@ describe('<Geschichte />', () => {
           <Component />
         </Geschichte>
       )
-      await userEvent.click(screen.getByTitle('pushBatch'))
+      await act(async () => {
+        await userEvent.click(screen.getByTitle('pushBatch'))
+      })
       expect(screen.getByRole('content').textContent).toEqual('wasBatch')
       expect(history.location.search).toEqual(
         '?test.wow=wasBatch&test2.wow=anotherOne'
       )
-      await userEvent.click(screen.getByTitle('resetPush'))
+      await act(async () => {
+        await userEvent.click(screen.getByTitle('resetPush'))
+      })
       expect(screen.getByRole('content').textContent).toEqual('test')
       expect(history.location.search).toEqual('?test2.wow=anotherOne')
     })
@@ -156,7 +166,9 @@ describe('<Geschichte />', () => {
         </Geschichte>
       )
       expect(screen.getByRole('content').textContent).toEqual('test')
-      await userEvent.click(screen.getByTitle('pushState'))
+      await act(async () => {
+        await userEvent.click(screen.getByTitle('pushState'))
+      })
       expect(screen.getByRole('content').textContent).toEqual('foo')
       expect(historyWithHash.location.search).toEqual('?someParameter=foo')
       expect(historyWithHash.location.hash).toEqual('#this-is-a-hash')

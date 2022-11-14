@@ -4,9 +4,10 @@
     "outDir": "build/mjs",
     "module": "esnext",
     "rootDir": "src",
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "declaration": true,
     "inlineSourceMap": false,
+    "isolatedModules": true,
     "jsx": "react",
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
 
@@ -41,6 +42,6 @@
     "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules/**", "src/examples/**", "**/__tests__/**"],
+  "exclude": ["node_modules/**"],
   "compileOnSave": false
 }

@@ -1,13 +1,13 @@
 /* tslint:disable:no-expression-statement */
 import { Patch } from 'immer'
-import { serializers } from '../serializers'
-import { DEFAULT_NAMESPACE } from '../store'
+import { serializers } from '../serializers.js'
+import { DEFAULT_NAMESPACE } from '../store.js'
 import {
   createOrApplyPath,
   createQueriesFromPatch,
   flattenConfig,
   pm,
-} from '../utils'
+} from '../utils.js'
 
 describe('utils', () => {
   describe('flattenConfig', () => {

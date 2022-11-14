@@ -1,13 +1,15 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
-import { render, cleanup, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, cleanup, screen, act } from '@testing-library/react'
+import userEventImport from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import React, { useCallback, useState } from 'react'
-import Geschichte from '../lib/adapters/historyjs'
+import Geschichte from '../lib/adapters/historyjs/index.js'
 import {
   SearchProvider,
   useQuery as useDefaultQuery,
-} from '../examples/defaults'
+} from '../examples/defaults.js'
+
+const userEvent = userEventImport.default || userEventImport
 
 afterEach(cleanup)
 
@@ -60,7 +62,9 @@ describe('<Geschichte /> dynamic defaults', () => {
     render(<DefaultTest />)
 
     expect(screen.getByRole('content').textContent).toEqual('current default')
-    await userEvent.click(screen.getByTitle('resetDefaults'))
+    await act(async () => {
+      await userEvent.click(screen.getByTitle('resetDefaults'))
+    })
     expect(screen.getByRole('content').textContent).toEqual('new default')
   })
 
@@ -92,7 +96,9 @@ describe('<Geschichte /> dynamic defaults', () => {
     render(<DifferentTreesTest />)
 
     expect(screen.getByRole('content').textContent).toEqual('current default')
-    await userEvent.click(screen.getByTitle('resetDefaults'))
+    await act(async () => {
+      await userEvent.click(screen.getByTitle('resetDefaults'))
+    })
     expect(screen.getByRole('content').textContent).toEqual('new default')
   })
 })

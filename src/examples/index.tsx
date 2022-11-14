@@ -1,9 +1,9 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 import { createBrowserHistory } from 'history'
 import React, { useCallback, useState } from 'react'
-import { factoryParameters, pm, serializers } from '../index'
-import { SearchProvider, useQuery as useDefaultableQuery } from './defaults'
-import Geschichte from '../lib/adapters/historyjs'
+import { factoryParameters, pm, serializers } from '../index.js'
+import { SearchProvider, useQuery as useDefaultableQuery } from './defaults.js'
+import Geschichte from '../lib/adapters/historyjs/index.js'
 
 const history = createBrowserHistory()
 
