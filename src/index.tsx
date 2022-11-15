@@ -15,6 +15,7 @@ export {
   useStore,
   DEFAULT_NAMESPACE,
   StoreContext,
+  type Config
 } from './lib/store.js'
 export {
   pm,
