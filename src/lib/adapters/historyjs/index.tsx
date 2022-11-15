@@ -1,5 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-array */
-import { History } from 'history'
+import { Action, History, Location } from 'history'
 import React, {
   forwardRef,
   ReactNode,
@@ -65,8 +65,22 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     )
 
     useEffect(() => {
-      return history.listen((update) => {
-        const { action, location } = update
+      return history.listen((update, maybeAction) => {
+        // tslint:disable-next-line:no-let
+        let action: Action
+        // tslint:disable-next-line:no-let
+        let location: Location<unknown>
+        // history.js 4.x
+        if (maybeAction) {
+          location = update
+          action = maybeAction
+        } else {
+          // history.js 5.x
+          // @ts-ignore
+          action = update.action
+          // @ts-ignore
+          location = update.location
+        }
         // don't handle our own actions
         if (
           (action === 'REPLACE' || action === 'PUSH') &&
