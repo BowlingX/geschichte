@@ -76,12 +76,12 @@
     "memoize-one": "^6.0.0"
   },
   "peerDependencies": {
-    "history": "^5|^4",
+    "history": ">=4",
     "immer": ">=7",
     "next": ">=11",
     "react": ">=16.8",
     "react-dom": ">=16.8",
-    "zustand": "4.0.0-rc.1 - 4"
+    "zustand": ">=4"
   },
   "peerDependenciesMeta": {
     "next": {
