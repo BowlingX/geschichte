@@ -1,5 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-array */
-import { Action, History, Location } from 'history'
+import type { Action, History, Location } from 'history'
 import React, {
   forwardRef,
   ReactNode,
@@ -25,6 +25,39 @@ export interface Refs {
 const createSearch = (query: Record<string, string>) => {
   const queryString = new URLSearchParams(query).toString()
   return queryString === '' ? '' : `?${queryString}`
+}
+
+const handleHistoryV4 = (update: Location, action: Action) => {
+  return {
+    action,
+    location: update,
+  }
+}
+
+const handleHistoryV5 = ({
+  location,
+  action,
+}: {
+  readonly location: Location
+  readonly action: Action
+}) => {
+  return {
+    action,
+    location,
+  }
+}
+
+// tslint:disable-next-line
+let handler: typeof handleHistoryV4 | typeof handleHistoryV5
+
+export const handleHistoryEvent = (action?: Action) => {
+  if (handler) {
+    return handler
+  }
+  if (action) {
+    return (handler = handleHistoryV4)
+  }
+  return (handler = handleHistoryV5)
 }
 
 export const GeschichteWithHistory = forwardRef<Refs, Props>(
@@ -66,21 +99,9 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
 
     useEffect(() => {
       return history.listen((update, maybeAction) => {
-        // tslint:disable-next-line:no-let
-        let action: Action
-        // tslint:disable-next-line:no-let
-        let location: Location<unknown>
-        // history.js 4.x
-        if (maybeAction) {
-          location = update
-          action = maybeAction
-        } else {
-          // history.js 5.x
-          // @ts-ignore
-          action = update.action
-          // @ts-ignore
-          location = update.location
-        }
+        const { location, action } = (
+          handleHistoryEvent(maybeAction) as typeof handleHistoryV4
+        )(update, maybeAction)
         // don't handle our own actions
         if (
           (action === 'REPLACE' || action === 'PUSH') &&
