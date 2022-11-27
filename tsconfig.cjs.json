@@ -2,7 +2,7 @@
   "extends": "./tsconfig",
   "compilerOptions": {
     "declaration": false,
-    "target": "es2017",
+    "target": "ES2018",
     "outDir": "build/cjs",
     "module": "CommonJS"
   },
