@@ -14,10 +14,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 51,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L51"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L51"
 				}
 			],
 			"indexSignature": {
@@ -62,10 +62,10 @@
 								"flags": {},
 								"sources": [
 									{
-										"fileName": "lib/store.ts",
+										"fileName": "src/lib/store.ts",
 										"line": 52,
 										"character": 48,
-										"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L52"
+										"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L52"
 									}
 								],
 								"signatures": [
@@ -104,10 +104,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 63,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L63"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L63"
 						}
 					],
 					"type": {
@@ -120,10 +120,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 63,
 									"character": 26,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L63"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L63"
 								}
 							],
 							"signatures": [
@@ -160,10 +160,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 64,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L64"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L64"
 						}
 					],
 					"type": {
@@ -176,10 +176,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 64,
 									"character": 17,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L64"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L64"
 								}
 							],
 							"signatures": [
@@ -254,10 +254,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/store.ts",
+							"fileName": "src/lib/store.ts",
 							"line": 68,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L68"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L68"
 						}
 					],
 					"type": {
@@ -270,10 +270,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 68,
 									"character": 20,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L68"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L68"
 								}
 							],
 							"signatures": [
@@ -351,10 +351,10 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 61,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L61"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L61"
 				}
 			]
 		},
@@ -375,10 +375,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 2,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L2"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L2"
 						}
 					],
 					"type": {
@@ -391,10 +391,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 2,
 									"character": 24,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L2"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L2"
 								}
 							],
 							"signatures": [
@@ -459,10 +459,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 3,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L3"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L3"
 						}
 					],
 					"type": {
@@ -475,10 +475,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 3,
 									"character": 22,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L3"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L3"
 								}
 							],
 							"signatures": [
@@ -538,10 +538,10 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 1,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L1"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L1"
 				}
 			],
 			"typeParameters": [
@@ -575,10 +575,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 69,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L69"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L69"
 						}
 					],
 					"type": {
@@ -591,10 +591,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 69,
 									"character": 27,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L69"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L69"
 								}
 							],
 							"signatures": [
@@ -639,10 +639,10 @@
 													"flags": {},
 													"sources": [
 														{
-															"fileName": "lib/middleware.ts",
+															"fileName": "src/lib/middleware.ts",
 															"line": 71,
 															"character": 8,
-															"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L71"
+															"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L71"
 														}
 													],
 													"signatures": [
@@ -721,10 +721,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 64,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L64"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L64"
 						}
 					],
 					"type": {
@@ -737,10 +737,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 64,
 									"character": 30,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L64"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L64"
 								}
 							],
 							"signatures": [
@@ -785,10 +785,10 @@
 													"flags": {},
 													"sources": [
 														{
-															"fileName": "lib/middleware.ts",
+															"fileName": "src/lib/middleware.ts",
 															"line": 66,
 															"character": 8,
-															"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L66"
+															"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L66"
 														}
 													],
 													"signatures": [
@@ -867,10 +867,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 90,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L90"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L90"
 						}
 					],
 					"type": {
@@ -883,10 +883,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 90,
 									"character": 27,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L90"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L90"
 								}
 							],
 							"signatures": [
@@ -913,10 +913,10 @@
 					"flags": {},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 74,
 							"character": 2,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L74"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L74"
 						}
 					],
 					"type": {
@@ -941,10 +941,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 75,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L75"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L75"
 						}
 					],
 					"type": {
@@ -969,10 +969,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 78,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L78"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L78"
 						}
 					],
 					"type": {
@@ -985,10 +985,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 78,
 									"character": 21,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L78"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L78"
 								}
 							],
 							"signatures": [
@@ -1115,10 +1115,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 76,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L76"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L76"
 						}
 					],
 					"type": {
@@ -1143,10 +1143,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 88,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L88"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L88"
 						}
 					],
 					"type": {
@@ -1159,10 +1159,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 88,
 									"character": 22,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L88"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L88"
 								}
 							],
 							"signatures": [
@@ -1217,10 +1217,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 89,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L89"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L89"
 						}
 					],
 					"type": {
@@ -1233,10 +1233,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 89,
 									"character": 25,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L89"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L89"
 								}
 							],
 							"signatures": [
@@ -1291,10 +1291,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 87,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L87"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L87"
 						}
 					],
 					"type": {
@@ -1307,10 +1307,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 87,
 									"character": 23,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L87"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L87"
 								}
 							],
 							"signatures": [
@@ -1347,10 +1347,10 @@
 					},
 					"sources": [
 						{
-							"fileName": "lib/middleware.ts",
+							"fileName": "src/lib/middleware.ts",
 							"line": 63,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L63"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L63"
 						}
 					],
 					"type": {
@@ -1363,10 +1363,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/middleware.ts",
+									"fileName": "src/lib/middleware.ts",
 									"line": 63,
 									"character": 28,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L63"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L63"
 								}
 							],
 							"signatures": [
@@ -1419,10 +1419,10 @@
 			],
 			"sources": [
 				{
-					"fileName": "lib/middleware.ts",
+					"fileName": "src/lib/middleware.ts",
 					"line": 62,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L62"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L62"
 				}
 			],
 			"typeParameters": [
@@ -1449,10 +1449,10 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 35,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L35"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L35"
 				}
 			],
 			"type": {
@@ -1471,10 +1471,10 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 83,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L83"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L83"
 				}
 			],
 			"type": {
@@ -1493,10 +1493,10 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 36,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L36"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L36"
 				}
 			],
 			"type": {
@@ -1547,10 +1547,10 @@
 			},
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 85,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L85"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L85"
 				}
 			],
 			"type": {
@@ -1570,10 +1570,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 86,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L86"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L86"
 								}
 							],
 							"type": {
@@ -1604,10 +1604,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 87,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L87"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L87"
 								}
 							],
 							"type": {
@@ -1638,10 +1638,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 88,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L88"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L88"
 								}
 							],
 							"type": {
@@ -1672,10 +1672,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 89,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L89"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L89"
 								}
 							],
 							"type": {
@@ -1699,10 +1699,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 90,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L90"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L90"
 								}
 							],
 							"type": {
@@ -1715,10 +1715,10 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/serializers.ts",
+											"fileName": "src/lib/serializers.ts",
 											"line": 68,
 											"character": 23,
-											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L68"
+											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L68"
 										}
 									],
 									"signatures": [
@@ -1781,10 +1781,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 91,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L91"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L91"
 								}
 							],
 							"type": {
@@ -1808,10 +1808,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 92,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L92"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L92"
 								}
 							],
 							"type": {
@@ -1835,10 +1835,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/serializers.ts",
+									"fileName": "src/lib/serializers.ts",
 									"line": 93,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L93"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L93"
 								}
 							],
 							"type": {
@@ -1872,10 +1872,10 @@
 					],
 					"sources": [
 						{
-							"fileName": "lib/serializers.ts",
+							"fileName": "src/lib/serializers.ts",
 							"line": 85,
 							"character": 27,
-							"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L85"
+							"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L85"
 						}
 					]
 				}
@@ -1890,10 +1890,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 57,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L57"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L57"
 				}
 			],
 			"signatures": [
@@ -1945,10 +1945,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 48,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L48"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L48"
 				}
 			],
 			"signatures": [
@@ -2000,10 +2000,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/serializers.ts",
+					"fileName": "src/lib/serializers.ts",
 					"line": 39,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/serializers.ts#L39"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/serializers.ts#L39"
 				}
 			],
 			"signatures": [
@@ -2055,10 +2055,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 32,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/utils.ts#L32"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/utils.ts#L32"
 				}
 			],
 			"signatures": [
@@ -2137,6 +2137,110 @@
 			]
 		},
 		{
+			"id": 217,
+			"name": "default",
+			"kind": 64,
+			"kindString": "Function",
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/lib/adapters/historyjs/index.tsx",
+					"line": 63,
+					"character": 13,
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/adapters/historyjs/index.tsx#L63"
+				}
+			],
+			"signatures": [
+				{
+					"id": 218,
+					"name": "default",
+					"kind": 4096,
+					"kindString": "Call signature",
+					"flags": {},
+					"comment": {
+						"summary": [
+							{
+								"kind": "text",
+								"text": "**NOTE**: Exotic components are not callable."
+							}
+						]
+					},
+					"parameters": [
+						{
+							"id": 219,
+							"name": "props",
+							"kind": 32768,
+							"kindString": "Parameter",
+							"flags": {},
+							"type": {
+								"type": "intersection",
+								"types": [
+									{
+										"type": "reference",
+										"name": "Props"
+									},
+									{
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"name": "Refs"
+											}
+										],
+										"name": "RefAttributes",
+										"qualifiedName": "React.RefAttributes",
+										"package": "@types/react"
+									}
+								]
+							}
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "literal",
+								"value": null
+							},
+							{
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									},
+									{
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "any"
+													}
+												],
+												"name": "JSXElementConstructor",
+												"qualifiedName": "React.JSXElementConstructor",
+												"package": "@types/react"
+											}
+										]
+									}
+								],
+								"name": "ReactElement",
+								"qualifiedName": "React.ReactElement",
+								"package": "@types/react"
+							}
+						]
+					}
+				}
+			]
+		},
+		{
 			"id": 212,
 			"name": "defaultSkipValue",
 			"kind": 64,
@@ -2144,10 +2248,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 11,
 					"character": 16,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/utils.ts#L11"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/utils.ts#L11"
 				}
 			],
 			"signatures": [
@@ -2219,10 +2323,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 120,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L120"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L120"
 				}
 			],
 			"signatures": [
@@ -2307,10 +2411,10 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 314,
 											"character": 21,
-											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L314"
+											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L314"
 										}
 									],
 									"type": {
@@ -2323,10 +2427,10 @@
 											"flags": {},
 											"sources": [
 												{
-													"fileName": "lib/store.ts",
+													"fileName": "src/lib/store.ts",
 													"line": 281,
 													"character": 28,
-													"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L281"
+													"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L281"
 												}
 											],
 											"signatures": [
@@ -2406,10 +2510,10 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 314,
 											"character": 40,
-											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L314"
+											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L314"
 										}
 									],
 									"type": {
@@ -2422,10 +2526,10 @@
 											"flags": {},
 											"sources": [
 												{
-													"fileName": "lib/store.ts",
+													"fileName": "src/lib/store.ts",
 													"line": 294,
 													"character": 27,
-													"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L294"
+													"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L294"
 												}
 											],
 											"signatures": [
@@ -2505,10 +2609,10 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 314,
 											"character": 11,
-											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L314"
+											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L314"
 										}
 									],
 									"type": {
@@ -2521,10 +2625,10 @@
 											"flags": {},
 											"sources": [
 												{
-													"fileName": "lib/store.ts",
+													"fileName": "src/lib/store.ts",
 													"line": 156,
 													"character": 19,
-													"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L156"
+													"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L156"
 												}
 											],
 											"signatures": [
@@ -2551,10 +2655,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 254,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L254"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L254"
 																		}
 																	],
 																	"type": {
@@ -2567,10 +2671,10 @@
 																			"flags": {},
 																			"sources": [
 																				{
-																					"fileName": "lib/store.ts",
+																					"fileName": "src/lib/store.ts",
 																					"line": 254,
 																					"character": 21,
-																					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L254"
+																					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L254"
 																				}
 																			],
 																			"signatures": [
@@ -2614,10 +2718,10 @@
 																							"flags": {},
 																							"sources": [
 																								{
-																									"fileName": "lib/utils.ts",
+																									"fileName": "src/lib/utils.ts",
 																									"line": 161,
 																									"character": 5,
-																									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/utils.ts#L161"
+																									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/utils.ts#L161"
 																								}
 																							]
 																						}
@@ -2636,10 +2740,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 256,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L256"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L256"
 																		}
 																	],
 																	"type": {
@@ -2652,10 +2756,10 @@
 																			"flags": {},
 																			"sources": [
 																				{
-																					"fileName": "lib/store.ts",
+																					"fileName": "src/lib/store.ts",
 																					"line": 256,
 																					"character": 27,
-																					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L256"
+																					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L256"
 																				}
 																			],
 																			"signatures": [
@@ -2707,10 +2811,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 258,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L258"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L258"
 																		}
 																	],
 																	"type": {
@@ -2727,10 +2831,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 259,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L259"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L259"
 																		}
 																	],
 																	"type": {
@@ -2743,10 +2847,10 @@
 																			"flags": {},
 																			"sources": [
 																				{
-																					"fileName": "lib/store.ts",
+																					"fileName": "src/lib/store.ts",
 																					"line": 259,
 																					"character": 19,
-																					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L259"
+																					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L259"
 																				}
 																			],
 																			"signatures": [
@@ -2773,10 +2877,10 @@
 																									"flags": {},
 																									"sources": [
 																										{
-																											"fileName": "lib/store.ts",
+																											"fileName": "src/lib/store.ts",
 																											"line": 259,
 																											"character": 27,
-																											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L259"
+																											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L259"
 																										}
 																									],
 																									"signatures": [
@@ -2861,10 +2965,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 261,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L261"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L261"
 																		}
 																	],
 																	"type": {
@@ -2877,10 +2981,10 @@
 																			"flags": {},
 																			"sources": [
 																				{
-																					"fileName": "lib/store.ts",
+																					"fileName": "src/lib/store.ts",
 																					"line": 261,
 																					"character": 22,
-																					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L261"
+																					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L261"
 																				}
 																			],
 																			"signatures": [
@@ -2907,10 +3011,10 @@
 																									"flags": {},
 																									"sources": [
 																										{
-																											"fileName": "lib/store.ts",
+																											"fileName": "src/lib/store.ts",
 																											"line": 262,
 																											"character": 17,
-																											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L262"
+																											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L262"
 																										}
 																									],
 																									"signatures": [
@@ -2995,10 +3099,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 265,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L265"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L265"
 																		}
 																	],
 																	"type": {
@@ -3011,10 +3115,10 @@
 																			"flags": {},
 																			"sources": [
 																				{
-																					"fileName": "lib/store.ts",
+																					"fileName": "src/lib/store.ts",
 																					"line": 265,
 																					"character": 19,
-																					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L265"
+																					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L265"
 																				}
 																			],
 																			"signatures": [
@@ -3042,10 +3146,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 266,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L266"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L266"
 																		}
 																	],
 																	"type": {
@@ -3058,10 +3162,10 @@
 																			"flags": {},
 																			"sources": [
 																				{
-																					"fileName": "lib/store.ts",
+																					"fileName": "src/lib/store.ts",
 																					"line": 266,
 																					"character": 22,
-																					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L266"
+																					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L266"
 																				}
 																			],
 																			"signatures": [
@@ -3089,10 +3193,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/store.ts",
+																			"fileName": "src/lib/store.ts",
 																			"line": 267,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L267"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L267"
 																		}
 																	],
 																	"type": {
@@ -3119,10 +3223,10 @@
 															],
 															"sources": [
 																{
-																	"fileName": "lib/store.ts",
+																	"fileName": "src/lib/store.ts",
 																	"line": 253,
 																	"character": 13,
-																	"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L253"
+																	"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L253"
 																}
 															]
 														}
@@ -3145,10 +3249,10 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 314,
 									"character": 9,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L314"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L314"
 								}
 							]
 						}
@@ -3164,10 +3268,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 235,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/utils.ts#L235"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/utils.ts#L235"
 				}
 			],
 			"signatures": [
@@ -3270,10 +3374,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/utils.ts",
+					"fileName": "src/lib/utils.ts",
 					"line": 20,
 					"character": 16,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/utils.ts#L20"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/utils.ts#L20"
 				}
 			],
 			"signatures": [
@@ -3339,10 +3443,10 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/utils.ts",
+											"fileName": "src/lib/utils.ts",
 											"line": 23,
 											"character": 17,
-											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/utils.ts#L23"
+											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/utils.ts#L23"
 										}
 									],
 									"signatures": [
@@ -3403,10 +3507,10 @@
 							"flags": {},
 							"sources": [
 								{
-									"fileName": "lib/utils.ts",
+									"fileName": "src/lib/utils.ts",
 									"line": 24,
 									"character": 3,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/utils.ts#L24"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/utils.ts#L24"
 								}
 							],
 							"signatures": [
@@ -3442,10 +3546,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 109,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L109"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L109"
 				}
 			],
 			"signatures": [
@@ -3485,10 +3589,10 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 113,
 											"character": 6,
-											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L113"
+											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L113"
 										}
 									],
 									"type": {
@@ -3501,10 +3605,10 @@
 											"flags": {},
 											"sources": [
 												{
-													"fileName": "lib/middleware.ts",
+													"fileName": "src/lib/middleware.ts",
 													"line": 69,
 													"character": 27,
-													"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L69"
+													"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L69"
 												}
 											],
 											"signatures": [
@@ -3549,10 +3653,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/middleware.ts",
+																			"fileName": "src/lib/middleware.ts",
 																			"line": 71,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L71"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L71"
 																		}
 																	],
 																	"signatures": [
@@ -3629,10 +3733,10 @@
 									"flags": {},
 									"sources": [
 										{
-											"fileName": "lib/store.ts",
+											"fileName": "src/lib/store.ts",
 											"line": 114,
 											"character": 6,
-											"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L114"
+											"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L114"
 										}
 									],
 									"type": {
@@ -3645,10 +3749,10 @@
 											"flags": {},
 											"sources": [
 												{
-													"fileName": "lib/middleware.ts",
+													"fileName": "src/lib/middleware.ts",
 													"line": 64,
 													"character": 30,
-													"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L64"
+													"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L64"
 												}
 											],
 											"signatures": [
@@ -3693,10 +3797,10 @@
 																	"flags": {},
 																	"sources": [
 																		{
-																			"fileName": "lib/middleware.ts",
+																			"fileName": "src/lib/middleware.ts",
 																			"line": 66,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/middleware.ts#L66"
+																			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/middleware.ts#L66"
 																		}
 																	],
 																	"signatures": [
@@ -3777,10 +3881,10 @@
 							],
 							"sources": [
 								{
-									"fileName": "lib/store.ts",
+									"fileName": "src/lib/store.ts",
 									"line": 112,
 									"character": 48,
-									"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L112"
+									"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L112"
 								}
 							]
 						}
@@ -3796,10 +3900,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 74,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L74"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L74"
 				}
 			],
 			"signatures": [
@@ -3911,10 +4015,10 @@
 			"flags": {},
 			"sources": [
 				{
-					"fileName": "lib/store.ts",
+					"fileName": "src/lib/store.ts",
 					"line": 103,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/lib/store.ts#L103"
+					"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/lib/store.ts#L103"
 				}
 			],
 			"signatures": [
@@ -3995,6 +4099,7 @@
 				28,
 				31,
 				207,
+				217,
 				212,
 				105,
 				203,
@@ -4007,10 +4112,10 @@
 	],
 	"sources": [
 		{
-			"fileName": "index.tsx",
+			"fileName": "src/index.tsx",
 			"line": 1,
 			"character": 0,
-			"url": "https://github.com/BowlingX/geschichte/blob/e8bfa3c/src/index.tsx#L1"
+			"url": "https://github.com/BowlingX/geschichte/blob/44f2a54/src/index.tsx#L1"
 		}
 	]
 }
