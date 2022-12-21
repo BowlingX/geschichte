@@ -84,9 +84,17 @@ export const GeschichteForNextjs: FC<Props> = ({
         }
 
         if (routerPush) {
-          return routerPush(Router.route, { pathname, query }, routerOptions)
+          return routerPush(
+            { pathname, query: Router.query },
+            { pathname, query },
+            routerOptions
+          )
         }
-        return Router.push(Router.route, { pathname, query }, routerOptions)
+        return Router.push(
+          { pathname, query: Router.query },
+          { pathname, query },
+          routerOptions
+        )
       },
       replace: (query, options) => {
         const [pathname] = split(Router.asPath)
@@ -97,9 +105,17 @@ export const GeschichteForNextjs: FC<Props> = ({
         }
 
         if (routerReplace) {
-          return routerReplace(Router.route, { pathname, query }, routerOptions)
+          return routerReplace(
+            { pathname, query: Router.query },
+            { pathname, query },
+            routerOptions
+          )
         }
-        return Router.replace(Router.route, { pathname, query }, routerOptions)
+        return Router.replace(
+          { pathname, query: Router.query },
+          { pathname, query },
+          routerOptions
+        )
       },
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
