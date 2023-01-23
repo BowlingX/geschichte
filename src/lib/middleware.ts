@@ -3,7 +3,7 @@ import { Patch, produceWithPatches } from 'immer'
 import memoizeOneImport from 'memoize-one'
 import { StoreApi } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
-import shallow from 'zustand/shallow'
+import { shallow } from 'zustand/shallow'
 import {
   Config,
   HistoryManagement,
