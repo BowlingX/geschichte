@@ -98,6 +98,7 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     )
 
     useEffect(() => {
+      // @ts-ignore
       return history.listen((update, maybeAction) => {
         const { location, action } = (
           handleHistoryEvent(maybeAction) as typeof handleHistoryV4
