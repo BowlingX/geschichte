@@ -76,7 +76,7 @@
     "memoize-one": "^6.0.0"
   },
   "peerDependencies": {
-    "history": ">=5",
+    "history": ">=4",
     "immer": ">=7",
     "next": ">=11",
     "react": ">=16.8",
