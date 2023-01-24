@@ -1,6 +1,6 @@
 /* tslint:disable:no-expression-statement no-let no-submodule-imports no-object-mutation */
 import { Patch } from 'immer'
-import shallowEqual from 'zustand/shallow'
+import { shallow } from 'zustand/shallow'
 import { GenericObject } from './middleware.js'
 import { Serializer } from './serializers.js'
 import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store.js'
@@ -12,7 +12,7 @@ export function defaultSkipValue<V>(value?: V, initialValue?: V): boolean {
   return (
     value === undefined ||
     value === null ||
-    shallowEqual(value, initialValue) ||
+    shallow(value, initialValue) ||
     (Array.isArray(value) && value.length === 0)
   )
 }

@@ -9,14 +9,14 @@ import {
   useMemo,
   useState,
 } from 'react'
-import create, { Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
+import { create, Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 
 const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
 // tslint:disable-next-line:no-submodule-imports
-import shallow from 'zustand/shallow'
+import { shallow } from 'zustand/shallow'
 import {
   converter,
   historyManagement,

@@ -8,7 +8,7 @@ import React, {
   useMemo,
 } from 'react'
 // tslint:disable-next-line:no-submodule-imports
-import shallow from 'zustand/shallow'
+import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
 import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
 
@@ -98,6 +98,7 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     )
 
     useEffect(() => {
+      // @ts-ignore
       return history.listen((update, maybeAction) => {
         const { location, action } = (
           handleHistoryEvent(maybeAction) as typeof handleHistoryV4
