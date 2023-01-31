@@ -36,6 +36,8 @@ interface Props {
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
   // tslint:disable-next-line:no-mixed-interface
+  readonly routerAsPath?: () => string
+  readonly routerQuery?: () => string
   readonly routerPush?: (
     url: Url,
     as: UrlObject,
@@ -63,21 +65,28 @@ export const GeschichteForNextjs: FC<Props> = ({
   initialClientOnlyAsPath,
   defaultPushOptions,
   defaultReplaceOptions,
+  routerAsPath,
+  routerQuery,
   routerPush,
   routerReplace,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
+
   const historyInstance: HistoryManagement = useMemo(() => {
+    const thisRouterAsPath = () =>
+      routerAsPath ? routerAsPath() : Router.asPath
+    const thisRouterQuery = () => (routerQuery ? routerQuery() : Router.query)
+
     return {
       initialSearch: () => {
         const [, query] =
           typeof window === 'undefined'
             ? split(asPath)
-            : split(lastClientSideQuery.current || Router.asPath)
+            : split(lastClientSideQuery.current || thisRouterAsPath())
         return `?${query || ''}`
       },
       push: (query, options) => {
-        const [pathname] = split(Router.asPath)
+        const [pathname] = split(thisRouterAsPath())
         const routerOptions = {
           ...defaultPushOptions,
           ...options,
@@ -85,19 +94,19 @@ export const GeschichteForNextjs: FC<Props> = ({
 
         if (routerPush) {
           return routerPush(
-            { pathname, query: Router.query },
+            { pathname, query: thisRouterQuery() },
             { pathname, query },
             routerOptions
           )
         }
         return Router.push(
-          { pathname, query: Router.query },
+          { pathname, query: thisRouterQuery() },
           { pathname, query },
           routerOptions
         )
       },
       replace: (query, options) => {
-        const [pathname] = split(Router.asPath)
+        const [pathname] = split(thisRouterAsPath())
 
         const routerOptions = {
           ...defaultReplaceOptions,
@@ -106,20 +115,20 @@ export const GeschichteForNextjs: FC<Props> = ({
 
         if (routerReplace) {
           return routerReplace(
-            { pathname, query: Router.query },
+            { pathname, query: thisRouterQuery() },
             { pathname, query },
             routerOptions
           )
         }
         return Router.replace(
-          { pathname, query: Router.query },
+          { pathname, query: thisRouterQuery() },
           { pathname, query },
           routerOptions
         )
       },
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [routerPush, routerReplace])
+  }, [routerPush, routerReplace, routerQuery, routerAsPath])
 
   const useStore = useMemo(
     () => useGeschichte(historyInstance),
