@@ -184,6 +184,8 @@ type ClientOnlyProps = Pick<
   | 'defaultReplaceOptions'
   | 'routerPush'
   | 'routerReplace'
+  | 'routerAsPath'
+  | 'routerQuery'
 > & {
   readonly children: ReactNode
   readonly omitQueries?: boolean
