@@ -19,6 +19,7 @@ import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
 import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
 import type { UrlObject } from 'url'
+import type { ParsedUrlQuery } from 'querystring'
 
 const split = (url?: string) => url?.split('?') || []
 
@@ -37,7 +38,7 @@ interface Props {
   readonly defaultReplaceOptions?: TransitionOptions
   // tslint:disable-next-line:no-mixed-interface
   readonly routerAsPath?: () => string
-  readonly routerQuery?: () => string
+  readonly routerQuery?: () => ParsedUrlQuery
   readonly routerPush?: (
     url: Url,
     as: UrlObject,
