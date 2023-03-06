@@ -4566,15 +4566,7 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-aggregate-error@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-4.0.0.tgz#83dbdb53a0d500721281d22e19eee9bc352a89cd"
-  integrity sha512-8DGp7zUt1E9k0NE2q4jlXHk+V3ORErmwolEdRz9iV+LKJ40WhMHh92cxAvhqV2I+zEn/gotIoqoMs0NjF3xofg==
-  dependencies:
-    clean-stack "^4.0.0"
-    indent-string "^5.0.0"
-
-aggregate-error@^4.0.1:
+aggregate-error@^4.0.0, aggregate-error@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-4.0.1.tgz#25091fe1573b9e0be892aeda15c7c66a545f758e"
   integrity sha512-0poP0T7el6Vq3rstR8Mn4V/IQrpBLO6POkUSrN7RhyY+GF/InCFShQzsQ39T25gkHhLgSLByyAz+Kjb+c2L98w==
@@ -7602,6 +7594,21 @@ execa@^6.1.0:
     signal-exit "^3.0.7"
     strip-final-newline "^3.0.0"
 
+execa@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/execa/-/execa-7.0.0.tgz#2a44e20e73797f6c2df23889927972386157d7e4"
+  integrity sha512-tQbH0pH/8LHTnwTrsKWideqi6rFB/QNUawEwrn+WHyz7PX1Tuz2u7wfTvbaNBdP5JD5LVWxNo8/A8CHNZ3bV6g==
+  dependencies:
+    cross-spawn "^7.0.3"
+    get-stream "^6.0.1"
+    human-signals "^4.3.0"
+    is-stream "^3.0.0"
+    merge-stream "^2.0.0"
+    npm-run-path "^5.1.0"
+    onetime "^6.0.0"
+    signal-exit "^3.0.7"
+    strip-final-newline "^3.0.0"
+
 exit@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
@@ -8937,6 +8944,11 @@ human-signals@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-3.0.1.tgz#c740920859dafa50e5a3222da9d3bf4bb0e5eef5"
   integrity sha512-rQLskxnM/5OCldHo+wNXbpVgDn5A17CUoKX+7Sokwaknlq7CdSnphy0W39GU8dw59XiCXmFXDg4fRuckQRKewQ==
+
+human-signals@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-4.3.0.tgz#2095c3cd5afae40049403d4b811235b03879db50"
+  integrity sha512-zyzVyMjpGBX2+6cDVZeFPCdtOtdsxOeseRhB9tkQ6xXmGUNrcnBzdEKPy3VPNYz+4gy1oukVOXcrJCunSyc6QQ==
 
 humanize-ms@^1.2.1:
   version "1.2.1"
@@ -14078,9 +14090,9 @@ schema-utils@^4.0.0:
     ajv-keywords "^5.0.0"
 
 semantic-release@^20.0.2:
-  version "20.0.2"
-  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-20.0.2.tgz#e0344c264832e8ebffb5a92ecbf21a8e60efbb4a"
-  integrity sha512-K6TYMAnSUqM2oH0/0ZJErMzkx4SgV2dM8jh5RNGj1ANJ81z/u5XVaPPCZADAl7voEf6t2hd6YioLd0I6yXui2A==
+  version "20.1.1"
+  resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-20.1.1.tgz#8693ea760a778de31f846d55d44709a9f129ca5e"
+  integrity sha512-jXDr8y7ozo42N4+G9m/P5Qyx5oQO4aOS66a+Up8XECzEOFIpEoo3ngnr4R5lSix/sVJW69/fgNkOUZhsGFiQ5g==
   dependencies:
     "@semantic-release/commit-analyzer" "^9.0.2"
     "@semantic-release/error" "^3.0.0"
@@ -14091,7 +14103,7 @@ semantic-release@^20.0.2:
     cosmiconfig "^8.0.0"
     debug "^4.0.0"
     env-ci "^8.0.0"
-    execa "^6.1.0"
+    execa "^7.0.0"
     figures "^5.0.0"
     find-versions "^5.1.0"
     get-stream "^6.0.0"
@@ -16475,11 +16487,6 @@ yargs-parser@^20.2.2, yargs-parser@^20.2.3, yargs-parser@^20.2.9:
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-20.2.9.tgz#2eb7dc3b0289718fc295f362753845c41a0c94ee"
   integrity sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==
 
-yargs-parser@^21.0.0:
-  version "21.0.1"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.0.1.tgz#0267f286c877a4f0f728fceb6f8a3e4cb95c6e35"
-  integrity sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==
-
 yargs-parser@^21.0.1, yargs-parser@^21.1.1:
   version "21.1.1"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-21.1.1.tgz#9096bceebf990d21bb31fa9516e0ede294a77d35"
@@ -16498,20 +16505,7 @@ yargs@^16.2.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yargs@^17.3.1:
-  version "17.5.1"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.5.1.tgz#e109900cab6fcb7fd44b1d8249166feb0b36e58e"
-  integrity sha512-t6YAJcxDkNX7NFYiVtKvWUz8l+PaKTLiL63mJYWR2GnHq2gjEWISzsLp9wg3aY36dY1j+gfIEL3pIF+XlJJfbA==
-  dependencies:
-    cliui "^7.0.2"
-    escalade "^3.1.1"
-    get-caller-file "^2.0.5"
-    require-directory "^2.1.1"
-    string-width "^4.2.3"
-    y18n "^5.0.5"
-    yargs-parser "^21.0.0"
-
-yargs@^17.5.1:
+yargs@^17.3.1, yargs@^17.5.1:
   version "17.6.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.6.2.tgz#2e23f2944e976339a1ee00f18c77fedee8332541"
   integrity sha512-1/9UrdHjDZc0eOU0HxOHoS78C69UD3JRMvzlJ7S79S2nTaWRA/whGCTV8o9e/N/1Va9YIV7Q4sOxD8VV4pCWOw==
