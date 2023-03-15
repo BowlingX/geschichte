@@ -39,6 +39,8 @@ interface Props {
   // tslint:disable-next-line:no-mixed-interface
   readonly routerAsPath?: () => string
   readonly routerQuery?: () => ParsedUrlQuery
+  readonly clientSideQuery: () => string
+  readonly clientSideSearch: () => string
   readonly routerPush?: (
     url: Url,
     as: UrlObject,
@@ -55,6 +57,9 @@ interface Props {
 // FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
 const Router = (NextRouter as any as { readonly default: Router$ }).default
 
+const defaultClientSideQuery = () => window.location.href
+const defaultClientSideSearch = () => window.location.search
+
 const queryFromPath = (path: string) => {
   const [, query] = split(path)
   return `?${query || ''}`
@@ -70,6 +75,8 @@ export const GeschichteForNextjs: FC<Props> = ({
   routerQuery,
   routerPush,
   routerReplace,
+  clientSideQuery,
+  clientSideSearch,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
 
@@ -148,8 +155,8 @@ export const GeschichteForNextjs: FC<Props> = ({
 
   useEffect(() => {
     // tslint:disable-next-line
-    lastClientSideQuery.current = window.location.href
-    updateFromQuery(window.location.search)
+    lastClientSideQuery.current = clientSideQuery()
+    updateFromQuery(clientSideSearch())
     // tslint:disable-next-line:no-let
     let skipEvent = true
     const routeChangeStartHandler = (path: string) => {
@@ -166,7 +173,7 @@ export const GeschichteForNextjs: FC<Props> = ({
     return () => {
       Router.events.off('beforeHistoryChange', routeChangeStartHandler)
     }
-  }, [updateFromQuery])
+  }, [updateFromQuery, clientSideQuery, clientSideSearch])
 
   useEffect(() => {
     const { unregister } = state
@@ -190,7 +197,7 @@ type ClientOnlyProps = Pick<
 > & {
   readonly children: ReactNode
   readonly omitQueries?: boolean
-}
+} & Partial<Pick<Props, 'clientSideQuery' | 'clientSideSearch'>>
 
 // see https://nextjs.org/docs/api-reference/next/router#routerpush for options;
 // in general we want shallow (see https://nextjs.org/docs/routing/shallow-routing) routing in most cases and not scroll
@@ -200,6 +207,8 @@ export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
   omitQueries = true,
   defaultPushOptions = defaultRoutingOptions,
   defaultReplaceOptions = defaultRoutingOptions,
+  clientSideSearch = defaultClientSideSearch,
+  clientSideQuery = defaultClientSideQuery,
   ...props
 }) => {
   const { asPath } = useRouter()
@@ -226,6 +235,8 @@ export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
       initialClientOnlyAsPath={thisAsPath}
       defaultReplaceOptions={defaultReplaceOptions}
       defaultPushOptions={defaultPushOptions}
+      clientSideQuery={clientSideQuery}
+      clientSideSearch={clientSideSearch}
       asPath={pp}
       {...props}
     />
