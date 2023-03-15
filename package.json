@@ -32,7 +32,8 @@
   "files": [
     "build",
     "nextjs.d.ts",
-    "historyjs.d.ts"
+    "historyjs.d.ts",
+    "static.d.ts"
   ],
   "sideEffects": false,
   "repository": {
