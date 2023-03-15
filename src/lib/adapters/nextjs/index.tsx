@@ -19,7 +19,6 @@ import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
 import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
 import type { UrlObject } from 'url'
-import type { ParsedUrlQuery } from 'querystring'
 
 const split = (url?: string) => url?.split('?') || []
 
@@ -37,10 +36,6 @@ interface Props {
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
   // tslint:disable-next-line:no-mixed-interface
-  readonly routerAsPath?: () => string
-  readonly routerQuery?: () => ParsedUrlQuery
-  readonly clientSideHref: () => string
-  readonly clientSideSearch: () => string
   readonly routerPush?: (
     url: Url,
     as: UrlObject,
@@ -57,9 +52,6 @@ interface Props {
 // FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
 const Router = (NextRouter as any as { readonly default: Router$ }).default
 
-const defaultClientSideHref = () => window.location.href
-const defaultClientSideSearch = () => window.location.search
-
 const queryFromPath = (path: string) => {
   const [, query] = split(path)
   return `?${query || ''}`
@@ -71,30 +63,21 @@ export const GeschichteForNextjs: FC<Props> = ({
   initialClientOnlyAsPath,
   defaultPushOptions,
   defaultReplaceOptions,
-  routerAsPath,
-  routerQuery,
   routerPush,
   routerReplace,
-  clientSideHref,
-  clientSideSearch,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
-
   const historyInstance: HistoryManagement = useMemo(() => {
-    const thisRouterAsPath = () =>
-      routerAsPath ? routerAsPath() : Router.asPath
-    const thisRouterQuery = () => (routerQuery ? routerQuery() : Router.query)
-
     return {
       initialSearch: () => {
         const [, query] =
           typeof window === 'undefined'
             ? split(asPath)
-            : split(lastClientSideQuery.current || thisRouterAsPath())
+            : split(lastClientSideQuery.current || Router.asPath)
         return `?${query || ''}`
       },
       push: (query, options) => {
-        const [pathname] = split(thisRouterAsPath())
+        const [pathname] = split(Router.asPath)
         const routerOptions = {
           ...defaultPushOptions,
           ...options,
@@ -102,19 +85,19 @@ export const GeschichteForNextjs: FC<Props> = ({
 
         if (routerPush) {
           return routerPush(
-            { pathname, query: thisRouterQuery() },
+            { pathname, query: Router.query },
             { pathname, query },
             routerOptions
           )
         }
         return Router.push(
-          { pathname, query: thisRouterQuery() },
+          { pathname, query: Router.query },
           { pathname, query },
           routerOptions
         )
       },
       replace: (query, options) => {
-        const [pathname] = split(thisRouterAsPath())
+        const [pathname] = split(Router.asPath)
 
         const routerOptions = {
           ...defaultReplaceOptions,
@@ -123,20 +106,20 @@ export const GeschichteForNextjs: FC<Props> = ({
 
         if (routerReplace) {
           return routerReplace(
-            { pathname, query: thisRouterQuery() },
+            { pathname, query: Router.query },
             { pathname, query },
             routerOptions
           )
         }
         return Router.replace(
-          { pathname, query: thisRouterQuery() },
+          { pathname, query: Router.query },
           { pathname, query },
           routerOptions
         )
       },
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [routerPush, routerReplace, routerQuery, routerAsPath])
+  }, [routerPush, routerReplace])
 
   const useStore = useMemo(
     () => useGeschichte(historyInstance),
@@ -155,8 +138,8 @@ export const GeschichteForNextjs: FC<Props> = ({
 
   useEffect(() => {
     // tslint:disable-next-line
-    lastClientSideQuery.current = clientSideHref()
-    updateFromQuery(clientSideSearch())
+    lastClientSideQuery.current = window.location.href
+    updateFromQuery(window.location.search)
     // tslint:disable-next-line:no-let
     let skipEvent = true
     const routeChangeStartHandler = (path: string) => {
@@ -173,7 +156,7 @@ export const GeschichteForNextjs: FC<Props> = ({
     return () => {
       Router.events.off('beforeHistoryChange', routeChangeStartHandler)
     }
-  }, [updateFromQuery, clientSideHref, clientSideSearch])
+  }, [updateFromQuery])
 
   useEffect(() => {
     const { unregister } = state
@@ -192,12 +175,10 @@ type ClientOnlyProps = Pick<
   | 'defaultReplaceOptions'
   | 'routerPush'
   | 'routerReplace'
-  | 'routerAsPath'
-  | 'routerQuery'
 > & {
   readonly children: ReactNode
   readonly omitQueries?: boolean
-} & Partial<Pick<Props, 'clientSideHref' | 'clientSideSearch'>>
+}
 
 // see https://nextjs.org/docs/api-reference/next/router#routerpush for options;
 // in general we want shallow (see https://nextjs.org/docs/routing/shallow-routing) routing in most cases and not scroll
@@ -207,8 +188,6 @@ export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
   omitQueries = true,
   defaultPushOptions = defaultRoutingOptions,
   defaultReplaceOptions = defaultRoutingOptions,
-  clientSideSearch = defaultClientSideSearch,
-  clientSideHref = defaultClientSideHref,
   ...props
 }) => {
   const { asPath } = useRouter()
@@ -235,8 +214,6 @@ export const GeschichteForNextjsWrapper: FC<ClientOnlyProps> = ({
       initialClientOnlyAsPath={thisAsPath}
       defaultReplaceOptions={defaultReplaceOptions}
       defaultPushOptions={defaultPushOptions}
-      clientSideHref={clientSideHref}
-      clientSideSearch={clientSideSearch}
       asPath={pp}
       {...props}
     />

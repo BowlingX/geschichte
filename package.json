@@ -22,6 +22,11 @@
       "import": "./build/mjs/lib/adapters/historyjs/index.js",
       "require": "./build/cjs/lib/adapters/historyjs/index.js"
     },
+    "./static": {
+      "types": "./build/mjs/lib/adapters/static/index.d.ts",
+      "import": "./build/mjs/lib/adapters/static/index.js",
+      "require": "./build/cjs/lib/adapters/static/index.js"
+    },
     "./package.json": "./package.json"
   },
   "files": [
