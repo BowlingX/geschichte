@@ -6,7 +6,7 @@ export interface Serializer<V = any> {
 const join = (value: readonly any[], separator: string) => value.join(separator)
 
 const split = (value: string | null, separator: string) =>
-  value?.split(separator) || []
+  value?.split(separator).filter((str) => str.trim() !== '') || []
 
 const intSerializer: Serializer<number> = {
   deserialize: (value: string | null): number | null => {
@@ -42,7 +42,7 @@ export const arrayStringSerializer: (
   deserialize: (value: string | null): readonly string[] | null =>
     split(value, separator),
   serialize: (value?: readonly string[]): string | null =>
-    (value && join(value, separator)) || null,
+    value ? join(value, separator) : null,
 })
 
 export const arrayIntSerializer: (
@@ -51,7 +51,7 @@ export const arrayIntSerializer: (
   deserialize: (value: string | null): readonly number[] | null =>
     split(value, separator).map(intSerializer.deserialize) as readonly number[],
   serialize: (value?: readonly number[]): string | null =>
-    (value && join(value, separator)) || null,
+    value ? join(value, separator) : null,
 })
 
 export const arrayFloatSerializer: (
@@ -62,7 +62,7 @@ export const arrayFloatSerializer: (
       floatSerializer.deserialize
     ) as readonly number[],
   serialize: (value?: readonly number[]): string | null =>
-    (value && join(value, separator)) || null,
+    value ? join(value, separator) : null,
 })
 
 const dateSerializer = (

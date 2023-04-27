@@ -2,7 +2,7 @@
 
 import { factoryParameters } from '../lib/store.js'
 import { defaultSkipValue, pm } from '../lib/utils.js'
-import { Serializer } from '../lib/serializers.js'
+import { Serializer, serializers } from '../lib/serializers.js'
 
 export const nullableBooleanSerializer: Serializer = {
   deserialize: (value: string | null) => {
@@ -41,5 +41,24 @@ describe('custom skip', () => {
   it('should create a query string', () => {
     const queryString = createQueryString({ nullable: null })
     expect(queryString).toEqual('nullable=0')
+  })
+})
+
+describe('Array query string serialization', () => {
+  const { parseQueryString, createQueryString } = factoryParameters(
+    {
+      myArray: pm('myArray', serializers.arrayString),
+    },
+    {
+      myArray: [] as null | readonly string[],
+    }
+  )
+  it('should properly serialize and parse empty values', () => {
+    const result = parseQueryString('?myArray')
+    expect(result).toEqual({ myArray: [] })
+    const queryString = createQueryString({ myArray: [''] })
+    expect(queryString).toEqual('myArray=')
+    const emptyArray = createQueryString({ myArray: [] })
+    expect(emptyArray).toEqual('')
   })
 })

@@ -19,8 +19,14 @@ describe('serializers', () => {
     it('should serialize', () => {
       expect(serialize(['a', 'b'])).toEqual('a_b')
     })
+    it('should serialize undefined', () => {
+      expect(serialize(undefined)).toEqual(null)
+    })
     it('should deserialize', () => {
       expect(deserialize('a_b')).toEqual(['a', 'b'])
+    })
+    it('should deserialize empty arrays', () => {
+      expect(deserialize('')).toEqual([])
     })
     it('should deserialize null', () => {
       expect(deserialize(null)).toEqual([])
@@ -32,8 +38,14 @@ describe('serializers', () => {
     it('should serialize', () => {
       expect(serialize([1.2, 2.01])).toEqual('1.2_2.01')
     })
+    it('should serialize undefined', () => {
+      expect(serialize(undefined)).toEqual(null)
+    })
     it('should deserialize', () => {
       expect(deserialize('1.2_2.01')).toEqual([1.2, 2.01])
+    })
+    it('should deserialize empty arrays', () => {
+      expect(deserialize('')).toEqual([])
     })
     it('should deserialize null', () => {
       expect(deserialize(null)).toEqual([])
@@ -45,8 +57,14 @@ describe('serializers', () => {
     it('should serialize', () => {
       expect(serialize([1, 2])).toEqual('1_2')
     })
+    it('should serialize undefined', () => {
+      expect(serialize(undefined)).toEqual(null)
+    })
     it('should deserialize', () => {
       expect(deserialize('1_2')).toEqual([1, 2])
+    })
+    it('should deserialize empty arrays', () => {
+      expect(deserialize('')).toEqual([])
     })
     it('should deserialize null', () => {
       expect(deserialize(null)).toEqual([])
@@ -59,6 +77,9 @@ describe('serializers', () => {
       expect(serialize(new Date(Date.UTC(1985, 9, 10, 0, 0, 0)))).toEqual(
         '10/10/1985'
       )
+    })
+    it('should serialize undefined', () => {
+      expect(serialize(undefined)).toBeUndefined()
     })
     it('should deserialize', () => {
       expect(deserialize('10/10/1985')).toEqual(new Date('10/10/1985'))
@@ -100,6 +121,9 @@ describe('serializers', () => {
     })
     it('should deserialize string to null', () => {
       expect(deserialize('xyz')).toEqual(null)
+    })
+    it('should deserialize null', () => {
+      expect(deserialize(null)).toEqual(null)
     })
   })
 
