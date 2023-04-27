@@ -8,17 +8,15 @@ import React, {
   useRef,
   useState,
 } from 'react'
-import {
-  useRouter,
-  Router as Router$,
-  default as NextRouter,
-  // tslint:disable-next-line:no-submodule-imports
-} from 'next/router.js'
 // tslint:disable-next-line:no-submodule-imports
 import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
 import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
 import type { UrlObject } from 'url'
+// tslint:disable-next-line:no-submodule-imports
+import nextRouter, { Router as Router$ } from 'next/router.js'
+
+const { useRouter, default: NextRouter } = nextRouter
 
 const split = (url?: string) => url?.split('?') || []
 
