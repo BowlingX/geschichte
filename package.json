@@ -65,7 +65,7 @@
     "build:main": "tsc -p tsconfig.prod.json",
     "build:cjs": "tsc -p tsconfig.cjs.json",
     "fix": "run-s fix:*",
-    "fix:prettier": "prettier \"src/**/*.{ts,tsx}\" --write",
+    "fix:prettier": "prettier \"**/*.{ts,tsx,md}\" --write",
     "fix:tslint": "tslint --fix --project .",
     "test": "run-s build test:*",
     "test:lint": "tslint --project . && prettier \"src/**/*.{ts,tsx}\" --list-different",
