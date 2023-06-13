@@ -20,23 +20,6 @@ jobs:
           key: v2-dependencies-{{ checksum "package.json" }}
       - run: yarn test
       - run: yarn run cov:send
-  'node-latest':
-    docker:
-      - image: cimg/node:current
-    working_directory: ~/geschichte
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v2-dependencies-{{ checksum "package.json" }}
-            - v2-dependencies-
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
-      - run: yarn test
-      - run: yarn run cov:send
   publish:
     docker:
       - image: cimg/node:lts
