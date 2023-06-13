@@ -112,7 +112,7 @@ It works out of the box with react-router (by providing the same `history` insta
 
 Nextjs support is build in, but requires a different Adapter.
 
-### With page router
+#### With page router
 
 ```tsx
 /** _app.tsx */
@@ -132,7 +132,7 @@ function App({ Component, pageProps }: AppProps) {
 export default memo(App)
 ```
 
-### With App router
+#### With App router
 
 You can use `Geschichte` with the app router as well (from `nextjs` 13).
 
