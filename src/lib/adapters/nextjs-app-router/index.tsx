@@ -4,14 +4,16 @@
 
 import { useSearchParams, useRouter, usePathname } from 'next/navigation.js'
 import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
-import React, { memo, useEffect, useMemo, useRef } from 'react'
+import React, { memo, ReactNode, useEffect, useMemo, useRef } from 'react'
 import { StoreState } from '../../middleware.js'
 import { shallow } from 'zustand/shallow'
 import { createSearch } from '../../utils.js'
 
-const GeschichteForNextAppRouter = ({
-  children,
-}: React.PropsWithChildren<never>) => {
+interface Props {
+  readonly children?: ReactNode
+}
+
+const GeschichteForNextAppRouter = ({ children }: Props) => {
   const searchParams = useSearchParams()
   const { push, replace } = useRouter()
   const pathname = usePathname()
@@ -28,7 +30,7 @@ const GeschichteForNextAppRouter = ({
       },
       replace: async (query) => {
         replace(`${pathname}${createSearch(query)}`)
-      },
+      }
     }
   }, [])
 
@@ -41,7 +43,7 @@ const GeschichteForNextAppRouter = ({
     // tslint:disable-next-line:no-shadowed-variable
     ({ unregister, updateFromQuery }: StoreState<object>) => ({
       unregister,
-      updateFromQuery,
+      updateFromQuery
     }),
     shallow
   )
