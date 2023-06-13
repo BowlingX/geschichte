@@ -30,7 +30,7 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
       },
       replace: async (query) => {
         replace(`${pathname}${createSearch(query)}`)
-      }
+      },
     }
   }, [])
 
@@ -43,7 +43,7 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
     // tslint:disable-next-line:no-shadowed-variable
     ({ unregister, updateFromQuery }: StoreState<object>) => ({
       unregister,
-      updateFromQuery
+      updateFromQuery,
     }),
     shallow
   )
