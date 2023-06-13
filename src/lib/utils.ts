@@ -5,6 +5,11 @@ import { GenericObject } from './middleware.js'
 import { Serializer } from './serializers.js'
 import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store.js'
 
+export const createSearch = (query: Record<string, string>) => {
+  const queryString = new URLSearchParams(query).toString()
+  return queryString === '' ? '' : `?${queryString}`
+}
+
 /**
  * Default skip implementation
  */

@@ -60,7 +60,7 @@ interface RegistryPayload<ValueState> {
 }
 
 export interface StoreState<ValueState extends object> {
-  readonly updateFromQuery: (query: string) => void
+  readonly updateFromQuery: (query: string | URLSearchParams) => void
   readonly batchReplaceState: (
     ns: readonly string[],
     fn: (...valueState: ValueState[]) => void,
@@ -302,8 +302,10 @@ export const immerWithPatches =
       api
     )
 
-const parseSearchString = (search: string) =>
-  Object.fromEntries(new URLSearchParams(search).entries())
+const parseSearchString = (search: string | URLSearchParams) =>
+  typeof search === 'string'
+    ? Object.fromEntries(new URLSearchParams(search).entries())
+    : Object.fromEntries(search.entries())
 
 export const converter =
   <T extends object>(historyInstance: HistoryManagement) =>
@@ -314,7 +316,7 @@ export const converter =
   ): StoreState<T> => {
     const memoizedGetInitialQueries = memoizeOne(parseSearchString)
 
-    const updateFromQuery = (search: string) => {
+    const updateFromQuery = (search: string | URLSearchParams) => {
       const nextQueries = memoizedGetInitialQueries(search)
       const namespaces = get().namespaces
       Object.keys(namespaces).forEach((ns) => {

@@ -17,6 +17,11 @@
       "import": "./build/mjs/lib/adapters/nextjs/index.js",
       "require": "./build/cjs/lib/adapters/nextjs/index.js"
     },
+    "./nextjs-app-router": {
+      "types": "./build/mjs/lib/adapters/nextjs-app-router/index.d.ts",
+      "import": "./build/mjs/lib/adapters/nextjs-app-router/index.js",
+      "require": "./build/cjs/lib/adapters/nextjs-app-router/index.js"
+    },
     "./historyjs": {
       "types": "./build/mjs/lib/adapters/historyjs/index.d.ts",
       "import": "./build/mjs/lib/adapters/historyjs/index.js",
@@ -33,6 +38,7 @@
     "build",
     "nextjs.d.ts",
     "historyjs.d.ts",
+    "nextjs-app-router.d.ts",
     "static.d.ts"
   ],
   "sideEffects": false,
@@ -129,7 +135,7 @@
     "jest-junit": "^15.0.0",
     "jsdom": "^21.0.0",
     "jsdom-global": "^3.0.2",
-    "next": "^13.3.1",
+    "next": "^13.4.5",
     "npm-run-all": "^4.1.5",
     "open-cli": "^7.1.0",
     "prettier": "^2.8.3",

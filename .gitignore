@@ -13,3 +13,4 @@ package-lock.json
 nextjs.d.ts
 historyjs.d.ts
 static.d.ts
+nextjs-app-router.d.ts

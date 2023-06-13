@@ -11,6 +11,7 @@ import React, {
 import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
 import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
+import { createSearch } from '../../utils.js'
 
 export interface Props {
   /** a history instance (e.g. createBrowserHistory()) */
@@ -20,11 +21,6 @@ export interface Props {
 
 export interface Refs {
   readonly updateFromQuery: (query: string) => void
-}
-
-const createSearch = (query: Record<string, string>) => {
-  const queryString = new URLSearchParams(query).toString()
-  return queryString === '' ? '' : `?${queryString}`
 }
 
 const handleHistoryV4 = (update: Location, action: Action) => {

@@ -60,7 +60,7 @@ export type RouterOptions = Record<string, any>
 
 export interface HistoryManagement {
   /** the initial search string (e.g. ?query=test), contains the questionsmark */
-  readonly initialSearch: () => string
+  readonly initialSearch: () => string | URLSearchParams
   readonly push: (
     queryObject: Record<string, string>,
     options?: RouterOptions
