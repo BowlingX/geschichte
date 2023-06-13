@@ -49,7 +49,6 @@ workflows:
   build:
     jobs:
       - 'node-lts'
-      - 'node-latest'
       - publish:
           filters:
             branches:
@@ -57,4 +56,3 @@ workflows:
                 - master
           requires:
             - 'node-lts'
-            - 'node-latest'
