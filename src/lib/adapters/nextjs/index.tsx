@@ -36,13 +36,13 @@ interface Props {
   // tslint:disable-next-line:no-mixed-interface
   readonly routerPush?: (
     url: Url,
-    as: UrlObject,
+    as?: UrlObject,
     options?: TransitionOptions
   ) => Promise<boolean>
   // tslint:disable-next-line:no-mixed-interface
   readonly routerReplace?: (
     url: Url,
-    as: UrlObject,
+    as?: UrlObject,
     options?: TransitionOptions
   ) => Promise<boolean>
 }
@@ -83,14 +83,14 @@ export const GeschichteForNextjs: FC<Props> = ({
 
         if (routerPush) {
           return routerPush(
-            { pathname, query: Router.query },
-            { pathname, query },
+            { query: Router.query },
+            { query, pathname },
             routerOptions
           )
         }
         return Router.push(
-          { pathname, query: Router.query },
-          { pathname, query },
+          { query: Router.query },
+          { query, pathname },
           routerOptions
         )
       },
@@ -104,13 +104,13 @@ export const GeschichteForNextjs: FC<Props> = ({
 
         if (routerReplace) {
           return routerReplace(
-            { pathname, query: Router.query },
+            { query: Router.query },
             { pathname, query },
             routerOptions
           )
         }
         return Router.replace(
-          { pathname, query: Router.query },
+          { query: Router.query },
           { pathname, query },
           routerOptions
         )

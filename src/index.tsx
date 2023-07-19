@@ -23,4 +23,3 @@ export {
   createOrApplyPath,
   defaultSkipValue,
 } from './lib/utils.js'
-export { default as default } from './lib/adapters/historyjs/index.js'
