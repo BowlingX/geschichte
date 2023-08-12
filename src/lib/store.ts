@@ -9,9 +9,11 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { create, Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
+import { Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
+// tslint:disable-next-line:no-submodule-imports
+import { createWithEqualityFn } from 'zustand/traditional'
 
 const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
@@ -82,11 +84,12 @@ export const useGeschichte = <T extends object>(
   ) as unknown as StateCreator<StoreState<T>, any>
 
   if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
-    return create(
-      subscribeWithSelector(devtools(middleware, { name: 'geschichte' }))
+    return createWithEqualityFn(
+      subscribeWithSelector(devtools(middleware, { name: 'geschichte' })),
+      shallow
     )
   }
-  return create(subscribeWithSelector(middleware))
+  return createWithEqualityFn(subscribeWithSelector(middleware), shallow)
 }
 
 type InitialValuesProvider<T> = T | (() => T)
@@ -108,13 +111,10 @@ export const useStore = <T extends object>() => {
 
 export const useBatchQuery = <T extends object>() => {
   const store = useStore<T>()
-  return store(
-    ({ batchPushState, batchReplaceState }) => ({
-      batchPushState,
-      batchReplaceState,
-    }),
-    shallow
-  )
+  return store(({ batchPushState, batchReplaceState }) => ({
+    batchPushState,
+    batchReplaceState,
+  }))
 }
 
 export const factoryParameters = <T extends object>(
