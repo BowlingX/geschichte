@@ -15,7 +15,7 @@ import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
 import type { UrlObject } from 'url'
 // tslint:disable-next-line:no-submodule-imports
 import nextRouter, { Router as Router$ } from 'next/router.js'
-
+// @ts-ignore
 const { useRouter, default: NextRouter } = nextRouter
 
 const split = (url?: string) => url?.split('?') || []

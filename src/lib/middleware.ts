@@ -14,7 +14,7 @@ import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState,
 } from './utils.js'
-
+// @ts-ignore
 const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
 export enum HistoryEventType {

@@ -1,8 +1,7 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "declaration": false,
-    "target": "ES2018",
+    "moduleResolution": "node",
     "outDir": "build/cjs",
     "module": "CommonJS"
   },

@@ -8,29 +8,54 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./build/mjs/index.d.ts",
-      "import": "./build/mjs/index.js",
-      "require": "./build/cjs/index.js"
+      "import": {
+        "types": "./build/mjs/index.d.ts",
+        "default": "./build/mjs/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/index.d.ts",
+        "default": "./build/cjs/index.js"
+      }
     },
     "./nextjs": {
-      "types": "./build/mjs/lib/adapters/nextjs/index.d.ts",
-      "import": "./build/mjs/lib/adapters/nextjs/index.js",
-      "require": "./build/cjs/lib/adapters/nextjs/index.js"
+      "import": {
+        "types": "./build/mjs/lib/adapters/nextjs/index.d.ts",
+        "default": "./build/mjs/lib/adapters/nextjs/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/lib/adapters/nextjs/index.d.ts",
+        "default": "./build/cjs/lib/adapters/nextjs/index.js"
+      }
     },
     "./nextjs-app-router": {
-      "types": "./build/mjs/lib/adapters/nextjs-app-router/index.d.ts",
-      "import": "./build/mjs/lib/adapters/nextjs-app-router/index.js",
-      "require": "./build/cjs/lib/adapters/nextjs-app-router/index.js"
+      "import": {
+        "types": "./build/mjs/lib/adapters/nextjs-app-router/index.d.ts",
+        "default": "./build/mjs/lib/adapters/nextjs-app-router/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/lib/adapters/nextjs-app-router/index.d.ts",
+        "default": "./build/cjs/lib/adapters/nextjs-app-router/index.js"
+      }
     },
     "./historyjs": {
-      "types": "./build/mjs/lib/adapters/historyjs/index.d.ts",
-      "import": "./build/mjs/lib/adapters/historyjs/index.js",
-      "require": "./build/cjs/lib/adapters/historyjs/index.js"
+      "import": {
+        "types": "./build/mjs/lib/adapters/historyjs/index.d.ts",
+        "default": "./build/mjs/lib/adapters/historyjs/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/lib/adapters/historyjs/index.d.ts",
+        "default": "./build/cjs/lib/adapters/historyjs/index.js"
+      }
     },
     "./static": {
-      "types": "./build/mjs/lib/adapters/static/index.d.ts",
-      "import": "./build/mjs/lib/adapters/static/index.js",
-      "require": "./build/cjs/lib/adapters/static/index.js"
+      "import": {
+        "types": "./build/mjs/lib/adapters/static/index.d.ts",
+        "default": "./build/mjs/lib/adapters/static/index.js"
+      },
+      "require": {
+        "types": "./build/cjs/lib/adapters/static/index.d.ts",
+        "default": "./build/cjs/lib/adapters/static/index.js"
+      }
     },
     "./package.json": "./package.json"
   },

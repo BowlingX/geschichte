@@ -15,6 +15,7 @@ import { devtools, subscribeWithSelector } from 'zustand/middleware'
 // tslint:disable-next-line:no-submodule-imports
 import { createWithEqualityFn } from 'zustand/traditional'
 
+// @ts-ignore
 const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
 // tslint:disable-next-line:no-submodule-imports
