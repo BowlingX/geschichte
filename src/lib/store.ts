@@ -1,6 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { Draft, enablePatches, produce } from 'immer'
-import memoizeOneImport from 'memoize-one'
 import {
   createContext,
   useCallback,
@@ -14,8 +13,6 @@ import { Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 // tslint:disable-next-line:no-submodule-imports
 import { createWithEqualityFn } from 'zustand/traditional'
-
-const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
 // tslint:disable-next-line:no-submodule-imports
 import { shallow } from 'zustand/shallow'
@@ -150,9 +147,6 @@ export const factoryParameters = <T extends object>(
     }
   }
 
-  const memInitBlank = memoizeOne(initBlank)
-  const memCreateInitialValues = memoizeOne(createInitialValues)
-
   const useQuery = () => {
     const useStore = assertContextExists(
       useContext(StoreContext) as UseBoundStore<
@@ -189,8 +183,8 @@ export const factoryParameters = <T extends object>(
       shallow
     )
     const initialRegisterState = useMemo(() => {
-      const initialValues = memCreateInitialValues(defaultInitialValues)
-      return memInitBlank(initialQueries(), initialValues)
+      const initialValues = createInitialValues(defaultInitialValues)
+      return initBlank(initialQueries(), initialValues)
     }, [useStore, defaultInitialValues])
 
     const [currentState, setCurrentState] = useState({
@@ -284,7 +278,7 @@ export const factoryParameters = <T extends object>(
   ): string => {
     const thisInitialValues =
       typeof initialValues === 'undefined'
-        ? memCreateInitialValues(defaultInitialValues)
+        ? createInitialValues(defaultInitialValues)
         : initialValues
     return new URLSearchParams(
       createQueryObject<T>(flatConfig, ns, values, thisInitialValues)
@@ -297,7 +291,7 @@ export const factoryParameters = <T extends object>(
   ): Partial<T> => {
     const thisInitialValues =
       typeof initialValues === 'undefined'
-        ? memCreateInitialValues(defaultInitialValues)
+        ? createInitialValues(defaultInitialValues)
         : initialValues
     return produce({}, (draft: Draft<T>) => {
       const parsedQuery = new URLSearchParams(query)

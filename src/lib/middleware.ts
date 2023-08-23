@@ -1,6 +1,5 @@
 /* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation readonly-array */
 import { Patch, produceWithPatches } from 'immer'
-import memoizeOneImport from 'memoize-one'
 import { StoreApi } from 'zustand'
 // tslint:disable-next-line:no-submodule-imports
 import { shallow } from 'zustand/shallow'
@@ -14,8 +13,6 @@ import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState,
 } from './utils.js'
-
-const memoizeOne = memoizeOneImport.default || memoizeOneImport
 
 export enum HistoryEventType {
   PUSH,
@@ -314,10 +311,8 @@ export const converter =
     get: StoreApi<StoreState<T>>['getState'],
     api: StoreApi<StoreState<T>>
   ): StoreState<T> => {
-    const memoizedGetInitialQueries = memoizeOne(parseSearchString)
-
     const updateFromQuery = (search: string | URLSearchParams) => {
-      const nextQueries = memoizedGetInitialQueries(search)
+      const nextQueries = parseSearchString(search)
       const namespaces = get().namespaces
       Object.keys(namespaces).forEach((ns) => {
         // It's possible that the ns got cleared while we are applying the new state.
@@ -395,8 +390,7 @@ export const converter =
         )
       },
       /** the initial queries when the script got executed first (usually on page load). */
-      initialQueries: () =>
-        memoizedGetInitialQueries(historyInstance.initialSearch()),
+      initialQueries: () => parseSearchString(historyInstance.initialSearch()),
       /** here we store all data and configurations for the different namespaces */
       namespaces: {},
       /** pushes a new state for a given namespace, (will use history.pushState) */
@@ -426,7 +420,7 @@ export const converter =
                 state.initialValues = initialValues
                 state.query = applyFlatConfigToState(
                   state.mappedConfig,
-                  memoizedGetInitialQueries(historyInstance.initialSearch()),
+                  parseSearchString(historyInstance.initialSearch()),
                   ns,
                   state.values,
                   initialValues
