@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2018",
     "outDir": "build/mjs",
-    "module": "esnext",
+    "module": "Node16",
     "rootDir": "src",
     "moduleResolution": "node16",
     "declaration": true,

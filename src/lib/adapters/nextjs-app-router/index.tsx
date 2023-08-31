@@ -25,7 +25,7 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
   const historyInstance: HistoryManagement = useMemo(() => {
     const { searchParams, push, replace, pathname } = router.current
     return {
-      initialSearch: () => searchParams,
+      initialSearch: () => searchParams as unknown as URLSearchParams,
       push: async (query) => {
         push(`${pathname}${createSearch(query)}`)
       },
@@ -50,7 +50,7 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
 
   useEffect(() => {
     if (router.current.searchParams !== searchParams) {
-      state.updateFromQuery(searchParams)
+      state.updateFromQuery(searchParams as unknown as URLSearchParams)
     }
     router.current = { push, replace, searchParams, pathname }
     return () => {

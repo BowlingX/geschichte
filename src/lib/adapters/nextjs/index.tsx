@@ -15,9 +15,11 @@ import {
   createGeschichte,
 } from '../../store.js'
 import type { UrlObject } from 'url'
-import nextRouter, { Router as Router$ } from 'next/router.js'
-
-const { useRouter, default: NextRouter } = nextRouter
+import {
+  Router as Router$,
+  useRouter,
+  default as NextRouter,
+} from 'next/router.js'
 
 const split = (url?: string) => url?.split('?') || []
 
