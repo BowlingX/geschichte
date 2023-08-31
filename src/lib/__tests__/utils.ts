@@ -1,4 +1,3 @@
-/* tslint:disable:no-expression-statement */
 import { Patch } from 'immer'
 import { serializers } from '../serializers.js'
 import { DEFAULT_NAMESPACE } from '../store.js'

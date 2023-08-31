@@ -1,9 +1,10 @@
-export interface Serializer<V = any> {
+export interface Serializer<V> {
   readonly deserialize: (value: string | null) => V | undefined | null
   readonly serialize: (value?: V) => string | undefined | null
 }
 
-const join = (value: readonly any[], separator: string) => value.join(separator)
+const join = (value: readonly unknown[], separator: string) =>
+  value.join(separator)
 
 const split = (value: string | null, separator: string) =>
   value?.split(separator).filter((str) => str.trim() !== '') || []
@@ -75,7 +76,7 @@ const dateSerializer = (
     value?.toLocaleDateString(locale, { timeZone }),
 })
 
-const booleanSerializer: Serializer = {
+const booleanSerializer: Serializer<boolean> = {
   deserialize: (value: string | null): boolean => value === '1',
   serialize: (value?: boolean): string => (value ? '1' : '0'),
 }

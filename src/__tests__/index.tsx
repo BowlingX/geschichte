@@ -1,10 +1,12 @@
-/* tslint:disable:no-expression-statement no-object-mutation */
+/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 import { render, cleanup, screen, act } from '@testing-library/react'
 import userEventImport from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { factoryParameters, pm, serializers, useBatchQuery } from '../index.js'
 import Geschichte from '../lib/adapters/historyjs/index.js'
+import { InferNamespaceValues } from '../lib/store.js'
+
 afterEach(cleanup)
 
 const userEvent = userEventImport.default || userEventImport
@@ -23,7 +25,7 @@ describe('<Geschichte />', () => {
 
     const { useQuery: secondNamespaceUseQuery } = factoryParameters(
       {
-        someParameter: pm('wow', serializers.string),
+        other: pm('wow', serializers.string),
       },
       { someParameter: 'test' },
       'test2'
@@ -35,9 +37,14 @@ describe('<Geschichte />', () => {
         pushState,
         resetPush,
       } = useQuery()
-      const { values: secondValues } = secondNamespaceUseQuery()
-      // tslint:disable-next-line:readonly-keyword
-      const { batchPushState } = useBatchQuery<{ someParameter: string }>()
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { values: secondValues } = secondNamespaceUseQuery() // we have to use the other query so it's registered
+
+      type FullStore = {
+        test: InferNamespaceValues<typeof useQuery>
+        test2: InferNamespaceValues<typeof secondNamespaceUseQuery>
+      }
+      const { batchPushState } = useBatchQuery<FullStore>()
       return (
         <>
           <p role="content">{someParameter}</p>
@@ -51,8 +58,12 @@ describe('<Geschichte />', () => {
             title="pushBatch"
             onClick={() =>
               batchPushState(['test', 'test2'], (stateFirst, stateSecond) => {
-                stateFirst.someParameter = 'wasBatch'
-                stateSecond.someParameter = 'anotherOne'
+                if (stateFirst && stateSecond) {
+                  stateFirst.someParameter = 'wasBatch'
+                  if ('other' in stateSecond) {
+                    stateSecond.other = 'anotherOne'
+                  }
+                }
               })
             }
           />

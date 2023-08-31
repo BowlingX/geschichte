@@ -1,4 +1,3 @@
-/* tslint:disable:no-expression-statement readonly-array */
 import type { Action, History, Location } from 'history'
 import React, {
   forwardRef,
@@ -7,10 +6,13 @@ import React, {
   useImperativeHandle,
   useMemo,
 } from 'react'
-// tslint:disable-next-line:no-submodule-imports
 import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
-import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
+import {
+  HistoryManagement,
+  StoreContext,
+  createGeschichte,
+} from '../../store.js'
 import { createSearch } from '../../utils.js'
 
 export interface Props {
@@ -43,7 +45,6 @@ const handleHistoryV5 = ({
   }
 }
 
-// tslint:disable-next-line
 let handler: typeof handleHistoryV4 | typeof handleHistoryV5
 
 export const handleHistoryEvent = (action?: Action) => {
@@ -82,11 +83,14 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     }, [history])
 
     const value = useMemo(
-      () => useGeschichte(historyInstance),
+      () => createGeschichte(historyInstance),
       [historyInstance]
     )
     const state = value(
-      ({ unregister, updateFromQuery }: StoreState<any>) => ({
+      ({
+        unregister,
+        updateFromQuery,
+      }: StoreState<Record<string, unknown>>) => ({
         unregister,
         updateFromQuery,
       }),
@@ -94,6 +98,7 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
     )
 
     useEffect(() => {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return history.listen((update, maybeAction) => {
         const { location, action } = (
@@ -103,6 +108,7 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
         if (
           (action === 'REPLACE' || action === 'PUSH') &&
           location.state &&
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
           location.state.__g__
         ) {
@@ -110,6 +116,7 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
         }
         state.updateFromQuery(location.search)
       })
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [history, state.updateFromQuery])
 
     useImperativeHandle(

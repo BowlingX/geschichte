@@ -1,4 +1,4 @@
-/* tslint:disable:no-expression-statement no-object-mutation */
+/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 import { render, cleanup, screen, act } from '@testing-library/react'
 import userEventImport from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'

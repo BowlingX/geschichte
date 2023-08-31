@@ -1,3 +1,4 @@
+/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 /* tslint:disable:no-expression-statement no-object-mutation */
 
 import { render, cleanup, screen, act } from '@testing-library/react'

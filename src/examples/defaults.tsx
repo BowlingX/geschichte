@@ -10,7 +10,7 @@ const defaultValues = () => ({
   someParameter: 'test',
 })
 
-interface Props<T = {}> {
+interface Props<T = Record<string, unknown>> {
   readonly defaultValues: T
 }
 

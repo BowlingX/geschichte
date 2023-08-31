@@ -1,4 +1,3 @@
-/* tslint:disable:no-expression-statement readonly-array no-shadowed-variable */
 import { Draft, enablePatches, produce } from 'immer'
 import {
   createContext,
@@ -9,17 +8,16 @@ import {
   useState,
 } from 'react'
 import { Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
-// tslint:disable-next-line:no-submodule-imports
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
-// tslint:disable-next-line:no-submodule-imports
 import { createWithEqualityFn } from 'zustand/traditional'
 
-// tslint:disable-next-line:no-submodule-imports
 import { shallow } from 'zustand/shallow'
 import {
   converter,
   historyManagement,
   immerWithPatches,
+  InnerNamespace,
+  NamespaceValues,
   StoreState,
 } from './middleware.js'
 import { Serializer } from './serializers.js'
@@ -28,18 +26,20 @@ import {
   createQueryObject,
   flattenConfig,
 } from './utils.js'
+import type { PartialDeep } from 'type-fest'
 
 enablePatches()
 
 export const DEFAULT_NAMESPACE = 'default'
-export const StoreContext = createContext<StoreApi<StoreState<any>> | null>(
-  null
-)
+export const StoreContext = createContext<StoreApi<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  StoreState<any, any>
+> | null>(null)
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface Parameter<V = any> {
   readonly name: string
   readonly serializer: Serializer<V>
-  // tslint:disable-next-line:no-mixed-interface
   readonly skipValue: (value?: V, initialValue?: V) => boolean
 }
 
@@ -55,7 +55,7 @@ export interface MappedConfig {
   readonly [queryParameter: string]: MappedParameter
 }
 
-export type RouterOptions = Record<string, any>
+export type RouterOptions = Record<string, unknown>
 
 export interface HistoryManagement {
   /** the initial search string (e.g. ?query=test), contains the questionsmark */
@@ -70,15 +70,18 @@ export interface HistoryManagement {
   ) => Promise<unknown>
 }
 
-export const useGeschichte = <T extends object>(
+export const createGeschichte = <
+  T extends Record<string, unknown>,
+  N extends InnerNamespace<T>
+>(
   historyInstance: HistoryManagement
 ) => {
-  const thisStore = converter<T>(historyInstance)
-  const storeWithHistory = historyManagement<T>(historyInstance)(thisStore)
+  const thisStore = converter<T, N>(historyInstance)
+  const storeWithHistory = historyManagement<T, N>(historyInstance)(thisStore)
 
   const middleware = immerWithPatches(
     storeWithHistory
-  ) as unknown as StateCreator<StoreState<T>, any>
+  ) as unknown as StateCreator<StoreState<T, N>>
 
   if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
     return createWithEqualityFn(
@@ -100,23 +103,30 @@ const assertContextExists = <T>(value: T | null): T => {
   return value as T
 }
 
-export const useStore = <T extends object>() => {
+export const useStore = <
+  V extends Record<string, unknown>,
+  N extends InnerNamespace<V>
+>() => {
   return assertContextExists(
-    useContext(StoreContext) as UseBoundStore<StoreApi<StoreState<T>>>
+    useContext(StoreContext) as UseBoundStore<StoreApi<StoreState<V, N>>>
   )
 }
 
-export const useBatchQuery = <T extends object>() => {
-  const store = useStore<T>()
+export const useBatchQuery = <
+  N extends InnerNamespace<Record<string, unknown>>
+>() => {
+  const store = useStore<Record<string, unknown>, N>()
   return store(({ batchPushState, batchReplaceState }) => ({
     batchPushState,
     batchReplaceState,
   }))
 }
 
-export const factoryParameters = <T extends object>(
+export const factoryParameters = <
+  T extends Record<string, unknown>,
+  N extends InnerNamespace<T>
+>(
   config: Config,
-  // tslint:disable-next-line:no-object-literal-type-assertion
   defaultInitialValues: InitialValuesProvider<T> = {} as T,
   ns: string = DEFAULT_NAMESPACE
 ) => {
@@ -124,10 +134,12 @@ export const factoryParameters = <T extends object>(
   const createInitialValues = (d: InitialValuesProvider<T>) =>
     typeof d === 'function' ? (d as () => T)() : d
 
-  const initBlank = (initialQueries: object, initialValues: T) => {
+  const initBlank = (
+    initialQueries: Record<string, string>,
+    initialValues: T
+  ) => {
     // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
     // the initial state.
-    // tslint:disable-next-line:no-let
     let thisQuery = {}
     // We produce a new state here instead of mutating defaultInitialValues.
     // Otherwise it's possible that it get's reused across executions and that will yield to readonly errors.
@@ -151,7 +163,7 @@ export const factoryParameters = <T extends object>(
     const useStore = assertContextExists(
       useContext(StoreContext) as UseBoundStore<
         Mutate<
-          StoreApi<StoreState<T>>,
+          StoreApi<StoreState<T, N>>,
           [['zustand/subscribeWithSelector', never]]
         >
       >
@@ -185,6 +197,7 @@ export const factoryParameters = <T extends object>(
     const initialRegisterState = useMemo(() => {
       const initialValues = createInitialValues(defaultInitialValues)
       return initBlank(initialQueries(), initialValues)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [useStore, defaultInitialValues])
 
     const [currentState, setCurrentState] = useState({
@@ -231,13 +244,14 @@ export const factoryParameters = <T extends object>(
         unsubscribe()
         unregister()
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [initialRegisterState])
 
     const values = currentState.values
     const initialValues = currentState.initialValues
 
     const createQuery = useCallback(
-      (values: Partial<T>) => {
+      (values: Partial<T> | PartialDeep<T>) => {
         return createQueryObject(flatConfig, ns, values, initialValues)
       },
       [initialValues]
@@ -245,16 +259,18 @@ export const factoryParameters = <T extends object>(
 
     return useMemo(
       () => ({
-        createQuery: (customValues?: Partial<T>) =>
+        createQuery: (customValues?: PartialDeep<T>) =>
           createQuery(customValues || values),
-        createQueryString: (customValues?: Partial<T>) =>
+        createQueryString: (customValues?: PartialDeep<T>) =>
           new URLSearchParams(createQuery(customValues || values)).toString(),
         initialValues,
-        pushState: (state: (state: T) => void, options?: Record<string, any>) =>
-          pushState(ns, state, options),
+        pushState: (
+          state: (state: T) => void,
+          options?: Record<string, unknown>
+        ) => pushState(ns, state, options),
         replaceState: (
           state: (state: T) => void,
-          options?: Record<string, any>
+          options?: Record<string, unknown>
         ) => replaceState(ns, state, options),
         resetPush: () => resetPush(ns),
         resetReplace: () => resetReplace(ns),
@@ -273,8 +289,8 @@ export const factoryParameters = <T extends object>(
   }
 
   const createQueryString = (
-    values: Partial<T>,
-    initialValues?: Partial<T> | null
+    values: PartialDeep<T>,
+    initialValues?: PartialDeep<T> | null
   ): string => {
     const thisInitialValues =
       typeof initialValues === 'undefined'
@@ -287,7 +303,7 @@ export const factoryParameters = <T extends object>(
 
   const parseQueryString = (
     query: string,
-    initialValues?: Partial<T> | null
+    initialValues?: PartialDeep<T> | null
   ): Partial<T> => {
     const thisInitialValues =
       typeof initialValues === 'undefined'
@@ -307,3 +323,7 @@ export const factoryParameters = <T extends object>(
 
   return { useQuery, createQueryString, parseQueryString }
 }
+
+export type InferNamespaceValues<
+  F extends ReturnType<typeof factoryParameters>['useQuery']
+> = NamespaceValues<ReturnType<F>['values']>

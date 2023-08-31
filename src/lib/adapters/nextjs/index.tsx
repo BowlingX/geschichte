@@ -1,4 +1,3 @@
-/* tslint:disable:no-expression-statement readonly-array */
 import React, {
   FC,
   memo,
@@ -8,13 +7,16 @@ import React, {
   useRef,
   useState,
 } from 'react'
-// tslint:disable-next-line:no-submodule-imports
 import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
-import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
+import {
+  HistoryManagement,
+  StoreContext,
+  createGeschichte,
+} from '../../store.js'
 import type { UrlObject } from 'url'
-// tslint:disable-next-line:no-submodule-imports
 import nextRouter, { Router as Router$ } from 'next/router.js'
+
 const { useRouter, default: NextRouter } = nextRouter
 
 const split = (url?: string) => url?.split('?') || []
@@ -32,13 +34,11 @@ interface Props {
   readonly asPath: string
   readonly defaultPushOptions?: TransitionOptions
   readonly defaultReplaceOptions?: TransitionOptions
-  // tslint:disable-next-line:no-mixed-interface
   readonly routerPush?: (
     url: Url,
     as?: UrlObject,
     options?: TransitionOptions
   ) => Promise<boolean>
-  // tslint:disable-next-line:no-mixed-interface
   readonly routerReplace?: (
     url: Url,
     as?: UrlObject,
@@ -47,7 +47,7 @@ interface Props {
 }
 
 // FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
-const Router = (NextRouter as any as { readonly default: Router$ }).default
+const Router = (NextRouter as unknown as { readonly default: Router$ }).default
 
 const queryFromPath = (path: string) => {
   const [, query] = split(path)
@@ -119,12 +119,11 @@ export const GeschichteForNextjs: FC<Props> = ({
   }, [routerPush, routerReplace])
 
   const useStore = useMemo(
-    () => useGeschichte(historyInstance),
+    () => createGeschichte(historyInstance),
     [historyInstance]
   )
   const state = useStore(
-    // tslint:disable-next-line:no-shadowed-variable
-    ({ unregister, updateFromQuery }: StoreState<object>) => ({
+    ({ unregister, updateFromQuery }: StoreState<Record<string, unknown>>) => ({
       unregister,
       updateFromQuery,
     }),
@@ -137,11 +136,9 @@ export const GeschichteForNextjs: FC<Props> = ({
     // tslint:disable-next-line
     lastClientSideQuery.current = window.location.href
     updateFromQuery(window.location.search)
-    // tslint:disable-next-line:no-let
     let skipEvent = true
     const routeChangeStartHandler = (path: string) => {
       const nextQuery = queryFromPath(path)
-      // tslint:disable-next-line
       lastClientSideQuery.current = path
       // skip execution for first render
       if (!skipEvent) {

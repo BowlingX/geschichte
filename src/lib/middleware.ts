@@ -1,7 +1,5 @@
-/* tslint:disable:no-expression-statement readonly-keyword no-mixed-interface no-object-mutation readonly-array */
-import { Patch, produceWithPatches } from 'immer'
+import { Immutable, Patch, produceWithPatches } from 'immer'
 import { StoreApi } from 'zustand'
-// tslint:disable-next-line:no-submodule-imports
 import { shallow } from 'zustand/shallow'
 import {
   Config,
@@ -21,6 +19,7 @@ export enum HistoryEventType {
 }
 
 export interface GenericObject {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any
 }
 
@@ -46,9 +45,10 @@ export type ReplaceStateFunction<T> = (
   routerOptions?: RouterOptions
 ) => Promise<unknown>
 
-export interface InnerNamespace<T extends object> {
-  [ns: string]: NamespaceValues<T>
-}
+export type InnerNamespace<V extends Record<string, unknown>> = Record<
+  string,
+  NamespaceValues<V>
+>
 
 interface RegistryPayload<ValueState> {
   unsubscribe: () => boolean
@@ -56,88 +56,111 @@ interface RegistryPayload<ValueState> {
   initialValues: ValueState
 }
 
-export interface StoreState<ValueState extends object> {
+export interface StoreState<
+  ThisValue extends Record<string, unknown>,
+  Namespaces extends InnerNamespace<ThisValue> = InnerNamespace<ThisValue>
+> {
   readonly updateFromQuery: (query: string | URLSearchParams) => void
-  readonly batchReplaceState: (
-    ns: readonly string[],
-    fn: (...valueState: ValueState[]) => void,
+  readonly batchReplaceState: <Keys extends keyof Namespaces>(
+    ns: Keys[],
+    fn: (...args: Namespaces[Keys]['values'][]) => void,
     routerOptions?: RouterOptions
   ) => Promise<unknown>
-  readonly batchPushState: (
-    ns: readonly string[],
-    fn: (...valueState: ValueState[]) => void,
+  readonly batchPushState: <Keys extends keyof Namespaces>(
+    ns: Keys[],
+    fn: (...args: (Namespaces[Keys]['values'] | undefined)[]) => void,
     routerOptions?: RouterOptions
   ) => Promise<unknown>
-  namespaces: InnerNamespace<ValueState>
-  readonly pushState: PushStateFunction<ValueState>
-  readonly replaceState: ReplaceStateFunction<ValueState>
+  namespaces: Namespaces
+  readonly pushState: PushStateFunction<Namespaces[keyof Namespaces]['values']>
+  readonly replaceState: ReplaceStateFunction<
+    Namespaces[keyof Namespaces]['values']
+  >
   /** registers a new namespace */
-  readonly register: (
+  readonly register: <N extends keyof Namespaces>(
     config: Config,
     mappedConfig: MappedConfig,
-    ns: string,
-    initialValues: ValueState,
+    ns: N,
+    initialValues: Namespaces[N]['values'],
     query: Record<string, string>,
-    values: ValueState
-  ) => RegistryPayload<ValueState>
+    values: Namespaces[N]['values']
+  ) => RegistryPayload<Namespaces[N]['values']>
   /** will delete all namespaces and remove the history listener */
   readonly unregister: () => void
   readonly resetPush: (ns: string, routerOptions?: RouterOptions) => void
   readonly resetReplace: (ns: string, routerOptions?: RouterOptions) => void
-  readonly initialQueries: () => object
+  readonly initialQueries: () => Record<string, string>
 }
 
-type NamespaceProducerFunction<T extends object> = (
-  state: NamespaceValues<T>
-) => void
-type InnerNamespaceProducerFunction<T extends object> = (
-  state: InnerNamespace<T>
-) => InnerNamespace<T> | void
+type NamespaceProducerFunction<
+  V extends Record<string, unknown>,
+  T extends InnerNamespace<V>
+> = (state: T[keyof T]) => void
+type InnerNamespaceProducerFunction<
+  V extends Record<string, unknown>,
+  T extends InnerNamespace<V>
+> = (state: T) => T | void
 
-export type NamespaceProducer<T extends object> = (
-  stateProducer: NamespaceProducerFunction<T>,
+export type NamespaceProducer<
+  V extends Record<string, unknown>,
+  T extends InnerNamespace<V>
+> = (
+  stateProducer: NamespaceProducerFunction<V, T>,
   eventType: HistoryEventType,
-  ns?: string,
+  ns?: keyof T,
   routerOptions?: RouterOptions
 ) => Promise<unknown>
-export type GenericConverter<T extends object> = (
-  stateProducer: InnerNamespaceProducerFunction<T>,
+export type GenericConverter<
+  V extends Record<string, unknown>,
+  T extends InnerNamespace<V>
+> = (
+  stateProducer: InnerNamespaceProducerFunction<V, T>,
   eventType: HistoryEventType,
-  ns?: string,
+  ns?: keyof T,
   routerOptions?: RouterOptions
 ) => Promise<unknown>
 
-export type ImmerProducer<T extends object> = (
-  stateMapper: (changes: Patch[], values: StoreState<T>) => StoreState<T>,
-  fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
+export type ImmerProducer<
+  V extends Record<string, unknown>,
+  T extends InnerNamespace<V>
+> = (
+  stateMapper: (changes: Patch[], values: StoreState<V, T>) => StoreState<V, T>,
+  fn: NamespaceProducerFunction<V, T> & InnerNamespaceProducerFunction<V, T>,
   eventType: HistoryEventType,
-  ns?: string
+  ns?: keyof T
 ) => void
 
-export declare type StateCreator<T extends object> = (
-  set: NamespaceProducer<T> & GenericConverter<T>,
-  get: StoreApi<StoreState<T>>['getState'],
-  api: StoreApi<StoreState<T>>
-) => StoreState<T>
+export declare type StateCreator<
+  V extends Record<string, unknown>,
+  T extends InnerNamespace<V>
+> = (
+  set: NamespaceProducer<V, T> & GenericConverter<V, T>,
+  get: StoreApi<StoreState<V, T>>['getState'],
+  api: StoreApi<StoreState<V, T>>
+) => StoreState<V, T>
 
 export const historyManagement =
-  <T extends object>(historyInstance: HistoryManagement) =>
-  (apply: StateCreator<T>) =>
+  <V extends Record<string, unknown>, T extends InnerNamespace<V>>(
+    historyInstance: HistoryManagement
+  ) =>
+  (apply: StateCreator<V, T>) =>
   (
-    set: ImmerProducer<T>,
-    get: StoreApi<StoreState<T>>['getState'],
-    api: StoreApi<StoreState<T>>
+    set: ImmerProducer<V, T>,
+    get: StoreApi<StoreState<V, T>>['getState'],
+    api: StoreApi<StoreState<V, T>>
   ) =>
     apply(
       (
-        fn: NamespaceProducerFunction<T> | InnerNamespaceProducerFunction<T>,
+        fn:
+          | NamespaceProducerFunction<V, T>
+          | InnerNamespaceProducerFunction<V, T>,
         type: HistoryEventType,
-        ns?: string,
+        ns?: keyof T,
         options?: RouterOptions
       ) => {
         return new Promise<unknown>((resolve, reject) => {
           set(
-            (changes: Patch[], values: StoreState<T>) => {
+            (changes: Patch[], values: StoreState<V, T>) => {
               if (changes.length === 0) {
                 resolve(null)
                 return values
@@ -145,7 +168,7 @@ export const historyManagement =
               if (type !== HistoryEventType.REGISTER) {
                 // if namespace is not given, calculate what namespaces are affected
                 const affectedNamespaces: string[] = ns
-                  ? [ns]
+                  ? [ns as string]
                   : changes.reduce((next: string[], change: Patch) => {
                       const {
                         path: [, namespace],
@@ -157,23 +180,24 @@ export const historyManagement =
                       return next
                     }, [])
 
-                const uniqueQueries: {
-                  [key: string]: any
-                } = affectedNamespaces.reduce((next, thisNs) => {
-                  const { config, query: currentQuery } =
-                    get().namespaces[thisNs]
-                  return {
-                    ...next,
-                    [thisNs]: applyDiffWithCreateQueriesFromPatch(
-                      config,
-                      thisNs,
-                      currentQuery,
-                      changes,
-                      values.namespaces[thisNs].values,
-                      values.namespaces[thisNs].initialValues
-                    ),
-                  }
-                }, {})
+                const uniqueQueries = affectedNamespaces.reduce(
+                  (next, thisNs) => {
+                    const { config, query: currentQuery } =
+                      get().namespaces[thisNs]
+                    return {
+                      ...next,
+                      [thisNs]: applyDiffWithCreateQueriesFromPatch(
+                        config,
+                        thisNs,
+                        currentQuery,
+                        changes,
+                        values.namespaces[thisNs].values,
+                        values.namespaces[thisNs].initialValues
+                      ),
+                    }
+                  },
+                  {} as Record<string, Record<string, unknown>>
+                )
 
                 const method =
                   type === HistoryEventType.PUSH ? 'push' : 'replace'
@@ -210,26 +234,23 @@ export const historyManagement =
                   ...values,
                   namespaces: {
                     ...values.namespaces,
-                    ...affectedNamespaces.reduce(
-                      (next: any, thisNs: string) => {
-                        return {
-                          ...next,
-                          [thisNs]: {
-                            ...values.namespaces[thisNs],
-                            query: uniqueQueries[thisNs],
-                          },
-                        }
-                      },
-                      {}
-                    ),
+                    ...affectedNamespaces.reduce((next, thisNs: string) => {
+                      return {
+                        ...next,
+                        [thisNs]: {
+                          ...values.namespaces[thisNs],
+                          query: uniqueQueries[thisNs],
+                        },
+                      }
+                    }, {}),
                   },
                 }
               }
               resolve(null)
               return values
             },
-            fn as NamespaceProducerFunction<T> &
-              InnerNamespaceProducerFunction<T>,
+            fn as NamespaceProducerFunction<V, T> &
+              InnerNamespaceProducerFunction<V, T>,
             type,
             ns
           )
@@ -245,11 +266,11 @@ export const historyManagement =
  * the whole state. Initializes the namespace if it does not exist yet
  */
 const namespaceProducer =
-  <T extends object>(
-    fn: NamespaceProducerFunction<T> & InnerNamespaceProducerFunction<T>,
-    ns?: string
+  <V extends Record<string, unknown>, T extends InnerNamespace<V>>(
+    fn: NamespaceProducerFunction<V, T> & InnerNamespaceProducerFunction<V, T>,
+    ns?: keyof T
   ) =>
-  (state: StoreState<T>) => {
+  (state: StoreState<V, T>) => {
     if (!ns) {
       const result = fn(state.namespaces)
       // if no namespaces is given, we support return values
@@ -262,16 +283,19 @@ const namespaceProducer =
       fn(state.namespaces[ns])
       return
     }
-    const next = {}
+    const next = {} as T[keyof T]
     fn(next)
-    state.namespaces[ns] = next as NamespaceValues<T>
+    state.namespaces[ns] = next as T[keyof T]
   }
 
-export type ImmerStateCreator<T extends object> = (
-  fn: ImmerProducer<T>,
-  get: StoreApi<StoreState<T>>['getState'],
-  api: StoreApi<StoreState<T>>
-) => StoreState<T>
+export type ImmerStateCreator<
+  V extends Record<string, unknown>,
+  T extends InnerNamespace<V>
+> = (
+  fn: ImmerProducer<V, T>,
+  get: StoreApi<StoreState<V, T>>['getState'],
+  api: StoreApi<StoreState<V, T>>
+) => StoreState<V, T>
 
 export type SetImmerState<T> = (
   stateProducer: (state: T) => T,
@@ -279,20 +303,21 @@ export type SetImmerState<T> = (
 ) => void
 
 export const immerWithPatches =
-  <T extends object>(config: ImmerStateCreator<T>) =>
+  <V extends Record<string, unknown>, T extends InnerNamespace<V>>(
+    config: ImmerStateCreator<V, T>
+  ) =>
   (
-    set: SetImmerState<StoreState<T>>,
-    get: StoreApi<StoreState<T>>['getState'],
-    api: StoreApi<StoreState<T>>
+    set: SetImmerState<StoreState<V, T>>,
+    get: StoreApi<StoreState<V, T>>['getState'],
+    api: StoreApi<StoreState<V, T>>
   ) =>
     config(
-      (valueMapper, fn, type: HistoryEventType, ns?: string) => {
+      (valueMapper, fn, type: HistoryEventType, ns?: keyof T) => {
         return set((currentState) => {
           const [nextValues, changes] = produceWithPatches(
             namespaceProducer(fn, ns)
-            // FIXME: Not sure why this is not working properly with the types
-          )(currentState as any)
-          return valueMapper(changes, nextValues as StoreState<T>)
+          )(currentState as Immutable<StoreState<V, T>>)
+          return valueMapper(changes, nextValues)
         }, `action_${HistoryEventType[type]}`)
       },
       get,
@@ -305,12 +330,13 @@ const parseSearchString = (search: string | URLSearchParams) =>
     : Object.fromEntries(search.entries())
 
 export const converter =
-  <T extends object>(historyInstance: HistoryManagement) =>
+  <V extends Record<string, unknown>, T extends InnerNamespace<V>>(
+    historyInstance: HistoryManagement
+  ) =>
   (
-    set: NamespaceProducer<T> & GenericConverter<T>,
-    get: StoreApi<StoreState<T>>['getState'],
-    api: StoreApi<StoreState<T>>
-  ): StoreState<T> => {
+    set: NamespaceProducer<V, T> & GenericConverter<V, T>,
+    get: StoreApi<StoreState<V, T>>['getState']
+  ): StoreState<V, T> => {
     const updateFromQuery = (search: string | URLSearchParams) => {
       const nextQueries = parseSearchString(search)
       const namespaces = get().namespaces
@@ -323,14 +349,14 @@ export const converter =
             outerState.mappedConfig,
             nextQueries,
             ns,
-            {},
+            {} as V,
             outerState.initialValues,
             false
           )
           // We might have already the correct state applied that match the query parameters
           if (!shallow(get().namespaces[ns].query, thisNextQueries)) {
             set(
-              (state: NamespaceValues<T>) => {
+              (state) => {
                 state.query = applyFlatConfigToState(
                   state.mappedConfig,
                   nextQueries,
@@ -353,22 +379,20 @@ export const converter =
       routerOptions?: RouterOptions
     ) =>
       set(
-        (state: NamespaceValues<T>) =>
-          void (state.values = state.initialValues),
+        (state) => void (state.values = state.initialValues),
         event,
         ns,
         routerOptions
       )
-
     return {
       /** batch pushes the given namespaces */
-      batchPushState: (
-        ns: readonly string[],
-        fn: (...valueState: T[]) => void,
-        routerOptions
+      batchPushState: <Keys extends keyof T>(
+        ns: readonly Keys[],
+        fn: (...valueStateA: T[Keys]['values'][]) => void,
+        routerOptions?: RouterOptions
       ) => {
         return set(
-          (state: InnerNamespace<T>) =>
+          (state: T) =>
             void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
           HistoryEventType.PUSH,
           undefined,
@@ -376,13 +400,13 @@ export const converter =
         )
       },
       /** batch replaces the given namespaces */
-      batchReplaceState: (
-        ns: readonly string[],
-        fn: (...valueState: T[]) => void,
-        routerOptions
+      batchReplaceState: <Keys extends keyof T>(
+        ns: readonly Keys[],
+        fn: (...valueStateA: T[Keys]['values'][]) => void,
+        routerOptions?: RouterOptions
       ) => {
         return set(
-          (state: InnerNamespace<T>) =>
+          (state: T) =>
             void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
           HistoryEventType.REPLACE,
           undefined,
@@ -392,23 +416,27 @@ export const converter =
       /** the initial queries when the script got executed first (usually on page load). */
       initialQueries: () => parseSearchString(historyInstance.initialSearch()),
       /** here we store all data and configurations for the different namespaces */
-      namespaces: {},
+      namespaces: {} as T,
       /** pushes a new state for a given namespace, (will use history.pushState) */
-      pushState: (ns: string, fn: (values: T) => void, routerOptions) =>
-        (set as NamespaceProducer<T>)(
+      pushState: (
+        ns: string,
+        fn: (values: T[keyof T]['values']) => void,
+        routerOptions
+      ) =>
+        set(
           (state) => fn(state.values),
           HistoryEventType.PUSH,
           ns,
           routerOptions
         ),
       /** registers a new namespace and initializes it's configuration */
-      register: (
+      register: <N extends keyof T>(
         config: Config,
         mappedConfig: MappedConfig,
-        ns: string,
-        initialValues: T,
+        ns: N,
+        initialValues: T[N]['values'],
         query: Record<string, string>,
-        values: T
+        values: T[N]['values']
       ) => {
         const current = get().namespaces[ns]
         const defaultsEqual = current?.initialValues === initialValues
@@ -421,7 +449,7 @@ export const converter =
                 state.query = applyFlatConfigToState(
                   state.mappedConfig,
                   parseSearchString(historyInstance.initialSearch()),
-                  ns,
+                  ns as string,
                   state.values,
                   initialValues
                 )
@@ -441,14 +469,13 @@ export const converter =
           (state) => {
             state.subscribers = 1
             state.unsubscribe = () => {
-              ;(set as GenericConverter<T>)((thisState: InnerNamespace<T>) => {
+              ;(set as GenericConverter<V, T>)((thisState) => {
                 // it's possible that the state namespace has been cleared by the provider
                 if (!thisState[ns]) {
                   return
                 }
                 thisState[ns].subscribers = thisState[ns].subscribers - 1
                 if (thisState[ns].subscribers === 0) {
-                  // tslint:disable-next-line:no-delete
                   delete thisState[ns]
                 }
               }, HistoryEventType.REGISTER)
@@ -469,8 +496,12 @@ export const converter =
           values,
         }
       },
-      replaceState: (ns: string, fn: (values: T) => void, routerOptions) =>
-        (set as NamespaceProducer<T>)(
+      replaceState: (
+        ns: string,
+        fn: (values: T[keyof T]['values']) => void,
+        routerOptions
+      ) =>
+        set(
           (state) => fn(state.values),
           HistoryEventType.REPLACE,
           ns,
@@ -482,7 +513,7 @@ export const converter =
         reset(ns, HistoryEventType.REPLACE, routerOptions),
       /** cleans up this instance */
       unregister: () => {
-        ;(set as GenericConverter<T>)(() => {
+        set(() => {
           // return a new object for namespaces
           return {}
         }, HistoryEventType.REGISTER)

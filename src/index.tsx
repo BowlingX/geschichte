@@ -9,13 +9,14 @@ export {
 export { type StoreState } from './lib/middleware.js'
 export {
   type HistoryManagement,
-  useGeschichte,
+  createGeschichte,
   factoryParameters,
   useBatchQuery,
   useStore,
   DEFAULT_NAMESPACE,
   StoreContext,
   type Config,
+  type InferNamespaceValues,
 } from './lib/store.js'
 export {
   pm,

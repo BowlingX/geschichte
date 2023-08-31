@@ -1,5 +1,9 @@
 import React, { memo, useMemo } from 'react'
-import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
+import {
+  HistoryManagement,
+  StoreContext,
+  createGeschichte,
+} from '../../store.js'
 
 interface Props {
   readonly search?: string
@@ -21,7 +25,10 @@ const StaticGeschichteProvider = ({
     }
   }, [search])
 
-  const value = useMemo(() => useGeschichte(historyInstance), [historyInstance])
+  const value = useMemo(
+    () => createGeschichte(historyInstance),
+    [historyInstance]
+  )
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
 }
 

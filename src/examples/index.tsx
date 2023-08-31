@@ -1,4 +1,4 @@
-/* tslint:disable:no-expression-statement no-object-mutation */
+/* eslint-disable react-perf/jsx-no-new-function-as-prop */
 import { createBrowserHistory } from 'history'
 import React, { useCallback, useState } from 'react'
 import { factoryParameters, pm, serializers } from '../index.js'

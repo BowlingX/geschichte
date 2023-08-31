@@ -1,9 +1,11 @@
-/* tslint:disable:no-expression-statement no-object-mutation no-submodule-imports */
-
 'use client'
 
 import { useSearchParams, useRouter, usePathname } from 'next/navigation.js'
-import { HistoryManagement, StoreContext, useGeschichte } from '../../store.js'
+import {
+  HistoryManagement,
+  StoreContext,
+  createGeschichte,
+} from '../../store.js'
 import React, { memo, ReactNode, useEffect, useMemo, useRef } from 'react'
 import { StoreState } from '../../middleware.js'
 import { shallow } from 'zustand/shallow'
@@ -21,7 +23,6 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
   const router = useRef({ push, replace, searchParams, pathname })
 
   const historyInstance: HistoryManagement = useMemo(() => {
-    // tslint:disable-next-line:no-shadowed-variable
     const { searchParams, push, replace, pathname } = router.current
     return {
       initialSearch: () => searchParams,
@@ -35,13 +36,12 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
   }, [])
 
   const useStore = useMemo(
-    () => useGeschichte(historyInstance),
+    () => createGeschichte(historyInstance),
     [historyInstance]
   )
 
   const state = useStore(
-    // tslint:disable-next-line:no-shadowed-variable
-    ({ unregister, updateFromQuery }: StoreState<object>) => ({
+    ({ unregister, updateFromQuery }: StoreState<Record<string, unknown>>) => ({
       unregister,
       updateFromQuery,
     }),

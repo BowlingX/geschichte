@@ -1,8 +1,28 @@
-/* tslint:disable:no-expression-statement no-object-mutation */
-
 import { factoryParameters } from '../lib/store.js'
 import { pm } from '../lib/utils.js'
 import { serializers } from '../lib/serializers.js'
+
+describe('deep partial createQueryString', () => {
+  const initialValues = {
+    some: {
+      parameter: 'hello',
+      otherValue: 'world',
+    },
+  }
+  const { createQueryString } = factoryParameters(
+    {
+      some: {
+        parameter: pm('foo', serializers.string),
+        otherValue: pm('bar', serializers.string),
+      },
+    },
+    initialValues
+  )
+
+  it('should allow deep partial values', () => {
+    expect(createQueryString({ some: { parameter: 'wow' } })).toEqual('foo=wow')
+  })
+})
 
 describe('static parseQueryString', () => {
   const initialValues = { someParameter: 'test' }

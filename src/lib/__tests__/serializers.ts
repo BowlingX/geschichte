@@ -1,4 +1,3 @@
-/* tslint:disable:no-expression-statement */
 import { serializers } from '../serializers.js'
 
 describe('serializers', () => {

@@ -4,6 +4,7 @@ import { shallow } from 'zustand/shallow'
 import { GenericObject } from './middleware.js'
 import { Serializer } from './serializers.js'
 import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store.js'
+import type { PartialDeep } from 'type-fest'
 
 export const createSearch = (query: Record<string, string>) => {
   const queryString = new URLSearchParams(query).toString()
@@ -34,10 +35,10 @@ export function pm<V>(
   })
 }
 
-export const createOrApplyPath = (
+export const createOrApplyPath = <T>(
   obj: GenericObject | null,
   path: readonly string[],
-  value: any = null
+  value: T | null = null
 ) => {
   let current = obj || {}
   let thisPath: ReadonlyArray<string> = [...path]
@@ -59,12 +60,12 @@ export const formatNamespace = (key: string, ns?: string) => {
   return ns && ns !== DEFAULT_NAMESPACE ? `${ns}.${key}` : key
 }
 
-export const get = <T = object>(
-  object: T,
+export const get = <T extends Record<string, unknown>>(
+  object: T | null | undefined,
   path: ReadonlyArray<string | number>
 ) => {
-  return path.reduce((next: T | any, key: string | number) => {
-    return next ? next[key] : undefined
+  return path.reduce((next: unknown, key) => {
+    return next ? (next as T)[key] : undefined
   }, object)
 }
 
@@ -75,7 +76,7 @@ const findDeepPatches = (
   config: Config,
   basePath: readonly string[]
 ): readonly Patch[] => {
-  return Object.keys(config).reduce((next: readonly any[], item: string) => {
+  return Object.keys(config).reduce((next, item: string) => {
     if (typeof config[item] === 'function') {
       return [...next, { path: [...basePath, item], op: 'replace' }]
     }
@@ -83,7 +84,7 @@ const findDeepPatches = (
       ...next,
       ...findDeepPatches(config[item] as Config, [...basePath, item]),
     ]
-  }, [])
+  }, [] as Patch[])
 }
 
 /**
@@ -91,7 +92,7 @@ const findDeepPatches = (
  * if a key has been removed / set to undefined, we still return it to
  * be able to create a diff to the current state
  */
-export const createQueriesFromPatch = <T = object>(
+export const createQueriesFromPatch = <T extends Record<string, unknown>>(
   config: Config,
   ns: string,
   patch: readonly Patch[],
@@ -99,7 +100,7 @@ export const createQueriesFromPatch = <T = object>(
   initialState: T
 ): object => {
   return patch.reduce((next, item) => {
-    const { path, op } = item
+    const { path } = item
     // namespaces, [ns], values|initialValues, ...rest
     const [, patchNamespace, , ...objectPath] = path
     // skip patches that don't belong to the given namespace
@@ -112,7 +113,7 @@ export const createQueriesFromPatch = <T = object>(
     if (possibleParameter !== undefined && isNotCallable) {
       // If we have an object as result, we create patches for each parameter inside the subtree
       const patches = findDeepPatches(
-        possibleParameter,
+        possibleParameter as Config,
         path as readonly string[]
       )
       return {
@@ -126,10 +127,10 @@ export const createQueriesFromPatch = <T = object>(
     }
 
     const { name, serializer, skipValue } = possibleParameter() as Parameter
-    // @ts-ignore
-    const value = get(state, objectPath)
-    // @ts-ignore
-    const initialValue = get(initialState, objectPath)
+    const value = get(state, objectPath) as Record<string, unknown> | undefined
+    const initialValue = get(initialState, objectPath) as
+      | Record<string, unknown>
+      | undefined
 
     const nextValue = skipValue(value, initialValue) ? undefined : value
 
@@ -144,16 +145,19 @@ export const createQueriesFromPatch = <T = object>(
 /**
  * Creates a queryObject that can be serialized.
  */
-export const createQueryObject = <T = object>(
+export const createQueryObject = <T extends Record<string, unknown>>(
   config: MappedConfig,
   ns: string,
-  values: Partial<T>,
-  initialState?: Partial<T> | null
+  values: Partial<T> | PartialDeep<T>,
+  initialState?: Partial<T> | PartialDeep<T> | null
 ) => {
   return Object.keys(config).reduce((next, parameter) => {
     const { path, serializer, skipValue } = config[parameter]
-    const possibleValue = get(values, path)
-    const nextValue = skipValue(possibleValue, get(initialState, path))
+    const possibleValue = get(values, path) as Record<string, unknown>
+    const nextValue = skipValue(
+      possibleValue,
+      get(initialState, path) as Record<string, unknown>
+    )
       ? undefined
       : possibleValue
     if (nextValue === undefined) {
@@ -166,7 +170,9 @@ export const createQueryObject = <T = object>(
   }, {})
 }
 
-export const applyDiffWithCreateQueriesFromPatch = <T = object>(
+export const applyDiffWithCreateQueriesFromPatch = <
+  T extends Record<string, unknown>
+>(
   config: Config,
   ns: string,
   currentQuery: object,
@@ -195,9 +201,9 @@ export const applyDiffWithCreateQueriesFromPatch = <T = object>(
  * Important: Mutates `state`.
  * @return an object with the keys that have been processed
  */
-export const applyFlatConfigToState = <T extends object>(
+export const applyFlatConfigToState = <T extends Record<string, unknown>>(
   config: MappedConfig,
-  queryValues: { readonly [index: string]: any },
+  queryValues: Record<string, string>,
   ns: string,
   state: T,
   initialState: T,
@@ -217,7 +223,12 @@ export const applyFlatConfigToState = <T extends object>(
       createOrApplyPath(state, path, value)
     }
 
-    if (skipValue(value, get(initialState, path))) {
+    if (
+      skipValue(
+        value as Record<string, unknown>,
+        get(initialState, path) as Record<string, unknown>
+      )
+    ) {
       return next
     }
 
@@ -241,35 +252,32 @@ export const flattenConfig = (
   config: Config | readonly Config[],
   path: readonly (string | number)[] = []
 ): MappedConfig => {
-  return Object.keys(config).reduce(
-    (next: { readonly [index: string]: any }, key: string | number) => {
-      const v = Array.isArray(config)
-        ? config[key as number]
-        : (config as Config)[key as string]
-      const nextPath: ReadonlyArray<string | number> = [...path, key]
-      if (typeof v === 'function') {
-        const { name, ...rest } = v()
-        if (next[name] !== undefined) {
-          throw new Error(
-            `Config invalid: Multiple definitions found for ${name}.`
-          )
-        }
-        return {
-          ...next,
-          [name]: {
-            path: nextPath,
-            ...rest,
-          },
-        }
+  return Object.keys(config).reduce((next, key: string | number) => {
+    const v = Array.isArray(config)
+      ? config[key as number]
+      : (config as Config)[key as string]
+    const nextPath: ReadonlyArray<string | number> = [...path, key]
+    if (typeof v === 'function') {
+      const { name, ...rest } = v()
+      if (next[name] !== undefined) {
+        throw new Error(
+          `Config invalid: Multiple definitions found for ${name}.`
+        )
       }
-      if (typeof v === 'object') {
-        return {
-          ...next,
-          ...flattenConfig(v, nextPath),
-        }
+      return {
+        ...next,
+        [name]: {
+          path: nextPath,
+          ...rest,
+        },
       }
-      return next
-    },
-    {}
-  )
+    }
+    if (typeof v === 'object') {
+      return {
+        ...next,
+        ...flattenConfig(v, nextPath),
+      }
+    }
+    return next
+  }, {} as MappedConfig)
 }
