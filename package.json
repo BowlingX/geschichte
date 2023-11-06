@@ -139,7 +139,7 @@
     "@storybook/addon-actions": "^6.5.15",
     "@storybook/addon-docs": "^6.5.15",
     "@storybook/addon-essentials": "^6.5.15",
-    "@storybook/addon-links": "^6.5.15",
+    "@storybook/addon-links": "^7.5.2",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "^6.5.15",
     "@storybook/manager-webpack5": "^6.5.15",
