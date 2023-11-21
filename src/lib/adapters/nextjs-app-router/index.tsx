@@ -10,12 +10,17 @@ import React, { memo, ReactNode, useEffect, useMemo, useRef } from 'react'
 import { StoreState } from '../../middleware.js'
 import { shallow } from 'zustand/shallow'
 import { createSearch } from '../../utils.js'
+import { NavigateOptions } from 'next/dist/shared/lib/app-router-context.js'
 
 interface Props {
   readonly children?: ReactNode
+  readonly navigateDefaultOptions?: NavigateOptions
 }
 
-const GeschichteForNextAppRouter = ({ children }: Props) => {
+const GeschichteForNextAppRouter = ({
+  children,
+  navigateDefaultOptions = { scroll: false },
+}: Props) => {
   const searchParams = useSearchParams()
   const { push, replace } = useRouter()
   const pathname = usePathname()
@@ -26,14 +31,20 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
     const { searchParams, push, replace, pathname } = router.current
     return {
       initialSearch: () => searchParams as unknown as URLSearchParams,
-      push: async (query) => {
-        push(`${pathname}${createSearch(query)}`)
+      push: async (query, options) => {
+        push(`${pathname}${createSearch(query)}`, {
+          ...navigateDefaultOptions,
+          ...options,
+        })
       },
-      replace: async (query) => {
-        replace(`${pathname}${createSearch(query)}`)
+      replace: async (query, options) => {
+        replace(`${pathname}${createSearch(query)}`, {
+          ...navigateDefaultOptions,
+          ...options,
+        })
       },
     }
-  }, [])
+  }, [navigateDefaultOptions])
 
   const useStore = useMemo(
     () => createGeschichte(historyInstance),
@@ -53,10 +64,14 @@ const GeschichteForNextAppRouter = ({ children }: Props) => {
       state.updateFromQuery(searchParams as unknown as URLSearchParams)
     }
     router.current = { push, replace, searchParams, pathname }
-    return () => {
-      state.unregister()
-    }
   }, [push, replace, pathname, searchParams, state])
+
+  useEffect(() => {
+    const { unregister } = state
+    return () => {
+      return unregister()
+    }
+  }, [state])
 
   return (
     <StoreContext.Provider value={useStore}>{children}</StoreContext.Provider>
