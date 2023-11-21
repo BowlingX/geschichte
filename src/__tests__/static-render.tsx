@@ -63,7 +63,7 @@ describe('<StaticGeschichteProvider />', () => {
           onClick={() =>
             void batchReplaceState(['default'], (state) => {
               if (state) {
-                state.someParameter = 'nextBatchPushState'
+                state.someParameter = 'nextBatchReplaceState'
               }
             })
           }
@@ -106,9 +106,9 @@ describe('<StaticGeschichteProvider />', () => {
     expect(screen.getByRole('content').textContent).toEqual('nextReplaceState')
   })
 
-  it('should support batchPushState', async () => {
+  it('should support batch handling', async () => {
     render(
-      <Geschichte>
+      <Geschichte search="?parameter=myValue">
         <ComponentThatRendersSomethingStatically />
       </Geschichte>
     )
@@ -117,6 +117,12 @@ describe('<StaticGeschichteProvider />', () => {
     })
     expect(screen.getByRole('content').textContent).toEqual(
       'nextBatchPushState'
+    )
+    await act(async () => {
+      await userEvent.click(screen.getByRole('batchReplace'))
+    })
+    expect(screen.getByRole('content').textContent).toEqual(
+      'nextBatchReplaceState'
     )
   })
 })
