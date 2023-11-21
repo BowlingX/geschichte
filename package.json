@@ -233,5 +233,6 @@
   "prettier": {
     "singleQuote": true,
     "semi": false
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }

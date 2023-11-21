@@ -63,7 +63,7 @@ export interface StoreState<
   readonly updateFromQuery: (query: string | URLSearchParams) => void
   readonly batchReplaceState: <Keys extends keyof Namespaces>(
     ns: Keys[],
-    fn: (...args: Namespaces[Keys]['values'][]) => void,
+    fn: (...args: (Namespaces[Keys]['values'] | undefined)[]) => void,
     routerOptions?: RouterOptions
   ) => Promise<unknown>
   readonly batchPushState: <Keys extends keyof Namespaces>(

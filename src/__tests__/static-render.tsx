@@ -5,7 +5,11 @@ import { render, cleanup, screen, act } from '@testing-library/react'
 import userEventImport from '@testing-library/user-event'
 import React from 'react'
 import Geschichte from '../lib/adapters/static/index.js'
-import { factoryParameters } from '../lib/store.js'
+import {
+  factoryParameters,
+  InferNamespaceValues,
+  useBatchQuery,
+} from '../lib/store.js'
 import { pm } from '../lib/utils.js'
 import { serializers } from '../lib/serializers.js'
 
@@ -14,11 +18,12 @@ const userEvent = userEventImport.default || userEventImport
 afterEach(cleanup)
 
 describe('<StaticGeschichteProvider />', () => {
+  const defaults = { someParameter: 'test' }
   const { useQuery } = factoryParameters(
     {
       someParameter: pm('parameter', serializers.string),
     },
-    { someParameter: 'test' }
+    defaults
   )
   const ComponentThatRendersSomethingStatically = () => {
     const {
@@ -26,6 +31,10 @@ describe('<StaticGeschichteProvider />', () => {
       replaceState,
       values: { someParameter },
     } = useQuery()
+    type FullStore = {
+      default: InferNamespaceValues<typeof useQuery>
+    }
+    const { batchPushState, batchReplaceState } = useBatchQuery<FullStore>()
     return (
       <>
         <span role="content">{someParameter}</span>
@@ -35,6 +44,28 @@ describe('<StaticGeschichteProvider />', () => {
             void pushState(
               (state) => void (state.someParameter = 'nextPushState')
             )
+          }
+        ></button>
+
+        <button
+          role="batchPush"
+          onClick={() =>
+            void batchPushState(['default'], (state) => {
+              if (state) {
+                state.someParameter = 'nextBatchPushState'
+              }
+            })
+          }
+        ></button>
+
+        <button
+          role="batchReplace"
+          onClick={() =>
+            void batchReplaceState(['default'], (state) => {
+              if (state) {
+                state.someParameter = 'nextBatchPushState'
+              }
+            })
           }
         ></button>
 
@@ -73,5 +104,19 @@ describe('<StaticGeschichteProvider />', () => {
       await userEvent.click(screen.getByRole('replace'))
     })
     expect(screen.getByRole('content').textContent).toEqual('nextReplaceState')
+  })
+
+  it('should support batchPushState', async () => {
+    render(
+      <Geschichte>
+        <ComponentThatRendersSomethingStatically />
+      </Geschichte>
+    )
+    await act(async () => {
+      await userEvent.click(screen.getByRole('batchPush'))
+    })
+    expect(screen.getByRole('content').textContent).toEqual(
+      'nextBatchPushState'
+    )
   })
 })
