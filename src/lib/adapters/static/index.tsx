@@ -1,9 +1,10 @@
-import React, { memo, useMemo } from 'react'
+import React, { memo, useMemo, useRef } from 'react'
 import {
   HistoryManagement,
   StoreContext,
   createGeschichte,
 } from '../../store.js'
+import { createSearch } from '../../utils.js'
 
 interface Props {
   readonly search?: string
@@ -13,17 +14,20 @@ const StaticGeschichteProvider = ({
   search,
   children,
 }: React.PropsWithChildren<Props>) => {
+  const thisSearch = useRef(search)
   const historyInstance: HistoryManagement = useMemo(() => {
     return {
-      initialSearch: () => search || '?',
-      push: async () => {
+      initialSearch: () => thisSearch.current || '',
+      push: async (query) => {
+        thisSearch.current = createSearch(query)
         return
       },
-      replace: async () => {
+      replace: async (query) => {
+        thisSearch.current = createSearch(query)
         return
       },
     }
-  }, [search])
+  }, [thisSearch])
 
   const value = useMemo(
     () => createGeschichte(historyInstance),
