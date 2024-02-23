@@ -10,6 +10,7 @@ import {
 import { Mutate, StateCreator, StoreApi, UseBoundStore } from 'zustand'
 import { devtools, subscribeWithSelector } from 'zustand/middleware'
 import { createWithEqualityFn } from 'zustand/traditional'
+import isDeepEqual from 'fast-deep-equal'
 
 import { shallow } from 'zustand/shallow'
 import {
@@ -219,10 +220,10 @@ export const factoryParameters = <
         initialRegisterState.values
       )
       if (
-        initialRegisterState.values !== values ||
-        initialRegisterState.initialValues !== initialValues ||
-        currentState.initialValues !== initialValues ||
-        currentState.values !== values
+        !isDeepEqual(initialRegisterState.values, values) ||
+        !isDeepEqual(initialRegisterState.initialValues, initialValues) ||
+        !isDeepEqual(currentState.initialValues, initialValues) ||
+        !isDeepEqual(currentState.values, values)
       ) {
         setCurrentState({ values, initialValues })
       }
