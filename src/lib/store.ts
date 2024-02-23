@@ -238,7 +238,7 @@ export const factoryParameters = <
             setCurrentState(state)
           }
         },
-        { equalityFn: shallow }
+        { equalityFn: isDeepEqual }
       )
 
       return () => {
