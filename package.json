@@ -206,6 +206,7 @@
         }
       ]
     },
+    "setupFiles": ["./test.setup.ts"],
     "moduleNameMapper": {
       "^(\\.{1,2}/.*)\\.js$": "$1"
     },

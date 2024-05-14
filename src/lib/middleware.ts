@@ -31,7 +31,7 @@ export interface NamespaceValues<ValueState extends object> {
   mappedConfig: MappedConfig
   config: Config
   query: Record<string, string>
-  unsubscribe: () => boolean
+  unsubscribe: () => void
 }
 
 export type PushStateFunction<T> = (
@@ -51,7 +51,7 @@ export type InnerNamespace<V extends Record<string, unknown>> = Record<
 >
 
 interface RegistryPayload<ValueState> {
-  unsubscribe: () => boolean
+  unsubscribe: () => void
   values: ValueState
   initialValues: ValueState
 }
@@ -476,10 +476,16 @@ export const converter =
                 }
                 thisState[ns].subscribers = thisState[ns].subscribers - 1
                 if (thisState[ns].subscribers === 0) {
-                  delete thisState[ns]
+                  // Delay the removal of subscribers, as we may have direct remounting components after
+                  requestIdleCallback(() => {
+                    ;(set as GenericConverter<V, T>)((inner) => {
+                      if (inner[ns]?.subscribers === 0) {
+                        delete inner[ns]
+                      }
+                    }, HistoryEventType.REGISTER)
+                  })
                 }
               }, HistoryEventType.REGISTER)
-              return !get().namespaces[ns]
             }
             state.mappedConfig = mappedConfig
             state.config = config
