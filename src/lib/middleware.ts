@@ -11,6 +11,7 @@ import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState,
 } from './utils.js'
+import isDeepEqual from 'fast-deep-equal'
 
 export enum HistoryEventType {
   PUSH,
@@ -439,7 +440,7 @@ export const converter =
         values: T[N]['values']
       ) => {
         const current = get().namespaces[ns]
-        const defaultsEqual = current?.initialValues === initialValues
+        const defaultsEqual = isDeepEqual(current?.initialValues, initialValues)
         if (current !== undefined) {
           set(
             (state) => {
