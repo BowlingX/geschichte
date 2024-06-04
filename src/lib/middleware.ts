@@ -478,7 +478,7 @@ export const converter =
                 thisState[ns].subscribers = thisState[ns].subscribers - 1
                 if (thisState[ns].subscribers === 0) {
                   // Delay the removal of subscribers, as we may have direct remounting components after
-                  requestIdleCallback(() => {
+                  requestAnimationFrame(() => {
                     ;(set as GenericConverter<V, T>)((inner) => {
                       if (inner[ns]?.subscribers === 0) {
                         delete inner[ns]
