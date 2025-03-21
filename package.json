@@ -60,11 +60,7 @@
     "./package.json": "./package.json"
   },
   "files": [
-    "build",
-    "nextjs.d.ts",
-    "historyjs.d.ts",
-    "nextjs-app-router.d.ts",
-    "static.d.ts"
+    "build"
   ],
   "sideEffects": false,
   "repository": {
