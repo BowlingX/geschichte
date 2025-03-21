@@ -17,6 +17,7 @@ export {
   StoreContext,
   type Config,
   type InferNamespaceValues,
+  type Context,
 } from './lib/store.js'
 export {
   pm,
