@@ -376,7 +376,9 @@ export const converter =
                   nextQueries,
                   ns,
                   state.values,
-                  state.initialValues
+                  state.initialValues,
+                  true,
+                  historyInstance.context
                 )
               },
               HistoryEventType.REGISTER,
@@ -466,7 +468,9 @@ export const converter =
                   parseSearchString(historyInstance.initialSearch()),
                   ns as string,
                   state.values,
-                  initialValues
+                  initialValues,
+                  true,
+                  historyInstance.context
                 )
               }
             },
