@@ -14,20 +14,22 @@
 <ul class="tsd-breadcrumb">
 <li><a href="../modules.html">geschichte</a></li>
 <li><a href="StoreState.html">StoreState</a></li></ul>
-<h1>Interface StoreState&lt;ThisValue, Namespaces&gt;</h1></div> 
+<h1>Interface StoreState&lt;ThisValue, Namespaces, C&gt;</h1></div> 
 <section class="tsd-panel">
 <h4>Type Parameters</h4>
 <ul class="tsd-type-parameter-list">
 <li>
 <h4><span class="tsd-kind-type-parameter">ThisValue</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4></li>
 <li>
-<h4><span class="tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type ">InnerNamespace</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">ThisValue</span><span class="tsd-signature-symbol">&gt;</span> = <span class="tsd-signature-type ">InnerNamespace</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">ThisValue</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></section> 
+<h4><span class="tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type ">InnerNamespace</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">ThisValue</span><span class="tsd-signature-symbol">&gt;</span> = <span class="tsd-signature-type ">InnerNamespace</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">ThisValue</span><span class="tsd-signature-symbol">&gt;</span></h4></li>
+<li>
+<h4><span class="tsd-kind-type-parameter">C</span><span class="tsd-signature-symbol"> extends </span><span class="tsd-signature-type ">Context</span> = <span class="tsd-signature-type ">Context</span></h4></li></ul></section> 
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
 <li><span class="target">StoreState</span></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L60">lib/middleware.ts:60</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L61">lib/middleware.ts:61</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -37,6 +39,7 @@
 <h3 class="tsd-index-heading">Properties</h3>
 <div class="tsd-index-list"><a href="StoreState.html#batchPushState" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><g id="icon-1024"><rect fill="var(--color-icon-background)" stroke="#FF984D" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="12"></rect><path d="M9.354 16V7.24H12.174C12.99 7.24 13.638 7.476 14.118 7.948C14.606 8.412 14.85 9.036 14.85 9.82C14.85 10.604 14.606 11.232 14.118 11.704C13.638 12.168 12.99 12.4 12.174 12.4H10.434V16H9.354ZM10.434 11.428H12.174C12.646 11.428 13.022 11.284 13.302 10.996C13.59 10.7 13.734 10.308 13.734 9.82C13.734 9.324 13.59 8.932 13.302 8.644C13.022 8.356 12.646 8.212 12.174 8.212H10.434V11.428Z" fill="var(--color-text)"></path></g></svg><span>batch<wbr/>Push<wbr/>State</span></a>
 <a href="StoreState.html#batchReplaceState" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>batch<wbr/>Replace<wbr/>State</span></a>
+<a href="StoreState.html#context" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>context</span></a>
 <a href="StoreState.html#initialQueries" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>initial<wbr/>Queries</span></a>
 <a href="StoreState.html#namespaces" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>namespaces</span></a>
 <a href="StoreState.html#pushState" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>push<wbr/>State</span></a>
@@ -86,7 +89,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">routerOptions</span>: <span class="tsd-signature-type ">RouterOptions</span></h5><code class="tsd-tag ts-flagOptional">Optional</code> </li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L70">lib/middleware.ts:70</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L72">lib/middleware.ts:72</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="batchReplaceState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>batch<wbr/>Replace<wbr/>State</span><a href="#batchReplaceState" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">batch<wbr/>Replace<wbr/>State</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Keys</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">ns</span>, <span class="tsd-kind-parameter">fn</span>, <span class="tsd-kind-parameter">routerOptions</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
@@ -124,7 +127,12 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">routerOptions</span>: <span class="tsd-signature-type ">RouterOptions</span></h5><code class="tsd-tag ts-flagOptional">Optional</code> </li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L65">lib/middleware.ts:65</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L67">lib/middleware.ts:67</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member"><a id="context" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>context</span><a href="#context" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">context</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type tsd-kind-type-parameter">C</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L96">lib/middleware.ts:96</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="initialQueries" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>initial<wbr/>Queries</span><a href="#initialQueries" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">initial<wbr/>Queries</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
@@ -137,17 +145,17 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L93">lib/middleware.ts:93</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L95">lib/middleware.ts:95</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="namespaces" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>namespaces</span><a href="#namespaces" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">namespaces</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type tsd-kind-type-parameter">Namespaces</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L75">lib/middleware.ts:75</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L77">lib/middleware.ts:77</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="pushState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>push<wbr/>State</span><a href="#pushState" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">push<wbr/>State</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">PushStateFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;values&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L76">lib/middleware.ts:76</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L78">lib/middleware.ts:78</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="register" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>register</span><a href="#register" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">register</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">N</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">config</span>, <span class="tsd-kind-parameter">mappedConfig</span>, <span class="tsd-kind-parameter">ns</span>, <span class="tsd-kind-parameter">initialValues</span>, <span class="tsd-kind-parameter">query</span>, <span class="tsd-kind-parameter">values</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type ">RegistryPayload</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type tsd-kind-type-parameter">N</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;values&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span></div>
@@ -183,12 +191,12 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">RegistryPayload</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type tsd-kind-type-parameter">N</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;values&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 <div class="tsd-comment tsd-typography"></div></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L81">lib/middleware.ts:81</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L83">lib/middleware.ts:83</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="replaceState" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>replace<wbr/>State</span><a href="#replaceState" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">replace<wbr/>State</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">ReplaceStateFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">keyof </span><span class="tsd-signature-type tsd-kind-type-parameter">Namespaces</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">&quot;values&quot;</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L77">lib/middleware.ts:77</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L79">lib/middleware.ts:79</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="resetPush" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>reset<wbr/>Push</span><a href="#resetPush" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">reset<wbr/>Push</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">ns</span>, <span class="tsd-kind-parameter">routerOptions</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
@@ -208,7 +216,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">routerOptions</span>: <span class="tsd-signature-type ">RouterOptions</span></h5><code class="tsd-tag ts-flagOptional">Optional</code> </li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L91">lib/middleware.ts:91</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L93">lib/middleware.ts:93</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="resetReplace" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>reset<wbr/>Replace</span><a href="#resetReplace" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">reset<wbr/>Replace</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">ns</span>, <span class="tsd-kind-parameter">routerOptions</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
@@ -228,7 +236,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">routerOptions</span>: <span class="tsd-signature-type ">RouterOptions</span></h5><code class="tsd-tag ts-flagOptional">Optional</code> </li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L92">lib/middleware.ts:92</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L94">lib/middleware.ts:94</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="unregister" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>unregister</span><a href="#unregister" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">unregister</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
@@ -244,7 +252,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography"></div></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L90">lib/middleware.ts:90</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L92">lib/middleware.ts:92</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member"><a id="updateFromQuery" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagReadonly">Readonly</code> <span>update<wbr/>From<wbr/>Query</span><a href="#updateFromQuery" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">update<wbr/>From<wbr/>Query</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">query</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
@@ -262,7 +270,7 @@
 <h5><span class="tsd-kind-parameter">query</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">URLSearchParams</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/adbf694/src/lib/middleware.ts#L64">lib/middleware.ts:64</a></li></ul></aside></section></section></div>
+<li>Defined in <a href="https://github.com/BowlingX/geschichte/blob/0381753/src/lib/middleware.ts#L66">lib/middleware.ts:66</a></li></ul></aside></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -284,6 +292,7 @@
 <ul>
 <li><a href="#batchPushState" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>batch<wbr/>Push<wbr/>State</span></a></li>
 <li><a href="#batchReplaceState" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>batch<wbr/>Replace<wbr/>State</span></a></li>
+<li><a href="#context" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>context</span></a></li>
 <li><a href="#initialQueries" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>initial<wbr/>Queries</span></a></li>
 <li><a href="#namespaces" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>namespaces</span></a></li>
 <li><a href="#pushState" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>push<wbr/>State</span></a></li>
