@@ -309,7 +309,7 @@ export const factoryParameters = <
     )
   }
 
-  const createQueryString = <C extends Record<string, unknown>>(
+  const createQueryString = (
     values: PartialDeep<T>,
     initialValues?: PartialDeep<T> | null,
     context?: C
@@ -329,7 +329,7 @@ export const factoryParameters = <
     ).toString()
   }
 
-  const parseQueryString = <C extends Record<string, unknown>>(
+  const parseQueryString = (
     query: string,
     initialValues?: PartialDeep<T> | null,
     context?: C
