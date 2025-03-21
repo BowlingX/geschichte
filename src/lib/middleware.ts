@@ -3,6 +3,7 @@ import { StoreApi } from 'zustand'
 import { shallow } from 'zustand/shallow'
 import {
   Config,
+  Context,
   HistoryManagement,
   MappedConfig,
   RouterOptions,
@@ -59,7 +60,8 @@ interface RegistryPayload<ValueState> {
 
 export interface StoreState<
   ThisValue extends Record<string, unknown>,
-  Namespaces extends InnerNamespace<ThisValue> = InnerNamespace<ThisValue>
+  Namespaces extends InnerNamespace<ThisValue> = InnerNamespace<ThisValue>,
+  C extends Context = Context
 > {
   readonly updateFromQuery: (query: string | URLSearchParams) => void
   readonly batchReplaceState: <Keys extends keyof Namespaces>(
@@ -91,6 +93,7 @@ export interface StoreState<
   readonly resetPush: (ns: string, routerOptions?: RouterOptions) => void
   readonly resetReplace: (ns: string, routerOptions?: RouterOptions) => void
   readonly initialQueries: () => Record<string, string>
+  readonly context: C | undefined
 }
 
 type NamespaceProducerFunction<
@@ -141,8 +144,12 @@ export declare type StateCreator<
 ) => StoreState<V, T>
 
 export const historyManagement =
-  <V extends Record<string, unknown>, T extends InnerNamespace<V>>(
-    historyInstance: HistoryManagement
+  <
+    V extends Record<string, unknown>,
+    T extends InnerNamespace<V>,
+    C extends Context
+  >(
+    historyInstance: HistoryManagement<C>
   ) =>
   (apply: StateCreator<V, T>) =>
   (
@@ -193,7 +200,8 @@ export const historyManagement =
                         currentQuery,
                         changes,
                         values.namespaces[thisNs].values,
-                        values.namespaces[thisNs].initialValues
+                        values.namespaces[thisNs].initialValues,
+                        historyInstance.context
                       ),
                     }
                   },
@@ -331,8 +339,12 @@ const parseSearchString = (search: string | URLSearchParams) =>
     : Object.fromEntries(search.entries())
 
 export const converter =
-  <V extends Record<string, unknown>, T extends InnerNamespace<V>>(
-    historyInstance: HistoryManagement
+  <
+    V extends Record<string, unknown>,
+    T extends InnerNamespace<V>,
+    C extends Context
+  >(
+    historyInstance: HistoryManagement<C>
   ) =>
   (
     set: NamespaceProducer<V, T> & GenericConverter<V, T>,
@@ -352,7 +364,8 @@ export const converter =
             ns,
             {} as V,
             outerState.initialValues,
-            false
+            false,
+            historyInstance.context
           )
           // We might have already the correct state applied that match the query parameters
           if (!shallow(get().namespaces[ns].query, thisNextQueries)) {
@@ -386,6 +399,7 @@ export const converter =
         routerOptions
       )
     return {
+      context: historyInstance.context,
       /** batch pushes the given namespaces */
       batchPushState: <Keys extends keyof T>(
         ns: readonly Keys[],

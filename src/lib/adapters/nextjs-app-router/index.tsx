@@ -5,6 +5,7 @@ import {
   HistoryManagement,
   StoreContext,
   createGeschichte,
+  Context,
 } from '../../store.js'
 import React, { memo, ReactNode, useEffect, useMemo, useRef } from 'react'
 import { StoreState } from '../../middleware.js'
@@ -15,11 +16,13 @@ import type { NavigateOptions } from 'next/dist/shared/lib/app-router-context.js
 interface Props {
   readonly children?: ReactNode
   readonly navigateDefaultOptions?: NavigateOptions
+  readonly context?: Context
 }
 
 const GeschichteForNextAppRouter = ({
   children,
   navigateDefaultOptions = { scroll: false },
+  context,
 }: Props) => {
   const searchParams = useSearchParams()
   const { push, replace } = useRouter()
@@ -27,7 +30,7 @@ const GeschichteForNextAppRouter = ({
 
   const router = useRef({ push, replace, searchParams, pathname })
 
-  const historyInstance: HistoryManagement = useMemo(() => {
+  const historyInstance: HistoryManagement<Context> = useMemo(() => {
     const { searchParams, push, replace, pathname } = router.current
     return {
       initialSearch: () => searchParams as unknown as URLSearchParams,
@@ -43,8 +46,9 @@ const GeschichteForNextAppRouter = ({
           ...options,
         })
       },
+      context,
     }
-  }, [navigateDefaultOptions])
+  }, [navigateDefaultOptions, context])
 
   const useStore = useMemo(
     () => createGeschichte(historyInstance),

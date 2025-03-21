@@ -3,7 +3,13 @@ import { Patch } from 'immer'
 import { shallow } from 'zustand/shallow'
 import { GenericObject } from './middleware.js'
 import { Serializer } from './serializers.js'
-import { Config, DEFAULT_NAMESPACE, MappedConfig, Parameter } from './store.js'
+import {
+  Config,
+  Context,
+  DEFAULT_NAMESPACE,
+  MappedConfig,
+  Parameter,
+} from './store.js'
 import type { PartialDeep } from 'type-fest'
 
 export const createSearch = (query: Record<string, string>) => {
@@ -92,12 +98,16 @@ const findDeepPatches = (
  * if a key has been removed / set to undefined, we still return it to
  * be able to create a diff to the current state
  */
-export const createQueriesFromPatch = <T extends Record<string, unknown>>(
+export const createQueriesFromPatch = <
+  T extends Record<string, unknown>,
+  C extends Context
+>(
   config: Config,
   ns: string,
   patch: readonly Patch[],
   state: T,
-  initialState: T
+  initialState: T,
+  context?: C
 ): object => {
   return patch.reduce((next, item) => {
     const { path } = item
@@ -118,7 +128,14 @@ export const createQueriesFromPatch = <T extends Record<string, unknown>>(
       )
       return {
         ...next,
-        ...createQueriesFromPatch<T>(config, ns, patches, state, initialState),
+        ...createQueriesFromPatch<T, C>(
+          config,
+          ns,
+          patches,
+          state,
+          initialState,
+          context
+        ),
       }
     }
 
@@ -137,7 +154,9 @@ export const createQueriesFromPatch = <T extends Record<string, unknown>>(
     return {
       ...next,
       [formatNamespace(name, ns)]:
-        nextValue === undefined ? nextValue : serializer.serialize(nextValue),
+        nextValue === undefined
+          ? nextValue
+          : serializer.serialize(nextValue, context),
     }
   }, {})
 }
@@ -145,11 +164,15 @@ export const createQueriesFromPatch = <T extends Record<string, unknown>>(
 /**
  * Creates a queryObject that can be serialized.
  */
-export const createQueryObject = <T extends Record<string, unknown>>(
+export const createQueryObject = <
+  T extends Record<string, unknown>,
+  C extends Context
+>(
   config: MappedConfig,
   ns: string,
   values: Partial<T> | PartialDeep<T>,
-  initialState?: Partial<T> | PartialDeep<T> | null
+  initialState?: Partial<T> | PartialDeep<T> | null,
+  context?: C
 ) => {
   return Object.keys(config).reduce((next, parameter) => {
     const { path, serializer, skipValue } = config[parameter]
@@ -165,22 +188,34 @@ export const createQueryObject = <T extends Record<string, unknown>>(
     }
     return {
       ...next,
-      [formatNamespace(parameter, ns)]: serializer.serialize(nextValue),
+      [formatNamespace(parameter, ns)]: serializer.serialize(
+        nextValue,
+        context
+      ),
     }
   }, {})
 }
 
 export const applyDiffWithCreateQueriesFromPatch = <
-  T extends Record<string, unknown>
+  T extends Record<string, unknown>,
+  C extends Context
 >(
   config: Config,
   ns: string,
   currentQuery: object,
   patch: readonly Patch[],
   state: T,
-  initialState: T
+  initialState: T,
+  context?: C
 ) => {
-  const query = createQueriesFromPatch(config, ns, patch, state, initialState)
+  const query = createQueriesFromPatch(
+    config,
+    ns,
+    patch,
+    state,
+    initialState,
+    context
+  )
   const nextQueries: GenericObject = {
     ...currentQuery,
     ...query,
@@ -201,13 +236,17 @@ export const applyDiffWithCreateQueriesFromPatch = <
  * Important: Mutates `state`.
  * @return an object with the keys that have been processed
  */
-export const applyFlatConfigToState = <T extends Record<string, unknown>>(
+export const applyFlatConfigToState = <
+  T extends Record<string, unknown>,
+  C extends Context
+>(
   config: MappedConfig,
   queryValues: Record<string, string>,
   ns: string,
   state: T,
   initialState: T,
-  apply = true
+  apply = true,
+  context?: C
 ) => {
   return Object.keys(config).reduce((next, queryParameter) => {
     const { path, serializer, skipValue } = config[queryParameter]
@@ -217,7 +256,7 @@ export const applyFlatConfigToState = <T extends Record<string, unknown>>(
     const value =
       maybeValue === undefined
         ? get(initialState, path)
-        : serializer.deserialize(maybeValue)
+        : serializer.deserialize(maybeValue, context)
 
     if (apply) {
       createOrApplyPath(state, path, value)

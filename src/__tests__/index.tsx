@@ -140,6 +140,73 @@ describe('<Geschichte />', () => {
     })
   })
 
+  describe('allow to set a context', () => {
+    const { useQuery, createQueryString } = factoryParameters(
+      {
+        someParameter: pm('someParameter', serializers.arrayString),
+      },
+      { someParameter: [] as string[] }
+    )
+    const historyWithHash = createMemoryHistory({
+      initialEntries: ['/?someParameter=A-B-C-D'],
+    })
+    const context = { serializerConfig: { arrayStringSeparator: '-' } }
+
+    const Component = () => {
+      const {
+        values: { someParameter },
+        createQueryString: createDynamicQueryString,
+        pushState,
+      } = useQuery()
+
+      return (
+        <>
+          <p role="static-query">
+            {createQueryString(
+              { someParameter: ['cool', 'parameter'] },
+              undefined,
+              context
+            )}
+          </p>
+          <p role="dynamic-query">
+            {createDynamicQueryString({ someParameter: ['cool', 'parameter'] })}
+          </p>
+          <p role="content">{someParameter.join('#')}</p>
+          <button
+            title="pushState"
+            onClick={() =>
+              pushState(
+                (state) => void (state.someParameter = ['hello', 'world'])
+              )
+            }
+          />
+        </>
+      )
+    }
+
+    it('should render the expected state and serialize correctly', async () => {
+      render(
+        <Geschichte history={historyWithHash} context={context}>
+          <Component />
+        </Geschichte>
+      )
+      expect(screen.getByRole('content').textContent).toEqual('A#B#C#D')
+      expect(screen.getByRole('static-query').textContent).toEqual(
+        'someParameter=cool-parameter'
+      )
+      expect(screen.getByRole('dynamic-query').textContent).toEqual(
+        'someParameter=cool-parameter'
+      )
+      await act(async () => {
+        await userEvent.click(screen.getByTitle('pushState'))
+      })
+      expect(screen.getByRole('content').textContent).toEqual('hello#world')
+      expect(historyWithHash.location.search).toEqual(
+        '?someParameter=hello-world'
+      )
+    })
+  })
+
   describe('renders with hash', () => {
     const { useQuery } = factoryParameters(
       {

@@ -13,6 +13,7 @@ import {
   HistoryManagement,
   StoreContext,
   createGeschichte,
+  Context,
 } from '../../store.js'
 import type { UrlObject } from 'url'
 import {
@@ -46,6 +47,7 @@ interface Props {
     as?: UrlObject,
     options?: TransitionOptions
   ) => Promise<boolean>
+  readonly context?: Context
 }
 
 // FIXME: Somehow imports are messed up for nextjs when importing from modules (see https://github.com/vercel/next.js/issues/36794)
@@ -64,9 +66,10 @@ export const GeschichteForNextjs: FC<Props> = ({
   defaultReplaceOptions,
   routerPush,
   routerReplace,
+  context,
 }) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
-  const historyInstance: HistoryManagement = useMemo(() => {
+  const historyInstance: HistoryManagement<Context> = useMemo(() => {
     return {
       initialSearch: () => {
         const [, query] =
@@ -116,9 +119,10 @@ export const GeschichteForNextjs: FC<Props> = ({
           routerOptions
         )
       },
+      context,
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [routerPush, routerReplace])
+  }, [routerPush, routerReplace, context])
 
   const useStore = useMemo(
     () => createGeschichte(historyInstance),

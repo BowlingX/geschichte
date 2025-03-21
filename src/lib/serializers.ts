@@ -1,6 +1,11 @@
-export interface Serializer<V> {
-  readonly deserialize: (value: string | null) => V | undefined | null
-  readonly serialize: (value?: V) => string | undefined | null
+import { Context } from './store.js'
+
+export interface Serializer<V, C extends Context = Context> {
+  readonly deserialize: (
+    value: string | null,
+    context?: C
+  ) => V | undefined | null
+  readonly serialize: (value?: V, context?: C) => string | undefined | null
 }
 
 const join = (value: readonly unknown[], separator: string) =>
@@ -37,20 +42,27 @@ const stringSerializer: Serializer<string> = {
   serialize: (value?: string): string => String(value),
 }
 
-export const arrayStringSerializer: (
+export const arrayStringSerializer: <C extends Context = Context>(
   separator: string
-) => Serializer<readonly string[]> = (separator: string) => ({
-  deserialize: (value: string | null): readonly string[] | null =>
-    split(value, separator),
-  serialize: (value?: readonly string[]): string | null =>
-    value ? join(value, separator) : null,
+) => Serializer<readonly string[], C> = (separator: string) => ({
+  deserialize: (value, context) =>
+    split(value, context?.serializerConfig?.arrayStringSeparator || separator),
+  serialize: (value, context) =>
+    value
+      ? join(
+          value,
+          context?.serializerConfig?.arrayStringSeparator || separator
+        )
+      : null,
 })
 
 export const arrayIntSerializer: (
   separator: string
 ) => Serializer<readonly number[]> = (separator: string) => ({
-  deserialize: (value: string | null): readonly number[] | null =>
-    split(value, separator).map(intSerializer.deserialize) as readonly number[],
+  deserialize: (value: string | null, context): readonly number[] | null =>
+    split(value, separator).map((v) =>
+      intSerializer.deserialize(v, context)
+    ) as readonly number[],
   serialize: (value?: readonly number[]): string | null =>
     value ? join(value, separator) : null,
 })
@@ -58,9 +70,9 @@ export const arrayIntSerializer: (
 export const arrayFloatSerializer: (
   separator: string
 ) => Serializer<readonly number[]> = (separator: string) => ({
-  deserialize: (value: string | null): readonly number[] | null =>
-    split(value, separator).map(
-      floatSerializer.deserialize
+  deserialize: (value: string | null, context): readonly number[] | null =>
+    split(value, separator).map((v) =>
+      floatSerializer.deserialize(v, context)
     ) as readonly number[],
   serialize: (value?: readonly number[]): string | null =>
     value ? join(value, separator) : null,

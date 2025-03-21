@@ -58,7 +58,14 @@ export interface MappedConfig {
 
 export type RouterOptions = Record<string, unknown>
 
-export interface HistoryManagement {
+export interface Context extends Record<string, unknown> {
+  serializerConfig?: {
+    /** the separator to use for string arrays */
+    arrayStringSeparator?: string
+  }
+}
+
+export interface HistoryManagement<C extends Context> {
   /** the initial search string (e.g. ?query=test), contains the questionsmark */
   readonly initialSearch: () => string | URLSearchParams
   readonly push: (
@@ -69,16 +76,20 @@ export interface HistoryManagement {
     queryObject: Record<string, string>,
     options?: RouterOptions
   ) => Promise<unknown>
+  readonly context?: C
 }
 
 export const createGeschichte = <
   T extends Record<string, unknown>,
-  N extends InnerNamespace<T>
+  N extends InnerNamespace<T>,
+  C extends Context
 >(
-  historyInstance: HistoryManagement
+  historyInstance: HistoryManagement<C>
 ) => {
-  const thisStore = converter<T, N>(historyInstance)
-  const storeWithHistory = historyManagement<T, N>(historyInstance)(thisStore)
+  const thisStore = converter<T, N, C>(historyInstance)
+  const storeWithHistory = historyManagement<T, N, C>(historyInstance)(
+    thisStore
+  )
 
   const middleware = immerWithPatches(
     storeWithHistory
@@ -125,7 +136,8 @@ export const useBatchQuery = <
 
 export const factoryParameters = <
   T extends Record<string, unknown>,
-  N extends InnerNamespace<T>
+  N extends InnerNamespace<T>,
+  C extends Context = Context
 >(
   config: Config,
   defaultInitialValues: InitialValuesProvider<T> = {} as T,
@@ -137,7 +149,8 @@ export const factoryParameters = <
 
   const initBlank = (
     initialQueries: Record<string, string>,
-    initialValues: T
+    initialValues: T,
+    context?: C
   ) => {
     // thisValues will be mutated by applyFlatConfigToState, that's why we init it with a copy of
     // the initial state.
@@ -150,7 +163,9 @@ export const factoryParameters = <
         initialQueries,
         ns,
         draft as T,
-        initialValues as T
+        initialValues as T,
+        true,
+        context
       )
     })
     return {
@@ -164,7 +179,7 @@ export const factoryParameters = <
     const useStore = assertContextExists(
       useContext(StoreContext) as UseBoundStore<
         Mutate<
-          StoreApi<StoreState<T, N>>,
+          StoreApi<StoreState<T, N, C>>,
           [['zustand/subscribeWithSelector', never]]
         >
       >
@@ -177,6 +192,7 @@ export const factoryParameters = <
       resetPush,
       resetReplace,
       initialQueries,
+      context,
     } = useStore(
       ({
         register,
@@ -185,6 +201,7 @@ export const factoryParameters = <
         resetPush,
         resetReplace,
         initialQueries,
+        context,
       }) => ({
         initialQueries,
         pushState,
@@ -192,14 +209,15 @@ export const factoryParameters = <
         replaceState,
         resetPush,
         resetReplace,
+        context,
       }),
       shallow
     )
     const initialRegisterState = useMemo(() => {
       const initialValues = createInitialValues(defaultInitialValues)
-      return initBlank(initialQueries(), initialValues)
+      return initBlank(initialQueries(), initialValues, context)
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [useStore, defaultInitialValues])
+    }, [useStore, defaultInitialValues, context])
 
     const [currentState, setCurrentState] = useState({
       initialValues: initialRegisterState.initialValues,
@@ -253,9 +271,9 @@ export const factoryParameters = <
 
     const createQuery = useCallback(
       (values: Partial<T> | PartialDeep<T>) => {
-        return createQueryObject(flatConfig, ns, values, initialValues)
+        return createQueryObject(flatConfig, ns, values, initialValues, context)
       },
-      [initialValues]
+      [initialValues, context]
     )
 
     return useMemo(
@@ -276,6 +294,7 @@ export const factoryParameters = <
         resetPush: () => resetPush(ns),
         resetReplace: () => resetReplace(ns),
         values,
+        context,
       }),
       [
         values,
@@ -285,26 +304,35 @@ export const factoryParameters = <
         resetPush,
         resetReplace,
         createQuery,
+        context,
       ]
     )
   }
 
-  const createQueryString = (
+  const createQueryString = <C extends Record<string, unknown>>(
     values: PartialDeep<T>,
-    initialValues?: PartialDeep<T> | null
+    initialValues?: PartialDeep<T> | null,
+    context?: C
   ): string => {
     const thisInitialValues =
       typeof initialValues === 'undefined'
         ? createInitialValues(defaultInitialValues)
         : initialValues
     return new URLSearchParams(
-      createQueryObject<T>(flatConfig, ns, values, thisInitialValues)
+      createQueryObject<T, C>(
+        flatConfig,
+        ns,
+        values,
+        thisInitialValues,
+        context
+      )
     ).toString()
   }
 
-  const parseQueryString = (
+  const parseQueryString = <C extends Record<string, unknown>>(
     query: string,
-    initialValues?: PartialDeep<T> | null
+    initialValues?: PartialDeep<T> | null,
+    context?: C
   ): Partial<T> => {
     const thisInitialValues =
       typeof initialValues === 'undefined'
@@ -317,7 +345,9 @@ export const factoryParameters = <
         Object.fromEntries(parsedQuery.entries()),
         ns,
         draft as T,
-        thisInitialValues as T
+        thisInitialValues as T,
+        true,
+        context
       )
     })
   }

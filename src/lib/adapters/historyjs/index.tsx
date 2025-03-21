@@ -12,6 +12,7 @@ import {
   HistoryManagement,
   StoreContext,
   createGeschichte,
+  Context,
 } from '../../store.js'
 import { createSearch } from '../../utils.js'
 
@@ -19,6 +20,7 @@ export interface Props {
   /** a history instance (e.g. createBrowserHistory()) */
   readonly history: History
   readonly children?: ReactNode
+  readonly context?: Context
 }
 
 export interface Refs {
@@ -58,8 +60,8 @@ export const handleHistoryEvent = (action?: Action) => {
 }
 
 export const GeschichteWithHistory = forwardRef<Refs, Props>(
-  ({ children, history }, ref) => {
-    const historyInstance: HistoryManagement = useMemo(() => {
+  ({ children, history, context }, ref) => {
+    const historyInstance: HistoryManagement<Context> = useMemo(() => {
       return {
         initialSearch: () => history.location.search,
         push: async (query: Record<string, string>) => {
@@ -79,8 +81,9 @@ export const GeschichteWithHistory = forwardRef<Refs, Props>(
             },
             { __g__: true }
           ),
+        context,
       }
-    }, [history])
+    }, [history, context])
 
     const value = useMemo(
       () => createGeschichte(historyInstance),
