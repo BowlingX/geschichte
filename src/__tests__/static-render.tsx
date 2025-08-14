@@ -2,7 +2,7 @@
 /* tslint:disable:no-expression-statement no-object-mutation */
 
 import { render, cleanup, screen, act } from '@testing-library/react'
-import userEventImport from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import React from 'react'
 import Geschichte from '../lib/adapters/static/index.js'
 import {
@@ -12,8 +12,6 @@ import {
 } from '../lib/store.js'
 import { pm } from '../lib/utils.js'
 import { serializers } from '../lib/serializers.js'
-
-const userEvent = userEventImport.default || userEventImport
 
 afterEach(cleanup)
 

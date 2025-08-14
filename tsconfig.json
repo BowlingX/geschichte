@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2018",
+    "target": "ES2024",
     "outDir": "build/mjs",
     "module": "Node16",
     "rootDir": "src",
@@ -9,6 +9,7 @@
     "inlineSourceMap": false,
     "isolatedModules": true,
     "jsx": "react",
+    "skipLibCheck": true,
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
 
     "strict": true /* Enable all strict type-checking options. */,
@@ -37,7 +38,7 @@
     // "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
     // "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
-    "lib": ["ES2018", "dom"],
+    "lib": ["ES2024", "dom"],
     "types": ["node", "jest"],
     "typeRoots": ["node_modules/@types", "src/types"]
   },

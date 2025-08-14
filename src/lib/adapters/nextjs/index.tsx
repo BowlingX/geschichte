@@ -1,6 +1,7 @@
 import React, {
   FC,
   memo,
+  PropsWithChildren,
   ReactNode,
   useEffect,
   useMemo,
@@ -58,7 +59,9 @@ const queryFromPath = (path: string) => {
   return `?${query || ''}`
 }
 
-export const GeschichteForNextjs: FC<Props> = ({
+const pathname = (path: string) => URL.parse(path, 'https://g')?.pathname
+
+export const GeschichteForNextjs = ({
   children,
   asPath,
   initialClientOnlyAsPath,
@@ -67,7 +70,7 @@ export const GeschichteForNextjs: FC<Props> = ({
   routerPush,
   routerReplace,
   context,
-}) => {
+}: PropsWithChildren<Props>) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
   const historyInstance: HistoryManagement<Context> = useMemo(() => {
     return {
@@ -145,8 +148,22 @@ export const GeschichteForNextjs: FC<Props> = ({
     let skipEvent = true
     const routeChangeStartHandler = (path: string) => {
       const nextQuery = queryFromPath(path)
+      let waitForNextRender = false
+
+      // in case the path changes, the route changed, and we will delay applying the update
+      if (pathname(lastClientSideQuery.current) !== pathname(path)) {
+        waitForNextRender = true
+      }
+
       lastClientSideQuery.current = path
-      // skip execution for first render
+
+      if (waitForNextRender) {
+        Router.events.on('routeChangeComplete', function inner() {
+          updateFromQuery(window.location.search)
+          Router.events.off('routeChangeComplete', inner)
+        })
+        return
+      }
       if (!skipEvent) {
         updateFromQuery(nextQuery)
       }

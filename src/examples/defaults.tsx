@@ -1,7 +1,12 @@
 import { pm } from '../lib/utils.js'
 import { serializers } from '../lib/serializers.js'
 import { factoryParameters } from '../lib/store.js'
-import React, { createContext, FC, useContext, useMemo } from 'react'
+import React, {
+  createContext,
+  PropsWithChildren,
+  useContext,
+  useMemo,
+} from 'react'
 
 const config = {
   someParameter: pm('wow', serializers.string),
@@ -24,10 +29,10 @@ const ConfigurableProductSearchContext = createContext(
   defaultProductSearchWithoutCustomization
 )
 
-export const SearchProvider: FC<Props> = ({
+export const SearchProvider = ({
   defaultValues: thisDefaultValues,
   children,
-}) => {
+}: PropsWithChildren<Props>) => {
   const value = useMemo(() => {
     return factoryParameters(
       config,

@@ -1,6 +1,6 @@
 /* eslint-disable react-perf/jsx-no-new-function-as-prop */
 import { render, cleanup, screen, act } from '@testing-library/react'
-import userEventImport from '@testing-library/user-event'
+import { userEvent } from '@testing-library/user-event'
 import { createMemoryHistory } from 'history'
 import React, { useCallback, useState } from 'react'
 import Geschichte from '../lib/adapters/historyjs/index.js'
@@ -8,8 +8,6 @@ import {
   SearchProvider,
   useQuery as useDefaultQuery,
 } from '../examples/defaults.js'
-
-const userEvent = userEventImport.default || userEventImport
 
 afterEach(cleanup)
 

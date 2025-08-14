@@ -11,7 +11,7 @@ import React, { memo, ReactNode, useEffect, useMemo, useRef } from 'react'
 import { StoreState } from '../../middleware.js'
 import { shallow } from 'zustand/shallow'
 import { createSearch } from '../../utils.js'
-import type { NavigateOptions } from 'next/dist/shared/lib/app-router-context.js'
+import type { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime.js'
 
 interface Props {
   readonly children?: ReactNode
