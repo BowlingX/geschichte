@@ -59,7 +59,13 @@ const queryFromPath = (path: string) => {
   return `?${query || ''}`
 }
 
-const pathname = (path: string) => URL.parse(path, 'https://g')?.pathname
+const pathname = (path: string) => {
+  try {
+    return new URL(path, 'https://g').pathname
+  } catch {
+    return null
+  }
+}
 
 export const GeschichteForNextjs = ({
   children,
