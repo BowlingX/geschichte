@@ -2,15 +2,15 @@
 
 import { useSearchParams, useRouter, usePathname } from 'next/navigation.js'
 import {
-  HistoryManagement,
   StoreContext,
   createGeschichte,
   Context,
+  DefaultHistoryManagement,
 } from '../../store.js'
 import React, { memo, ReactNode, useEffect, useMemo, useRef } from 'react'
 import { StoreState } from '../../middleware.js'
 import { shallow } from 'zustand/shallow'
-import { createSearch } from '../../utils.js'
+import { createSearch, getOtherQueryParameters } from '../../utils.js'
 import type { NavigateOptions } from 'next/dist/shared/lib/app-router-context.shared-runtime.js'
 
 interface Props {
@@ -30,18 +30,20 @@ const GeschichteForNextAppRouter = ({
 
   const router = useRef({ push, replace, searchParams, pathname })
 
-  const historyInstance: HistoryManagement<Context> = useMemo(() => {
+  const historyInstance: DefaultHistoryManagement = useMemo(() => {
     const { searchParams, push, replace, pathname } = router.current
     return {
       initialSearch: () => searchParams as unknown as URLSearchParams,
-      push: async (query, options) => {
-        push(`${pathname}${createSearch(query)}`, {
+      push: async (query, namespaces, options) => {
+        const others = getOtherQueryParameters(namespaces, searchParams)
+        push(`${pathname}${createSearch({ ...others, ...query })}`, {
           ...navigateDefaultOptions,
           ...options,
         })
       },
-      replace: async (query, options) => {
-        replace(`${pathname}${createSearch(query)}`, {
+      replace: async (query, namespaces, options) => {
+        const others = getOtherQueryParameters(namespaces, searchParams)
+        replace(`${pathname}${createSearch({ ...others, ...query })}`, {
           ...navigateDefaultOptions,
           ...options,
         })

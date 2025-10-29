@@ -9,12 +9,12 @@ import React, {
 import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
 import {
-  HistoryManagement,
   StoreContext,
   createGeschichte,
   Context,
+  DefaultHistoryManagement,
 } from '../../store.js'
-import { createSearch } from '../../utils.js'
+import { createSearch, getOtherQueryParameters } from '../../utils.js'
 
 export interface Props {
   /** a history instance (e.g. createBrowserHistory()) */
@@ -61,26 +61,42 @@ export const handleHistoryEvent = (action?: Action) => {
 
 export const GeschichteWithHistory = forwardRef<Refs, Props>(
   ({ children, history, context }, ref) => {
-    const historyInstance: HistoryManagement<Context> = useMemo(() => {
+    const historyInstance: DefaultHistoryManagement = useMemo(() => {
       return {
         initialSearch: () => history.location.search,
-        push: async (query: Record<string, string>) => {
+        push: async (query, namespaces) => {
+          let others = {}
+
+          if (history.location.search) {
+            others = getOtherQueryParameters(
+              namespaces,
+              new URLSearchParams(history.location.search)
+            )
+          }
           history.push(
             {
               hash: history.location.hash,
-              search: createSearch(query),
+              search: createSearch({ ...others, ...query }),
             },
             { __g__: true }
           )
         },
-        replace: async (query: Record<string, string>) =>
-          history.replace(
+        replace: async (query, namespaces) => {
+          let others = {}
+          if (history.location.search) {
+            others = getOtherQueryParameters(
+              namespaces,
+              new URLSearchParams(history.location.search)
+            )
+          }
+          return history.replace(
             {
               hash: history.location.hash,
-              search: createSearch(query),
+              search: createSearch({ ...others, ...query }),
             },
             { __g__: true }
-          ),
+          )
+        },
         context,
       }
     }, [history, context])

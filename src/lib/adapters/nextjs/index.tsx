@@ -11,10 +11,10 @@ import React, {
 import { shallow } from 'zustand/shallow'
 import { StoreState } from '../../middleware.js'
 import {
-  HistoryManagement,
   StoreContext,
   createGeschichte,
   Context,
+  DefaultHistoryManagement,
 } from '../../store.js'
 import type { UrlObject } from 'url'
 import {
@@ -22,6 +22,7 @@ import {
   useRouter,
   default as NextRouter,
 } from 'next/router.js'
+import { getOtherQueryParameters } from '../../utils.js'
 
 const split = (url?: string) => url?.split('?') || []
 
@@ -78,7 +79,7 @@ export const GeschichteForNextjs = ({
   context,
 }: PropsWithChildren<Props>) => {
   const lastClientSideQuery = useRef(initialClientOnlyAsPath)
-  const historyInstance: HistoryManagement<Context> = useMemo(() => {
+  const historyInstance: DefaultHistoryManagement = useMemo(() => {
     return {
       initialSearch: () => {
         const [, query] =
@@ -87,27 +88,33 @@ export const GeschichteForNextjs = ({
             : split(lastClientSideQuery.current || Router.asPath)
         return `?${query || ''}`
       },
-      push: (query, options) => {
+      push: (query, namespaces, options) => {
         const [pathname] = split(Router.asPath)
         const routerOptions = {
           ...defaultPushOptions,
           ...options,
         }
 
+        const others = getOtherQueryParameters(
+          namespaces,
+          new URLSearchParams(window.location.search)
+        )
+        const thisQuery = { ...others, ...query }
+
         if (routerPush) {
           return routerPush(
             { query: Router.query },
-            { query, pathname },
+            { query: thisQuery, pathname },
             routerOptions
           )
         }
         return Router.push(
           { query: Router.query },
-          { query, pathname },
+          { query: thisQuery, pathname },
           routerOptions
         )
       },
-      replace: (query, options) => {
+      replace: (query, namespaces, options) => {
         const [pathname] = split(Router.asPath)
 
         const routerOptions = {
@@ -115,16 +122,22 @@ export const GeschichteForNextjs = ({
           ...options,
         }
 
+        const others = getOtherQueryParameters(
+          namespaces,
+          new URLSearchParams(window.location.search)
+        )
+        const thisQuery = { ...others, ...query }
+
         if (routerReplace) {
           return routerReplace(
             { query: Router.query },
-            { pathname, query },
+            { pathname, query: thisQuery },
             routerOptions
           )
         }
         return Router.replace(
           { query: Router.query },
-          { pathname, query },
+          { pathname, query: thisQuery },
           routerOptions
         )
       },

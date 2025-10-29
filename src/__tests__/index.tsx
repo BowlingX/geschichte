@@ -25,7 +25,7 @@ describe('<Geschichte />', () => {
       {
         other: pm('wow', serializers.string),
       },
-      { someParameter: 'test' },
+      { other: 'test' },
       'test2'
     )
 
@@ -55,14 +55,15 @@ describe('<Geschichte />', () => {
           <button
             title="pushBatch"
             onClick={() =>
-              batchPushState(['test', 'test2'], (stateFirst, stateSecond) => {
-                if (stateFirst && stateSecond) {
-                  stateFirst.someParameter = 'wasBatch'
-                  if ('other' in stateSecond) {
+              batchPushState(
+                ['test', 'test2'] as const,
+                (stateFirst, stateSecond) => {
+                  if (stateFirst && stateSecond) {
+                    stateFirst.someParameter = 'wasBatch'
                     stateSecond.other = 'anotherOne'
                   }
                 }
-              })
+              )
             }
           />
           <button title="resetPush" onClick={resetPush} />

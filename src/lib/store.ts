@@ -65,15 +65,25 @@ export interface Context extends Record<string, unknown> {
   }
 }
 
-export interface HistoryManagement<C extends Context> {
+export type DefaultHistoryManagement<
+  T extends Record<string, unknown> = Record<string, unknown>
+> = HistoryManagement<T, InnerNamespace<T>, Context>
+
+export interface HistoryManagement<
+  T extends Record<string, unknown>,
+  N extends InnerNamespace<T>,
+  C extends Context
+> {
   /** the initial search string (e.g. ?query=test), contains the questionsmark */
   readonly initialSearch: () => string | URLSearchParams
   readonly push: (
     queryObject: Record<string, string>,
+    namespaces: N,
     options?: RouterOptions
   ) => Promise<unknown>
   readonly replace: (
     queryObject: Record<string, string>,
+    namespaces: N,
     options?: RouterOptions
   ) => Promise<unknown>
   readonly context?: C
@@ -84,7 +94,7 @@ export const createGeschichte = <
   N extends InnerNamespace<T>,
   C extends Context
 >(
-  historyInstance: HistoryManagement<C>
+  historyInstance: HistoryManagement<T, N, C>
 ) => {
   const thisStore = converter<T, N, C>(historyInstance)
   const storeWithHistory = historyManagement<T, N, C>(historyInstance)(

@@ -1,9 +1,9 @@
 import React, { memo, useMemo, useRef } from 'react'
 import {
-  HistoryManagement,
   StoreContext,
   createGeschichte,
   Context,
+  DefaultHistoryManagement,
 } from '../../store.js'
 import { createSearch } from '../../utils.js'
 
@@ -18,7 +18,7 @@ const StaticGeschichteProvider = ({
   children,
 }: React.PropsWithChildren<Props>) => {
   const thisSearch = useRef(search)
-  const historyInstance: HistoryManagement<Context> = useMemo(() => {
+  const historyInstance: DefaultHistoryManagement = useMemo(() => {
     return {
       initialSearch: () => thisSearch.current || '',
       push: async (query) => {

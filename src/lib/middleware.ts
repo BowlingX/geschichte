@@ -11,6 +11,7 @@ import {
 import {
   applyDiffWithCreateQueriesFromPatch,
   applyFlatConfigToState,
+  formatNamespace,
 } from './utils.js'
 import isDeepEqual from 'fast-deep-equal'
 
@@ -30,6 +31,7 @@ export interface NamespaceValues<ValueState extends object> {
   subscribers: number
   values: ValueState
   initialValues: ValueState
+  managedKeys: string[]
   mappedConfig: MappedConfig
   config: Config
   query: Record<string, string>
@@ -64,14 +66,26 @@ export interface StoreState<
   C extends Context = Context
 > {
   readonly updateFromQuery: (query: string | URLSearchParams) => void
-  readonly batchReplaceState: <Keys extends keyof Namespaces>(
-    ns: Keys[],
-    fn: (...args: (Namespaces[Keys]['values'] | undefined)[]) => void,
+  readonly batchReplaceState: <Keys extends readonly (keyof Namespaces)[]>(
+    ns: Keys,
+    fn: (
+      ...args: {
+        [K in keyof Keys]: Keys[K] extends keyof Namespaces
+          ? Namespaces[Keys[K]]['values'] | undefined
+          : never
+      }
+    ) => void,
     routerOptions?: RouterOptions
   ) => Promise<unknown>
-  readonly batchPushState: <Keys extends keyof Namespaces>(
-    ns: Keys[],
-    fn: (...args: (Namespaces[Keys]['values'] | undefined)[]) => void,
+  readonly batchPushState: <Keys extends readonly (keyof Namespaces)[]>(
+    ns: Keys,
+    fn: (
+      ...args: {
+        [K in keyof Keys]: Keys[K] extends keyof Namespaces
+          ? Namespaces[Keys[K]]['values'] | undefined
+          : never
+      }
+    ) => void,
     routerOptions?: RouterOptions
   ) => Promise<unknown>
   namespaces: Namespaces
@@ -149,7 +163,7 @@ export const historyManagement =
     T extends InnerNamespace<V>,
     C extends Context
   >(
-    historyInstance: HistoryManagement<C>
+    historyInstance: HistoryManagement<V, T, C>
   ) =>
   (apply: StateCreator<V, T>) =>
   (
@@ -234,7 +248,7 @@ export const historyManagement =
                   ...reducedQueries,
                 })
 
-                historyInstance[method](queryObject, options)
+                historyInstance[method](queryObject, values.namespaces, options)
                   .then(resolve)
                   .catch(reject)
 
@@ -344,7 +358,7 @@ export const converter =
     T extends InnerNamespace<V>,
     C extends Context
   >(
-    historyInstance: HistoryManagement<C>
+    historyInstance: HistoryManagement<V, T, C>
   ) =>
   (
     set: NamespaceProducer<V, T> & GenericConverter<V, T>,
@@ -403,27 +417,43 @@ export const converter =
     return {
       context: historyInstance.context,
       /** batch pushes the given namespaces */
-      batchPushState: <Keys extends keyof T>(
-        ns: readonly Keys[],
-        fn: (...valueStateA: T[Keys]['values'][]) => void,
+      batchPushState: <Keys extends readonly (keyof T)[]>(
+        ns: Keys,
+        fn: (
+          ...valueStateA: {
+            [K in keyof Keys]: Keys[K] extends keyof T
+              ? T[Keys[K]]['values'] | undefined
+              : never
+          }
+        ) => void,
         routerOptions?: RouterOptions
       ) => {
         return set(
-          (state: T) =>
-            void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
+          (state) =>
+            void fn(
+              // @ts-expect-error cannot infer
+              ...ns.map((thisNs) => (state[thisNs] || {}).values)
+            ),
           HistoryEventType.PUSH,
           undefined,
           routerOptions
         )
       },
       /** batch replaces the given namespaces */
-      batchReplaceState: <Keys extends keyof T>(
-        ns: readonly Keys[],
-        fn: (...valueStateA: T[Keys]['values'][]) => void,
+      batchReplaceState: <Keys extends readonly (keyof T)[]>(
+        ns: Keys,
+        fn: (
+          ...valueStateA: {
+            [K in keyof Keys]: Keys[K] extends keyof T
+              ? T[Keys[K]]['values'] | undefined
+              : never
+          }
+        ) => void,
         routerOptions?: RouterOptions
       ) => {
         return set(
           (state: T) =>
+            // @ts-expect-error cannot infer
             void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
           HistoryEventType.REPLACE,
           undefined,
@@ -508,6 +538,9 @@ export const converter =
             }
             state.mappedConfig = mappedConfig
             state.config = config
+            state.managedKeys = Object.keys(mappedConfig).map((key) =>
+              formatNamespace(key, ns as string)
+            )
             state.initialValues = initialValues
             state.values = values
             state.query = query

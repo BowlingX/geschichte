@@ -1,7 +1,7 @@
 /* tslint:disable:no-expression-statement no-let no-submodule-imports no-object-mutation */
 import { Patch } from 'immer'
 import { shallow } from 'zustand/shallow'
-import { GenericObject } from './middleware.js'
+import { GenericObject, InnerNamespace } from './middleware.js'
 import { Serializer } from './serializers.js'
 import {
   Config,
@@ -319,4 +319,19 @@ export const flattenConfig = (
     }
     return next
   }, {} as MappedConfig)
+}
+
+export const getOtherQueryParameters = <T extends Record<string, unknown>>(
+  namespace: InnerNamespace<T>,
+  searchParams: URLSearchParams
+) => {
+  const allKeys = new Set(
+    Object.values(namespace).flatMap((v) => v.managedKeys)
+  )
+
+  const params = Array.from(searchParams.entries()).filter(([key]) => {
+    return !allKeys.has(key)
+  })
+
+  return Object.fromEntries(params)
 }
