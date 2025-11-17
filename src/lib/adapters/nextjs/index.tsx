@@ -108,9 +108,10 @@ export const GeschichteForNextjs = ({
             routerOptions
           )
         }
+        const resultQuery = new URLSearchParams(thisQuery).toString()
         return Router.push(
-          { query: Router.query },
-          { query: thisQuery, pathname },
+          `${pathname}${query ? '?' + resultQuery : ''}`,
+          undefined,
           routerOptions
         )
       },
@@ -135,9 +136,10 @@ export const GeschichteForNextjs = ({
             routerOptions
           )
         }
+        const resultQuery = new URLSearchParams(thisQuery).toString()
         return Router.replace(
-          { query: Router.query },
-          { pathname, query: thisQuery },
+          `${pathname}${query ? '?' + resultQuery : ''}`,
+          undefined,
           routerOptions
         )
       },
