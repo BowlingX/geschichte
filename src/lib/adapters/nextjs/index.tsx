@@ -22,7 +22,7 @@ import {
   useRouter,
   default as NextRouter,
 } from 'next/router.js'
-import { getOtherQueryParameters } from '../../utils.js'
+import { createSearch, getOtherQueryParameters } from '../../utils.js'
 
 const split = (url?: string) => url?.split('?') || []
 
@@ -108,9 +108,8 @@ export const GeschichteForNextjs = ({
             routerOptions
           )
         }
-        const resultQuery = new URLSearchParams(thisQuery).toString()
         return Router.push(
-          `${pathname}${query ? '?' + resultQuery : ''}`,
+          `${pathname}${createSearch(thisQuery)}`,
           undefined,
           routerOptions
         )
@@ -136,9 +135,8 @@ export const GeschichteForNextjs = ({
             routerOptions
           )
         }
-        const resultQuery = new URLSearchParams(thisQuery).toString()
         return Router.replace(
-          `${pathname}${query ? '?' + resultQuery : ''}`,
+          `${pathname}${createSearch(thisQuery)}`,
           undefined,
           routerOptions
         )
