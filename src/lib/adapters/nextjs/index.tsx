@@ -99,12 +99,20 @@ export const GeschichteForNextjs = ({
           namespaces,
           new URLSearchParams(window.location.search)
         )
-        const url = `${pathname}${createSearch({ ...others, ...query })}`
+        const thisQuery = { ...others, ...query }
 
         if (routerPush) {
-          return routerPush(url, undefined, routerOptions)
+          return routerPush(
+            { query: Router.query },
+            { query: thisQuery, pathname },
+            routerOptions
+          )
         }
-        return Router.push(url, undefined, routerOptions)
+        return Router.push(
+          `${pathname}${createSearch(thisQuery)}`,
+          undefined,
+          routerOptions
+        )
       },
       replace: (query, namespaces, options) => {
         const [pathname] = split(Router.asPath)
@@ -118,11 +126,20 @@ export const GeschichteForNextjs = ({
           namespaces,
           new URLSearchParams(window.location.search)
         )
-        const url = `${pathname}${createSearch({ ...others, ...query })}`
+        const thisQuery = { ...others, ...query }
+
         if (routerReplace) {
-          return routerReplace(url, undefined, routerOptions)
+          return routerReplace(
+            { query: Router.query },
+            { pathname, query: thisQuery },
+            routerOptions
+          )
         }
-        return Router.replace(url, undefined, routerOptions)
+        return Router.replace(
+          `${pathname}${createSearch(thisQuery)}`,
+          undefined,
+          routerOptions
+        )
       },
       context,
     }
