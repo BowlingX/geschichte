@@ -103,13 +103,13 @@ export const GeschichteForNextjs = ({
 
         if (routerPush) {
           return routerPush(
-            { query: Router.query },
+            { query: Router.query, pathname: Router.pathname },
             { query: thisQuery, pathname },
             routerOptions
           )
         }
         return Router.push(
-          { query: Router.query },
+          { query: Router.query, pathname: Router.pathname },
           { query: thisQuery, pathname },
           routerOptions
         )
@@ -130,13 +130,13 @@ export const GeschichteForNextjs = ({
 
         if (routerReplace) {
           return routerReplace(
-            { query: Router.query },
+            { query: Router.query, pathname: Router.pathname },
             { pathname, query: thisQuery },
             routerOptions
           )
         }
         return Router.replace(
-          { query: Router.query },
+          { query: Router.query, pathname: Router.pathname },
           { pathname, query: thisQuery },
           routerOptions
         )
@@ -151,14 +151,19 @@ export const GeschichteForNextjs = ({
     [historyInstance]
   )
   const state = useStore(
-    ({ unregister, updateFromQuery }: StoreState<Record<string, unknown>>) => ({
+    ({
       unregister,
       updateFromQuery,
+      transition,
+    }: StoreState<Record<string, unknown>>) => ({
+      unregister,
+      updateFromQuery,
+      transition,
     }),
     shallow
   )
 
-  const { updateFromQuery } = state
+  const { updateFromQuery, transition } = state
 
   useEffect(() => {
     // tslint:disable-next-line
@@ -177,8 +182,16 @@ export const GeschichteForNextjs = ({
       lastClientSideQuery.current = path
 
       if (waitForNextRender) {
+        // create a transition promise that resolves after the next render/update cycle
+        let resolveTransition: () => void
+        const promise = new Promise<void>((res) => {
+          resolveTransition = res
+        })
+        transition(promise)
+
         Router.events.on('routeChangeComplete', function inner() {
           updateFromQuery(window.location.search)
+          resolveTransition!()
           Router.events.off('routeChangeComplete', inner)
         })
         return
@@ -192,7 +205,7 @@ export const GeschichteForNextjs = ({
     return () => {
       Router.events.off('beforeHistoryChange', routeChangeStartHandler)
     }
-  }, [updateFromQuery])
+  }, [transition, updateFromQuery])
 
   useEffect(() => {
     const { unregister } = state

@@ -66,6 +66,14 @@ export interface StoreState<
   C extends Context = Context
 > {
   readonly updateFromQuery: (query: string | URLSearchParams) => void
+  /**
+   * Registers a transition promise. While a transition is pending, mutating operations
+   * like pushState/replaceState and their batch variants will wait for the promise
+   * to resolve before applying their changes. This is primarily used by adapters
+   * (e.g., nextjs) to wait for route transitions to complete so that updateFromQuery
+   * can sync state prior to applying new mutations.
+   */
+  readonly transition: (promise: Promise<unknown>) => void
   readonly batchReplaceState: <Keys extends readonly (keyof Namespaces)[]>(
     ns: Keys,
     fn: (
@@ -364,6 +372,19 @@ export const converter =
     set: NamespaceProducer<V, T> & GenericConverter<V, T>,
     get: StoreApi<StoreState<V, T>>['getState']
   ): StoreState<V, T> => {
+    // Transition handling: when set by an adapter, calls to set from public API
+    // will be delayed until the transition promise resolves.
+    let transitionPromise: Promise<unknown> | null = null
+    const awaitIfTransition = <R>(cb: () => Promise<R>): Promise<R> =>
+      transitionPromise ? transitionPromise.then(cb) : cb()
+    const registerTransition = (p: Promise<unknown>) => {
+      transitionPromise = p.finally(() => {
+        // Only clear if this promise is still the active one
+        if (transitionPromise === p) {
+          transitionPromise = null
+        }
+      })
+    }
     const updateFromQuery = (search: string | URLSearchParams) => {
       const nextQueries = parseSearchString(search)
       const namespaces = get().namespaces
@@ -416,6 +437,7 @@ export const converter =
       )
     return {
       context: historyInstance.context,
+      transition: registerTransition,
       /** batch pushes the given namespaces */
       batchPushState: <Keys extends readonly (keyof T)[]>(
         ns: Keys,
@@ -427,18 +449,19 @@ export const converter =
           }
         ) => void,
         routerOptions?: RouterOptions
-      ) => {
-        return set(
-          (state) =>
-            void fn(
-              // @ts-expect-error cannot infer
-              ...ns.map((thisNs) => (state[thisNs] || {}).values)
-            ),
-          HistoryEventType.PUSH,
-          undefined,
-          routerOptions
-        )
-      },
+      ) =>
+        awaitIfTransition(() =>
+          set(
+            (state) =>
+              void fn(
+                // @ts-expect-error cannot infer
+                ...ns.map((thisNs) => (state[thisNs] || {}).values)
+              ),
+            HistoryEventType.PUSH,
+            undefined,
+            routerOptions
+          )
+        ),
       /** batch replaces the given namespaces */
       batchReplaceState: <Keys extends readonly (keyof T)[]>(
         ns: Keys,
@@ -450,16 +473,17 @@ export const converter =
           }
         ) => void,
         routerOptions?: RouterOptions
-      ) => {
-        return set(
-          (state: T) =>
-            // @ts-expect-error cannot infer
-            void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
-          HistoryEventType.REPLACE,
-          undefined,
-          routerOptions
-        )
-      },
+      ) =>
+        awaitIfTransition(() =>
+          set(
+            (state: T) =>
+              // @ts-expect-error cannot infer
+              void fn(...ns.map((thisNs) => (state[thisNs] || {}).values)),
+            HistoryEventType.REPLACE,
+            undefined,
+            routerOptions
+          )
+        ),
       /** the initial queries when the script got executed first (usually on page load). */
       initialQueries: () => parseSearchString(historyInstance.initialSearch()),
       /** here we store all data and configurations for the different namespaces */
@@ -470,11 +494,13 @@ export const converter =
         fn: (values: T[keyof T]['values']) => void,
         routerOptions
       ) =>
-        set(
-          (state) => fn(state.values),
-          HistoryEventType.PUSH,
-          ns,
-          routerOptions
+        awaitIfTransition(() =>
+          set(
+            (state) => fn(state.values),
+            HistoryEventType.PUSH,
+            ns,
+            routerOptions
+          )
         ),
       /** registers a new namespace and initializes it's configuration */
       register: <N extends keyof T>(
@@ -559,11 +585,13 @@ export const converter =
         fn: (values: T[keyof T]['values']) => void,
         routerOptions
       ) =>
-        set(
-          (state) => fn(state.values),
-          HistoryEventType.REPLACE,
-          ns,
-          routerOptions
+        awaitIfTransition(() =>
+          set(
+            (state) => fn(state.values),
+            HistoryEventType.REPLACE,
+            ns,
+            routerOptions
+          )
         ),
       resetPush: (ns: string, routerOptions) =>
         reset(ns, HistoryEventType.PUSH, routerOptions),
