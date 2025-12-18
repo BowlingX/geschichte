@@ -6,7 +6,7 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 212,
+			"id": 216,
 			"name": "Config",
 			"variant": "declaration",
 			"kind": 256,
@@ -16,11 +16,11 @@
 					"fileName": "lib/store.ts",
 					"line": 51,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L51"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L51"
 				}
 			],
 			"indexSignature": {
-				"id": 213,
+				"id": 217,
 				"name": "__index",
 				"variant": "signature",
 				"kind": 8192,
@@ -30,12 +30,12 @@
 						"fileName": "lib/store.ts",
 						"line": 52,
 						"character": 2,
-						"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L52"
+						"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L52"
 					}
 				],
 				"parameters": [
 					{
-						"id": 214,
+						"id": 218,
 						"name": "propName",
 						"variant": "param",
 						"kind": 32768,
@@ -63,7 +63,7 @@
 						{
 							"type": "reflection",
 							"declaration": {
-								"id": 215,
+								"id": 219,
 								"name": "__type",
 								"variant": "declaration",
 								"kind": 65536,
@@ -73,12 +73,12 @@
 										"fileName": "lib/store.ts",
 										"line": 52,
 										"character": 48,
-										"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L52"
+										"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L52"
 									}
 								],
 								"signatures": [
 									{
-										"id": 216,
+										"id": 220,
 										"name": "__type",
 										"variant": "signature",
 										"kind": 4096,
@@ -101,14 +101,14 @@
 			}
 		},
 		{
-			"id": 219,
+			"id": 223,
 			"name": "Context",
 			"variant": "declaration",
 			"kind": 256,
 			"flags": {},
 			"children": [
 				{
-					"id": 220,
+					"id": 224,
 					"name": "serializerConfig",
 					"variant": "declaration",
 					"kind": 1024,
@@ -120,20 +120,20 @@
 							"fileName": "lib/store.ts",
 							"line": 62,
 							"character": 2,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L62"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L62"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 221,
+							"id": 225,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 222,
+									"id": 226,
 									"name": "arrayStringSeparator",
 									"variant": "declaration",
 									"kind": 1024,
@@ -153,7 +153,7 @@
 											"fileName": "lib/store.ts",
 											"line": 64,
 											"character": 4,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L64"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L64"
 										}
 									],
 									"type": {
@@ -166,7 +166,7 @@
 								{
 									"title": "Properties",
 									"children": [
-										222
+										226
 									]
 								}
 							],
@@ -175,7 +175,7 @@
 									"fileName": "lib/store.ts",
 									"line": 62,
 									"character": 21,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L62"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L62"
 								}
 							]
 						}
@@ -186,7 +186,7 @@
 				{
 					"title": "Properties",
 					"children": [
-						220
+						224
 					]
 				}
 			],
@@ -195,7 +195,7 @@
 					"fileName": "lib/store.ts",
 					"line": 61,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L61"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L61"
 				}
 			],
 			"extendedTypes": [
@@ -221,14 +221,14 @@
 			]
 		},
 		{
-			"id": 97,
+			"id": 101,
 			"name": "HistoryManagement",
 			"variant": "declaration",
 			"kind": 256,
 			"flags": {},
 			"children": [
 				{
-					"id": 113,
+					"id": 117,
 					"name": "context",
 					"variant": "declaration",
 					"kind": 1024,
@@ -241,7 +241,7 @@
 							"fileName": "lib/store.ts",
 							"line": 89,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L89"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L89"
 						}
 					],
 					"type": {
@@ -252,7 +252,7 @@
 					}
 				},
 				{
-					"id": 98,
+					"id": 102,
 					"name": "initialSearch",
 					"variant": "declaration",
 					"kind": 1024,
@@ -264,13 +264,13 @@
 							"fileName": "lib/store.ts",
 							"line": 78,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L78"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L78"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 99,
+							"id": 103,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -280,12 +280,12 @@
 									"fileName": "lib/store.ts",
 									"line": 78,
 									"character": 26,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L78"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L78"
 								}
 							],
 							"signatures": [
 								{
-									"id": 100,
+									"id": 104,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -303,7 +303,7 @@
 											"fileName": "lib/store.ts",
 											"line": 78,
 											"character": 26,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L78"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L78"
 										}
 									],
 									"type": {
@@ -330,7 +330,7 @@
 					}
 				},
 				{
-					"id": 101,
+					"id": 105,
 					"name": "push",
 					"variant": "declaration",
 					"kind": 1024,
@@ -342,13 +342,13 @@
 							"fileName": "lib/store.ts",
 							"line": 79,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L79"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L79"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 102,
+							"id": 106,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -358,12 +358,12 @@
 									"fileName": "lib/store.ts",
 									"line": 79,
 									"character": 17,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L79"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L79"
 								}
 							],
 							"signatures": [
 								{
-									"id": 103,
+									"id": 107,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -373,12 +373,12 @@
 											"fileName": "lib/store.ts",
 											"line": 79,
 											"character": 17,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L79"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L79"
 										}
 									],
 									"parameters": [
 										{
-											"id": 104,
+											"id": 108,
 											"name": "queryObject",
 											"variant": "param",
 											"kind": 32768,
@@ -404,7 +404,7 @@
 											}
 										},
 										{
-											"id": 105,
+											"id": 109,
 											"name": "namespaces",
 											"variant": "param",
 											"kind": 32768,
@@ -417,7 +417,7 @@
 											}
 										},
 										{
-											"id": 106,
+											"id": 110,
 											"name": "options",
 											"variant": "param",
 											"kind": 32768,
@@ -456,7 +456,7 @@
 					}
 				},
 				{
-					"id": 107,
+					"id": 111,
 					"name": "replace",
 					"variant": "declaration",
 					"kind": 1024,
@@ -468,13 +468,13 @@
 							"fileName": "lib/store.ts",
 							"line": 84,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L84"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L84"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 108,
+							"id": 112,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -484,12 +484,12 @@
 									"fileName": "lib/store.ts",
 									"line": 84,
 									"character": 20,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L84"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L84"
 								}
 							],
 							"signatures": [
 								{
-									"id": 109,
+									"id": 113,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -499,12 +499,12 @@
 											"fileName": "lib/store.ts",
 											"line": 84,
 											"character": 20,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L84"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L84"
 										}
 									],
 									"parameters": [
 										{
-											"id": 110,
+											"id": 114,
 											"name": "queryObject",
 											"variant": "param",
 											"kind": 32768,
@@ -530,7 +530,7 @@
 											}
 										},
 										{
-											"id": 111,
+											"id": 115,
 											"name": "namespaces",
 											"variant": "param",
 											"kind": 32768,
@@ -543,7 +543,7 @@
 											}
 										},
 										{
-											"id": 112,
+											"id": 116,
 											"name": "options",
 											"variant": "param",
 											"kind": 32768,
@@ -586,10 +586,10 @@
 				{
 					"title": "Properties",
 					"children": [
-						113,
-						98,
-						101,
-						107
+						117,
+						102,
+						105,
+						111
 					]
 				}
 			],
@@ -598,12 +598,12 @@
 					"fileName": "lib/store.ts",
 					"line": 72,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L72"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L72"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 114,
+					"id": 118,
 					"name": "T",
 					"variant": "typeParam",
 					"kind": 131072,
@@ -629,7 +629,7 @@
 					}
 				},
 				{
-					"id": 115,
+					"id": 119,
 					"name": "N",
 					"variant": "typeParam",
 					"kind": 131072,
@@ -653,14 +653,14 @@
 					}
 				},
 				{
-					"id": 116,
+					"id": 120,
 					"name": "C",
 					"variant": "typeParam",
 					"kind": 131072,
 					"flags": {},
 					"type": {
 						"type": "reference",
-						"target": 219,
+						"target": 223,
 						"name": "Context",
 						"package": "geschichte"
 					}
@@ -687,7 +687,7 @@
 							"fileName": "lib/serializers.ts",
 							"line": 4,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L4"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L4"
 						}
 					],
 					"type": {
@@ -703,7 +703,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 4,
 									"character": 24,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L4"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L4"
 								}
 							],
 							"signatures": [
@@ -718,7 +718,7 @@
 											"fileName": "lib/serializers.ts",
 											"line": 4,
 											"character": 24,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L4"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L4"
 										}
 									],
 									"parameters": [
@@ -795,7 +795,7 @@
 							"fileName": "lib/serializers.ts",
 							"line": 8,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L8"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L8"
 						}
 					],
 					"type": {
@@ -811,7 +811,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 8,
 									"character": 22,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L8"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L8"
 								}
 							],
 							"signatures": [
@@ -826,7 +826,7 @@
 											"fileName": "lib/serializers.ts",
 											"line": 8,
 											"character": 22,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L8"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L8"
 										}
 									],
 									"parameters": [
@@ -898,7 +898,7 @@
 					"fileName": "lib/serializers.ts",
 					"line": 3,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L3"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L3"
 				}
 			],
 			"typeParameters": [
@@ -917,13 +917,13 @@
 					"flags": {},
 					"type": {
 						"type": "reference",
-						"target": 219,
+						"target": 223,
 						"name": "Context",
 						"package": "geschichte"
 					},
 					"default": {
 						"type": "reference",
-						"target": 219,
+						"target": 223,
 						"name": "Context",
 						"package": "geschichte"
 					}
@@ -938,7 +938,7 @@
 			"flags": {},
 			"children": [
 				{
-					"id": 54,
+					"id": 58,
 					"name": "batchPushState",
 					"variant": "declaration",
 					"kind": 1024,
@@ -948,15 +948,15 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 80,
+							"line": 88,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L80"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L88"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 55,
+							"id": 59,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -964,14 +964,14 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 80,
+									"line": 88,
 									"character": 27,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L80"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L88"
 								}
 							],
 							"signatures": [
 								{
-									"id": 56,
+									"id": 60,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -979,14 +979,14 @@
 									"sources": [
 										{
 											"fileName": "lib/middleware.ts",
-											"line": 80,
+											"line": 88,
 											"character": 27,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L80"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L88"
 										}
 									],
 									"typeParameter": [
 										{
-											"id": 57,
+											"id": 61,
 											"name": "Keys",
 											"variant": "typeParam",
 											"kind": 131072,
@@ -1012,7 +1012,7 @@
 									],
 									"parameters": [
 										{
-											"id": 58,
+											"id": 62,
 											"name": "ns",
 											"variant": "param",
 											"kind": 32768,
@@ -1025,7 +1025,7 @@
 											}
 										},
 										{
-											"id": 59,
+											"id": 63,
 											"name": "fn",
 											"variant": "param",
 											"kind": 32768,
@@ -1033,7 +1033,7 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 60,
+													"id": 64,
 													"name": "__type",
 													"variant": "declaration",
 													"kind": 65536,
@@ -1041,14 +1041,14 @@
 													"sources": [
 														{
 															"fileName": "lib/middleware.ts",
-															"line": 82,
+															"line": 90,
 															"character": 8,
-															"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L82"
+															"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L90"
 														}
 													],
 													"signatures": [
 														{
-															"id": 61,
+															"id": 65,
 															"name": "__type",
 															"variant": "signature",
 															"kind": 4096,
@@ -1056,14 +1056,14 @@
 															"sources": [
 																{
 																	"fileName": "lib/middleware.ts",
-																	"line": 82,
+																	"line": 90,
 																	"character": 8,
-																	"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L82"
+																	"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L90"
 																}
 															],
 															"parameters": [
 																{
-																	"id": 62,
+																	"id": 66,
 																	"name": "args",
 																	"variant": "param",
 																	"kind": 32768,
@@ -1171,7 +1171,7 @@
 											}
 										},
 										{
-											"id": 63,
+											"id": 67,
 											"name": "routerOptions",
 											"variant": "param",
 											"kind": 32768,
@@ -1210,7 +1210,7 @@
 					}
 				},
 				{
-					"id": 44,
+					"id": 48,
 					"name": "batchReplaceState",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1220,15 +1220,15 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 69,
+							"line": 77,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L69"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L77"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 45,
+							"id": 49,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -1236,14 +1236,14 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 69,
+									"line": 77,
 									"character": 30,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L69"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L77"
 								}
 							],
 							"signatures": [
 								{
-									"id": 46,
+									"id": 50,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -1251,14 +1251,14 @@
 									"sources": [
 										{
 											"fileName": "lib/middleware.ts",
-											"line": 69,
+											"line": 77,
 											"character": 30,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L69"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L77"
 										}
 									],
 									"typeParameter": [
 										{
-											"id": 47,
+											"id": 51,
 											"name": "Keys",
 											"variant": "typeParam",
 											"kind": 131072,
@@ -1284,7 +1284,7 @@
 									],
 									"parameters": [
 										{
-											"id": 48,
+											"id": 52,
 											"name": "ns",
 											"variant": "param",
 											"kind": 32768,
@@ -1297,7 +1297,7 @@
 											}
 										},
 										{
-											"id": 49,
+											"id": 53,
 											"name": "fn",
 											"variant": "param",
 											"kind": 32768,
@@ -1305,7 +1305,7 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 50,
+													"id": 54,
 													"name": "__type",
 													"variant": "declaration",
 													"kind": 65536,
@@ -1313,14 +1313,14 @@
 													"sources": [
 														{
 															"fileName": "lib/middleware.ts",
-															"line": 71,
+															"line": 79,
 															"character": 8,
-															"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L71"
+															"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L79"
 														}
 													],
 													"signatures": [
 														{
-															"id": 51,
+															"id": 55,
 															"name": "__type",
 															"variant": "signature",
 															"kind": 4096,
@@ -1328,14 +1328,14 @@
 															"sources": [
 																{
 																	"fileName": "lib/middleware.ts",
-																	"line": 71,
+																	"line": 79,
 																	"character": 8,
-																	"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L71"
+																	"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L79"
 																}
 															],
 															"parameters": [
 																{
-																	"id": 52,
+																	"id": 56,
 																	"name": "args",
 																	"variant": "param",
 																	"kind": 32768,
@@ -1443,7 +1443,7 @@
 											}
 										},
 										{
-											"id": 53,
+											"id": 57,
 											"name": "routerOptions",
 											"variant": "param",
 											"kind": 32768,
@@ -1482,7 +1482,7 @@
 					}
 				},
 				{
-					"id": 93,
+					"id": 97,
 					"name": "context",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1492,9 +1492,9 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 110,
+							"line": 118,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L110"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L118"
 						}
 					],
 					"type": {
@@ -1514,7 +1514,7 @@
 					}
 				},
 				{
-					"id": 90,
+					"id": 94,
 					"name": "initialQueries",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1524,15 +1524,15 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 109,
+							"line": 117,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L109"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L117"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 91,
+							"id": 95,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -1540,14 +1540,14 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 109,
+									"line": 117,
 									"character": 27,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L109"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L117"
 								}
 							],
 							"signatures": [
 								{
-									"id": 92,
+									"id": 96,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -1555,9 +1555,9 @@
 									"sources": [
 										{
 											"fileName": "lib/middleware.ts",
-											"line": 109,
+											"line": 117,
 											"character": 27,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L109"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L117"
 										}
 									],
 									"type": {
@@ -1585,7 +1585,7 @@
 					}
 				},
 				{
-					"id": 64,
+					"id": 68,
 					"name": "namespaces",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1593,9 +1593,9 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 91,
+							"line": 99,
 							"character": 2,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L91"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L99"
 						}
 					],
 					"type": {
@@ -1606,7 +1606,7 @@
 					}
 				},
 				{
-					"id": 65,
+					"id": 69,
 					"name": "pushState",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1616,9 +1616,9 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 92,
+							"line": 100,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L92"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L100"
 						}
 					],
 					"type": {
@@ -1660,7 +1660,7 @@
 					}
 				},
 				{
-					"id": 67,
+					"id": 71,
 					"name": "register",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1670,15 +1670,15 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 97,
+							"line": 105,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L97"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L105"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 68,
+							"id": 72,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -1686,14 +1686,14 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 97,
+									"line": 105,
 									"character": 21,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L97"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L105"
 								}
 							],
 							"signatures": [
 								{
-									"id": 69,
+									"id": 73,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -1709,14 +1709,14 @@
 									"sources": [
 										{
 											"fileName": "lib/middleware.ts",
-											"line": 97,
+											"line": 105,
 											"character": 21,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L97"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L105"
 										}
 									],
 									"typeParameter": [
 										{
-											"id": 70,
+											"id": 74,
 											"name": "N",
 											"variant": "typeParam",
 											"kind": 131072,
@@ -1742,20 +1742,20 @@
 									],
 									"parameters": [
 										{
-											"id": 71,
+											"id": 75,
 											"name": "config",
 											"variant": "param",
 											"kind": 32768,
 											"flags": {},
 											"type": {
 												"type": "reference",
-												"target": 212,
+												"target": 216,
 												"name": "Config",
 												"package": "geschichte"
 											}
 										},
 										{
-											"id": 72,
+											"id": 76,
 											"name": "mappedConfig",
 											"variant": "param",
 											"kind": 32768,
@@ -1771,7 +1771,7 @@
 											}
 										},
 										{
-											"id": 73,
+											"id": 77,
 											"name": "ns",
 											"variant": "param",
 											"kind": 32768,
@@ -1784,7 +1784,7 @@
 											}
 										},
 										{
-											"id": 74,
+											"id": 78,
 											"name": "initialValues",
 											"variant": "param",
 											"kind": 32768,
@@ -1813,7 +1813,7 @@
 											}
 										},
 										{
-											"id": 75,
+											"id": 79,
 											"name": "query",
 											"variant": "param",
 											"kind": 32768,
@@ -1839,7 +1839,7 @@
 											}
 										},
 										{
-											"id": 76,
+											"id": 80,
 											"name": "values",
 											"variant": "param",
 											"kind": 32768,
@@ -1907,7 +1907,7 @@
 					}
 				},
 				{
-					"id": 66,
+					"id": 70,
 					"name": "replaceState",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1917,9 +1917,9 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 93,
+							"line": 101,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L93"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L101"
 						}
 					],
 					"type": {
@@ -1961,7 +1961,7 @@
 					}
 				},
 				{
-					"id": 80,
+					"id": 84,
 					"name": "resetPush",
 					"variant": "declaration",
 					"kind": 1024,
@@ -1971,15 +1971,15 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 107,
+							"line": 115,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L107"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L115"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 81,
+							"id": 85,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -1987,14 +1987,14 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 107,
+									"line": 115,
 									"character": 22,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L107"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L115"
 								}
 							],
 							"signatures": [
 								{
-									"id": 82,
+									"id": 86,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -2002,14 +2002,14 @@
 									"sources": [
 										{
 											"fileName": "lib/middleware.ts",
-											"line": 107,
+											"line": 115,
 											"character": 22,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L107"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L115"
 										}
 									],
 									"parameters": [
 										{
-											"id": 83,
+											"id": 87,
 											"name": "ns",
 											"variant": "param",
 											"kind": 32768,
@@ -2020,7 +2020,7 @@
 											}
 										},
 										{
-											"id": 84,
+											"id": 88,
 											"name": "routerOptions",
 											"variant": "param",
 											"kind": 32768,
@@ -2048,7 +2048,7 @@
 					}
 				},
 				{
-					"id": 85,
+					"id": 89,
 					"name": "resetReplace",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2058,15 +2058,15 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 108,
+							"line": 116,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L108"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L116"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 86,
+							"id": 90,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -2074,14 +2074,14 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 108,
+									"line": 116,
 									"character": 25,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L108"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L116"
 								}
 							],
 							"signatures": [
 								{
-									"id": 87,
+									"id": 91,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -2089,14 +2089,14 @@
 									"sources": [
 										{
 											"fileName": "lib/middleware.ts",
-											"line": 108,
+											"line": 116,
 											"character": 25,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L108"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L116"
 										}
 									],
 									"parameters": [
 										{
-											"id": 88,
+											"id": 92,
 											"name": "ns",
 											"variant": "param",
 											"kind": 32768,
@@ -2107,7 +2107,7 @@
 											}
 										},
 										{
-											"id": 89,
+											"id": 93,
 											"name": "routerOptions",
 											"variant": "param",
 											"kind": 32768,
@@ -2135,7 +2135,95 @@
 					}
 				},
 				{
-					"id": 77,
+					"id": 44,
+					"name": "transition",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isReadonly": true
+					},
+					"sources": [
+						{
+							"fileName": "lib/middleware.ts",
+							"line": 76,
+							"character": 11,
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L76"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 45,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "lib/middleware.ts",
+									"line": 76,
+									"character": 23,
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L76"
+								}
+							],
+							"signatures": [
+								{
+									"id": 46,
+									"name": "__type",
+									"variant": "signature",
+									"kind": 4096,
+									"flags": {},
+									"comment": {
+										"summary": [
+											{
+												"kind": "text",
+												"text": "Registers a transition promise. While a transition is pending, mutating operations\nlike pushState/replaceState and their batch variants will wait for the promise\nto resolve before applying their changes. This is primarily used by adapters\n(e.g., nextjs) to wait for route transitions to complete so that updateFromQuery\ncan sync state prior to applying new mutations."
+											}
+										]
+									},
+									"sources": [
+										{
+											"fileName": "lib/middleware.ts",
+											"line": 76,
+											"character": 23,
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L76"
+										}
+									],
+									"parameters": [
+										{
+											"id": 47,
+											"name": "promise",
+											"variant": "param",
+											"kind": 32768,
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"target": {
+													"sourceFileName": "node_modules/typescript/lib/lib.es5.d.ts",
+													"qualifiedName": "Promise"
+												},
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "unknown"
+													}
+												],
+												"name": "Promise",
+												"package": "typescript"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 81,
 					"name": "unregister",
 					"variant": "declaration",
 					"kind": 1024,
@@ -2145,15 +2233,15 @@
 					"sources": [
 						{
 							"fileName": "lib/middleware.ts",
-							"line": 106,
+							"line": 114,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L106"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L114"
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 78,
+							"id": 82,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -2161,14 +2249,14 @@
 							"sources": [
 								{
 									"fileName": "lib/middleware.ts",
-									"line": 106,
+									"line": 114,
 									"character": 23,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L106"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L114"
 								}
 							],
 							"signatures": [
 								{
-									"id": 79,
+									"id": 83,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -2184,9 +2272,9 @@
 									"sources": [
 										{
 											"fileName": "lib/middleware.ts",
-											"line": 106,
+											"line": 114,
 											"character": 23,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L106"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L114"
 										}
 									],
 									"type": {
@@ -2211,7 +2299,7 @@
 							"fileName": "lib/middleware.ts",
 							"line": 68,
 							"character": 11,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L68"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L68"
 						}
 					],
 					"type": {
@@ -2227,7 +2315,7 @@
 									"fileName": "lib/middleware.ts",
 									"line": 68,
 									"character": 28,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L68"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L68"
 								}
 							],
 							"signatures": [
@@ -2242,7 +2330,7 @@
 											"fileName": "lib/middleware.ts",
 											"line": 68,
 											"character": 28,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L68"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L68"
 										}
 									],
 									"parameters": [
@@ -2286,17 +2374,18 @@
 				{
 					"title": "Properties",
 					"children": [
-						54,
+						58,
+						48,
+						97,
+						94,
+						68,
+						69,
+						71,
+						70,
+						84,
+						89,
 						44,
-						93,
-						90,
-						64,
-						65,
-						67,
-						66,
-						80,
-						85,
-						77,
+						81,
 						40
 					]
 				}
@@ -2306,12 +2395,12 @@
 					"fileName": "lib/middleware.ts",
 					"line": 63,
 					"character": 17,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L63"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L63"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 94,
+					"id": 98,
 					"name": "ThisValue",
 					"variant": "typeParam",
 					"kind": 131072,
@@ -2337,7 +2426,7 @@
 					}
 				},
 				{
-					"id": 95,
+					"id": 99,
 					"name": "Namespaces",
 					"variant": "typeParam",
 					"kind": 131072,
@@ -2378,20 +2467,20 @@
 					}
 				},
 				{
-					"id": 96,
+					"id": 100,
 					"name": "C",
 					"variant": "typeParam",
 					"kind": 131072,
 					"flags": {},
 					"type": {
 						"type": "reference",
-						"target": 219,
+						"target": 223,
 						"name": "Context",
 						"package": "geschichte"
 					},
 					"default": {
 						"type": "reference",
-						"target": 219,
+						"target": 223,
 						"name": "Context",
 						"package": "geschichte"
 					}
@@ -2399,7 +2488,7 @@
 			]
 		},
 		{
-			"id": 217,
+			"id": 221,
 			"name": "InferNamespaceValues",
 			"variant": "declaration",
 			"kind": 2097152,
@@ -2409,12 +2498,12 @@
 					"fileName": "lib/store.ts",
 					"line": 368,
 					"character": 12,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L368"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L368"
 				}
 			],
 			"typeParameters": [
 				{
-					"id": 218,
+					"id": 222,
 					"name": "F",
 					"variant": "typeParam",
 					"kind": 131072,
@@ -2436,7 +2525,7 @@
 									"type": "query",
 									"queryType": {
 										"type": "reference",
-										"target": 123,
+										"target": 127,
 										"name": "factoryParameters",
 										"package": "geschichte"
 									}
@@ -2485,7 +2574,7 @@
 			}
 		},
 		{
-			"id": 210,
+			"id": 214,
 			"name": "DEFAULT_NAMESPACE",
 			"variant": "declaration",
 			"kind": 32,
@@ -2497,7 +2586,7 @@
 					"fileName": "lib/store.ts",
 					"line": 34,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L34"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L34"
 				}
 			],
 			"type": {
@@ -2519,7 +2608,7 @@
 					"fileName": "lib/serializers.ts",
 					"line": 96,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L96"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L96"
 				}
 			],
 			"type": {
@@ -2529,7 +2618,7 @@
 			"defaultValue": "'_'"
 		},
 		{
-			"id": 211,
+			"id": 215,
 			"name": "StoreContext",
 			"variant": "declaration",
 			"kind": 32,
@@ -2541,7 +2630,7 @@
 					"fileName": "lib/store.ts",
 					"line": 35,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L35"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L35"
 				}
 			],
 			"type": {
@@ -2579,7 +2668,7 @@
 											},
 											{
 												"type": "reference",
-												"target": 219,
+												"target": 223,
 												"name": "Context",
 												"package": "geschichte"
 											}
@@ -2613,7 +2702,7 @@
 					"fileName": "lib/serializers.ts",
 					"line": 98,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L98"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L98"
 				}
 			],
 			"type": {
@@ -2636,7 +2725,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 99,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L99"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L99"
 								}
 							],
 							"type": {
@@ -2656,7 +2745,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -2677,7 +2766,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 100,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L100"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L100"
 								}
 							],
 							"type": {
@@ -2697,7 +2786,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -2718,7 +2807,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 101,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L101"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L101"
 								}
 							],
 							"type": {
@@ -2738,7 +2827,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -2759,7 +2848,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 102,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L102"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L102"
 								}
 							],
 							"type": {
@@ -2772,7 +2861,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -2793,7 +2882,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 103,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L103"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L103"
 								}
 							],
 							"type": {
@@ -2809,7 +2898,7 @@
 											"fileName": "lib/serializers.ts",
 											"line": 81,
 											"character": 23,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L81"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L81"
 										}
 									],
 									"signatures": [
@@ -2824,7 +2913,7 @@
 													"fileName": "lib/serializers.ts",
 													"line": 81,
 													"character": 23,
-													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L81"
+													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L81"
 												}
 											],
 											"parameters": [
@@ -2868,7 +2957,7 @@
 													},
 													{
 														"type": "reference",
-														"target": 219,
+														"target": 223,
 														"name": "Context",
 														"package": "geschichte"
 													}
@@ -2893,7 +2982,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 104,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L104"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L104"
 								}
 							],
 							"type": {
@@ -2906,7 +2995,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -2927,7 +3016,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 105,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L105"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L105"
 								}
 							],
 							"type": {
@@ -2940,7 +3029,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -2961,7 +3050,7 @@
 									"fileName": "lib/serializers.ts",
 									"line": 106,
 									"character": 2,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L106"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L106"
 								}
 							],
 							"type": {
@@ -2974,7 +3063,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -3005,7 +3094,7 @@
 							"fileName": "lib/serializers.ts",
 							"line": 98,
 							"character": 27,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L98"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L98"
 						}
 					]
 				}
@@ -3023,7 +3112,7 @@
 					"fileName": "lib/serializers.ts",
 					"line": 70,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L70"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L70"
 				}
 			],
 			"signatures": [
@@ -3038,7 +3127,7 @@
 							"fileName": "lib/serializers.ts",
 							"line": 70,
 							"character": 35,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L70"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L70"
 						}
 					],
 					"parameters": [
@@ -3071,7 +3160,7 @@
 							},
 							{
 								"type": "reference",
-								"target": 219,
+								"target": 223,
 								"name": "Context",
 								"package": "geschichte"
 							}
@@ -3093,7 +3182,7 @@
 					"fileName": "lib/serializers.ts",
 					"line": 59,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L59"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L59"
 				}
 			],
 			"signatures": [
@@ -3108,7 +3197,7 @@
 							"fileName": "lib/serializers.ts",
 							"line": 59,
 							"character": 33,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L59"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L59"
 						}
 					],
 					"parameters": [
@@ -3141,7 +3230,7 @@
 							},
 							{
 								"type": "reference",
-								"target": 219,
+								"target": 223,
 								"name": "Context",
 								"package": "geschichte"
 							}
@@ -3163,7 +3252,7 @@
 					"fileName": "lib/serializers.ts",
 					"line": 45,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L45"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L45"
 				}
 			],
 			"signatures": [
@@ -3178,7 +3267,7 @@
 							"fileName": "lib/serializers.ts",
 							"line": 45,
 							"character": 36,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/serializers.ts#L45"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/serializers.ts#L45"
 						}
 					],
 					"typeParameter": [
@@ -3190,13 +3279,13 @@
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 219,
+								"target": 223,
 								"name": "Context",
 								"package": "geschichte"
 							},
 							"default": {
 								"type": "reference",
-								"target": 219,
+								"target": 223,
 								"name": "Context",
 								"package": "geschichte"
 							}
@@ -3244,7 +3333,7 @@
 			]
 		},
 		{
-			"id": 117,
+			"id": 121,
 			"name": "createGeschichte",
 			"variant": "declaration",
 			"kind": 64,
@@ -3254,12 +3343,12 @@
 					"fileName": "lib/store.ts",
 					"line": 92,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L92"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L92"
 				}
 			],
 			"signatures": [
 				{
-					"id": 118,
+					"id": 122,
 					"name": "createGeschichte",
 					"variant": "signature",
 					"kind": 4096,
@@ -3269,12 +3358,12 @@
 							"fileName": "lib/store.ts",
 							"line": 92,
 							"character": 32,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L92"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L92"
 						}
 					],
 					"typeParameter": [
 						{
-							"id": 119,
+							"id": 123,
 							"name": "T",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -3300,7 +3389,7 @@
 							}
 						},
 						{
-							"id": 120,
+							"id": 124,
 							"name": "N",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -3324,14 +3413,14 @@
 							}
 						},
 						{
-							"id": 121,
+							"id": 125,
 							"name": "C",
 							"variant": "typeParam",
 							"kind": 131072,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 219,
+								"target": 223,
 								"name": "Context",
 								"package": "geschichte"
 							}
@@ -3339,14 +3428,14 @@
 					],
 					"parameters": [
 						{
-							"id": 122,
+							"id": 126,
 							"name": "historyInstance",
 							"variant": "param",
 							"kind": 32768,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 97,
+								"target": 101,
 								"typeArguments": [
 									{
 										"type": "reference",
@@ -3418,7 +3507,7 @@
 															},
 															{
 																"type": "reference",
-																"target": 219,
+																"target": 223,
 																"name": "Context",
 																"package": "geschichte"
 															}
@@ -3455,7 +3544,7 @@
 															},
 															{
 																"type": "reference",
-																"target": 219,
+																"target": 223,
 																"name": "Context",
 																"package": "geschichte"
 															}
@@ -3483,7 +3572,7 @@
 			]
 		},
 		{
-			"id": 239,
+			"id": 243,
 			"name": "createOrApplyPath",
 			"variant": "declaration",
 			"kind": 64,
@@ -3493,12 +3582,12 @@
 					"fileName": "lib/utils.ts",
 					"line": 44,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L44"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L44"
 				}
 			],
 			"signatures": [
 				{
-					"id": 240,
+					"id": 244,
 					"name": "createOrApplyPath",
 					"variant": "signature",
 					"kind": 4096,
@@ -3508,12 +3597,12 @@
 							"fileName": "lib/utils.ts",
 							"line": 44,
 							"character": 33,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L44"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L44"
 						}
 					],
 					"typeParameter": [
 						{
-							"id": 241,
+							"id": 245,
 							"name": "T",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -3522,7 +3611,7 @@
 					],
 					"parameters": [
 						{
-							"id": 242,
+							"id": 246,
 							"name": "obj",
 							"variant": "param",
 							"kind": 32768,
@@ -3547,7 +3636,7 @@
 							}
 						},
 						{
-							"id": 243,
+							"id": 247,
 							"name": "path",
 							"variant": "param",
 							"kind": 32768,
@@ -3565,7 +3654,7 @@
 							}
 						},
 						{
-							"id": 244,
+							"id": 248,
 							"name": "value",
 							"variant": "param",
 							"kind": 32768,
@@ -3610,7 +3699,7 @@
 			]
 		},
 		{
-			"id": 245,
+			"id": 249,
 			"name": "defaultSkipValue",
 			"variant": "declaration",
 			"kind": 64,
@@ -3620,12 +3709,12 @@
 					"fileName": "lib/utils.ts",
 					"line": 23,
 					"character": 16,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L23"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L23"
 				}
 			],
 			"signatures": [
 				{
-					"id": 246,
+					"id": 250,
 					"name": "defaultSkipValue",
 					"variant": "signature",
 					"kind": 4096,
@@ -3643,12 +3732,12 @@
 							"fileName": "lib/utils.ts",
 							"line": 23,
 							"character": 16,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L23"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L23"
 						}
 					],
 					"typeParameter": [
 						{
-							"id": 247,
+							"id": 251,
 							"name": "V",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -3657,7 +3746,7 @@
 					],
 					"parameters": [
 						{
-							"id": 248,
+							"id": 252,
 							"name": "value",
 							"variant": "param",
 							"kind": 32768,
@@ -3672,7 +3761,7 @@
 							}
 						},
 						{
-							"id": 249,
+							"id": 253,
 							"name": "initialValue",
 							"variant": "param",
 							"kind": 32768,
@@ -3695,7 +3784,7 @@
 			]
 		},
 		{
-			"id": 123,
+			"id": 127,
 			"name": "factoryParameters",
 			"variant": "declaration",
 			"kind": 64,
@@ -3705,12 +3794,12 @@
 					"fileName": "lib/store.ts",
 					"line": 147,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L147"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L147"
 				}
 			],
 			"signatures": [
 				{
-					"id": 124,
+					"id": 128,
 					"name": "factoryParameters",
 					"variant": "signature",
 					"kind": 4096,
@@ -3720,12 +3809,12 @@
 							"fileName": "lib/store.ts",
 							"line": 147,
 							"character": 33,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L147"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L147"
 						}
 					],
 					"typeParameter": [
 						{
-							"id": 125,
+							"id": 129,
 							"name": "T",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -3751,7 +3840,7 @@
 							}
 						},
 						{
-							"id": 126,
+							"id": 130,
 							"name": "N",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -3775,20 +3864,20 @@
 							}
 						},
 						{
-							"id": 127,
+							"id": 131,
 							"name": "C",
 							"variant": "typeParam",
 							"kind": 131072,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 219,
+								"target": 223,
 								"name": "Context",
 								"package": "geschichte"
 							},
 							"default": {
 								"type": "reference",
-								"target": 219,
+								"target": 223,
 								"name": "Context",
 								"package": "geschichte"
 							}
@@ -3796,20 +3885,20 @@
 					],
 					"parameters": [
 						{
-							"id": 128,
+							"id": 132,
 							"name": "config",
 							"variant": "param",
 							"kind": 32768,
 							"flags": {},
 							"type": {
 								"type": "reference",
-								"target": 212,
+								"target": 216,
 								"name": "Config",
 								"package": "geschichte"
 							}
 						},
 						{
-							"id": 129,
+							"id": 133,
 							"name": "defaultInitialValues",
 							"variant": "param",
 							"kind": 32768,
@@ -3834,7 +3923,7 @@
 							"defaultValue": "..."
 						},
 						{
-							"id": 130,
+							"id": 134,
 							"name": "ns",
 							"variant": "param",
 							"kind": 32768,
@@ -3849,14 +3938,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 131,
+							"id": 135,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 170,
+									"id": 174,
 									"name": "createQueryString",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3866,13 +3955,13 @@
 											"fileName": "lib/store.ts",
 											"line": 365,
 											"character": 21,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L365"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L365"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 171,
+											"id": 175,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -3882,12 +3971,12 @@
 													"fileName": "lib/store.ts",
 													"line": 322,
 													"character": 28,
-													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L322"
+													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L322"
 												}
 											],
 											"signatures": [
 												{
-													"id": 172,
+													"id": 176,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -3897,12 +3986,12 @@
 															"fileName": "lib/store.ts",
 															"line": 322,
 															"character": 28,
-															"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L322"
+															"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L322"
 														}
 													],
 													"parameters": [
 														{
-															"id": 173,
+															"id": 177,
 															"name": "values",
 															"variant": "param",
 															"kind": 32768,
@@ -3926,7 +4015,7 @@
 															}
 														},
 														{
-															"id": 174,
+															"id": 178,
 															"name": "initialValues",
 															"variant": "param",
 															"kind": 32768,
@@ -3961,7 +4050,7 @@
 															}
 														},
 														{
-															"id": 175,
+															"id": 179,
 															"name": "context",
 															"variant": "param",
 															"kind": 32768,
@@ -3986,7 +4075,7 @@
 									}
 								},
 								{
-									"id": 176,
+									"id": 180,
 									"name": "parseQueryString",
 									"variant": "declaration",
 									"kind": 1024,
@@ -3996,13 +4085,13 @@
 											"fileName": "lib/store.ts",
 											"line": 365,
 											"character": 40,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L365"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L365"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 177,
+											"id": 181,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -4012,12 +4101,12 @@
 													"fileName": "lib/store.ts",
 													"line": 342,
 													"character": 27,
-													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L342"
+													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L342"
 												}
 											],
 											"signatures": [
 												{
-													"id": 178,
+													"id": 182,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -4027,12 +4116,12 @@
 															"fileName": "lib/store.ts",
 															"line": 342,
 															"character": 27,
-															"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L342"
+															"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L342"
 														}
 													],
 													"parameters": [
 														{
-															"id": 179,
+															"id": 183,
 															"name": "query",
 															"variant": "param",
 															"kind": 32768,
@@ -4043,7 +4132,7 @@
 															}
 														},
 														{
-															"id": 180,
+															"id": 184,
 															"name": "initialValues",
 															"variant": "param",
 															"kind": 32768,
@@ -4078,7 +4167,7 @@
 															}
 														},
 														{
-															"id": 181,
+															"id": 185,
 															"name": "context",
 															"variant": "param",
 															"kind": 32768,
@@ -4116,7 +4205,7 @@
 									}
 								},
 								{
-									"id": 132,
+									"id": 136,
 									"name": "useQuery",
 									"variant": "declaration",
 									"kind": 1024,
@@ -4126,13 +4215,13 @@
 											"fileName": "lib/store.ts",
 											"line": 365,
 											"character": 11,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L365"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L365"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 133,
+											"id": 137,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -4142,12 +4231,12 @@
 													"fileName": "lib/store.ts",
 													"line": 188,
 													"character": 19,
-													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L188"
+													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L188"
 												}
 											],
 											"signatures": [
 												{
-													"id": 134,
+													"id": 138,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -4157,20 +4246,20 @@
 															"fileName": "lib/store.ts",
 															"line": 188,
 															"character": 19,
-															"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L188"
+															"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L188"
 														}
 													],
 													"type": {
 														"type": "reflection",
 														"declaration": {
-															"id": 135,
+															"id": 139,
 															"name": "__type",
 															"variant": "declaration",
 															"kind": 65536,
 															"flags": {},
 															"children": [
 																{
-																	"id": 169,
+																	"id": 173,
 																	"name": "context",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4180,7 +4269,7 @@
 																			"fileName": "lib/store.ts",
 																			"line": 307,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L307"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L307"
 																		}
 																	],
 																	"type": {
@@ -4200,7 +4289,7 @@
 																	}
 																},
 																{
-																	"id": 136,
+																	"id": 140,
 																	"name": "createQuery",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4210,13 +4299,13 @@
 																			"fileName": "lib/store.ts",
 																			"line": 291,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L291"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L291"
 																		}
 																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 137,
+																			"id": 141,
 																			"name": "__type",
 																			"variant": "declaration",
 																			"kind": 65536,
@@ -4226,12 +4315,12 @@
 																					"fileName": "lib/store.ts",
 																					"line": 291,
 																					"character": 21,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L291"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L291"
 																				}
 																			],
 																			"signatures": [
 																				{
-																					"id": 138,
+																					"id": 142,
 																					"name": "__type",
 																					"variant": "signature",
 																					"kind": 4096,
@@ -4241,12 +4330,12 @@
 																							"fileName": "lib/store.ts",
 																							"line": 291,
 																							"character": 21,
-																							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L291"
+																							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L291"
 																						}
 																					],
 																					"parameters": [
 																						{
-																							"id": 139,
+																							"id": 143,
 																							"name": "customValues",
 																							"variant": "param",
 																							"kind": 32768,
@@ -4275,7 +4364,7 @@
 																					"type": {
 																						"type": "reflection",
 																						"declaration": {
-																							"id": 140,
+																							"id": 144,
 																							"name": "__type",
 																							"variant": "declaration",
 																							"kind": 65536,
@@ -4285,7 +4374,7 @@
 																									"fileName": "lib/utils.ts",
 																									"line": 196,
 																									"character": 5,
-																									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L196"
+																									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L196"
 																								}
 																							]
 																						}
@@ -4297,7 +4386,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 141,
+																	"id": 145,
 																	"name": "createQueryString",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4307,13 +4396,13 @@
 																			"fileName": "lib/store.ts",
 																			"line": 293,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L293"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L293"
 																		}
 																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 142,
+																			"id": 146,
 																			"name": "__type",
 																			"variant": "declaration",
 																			"kind": 65536,
@@ -4323,12 +4412,12 @@
 																					"fileName": "lib/store.ts",
 																					"line": 293,
 																					"character": 27,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L293"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L293"
 																				}
 																			],
 																			"signatures": [
 																				{
-																					"id": 143,
+																					"id": 147,
 																					"name": "__type",
 																					"variant": "signature",
 																					"kind": 4096,
@@ -4338,12 +4427,12 @@
 																							"fileName": "lib/store.ts",
 																							"line": 293,
 																							"character": 27,
-																							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L293"
+																							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L293"
 																						}
 																					],
 																					"parameters": [
 																						{
-																							"id": 144,
+																							"id": 148,
 																							"name": "customValues",
 																							"variant": "param",
 																							"kind": 32768,
@@ -4380,7 +4469,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 145,
+																	"id": 149,
 																	"name": "initialValues",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4390,7 +4479,7 @@
 																			"fileName": "lib/store.ts",
 																			"line": 295,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L295"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L295"
 																		}
 																	],
 																	"type": {
@@ -4401,7 +4490,7 @@
 																	}
 																},
 																{
-																	"id": 146,
+																	"id": 150,
 																	"name": "pushState",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4411,13 +4500,13 @@
 																			"fileName": "lib/store.ts",
 																			"line": 296,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L296"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L296"
 																		}
 																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 147,
+																			"id": 151,
 																			"name": "__type",
 																			"variant": "declaration",
 																			"kind": 65536,
@@ -4427,12 +4516,12 @@
 																					"fileName": "lib/store.ts",
 																					"line": 296,
 																					"character": 19,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L296"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L296"
 																				}
 																			],
 																			"signatures": [
 																				{
-																					"id": 148,
+																					"id": 152,
 																					"name": "__type",
 																					"variant": "signature",
 																					"kind": 4096,
@@ -4442,12 +4531,12 @@
 																							"fileName": "lib/store.ts",
 																							"line": 296,
 																							"character": 19,
-																							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L296"
+																							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L296"
 																						}
 																					],
 																					"parameters": [
 																						{
-																							"id": 149,
+																							"id": 153,
 																							"name": "state",
 																							"variant": "param",
 																							"kind": 32768,
@@ -4455,7 +4544,7 @@
 																							"type": {
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 150,
+																									"id": 154,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
@@ -4465,12 +4554,12 @@
 																											"fileName": "lib/store.ts",
 																											"line": 297,
 																											"character": 17,
-																											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L297"
+																											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L297"
 																										}
 																									],
 																									"signatures": [
 																										{
-																											"id": 151,
+																											"id": 155,
 																											"name": "__type",
 																											"variant": "signature",
 																											"kind": 4096,
@@ -4480,12 +4569,12 @@
 																													"fileName": "lib/store.ts",
 																													"line": 297,
 																													"character": 17,
-																													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L297"
+																													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L297"
 																												}
 																											],
 																											"parameters": [
 																												{
-																													"id": 152,
+																													"id": 156,
 																													"name": "state",
 																													"variant": "param",
 																													"kind": 32768,
@@ -4508,7 +4597,7 @@
 																							}
 																						},
 																						{
-																							"id": 153,
+																							"id": 157,
 																							"name": "options",
 																							"variant": "param",
 																							"kind": 32768,
@@ -4558,7 +4647,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 154,
+																	"id": 158,
 																	"name": "replaceState",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4568,13 +4657,13 @@
 																			"fileName": "lib/store.ts",
 																			"line": 300,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L300"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L300"
 																		}
 																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 155,
+																			"id": 159,
 																			"name": "__type",
 																			"variant": "declaration",
 																			"kind": 65536,
@@ -4584,12 +4673,12 @@
 																					"fileName": "lib/store.ts",
 																					"line": 300,
 																					"character": 22,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L300"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L300"
 																				}
 																			],
 																			"signatures": [
 																				{
-																					"id": 156,
+																					"id": 160,
 																					"name": "__type",
 																					"variant": "signature",
 																					"kind": 4096,
@@ -4599,12 +4688,12 @@
 																							"fileName": "lib/store.ts",
 																							"line": 300,
 																							"character": 22,
-																							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L300"
+																							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L300"
 																						}
 																					],
 																					"parameters": [
 																						{
-																							"id": 157,
+																							"id": 161,
 																							"name": "state",
 																							"variant": "param",
 																							"kind": 32768,
@@ -4612,7 +4701,7 @@
 																							"type": {
 																								"type": "reflection",
 																								"declaration": {
-																									"id": 158,
+																									"id": 162,
 																									"name": "__type",
 																									"variant": "declaration",
 																									"kind": 65536,
@@ -4622,12 +4711,12 @@
 																											"fileName": "lib/store.ts",
 																											"line": 301,
 																											"character": 17,
-																											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L301"
+																											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L301"
 																										}
 																									],
 																									"signatures": [
 																										{
-																											"id": 159,
+																											"id": 163,
 																											"name": "__type",
 																											"variant": "signature",
 																											"kind": 4096,
@@ -4637,12 +4726,12 @@
 																													"fileName": "lib/store.ts",
 																													"line": 301,
 																													"character": 17,
-																													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L301"
+																													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L301"
 																												}
 																											],
 																											"parameters": [
 																												{
-																													"id": 160,
+																													"id": 164,
 																													"name": "state",
 																													"variant": "param",
 																													"kind": 32768,
@@ -4665,7 +4754,7 @@
 																							}
 																						},
 																						{
-																							"id": 161,
+																							"id": 165,
 																							"name": "options",
 																							"variant": "param",
 																							"kind": 32768,
@@ -4715,7 +4804,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 162,
+																	"id": 166,
 																	"name": "resetPush",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4725,13 +4814,13 @@
 																			"fileName": "lib/store.ts",
 																			"line": 304,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L304"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L304"
 																		}
 																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 163,
+																			"id": 167,
 																			"name": "__type",
 																			"variant": "declaration",
 																			"kind": 65536,
@@ -4741,12 +4830,12 @@
 																					"fileName": "lib/store.ts",
 																					"line": 304,
 																					"character": 19,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L304"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L304"
 																				}
 																			],
 																			"signatures": [
 																				{
-																					"id": 164,
+																					"id": 168,
 																					"name": "__type",
 																					"variant": "signature",
 																					"kind": 4096,
@@ -4756,7 +4845,7 @@
 																							"fileName": "lib/store.ts",
 																							"line": 304,
 																							"character": 19,
-																							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L304"
+																							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L304"
 																						}
 																					],
 																					"type": {
@@ -4770,7 +4859,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 165,
+																	"id": 169,
 																	"name": "resetReplace",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4780,13 +4869,13 @@
 																			"fileName": "lib/store.ts",
 																			"line": 305,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L305"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L305"
 																		}
 																	],
 																	"type": {
 																		"type": "reflection",
 																		"declaration": {
-																			"id": 166,
+																			"id": 170,
 																			"name": "__type",
 																			"variant": "declaration",
 																			"kind": 65536,
@@ -4796,12 +4885,12 @@
 																					"fileName": "lib/store.ts",
 																					"line": 305,
 																					"character": 22,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L305"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L305"
 																				}
 																			],
 																			"signatures": [
 																				{
-																					"id": 167,
+																					"id": 171,
 																					"name": "__type",
 																					"variant": "signature",
 																					"kind": 4096,
@@ -4811,7 +4900,7 @@
 																							"fileName": "lib/store.ts",
 																							"line": 305,
 																							"character": 22,
-																							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L305"
+																							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L305"
 																						}
 																					],
 																					"type": {
@@ -4825,7 +4914,7 @@
 																	"defaultValue": "..."
 																},
 																{
-																	"id": 168,
+																	"id": 172,
 																	"name": "values",
 																	"variant": "declaration",
 																	"kind": 1024,
@@ -4835,7 +4924,7 @@
 																			"fileName": "lib/store.ts",
 																			"line": 306,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L306"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L306"
 																		}
 																	],
 																	"type": {
@@ -4850,15 +4939,15 @@
 																{
 																	"title": "Properties",
 																	"children": [
-																		169,
-																		136,
-																		141,
+																		173,
+																		140,
 																		145,
-																		146,
-																		154,
-																		162,
-																		165,
-																		168
+																		149,
+																		150,
+																		158,
+																		166,
+																		169,
+																		172
 																	]
 																}
 															],
@@ -4867,7 +4956,7 @@
 																	"fileName": "lib/store.ts",
 																	"line": 290,
 																	"character": 13,
-																	"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L290"
+																	"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L290"
 																}
 															]
 														}
@@ -4882,9 +4971,9 @@
 								{
 									"title": "Properties",
 									"children": [
-										170,
-										176,
-										132
+										174,
+										180,
+										136
 									]
 								}
 							],
@@ -4893,7 +4982,7 @@
 									"fileName": "lib/store.ts",
 									"line": 365,
 									"character": 9,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L365"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L365"
 								}
 							]
 						}
@@ -4902,7 +4991,7 @@
 			]
 		},
 		{
-			"id": 235,
+			"id": 239,
 			"name": "flattenConfig",
 			"variant": "declaration",
 			"kind": 64,
@@ -4912,12 +5001,12 @@
 					"fileName": "lib/utils.ts",
 					"line": 290,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L290"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L290"
 				}
 			],
 			"signatures": [
 				{
-					"id": 236,
+					"id": 240,
 					"name": "flattenConfig",
 					"variant": "signature",
 					"kind": 4096,
@@ -4946,12 +5035,12 @@
 							"fileName": "lib/utils.ts",
 							"line": 290,
 							"character": 29,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L290"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L290"
 						}
 					],
 					"parameters": [
 						{
-							"id": 237,
+							"id": 241,
 							"name": "config",
 							"variant": "param",
 							"kind": 32768,
@@ -4961,7 +5050,7 @@
 								"types": [
 									{
 										"type": "reference",
-										"target": 212,
+										"target": 216,
 										"name": "Config",
 										"package": "geschichte"
 									},
@@ -4972,7 +5061,7 @@
 											"type": "array",
 											"elementType": {
 												"type": "reference",
-												"target": 212,
+												"target": 216,
 												"name": "Config",
 												"package": "geschichte"
 											}
@@ -4982,7 +5071,7 @@
 							}
 						},
 						{
-							"id": 238,
+							"id": 242,
 							"name": "path",
 							"variant": "param",
 							"kind": 32768,
@@ -5023,7 +5112,7 @@
 			]
 		},
 		{
-			"id": 223,
+			"id": 227,
 			"name": "pm",
 			"variant": "declaration",
 			"kind": 64,
@@ -5033,12 +5122,12 @@
 					"fileName": "lib/utils.ts",
 					"line": 32,
 					"character": 16,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L32"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L32"
 				}
 			],
 			"signatures": [
 				{
-					"id": 224,
+					"id": 228,
 					"name": "pm",
 					"variant": "signature",
 					"kind": 4096,
@@ -5048,12 +5137,12 @@
 							"fileName": "lib/utils.ts",
 							"line": 32,
 							"character": 16,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L32"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L32"
 						}
 					],
 					"typeParameter": [
 						{
-							"id": 225,
+							"id": 229,
 							"name": "V",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -5062,7 +5151,7 @@
 					],
 					"parameters": [
 						{
-							"id": 226,
+							"id": 230,
 							"name": "name",
 							"variant": "param",
 							"kind": 32768,
@@ -5073,7 +5162,7 @@
 							}
 						},
 						{
-							"id": 227,
+							"id": 231,
 							"name": "serializer",
 							"variant": "param",
 							"kind": 32768,
@@ -5090,7 +5179,7 @@
 									},
 									{
 										"type": "reference",
-										"target": 219,
+										"target": 223,
 										"name": "Context",
 										"package": "geschichte"
 									}
@@ -5100,7 +5189,7 @@
 							}
 						},
 						{
-							"id": 228,
+							"id": 232,
 							"name": "thisSkipValue",
 							"variant": "param",
 							"kind": 32768,
@@ -5108,7 +5197,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 229,
+									"id": 233,
 									"name": "__type",
 									"variant": "declaration",
 									"kind": 65536,
@@ -5118,12 +5207,12 @@
 											"fileName": "lib/utils.ts",
 											"line": 35,
 											"character": 17,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L35"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L35"
 										}
 									],
 									"signatures": [
 										{
-											"id": 230,
+											"id": 234,
 											"name": "__type",
 											"variant": "signature",
 											"kind": 4096,
@@ -5133,12 +5222,12 @@
 													"fileName": "lib/utils.ts",
 													"line": 35,
 													"character": 17,
-													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L35"
+													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L35"
 												}
 											],
 											"parameters": [
 												{
-													"id": 231,
+													"id": 235,
 													"name": "value",
 													"variant": "param",
 													"kind": 32768,
@@ -5153,7 +5242,7 @@
 													}
 												},
 												{
-													"id": 232,
+													"id": 236,
 													"name": "initialValue",
 													"variant": "param",
 													"kind": 32768,
@@ -5182,7 +5271,7 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 233,
+							"id": 237,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
@@ -5192,12 +5281,12 @@
 									"fileName": "lib/utils.ts",
 									"line": 36,
 									"character": 3,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/utils.ts#L36"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/utils.ts#L36"
 								}
 							],
 							"signatures": [
 								{
-									"id": 234,
+									"id": 238,
 									"name": "__type",
 									"variant": "signature",
 									"kind": 4096,
@@ -5227,7 +5316,7 @@
 			]
 		},
 		{
-			"id": 182,
+			"id": 186,
 			"name": "useBatchQuery",
 			"variant": "declaration",
 			"kind": 64,
@@ -5237,12 +5326,12 @@
 					"fileName": "lib/store.ts",
 					"line": 137,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L137"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L137"
 				}
 			],
 			"signatures": [
 				{
-					"id": 183,
+					"id": 187,
 					"name": "useBatchQuery",
 					"variant": "signature",
 					"kind": 4096,
@@ -5252,12 +5341,12 @@
 							"fileName": "lib/store.ts",
 							"line": 137,
 							"character": 29,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L137"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L137"
 						}
 					],
 					"typeParameter": [
 						{
-							"id": 184,
+							"id": 188,
 							"name": "N",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -5297,14 +5386,14 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 185,
+							"id": 189,
 							"name": "__type",
 							"variant": "declaration",
 							"kind": 65536,
 							"flags": {},
 							"children": [
 								{
-									"id": 186,
+									"id": 190,
 									"name": "batchPushState",
 									"variant": "declaration",
 									"kind": 1024,
@@ -5314,13 +5403,13 @@
 											"fileName": "lib/store.ts",
 											"line": 142,
 											"character": 4,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L142"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L142"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 187,
+											"id": 191,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -5328,14 +5417,14 @@
 											"sources": [
 												{
 													"fileName": "lib/middleware.ts",
-													"line": 80,
+													"line": 88,
 													"character": 27,
-													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L80"
+													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L88"
 												}
 											],
 											"signatures": [
 												{
-													"id": 188,
+													"id": 192,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -5343,14 +5432,14 @@
 													"sources": [
 														{
 															"fileName": "lib/middleware.ts",
-															"line": 80,
+															"line": 88,
 															"character": 27,
-															"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L80"
+															"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L88"
 														}
 													],
 													"typeParameter": [
 														{
-															"id": 189,
+															"id": 193,
 															"name": "Keys",
 															"variant": "typeParam",
 															"kind": 131072,
@@ -5376,7 +5465,7 @@
 													],
 													"parameters": [
 														{
-															"id": 190,
+															"id": 194,
 															"name": "ns",
 															"variant": "param",
 															"kind": 32768,
@@ -5389,7 +5478,7 @@
 															}
 														},
 														{
-															"id": 191,
+															"id": 195,
 															"name": "fn",
 															"variant": "param",
 															"kind": 32768,
@@ -5397,7 +5486,7 @@
 															"type": {
 																"type": "reflection",
 																"declaration": {
-																	"id": 192,
+																	"id": 196,
 																	"name": "__type",
 																	"variant": "declaration",
 																	"kind": 65536,
@@ -5405,14 +5494,14 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/middleware.ts",
-																			"line": 82,
+																			"line": 90,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L82"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L90"
 																		}
 																	],
 																	"signatures": [
 																		{
-																			"id": 193,
+																			"id": 197,
 																			"name": "__type",
 																			"variant": "signature",
 																			"kind": 4096,
@@ -5420,14 +5509,14 @@
 																			"sources": [
 																				{
 																					"fileName": "lib/middleware.ts",
-																					"line": 82,
+																					"line": 90,
 																					"character": 8,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L82"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L90"
 																				}
 																			],
 																			"parameters": [
 																				{
-																					"id": 194,
+																					"id": 198,
 																					"name": "args",
 																					"variant": "param",
 																					"kind": 32768,
@@ -5535,7 +5624,7 @@
 															}
 														},
 														{
-															"id": 195,
+															"id": 199,
 															"name": "routerOptions",
 															"variant": "param",
 															"kind": 32768,
@@ -5574,7 +5663,7 @@
 									}
 								},
 								{
-									"id": 196,
+									"id": 200,
 									"name": "batchReplaceState",
 									"variant": "declaration",
 									"kind": 1024,
@@ -5584,13 +5673,13 @@
 											"fileName": "lib/store.ts",
 											"line": 143,
 											"character": 4,
-											"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L143"
+											"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L143"
 										}
 									],
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 197,
+											"id": 201,
 											"name": "__type",
 											"variant": "declaration",
 											"kind": 65536,
@@ -5598,14 +5687,14 @@
 											"sources": [
 												{
 													"fileName": "lib/middleware.ts",
-													"line": 69,
+													"line": 77,
 													"character": 30,
-													"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L69"
+													"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L77"
 												}
 											],
 											"signatures": [
 												{
-													"id": 198,
+													"id": 202,
 													"name": "__type",
 													"variant": "signature",
 													"kind": 4096,
@@ -5613,14 +5702,14 @@
 													"sources": [
 														{
 															"fileName": "lib/middleware.ts",
-															"line": 69,
+															"line": 77,
 															"character": 30,
-															"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L69"
+															"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L77"
 														}
 													],
 													"typeParameter": [
 														{
-															"id": 199,
+															"id": 203,
 															"name": "Keys",
 															"variant": "typeParam",
 															"kind": 131072,
@@ -5646,7 +5735,7 @@
 													],
 													"parameters": [
 														{
-															"id": 200,
+															"id": 204,
 															"name": "ns",
 															"variant": "param",
 															"kind": 32768,
@@ -5659,7 +5748,7 @@
 															}
 														},
 														{
-															"id": 201,
+															"id": 205,
 															"name": "fn",
 															"variant": "param",
 															"kind": 32768,
@@ -5667,7 +5756,7 @@
 															"type": {
 																"type": "reflection",
 																"declaration": {
-																	"id": 202,
+																	"id": 206,
 																	"name": "__type",
 																	"variant": "declaration",
 																	"kind": 65536,
@@ -5675,14 +5764,14 @@
 																	"sources": [
 																		{
 																			"fileName": "lib/middleware.ts",
-																			"line": 71,
+																			"line": 79,
 																			"character": 8,
-																			"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L71"
+																			"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L79"
 																		}
 																	],
 																	"signatures": [
 																		{
-																			"id": 203,
+																			"id": 207,
 																			"name": "__type",
 																			"variant": "signature",
 																			"kind": 4096,
@@ -5690,14 +5779,14 @@
 																			"sources": [
 																				{
 																					"fileName": "lib/middleware.ts",
-																					"line": 71,
+																					"line": 79,
 																					"character": 8,
-																					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/middleware.ts#L71"
+																					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/middleware.ts#L79"
 																				}
 																			],
 																			"parameters": [
 																				{
-																					"id": 204,
+																					"id": 208,
 																					"name": "args",
 																					"variant": "param",
 																					"kind": 32768,
@@ -5805,7 +5894,7 @@
 															}
 														},
 														{
-															"id": 205,
+															"id": 209,
 															"name": "routerOptions",
 															"variant": "param",
 															"kind": 32768,
@@ -5848,8 +5937,8 @@
 								{
 									"title": "Properties",
 									"children": [
-										186,
-										196
+										190,
+										200
 									]
 								}
 							],
@@ -5858,7 +5947,7 @@
 									"fileName": "lib/store.ts",
 									"line": 141,
 									"character": 59,
-									"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L141"
+									"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L141"
 								}
 							]
 						}
@@ -5867,7 +5956,7 @@
 			]
 		},
 		{
-			"id": 206,
+			"id": 210,
 			"name": "useStore",
 			"variant": "declaration",
 			"kind": 64,
@@ -5877,12 +5966,12 @@
 					"fileName": "lib/store.ts",
 					"line": 128,
 					"character": 13,
-					"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L128"
+					"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L128"
 				}
 			],
 			"signatures": [
 				{
-					"id": 207,
+					"id": 211,
 					"name": "useStore",
 					"variant": "signature",
 					"kind": 4096,
@@ -5892,12 +5981,12 @@
 							"fileName": "lib/store.ts",
 							"line": 128,
 							"character": 24,
-							"url": "https://github.com/BowlingX/geschichte/blob/c03fdc7/src/lib/store.ts#L128"
+							"url": "https://github.com/BowlingX/geschichte/blob/acfce07/src/lib/store.ts#L128"
 						}
 					],
 					"typeParameter": [
 						{
-							"id": 208,
+							"id": 212,
 							"name": "V",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -5923,7 +6012,7 @@
 							}
 						},
 						{
-							"id": 209,
+							"id": 213,
 							"name": "N",
 							"variant": "typeParam",
 							"kind": 131072,
@@ -5979,7 +6068,7 @@
 											},
 											{
 												"type": "reference",
-												"target": 219,
+												"target": 223,
 												"name": "Context",
 												"package": "geschichte"
 											}
@@ -6003,9 +6092,9 @@
 		{
 			"title": "Interfaces",
 			"children": [
-				212,
-				219,
-				97,
+				216,
+				223,
+				101,
 				15,
 				39
 			]
@@ -6013,15 +6102,15 @@
 		{
 			"title": "Type Aliases",
 			"children": [
-				217
+				221
 			]
 		},
 		{
 			"title": "Variables",
 			"children": [
-				210,
+				214,
 				38,
-				211,
+				215,
 				1
 			]
 		},
@@ -6031,14 +6120,14 @@
 				28,
 				31,
 				34,
-				117,
+				121,
+				243,
+				249,
+				127,
 				239,
-				245,
-				123,
-				235,
-				223,
-				182,
-				206
+				227,
+				186,
+				210
 			]
 		}
 	],
@@ -6336,7 +6425,7 @@
 		},
 		"44": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.batchReplaceState"
+			"qualifiedName": "StoreState.transition"
 		},
 		"45": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6348,15 +6437,15 @@
 		},
 		"47": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "Keys"
+			"qualifiedName": "promise"
 		},
 		"48": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "ns"
+			"qualifiedName": "StoreState.batchReplaceState"
 		},
 		"49": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "fn"
+			"qualifiedName": "__type"
 		},
 		"50": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6364,19 +6453,19 @@
 		},
 		"51": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Keys"
 		},
 		"52": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "args"
+			"qualifiedName": "ns"
 		},
 		"53": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "routerOptions"
+			"qualifiedName": "fn"
 		},
 		"54": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.batchPushState"
+			"qualifiedName": "__type"
 		},
 		"55": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6384,19 +6473,19 @@
 		},
 		"56": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "args"
 		},
 		"57": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "Keys"
+			"qualifiedName": "routerOptions"
 		},
 		"58": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "ns"
+			"qualifiedName": "StoreState.batchPushState"
 		},
 		"59": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "fn"
+			"qualifiedName": "__type"
 		},
 		"60": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6404,87 +6493,87 @@
 		},
 		"61": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Keys"
 		},
 		"62": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "args"
+			"qualifiedName": "ns"
 		},
 		"63": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "routerOptions"
+			"qualifiedName": "fn"
 		},
 		"64": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.namespaces"
+			"qualifiedName": "__type"
 		},
 		"65": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.pushState"
+			"qualifiedName": "__type"
 		},
 		"66": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.replaceState"
+			"qualifiedName": "args"
 		},
 		"67": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.register"
+			"qualifiedName": "routerOptions"
 		},
 		"68": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "StoreState.namespaces"
 		},
 		"69": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "StoreState.pushState"
 		},
 		"70": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "N"
+			"qualifiedName": "StoreState.replaceState"
 		},
 		"71": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "config"
+			"qualifiedName": "StoreState.register"
 		},
 		"72": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "mappedConfig"
+			"qualifiedName": "__type"
 		},
 		"73": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "ns"
+			"qualifiedName": "__type"
 		},
 		"74": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "initialValues"
+			"qualifiedName": "N"
 		},
 		"75": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "query"
+			"qualifiedName": "config"
 		},
 		"76": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "values"
+			"qualifiedName": "mappedConfig"
 		},
 		"77": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.unregister"
+			"qualifiedName": "ns"
 		},
 		"78": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "initialValues"
 		},
 		"79": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "query"
 		},
 		"80": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.resetPush"
+			"qualifiedName": "values"
 		},
 		"81": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "StoreState.unregister"
 		},
 		"82": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6492,15 +6581,15 @@
 		},
 		"83": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "ns"
+			"qualifiedName": "__type"
 		},
 		"84": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "routerOptions"
+			"qualifiedName": "StoreState.resetPush"
 		},
 		"85": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.resetReplace"
+			"qualifiedName": "__type"
 		},
 		"86": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6508,19 +6597,19 @@
 		},
 		"87": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "ns"
 		},
 		"88": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "ns"
+			"qualifiedName": "routerOptions"
 		},
 		"89": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "routerOptions"
+			"qualifiedName": "StoreState.resetReplace"
 		},
 		"90": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.initialQueries"
+			"qualifiedName": "__type"
 		},
 		"91": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6528,47 +6617,47 @@
 		},
 		"92": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "ns"
 		},
 		"93": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.context"
+			"qualifiedName": "routerOptions"
 		},
 		"94": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.ThisValue"
+			"qualifiedName": "StoreState.initialQueries"
 		},
 		"95": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.Namespaces"
+			"qualifiedName": "__type"
 		},
 		"96": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "StoreState.C"
+			"qualifiedName": "__type"
 		},
 		"97": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "StoreState.context"
 		},
 		"98": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement.initialSearch"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "StoreState.ThisValue"
 		},
 		"99": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "StoreState.Namespaces"
 		},
 		"100": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "StoreState.C"
 		},
 		"101": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement.push"
+			"qualifiedName": "HistoryManagement"
 		},
 		"102": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "HistoryManagement.initialSearch"
 		},
 		"103": {
 			"sourceFileName": "src/lib/store.ts",
@@ -6576,127 +6665,127 @@
 		},
 		"104": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "queryObject"
+			"qualifiedName": "__type"
 		},
 		"105": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "namespaces"
+			"qualifiedName": "HistoryManagement.push"
 		},
 		"106": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "__type"
 		},
 		"107": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement.replace"
+			"qualifiedName": "__type"
 		},
 		"108": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "queryObject"
 		},
 		"109": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "namespaces"
 		},
 		"110": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "queryObject"
+			"qualifiedName": "options"
 		},
 		"111": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "namespaces"
+			"qualifiedName": "HistoryManagement.replace"
 		},
 		"112": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "__type"
 		},
 		"113": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement.context"
+			"qualifiedName": "__type"
 		},
 		"114": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement.T"
+			"qualifiedName": "queryObject"
 		},
 		"115": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement.N"
+			"qualifiedName": "namespaces"
 		},
 		"116": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "HistoryManagement.C"
+			"qualifiedName": "options"
 		},
 		"117": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "createGeschichte"
+			"qualifiedName": "HistoryManagement.context"
 		},
 		"118": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "createGeschichte"
+			"qualifiedName": "HistoryManagement.T"
 		},
 		"119": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "T"
+			"qualifiedName": "HistoryManagement.N"
 		},
 		"120": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "N"
+			"qualifiedName": "HistoryManagement.C"
 		},
 		"121": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "C"
+			"qualifiedName": "createGeschichte"
 		},
 		"122": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "historyInstance"
+			"qualifiedName": "createGeschichte"
 		},
 		"123": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "factoryParameters"
+			"qualifiedName": "T"
 		},
 		"124": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "factoryParameters"
+			"qualifiedName": "N"
 		},
 		"125": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "T"
+			"qualifiedName": "C"
 		},
 		"126": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "N"
+			"qualifiedName": "historyInstance"
 		},
 		"127": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "C"
+			"qualifiedName": "factoryParameters"
 		},
 		"128": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "config"
+			"qualifiedName": "factoryParameters"
 		},
 		"129": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "defaultInitialValues"
+			"qualifiedName": "T"
 		},
 		"130": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "ns"
+			"qualifiedName": "N"
 		},
 		"131": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object"
+			"qualifiedName": "C"
 		},
 		"132": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.useQuery"
+			"qualifiedName": "config"
 		},
 		"133": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "defaultInitialValues"
 		},
 		"134": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "ns"
 		},
 		"135": {
 			"sourceFileName": "src/lib/store.ts",
@@ -6704,7 +6793,7 @@
 		},
 		"136": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.createQuery"
+			"qualifiedName": "__object.useQuery"
 		},
 		"137": {
 			"sourceFileName": "src/lib/store.ts",
@@ -6716,15 +6805,15 @@
 		},
 		"139": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "customValues"
+			"qualifiedName": "__object"
 		},
 		"140": {
-			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "__object"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "__object.createQuery"
 		},
 		"141": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.createQueryString"
+			"qualifiedName": "__function"
 		},
 		"142": {
 			"sourceFileName": "src/lib/store.ts",
@@ -6732,19 +6821,19 @@
 		},
 		"143": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "customValues"
 		},
 		"144": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "customValues"
+			"sourceFileName": "src/lib/utils.ts",
+			"qualifiedName": "__object"
 		},
 		"145": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.initialValues"
+			"qualifiedName": "__object.createQueryString"
 		},
 		"146": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.pushState"
+			"qualifiedName": "__function"
 		},
 		"147": {
 			"sourceFileName": "src/lib/store.ts",
@@ -6752,79 +6841,79 @@
 		},
 		"148": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "customValues"
 		},
 		"149": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "state"
+			"qualifiedName": "__object.initialValues"
 		},
 		"150": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__object.pushState"
 		},
 		"151": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__function"
 		},
 		"152": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "state"
+			"qualifiedName": "__function"
 		},
 		"153": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "state"
 		},
 		"154": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.replaceState"
+			"qualifiedName": "__type"
 		},
 		"155": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "__type"
 		},
 		"156": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "state"
 		},
 		"157": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "state"
+			"qualifiedName": "options"
 		},
 		"158": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__object.replaceState"
 		},
 		"159": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "__function"
 		},
 		"160": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "state"
+			"qualifiedName": "__function"
 		},
 		"161": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "options"
+			"qualifiedName": "state"
 		},
 		"162": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.resetPush"
+			"qualifiedName": "__type"
 		},
 		"163": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "__type"
 		},
 		"164": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "state"
 		},
 		"165": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.resetReplace"
+			"qualifiedName": "options"
 		},
 		"166": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "__object.resetPush"
 		},
 		"167": {
 			"sourceFileName": "src/lib/store.ts",
@@ -6832,15 +6921,15 @@
 		},
 		"168": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.values"
+			"qualifiedName": "__function"
 		},
 		"169": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.context"
+			"qualifiedName": "__object.resetReplace"
 		},
 		"170": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.createQueryString"
+			"qualifiedName": "__function"
 		},
 		"171": {
 			"sourceFileName": "src/lib/store.ts",
@@ -6848,83 +6937,83 @@
 		},
 		"172": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "__object.values"
 		},
 		"173": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "values"
+			"qualifiedName": "__object.context"
 		},
 		"174": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "initialValues"
+			"qualifiedName": "__object.createQueryString"
 		},
 		"175": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "context"
+			"qualifiedName": "__function"
 		},
 		"176": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.parseQueryString"
+			"qualifiedName": "__function"
 		},
 		"177": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "values"
 		},
 		"178": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__function"
+			"qualifiedName": "initialValues"
 		},
 		"179": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "query"
+			"qualifiedName": "context"
 		},
 		"180": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "initialValues"
+			"qualifiedName": "__object.parseQueryString"
 		},
 		"181": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "context"
+			"qualifiedName": "__function"
 		},
 		"182": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "useBatchQuery"
+			"qualifiedName": "__function"
 		},
 		"183": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "useBatchQuery"
+			"qualifiedName": "query"
 		},
 		"184": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "N"
+			"qualifiedName": "initialValues"
 		},
 		"185": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object"
+			"qualifiedName": "context"
 		},
 		"186": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.batchPushState"
+			"qualifiedName": "useBatchQuery"
 		},
 		"187": {
-			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "useBatchQuery"
 		},
 		"188": {
-			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "N"
 		},
 		"189": {
-			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "Keys"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "__object"
 		},
 		"190": {
-			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "ns"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "__object.batchPushState"
 		},
 		"191": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "fn"
+			"qualifiedName": "__type"
 		},
 		"192": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6932,19 +7021,19 @@
 		},
 		"193": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Keys"
 		},
 		"194": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "args"
+			"qualifiedName": "ns"
 		},
 		"195": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "routerOptions"
+			"qualifiedName": "fn"
 		},
 		"196": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__object.batchReplaceState"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "__type"
 		},
 		"197": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6952,19 +7041,19 @@
 		},
 		"198": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "args"
 		},
 		"199": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "Keys"
+			"qualifiedName": "routerOptions"
 		},
 		"200": {
-			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "ns"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "__object.batchReplaceState"
 		},
 		"201": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "fn"
+			"qualifiedName": "__type"
 		},
 		"202": {
 			"sourceFileName": "src/lib/middleware.ts",
@@ -6972,119 +7061,119 @@
 		},
 		"203": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Keys"
 		},
 		"204": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "args"
+			"qualifiedName": "ns"
 		},
 		"205": {
 			"sourceFileName": "src/lib/middleware.ts",
-			"qualifiedName": "routerOptions"
+			"qualifiedName": "fn"
 		},
 		"206": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "useStore"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "__type"
 		},
 		"207": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "useStore"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "__type"
 		},
 		"208": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "V"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "args"
 		},
 		"209": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "N"
+			"sourceFileName": "src/lib/middleware.ts",
+			"qualifiedName": "routerOptions"
 		},
 		"210": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "DEFAULT_NAMESPACE"
+			"qualifiedName": "useStore"
 		},
 		"211": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "StoreContext"
+			"qualifiedName": "useStore"
 		},
 		"212": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "Config"
+			"qualifiedName": "V"
 		},
 		"213": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "Config.__index"
+			"qualifiedName": "N"
+		},
+		"214": {
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "DEFAULT_NAMESPACE"
 		},
 		"215": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "StoreContext"
 		},
 		"216": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "Config"
 		},
 		"217": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "InferNamespaceValues"
-		},
-		"218": {
-			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "F"
+			"qualifiedName": "Config.__index"
 		},
 		"219": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "Context"
+			"qualifiedName": "__type"
 		},
 		"220": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "Context.serializerConfig"
+			"qualifiedName": "__type"
 		},
 		"221": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "InferNamespaceValues"
 		},
 		"222": {
 			"sourceFileName": "src/lib/store.ts",
-			"qualifiedName": "__type.arrayStringSeparator"
+			"qualifiedName": "F"
 		},
 		"223": {
-			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "pm"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "Context"
 		},
 		"224": {
-			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "pm"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "Context.serializerConfig"
 		},
 		"225": {
-			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "V"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "__type"
 		},
 		"226": {
-			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "name"
+			"sourceFileName": "src/lib/store.ts",
+			"qualifiedName": "__type.arrayStringSeparator"
 		},
 		"227": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "serializer"
+			"qualifiedName": "pm"
 		},
 		"228": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "thisSkipValue"
+			"qualifiedName": "pm"
 		},
 		"229": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "V"
 		},
 		"230": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "__type"
+			"qualifiedName": "name"
 		},
 		"231": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "value"
+			"qualifiedName": "serializer"
 		},
 		"232": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "initialValue"
+			"qualifiedName": "thisSkipValue"
 		},
 		"233": {
 			"sourceFileName": "src/lib/utils.ts",
@@ -7096,61 +7185,77 @@
 		},
 		"235": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "flattenConfig"
+			"qualifiedName": "value"
 		},
 		"236": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "flattenConfig"
+			"qualifiedName": "initialValue"
 		},
 		"237": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "config"
+			"qualifiedName": "__type"
 		},
 		"238": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "path"
+			"qualifiedName": "__type"
 		},
 		"239": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "createOrApplyPath"
+			"qualifiedName": "flattenConfig"
 		},
 		"240": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "createOrApplyPath"
+			"qualifiedName": "flattenConfig"
 		},
 		"241": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "T"
+			"qualifiedName": "config"
 		},
 		"242": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "obj"
+			"qualifiedName": "path"
 		},
 		"243": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "path"
+			"qualifiedName": "createOrApplyPath"
 		},
 		"244": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "value"
+			"qualifiedName": "createOrApplyPath"
 		},
 		"245": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "defaultSkipValue"
+			"qualifiedName": "T"
 		},
 		"246": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "defaultSkipValue"
+			"qualifiedName": "obj"
 		},
 		"247": {
 			"sourceFileName": "src/lib/utils.ts",
-			"qualifiedName": "V"
+			"qualifiedName": "path"
 		},
 		"248": {
 			"sourceFileName": "src/lib/utils.ts",
 			"qualifiedName": "value"
 		},
 		"249": {
+			"sourceFileName": "src/lib/utils.ts",
+			"qualifiedName": "defaultSkipValue"
+		},
+		"250": {
+			"sourceFileName": "src/lib/utils.ts",
+			"qualifiedName": "defaultSkipValue"
+		},
+		"251": {
+			"sourceFileName": "src/lib/utils.ts",
+			"qualifiedName": "V"
+		},
+		"252": {
+			"sourceFileName": "src/lib/utils.ts",
+			"qualifiedName": "value"
+		},
+		"253": {
 			"sourceFileName": "src/lib/utils.ts",
 			"qualifiedName": "initialValue"
 		}
